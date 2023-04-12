@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraBars;
+using ManagementStore.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +14,17 @@ namespace ManagementStore.Form
 {
     public partial class DetectClient : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+
+        private YoloDetectServices detect = new YoloDetectServices();
         public DetectClient()
         {
             InitializeComponent();
         }
+        private async void ProcessFrame(object sender, EventArgs arg)
+        {
+            //Image image = new Image();
+            //detect.detect(image);
+        }
+
     }
 }
