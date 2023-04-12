@@ -108,6 +108,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\ModelHelper.cs" />
     <Compile Include="ComputerStoreDataSet.cs">
       <DependentUpon>ComputerStoreDataSet.xsd</DependentUpon>
     </Compile>
@@ -120,6 +121,12 @@
     <Compile Include="Extensions\SearchExtensions.cs" />
     <Compile Include="Extensions\PasswordExtensions.cs" />
     <Compile Include="Extensions\ValidateExtensions.cs" />
+    <Compile Include="Form\DetectClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\DetectClient.Designer.cs">
+      <DependentUpon>DetectClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\Employee\EmployeeMgt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +216,9 @@
     <Compile Include="Services\ProductServices.cs" />
     <Compile Include="Services\UserServices.cs" />
     <Compile Include="Services\WarehouseServices.cs" />
+    <EmbeddedResource Include="Form\DetectClient.resx">
+      <DependentUpon>DetectClient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\Employee\EmployeeMgt.resx">
       <DependentUpon>EmployeeMgt.cs</DependentUpon>
     </EmbeddedResource>
@@ -285,6 +295,10 @@
     <ProjectReference Include="..\InfrastructureCore\InfrastructureCore.csproj">
       <Project>{655CC7E8-63CF-45D7-8BE6-FBC21D4CC622}</Project>
       <Name>InfrastructureCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Yolov5Net.Scorer\Yolov5Net.Scorer.csproj">
+      <Project>{e6065c1c-ecd7-4fac-9753-f6a888d144ab}</Project>
+      <Name>Yolov5Net.Scorer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
