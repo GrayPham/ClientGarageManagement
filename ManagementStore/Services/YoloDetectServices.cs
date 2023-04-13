@@ -1,4 +1,6 @@
-﻿using ManagementStore.Common;
+﻿using Emgu.CV;
+using ManagementStore.Common;
+using ManagementStore.DTO;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -12,11 +14,16 @@ namespace ManagementStore.Services
 {
     public class YoloDetectServices
     {
-        
+           
         private YoloScorer<YoloCocoP5Model> scorer = new YoloScorer<YoloCocoP5Model>(ModelHelper.dataFolderPath + "/best.onnx");
-        public void detect(Image image)
+        public YoloModelDto detect(Image image)
         {
+            Image imagebase = new Bitmap(image);
+            //Mat frame = new Mat();
+            //VideoCapture camera1 = new VideoCapture(0); // thiết lập camera đầu tiên
+            //camera1.Read(frame); // đọc khung hình từ camera đầu tiên
             List<YoloPrediction> predictions = scorer.Predict(image);
+            YoloModelDto yolo = new YoloModelDto(imagebase, predictions);
             using var graphics = Graphics.FromImage(image);
             foreach (var prediction in predictions) // iterate predictions to draw results
             {
@@ -31,6 +38,8 @@ namespace ManagementStore.Services
                     new Font("Arial", 9, GraphicsUnit.Pixel), new SolidBrush(prediction.Label.Color),
                     new PointF(x, y));
             }
+            yolo.setImageDetect(image);
+            return yolo;
         }
     }
 }
