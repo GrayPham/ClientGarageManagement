@@ -44,9 +44,11 @@ namespace ManagementStore.Form
             this.simpleButtonReport = new DevExpress.XtraEditors.SimpleButton();
             this.panelControlMain = new DevExpress.XtraEditors.PanelControl();
             this.panelControlOut = new DevExpress.XtraEditors.PanelControl();
+            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.panelControlInPut = new DevExpress.XtraEditors.PanelControl();
             this.pictureEditCamIn1 = new DevExpress.XtraEditors.PictureEdit();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlHandle)).BeginInit();
             this.panelControlHandle.SuspendLayout();
@@ -56,10 +58,10 @@ namespace ManagementStore.Form
             this.panelControlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlOut)).BeginInit();
             this.panelControlOut.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlInPut)).BeginInit();
             this.panelControlInPut.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEditCamIn1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -68,9 +70,11 @@ namespace ManagementStore.Form
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
             this.ribbon.SearchEditItem,
-            this.barHeaderItem1});
+            this.barHeaderItem1,
+            this.barStaticItem1,
+            this.barStaticItem2});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 2;
+            this.ribbon.MaxItemId = 4;
             this.ribbon.Name = "ribbon";
             this.ribbon.PageHeaderItemLinks.Add(this.barHeaderItem1);
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -98,6 +102,8 @@ namespace ManagementStore.Form
             // 
             // ribbonStatusBar
             // 
+            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem1);
+            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem2);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 735);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
@@ -193,6 +199,15 @@ namespace ManagementStore.Form
             this.panelControlOut.Size = new System.Drawing.Size(1380, 238);
             this.panelControlOut.TabIndex = 1;
             // 
+            // pictureEdit1
+            // 
+            this.pictureEdit1.Location = new System.Drawing.Point(10, 2);
+            this.pictureEdit1.MenuManager = this.ribbon;
+            this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Size = new System.Drawing.Size(416, 232);
+            this.pictureEdit1.TabIndex = 4;
+            // 
             // panelControlInPut
             // 
             this.panelControlInPut.Controls.Add(this.pictureEditCamIn1);
@@ -211,14 +226,19 @@ namespace ManagementStore.Form
             this.pictureEditCamIn1.Size = new System.Drawing.Size(416, 232);
             this.pictureEditCamIn1.TabIndex = 3;
             // 
-            // pictureEdit1
+            // barStaticItem1
             // 
-            this.pictureEdit1.Location = new System.Drawing.Point(10, 2);
-            this.pictureEdit1.MenuManager = this.ribbon;
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit1.Size = new System.Drawing.Size(416, 232);
-            this.pictureEdit1.TabIndex = 4;
+            this.barStaticItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barStaticItem1.Caption = "IP: 192.168.100.10";
+            this.barStaticItem1.Id = 2;
+            this.barStaticItem1.Name = "barStaticItem1";
+            // 
+            // barStaticItem2
+            // 
+            this.barStaticItem2.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barStaticItem2.Caption = "barStaticItem2";
+            this.barStaticItem2.Id = 3;
+            this.barStaticItem2.Name = "barStaticItem2";
             // 
             // DetectClient
             // 
@@ -244,10 +264,10 @@ namespace ManagementStore.Form
             this.panelControlMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControlOut)).EndInit();
             this.panelControlOut.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlInPut)).EndInit();
             this.panelControlInPut.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureEditCamIn1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,5 +292,7 @@ namespace ManagementStore.Form
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.PictureEdit pictureEditCamIn1;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem1;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem2;
     }
 }
