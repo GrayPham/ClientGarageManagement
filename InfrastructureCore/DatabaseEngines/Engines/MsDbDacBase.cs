@@ -715,22 +715,15 @@ namespace InfrastructureCore.DatabaseEngines.Engines
             catch (Exception ex)
             {
                 throw ex;
-                ExceptionHandler.Publish(ex, false);
+                
             }
             finally
             {
             }
 
             return retValue;
-            ////// Tuấn modify
-            //daCMAX.SelectCommand = loadCommand;
-            //    daCMAX.SelectCommand.Transaction = trans;
-
-            //    if (daCMAX.SelectCommand.Connection.State == ConnectionState.Closed) daCMAX.SelectCommand.Connection.Open();
-            //    retValue = daCMAX.SelectCommand.ExecuteScalar();
 
 
-            return retValue;
         }
 
         #endregion ExecuteScalar
