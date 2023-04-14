@@ -9,14 +9,14 @@ namespace Connect.Common.Contract
     {
         public static string VersionName = @"1.0.0.0 (271002022)";
         public static int VersionCode = 1010;
-        public static string VersionBy = @"Nguyễn Thanh Tín";
+        public static string VersionBy = @"Hermes";
         public static string VersionDate = @"27/10/2022";
-        public static string Company = @"TinNT";
+        public static string Company = @"Hermes";
         public static string Copyright = @"Copyright";
-        public static string FirstName = @"KIOSK";
+        public static string FirstName = @"Parking";
         public static string LastName = @"Management System";
-        public static string AppName = @"KIOSK Management System";
-        public const string Author = @"Nguyễn Thanh Tín";
+        public static string AppName = @"Parking Management System";
+        public const string Author = @"Hermes";
         public static Guid AppKey = Guid.NewGuid();
         public static string GuiD = "";
         public static string Phone = "0782252279";

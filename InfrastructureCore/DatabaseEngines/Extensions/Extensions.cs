@@ -97,21 +97,6 @@ namespace InfrastructureCore.DatabaseEngines.Extensions
 
                     drInsert[i] = ConvertDynamicType(dataRow1[namecl].ToString(), drType);
 
-                    //if (dataColumn1.DataType.FullName == "System.Int32" && dataRow1[namecl] == "")
-                    //{
-                    //    if (dtAlldata.Rows[i][namecl] != "" && dtAlldata.Rows[i][namecl] != null)
-                    //    {
-                    //        drInsert[i] = dataRow1[namecl];
-                    //    }
-                    //}
-                    //else
-                    //{
-                    //    if (dtAlldata.Rows[column][namecl] != "" && dtAlldata.Rows[column][namecl] != null)
-                    //    {
-                    //        drInsert[i] = dataRow1[namecl];
-                    //    }
-                    //}
-
                     i++;
 
                 }
@@ -132,11 +117,8 @@ namespace InfrastructureCore.DatabaseEngines.Extensions
                 foreach (DataColumn dataColumn in dtnew.Columns)
                 //foreach (DataColumn dataColumn in dataSet.Tables[0].Columns)
                 {
-
                     //Get type Column
                     var prop = typeof(T).GetProperty(dataColumn.ColumnName);
-                    var typeFullName = "System.String";
-
                     if (prop == null)
                     {
                         var field = typeof(T).GetField(dataColumn.ColumnName);

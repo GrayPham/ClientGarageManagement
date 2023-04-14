@@ -316,9 +316,33 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Connect.Common\Connect.Common.csproj">
+      <Project>{12D9262B-762C-43D0-BEFA-5837B5C87038}</Project>
+      <Name>Connect.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Connect.SocketClient\Connect.SocketClient.csproj">
+      <Project>{84F67D5D-2561-45FE-BE48-41220D72C3A0}</Project>
+      <Name>Connect.SocketClient</Name>
+    </ProjectReference>
     <ProjectReference Include="..\InfrastructureCore\InfrastructureCore.csproj">
       <Project>{655CC7E8-63CF-45D7-8BE6-FBC21D4CC622}</Project>
       <Name>InfrastructureCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Parking.App.Contract\Parking.App.Contract.csproj">
+      <Project>{682D3344-82F5-4AA3-BBC0-090CE78B6639}</Project>
+      <Name>Parking.App.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Parking.App.Factory\Parking.App.Factory.csproj">
+      <Project>{6890753C-EFFF-4E0E-83E2-0E63B4C7221A}</Project>
+      <Name>Parking.App.Factory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Parking.App.Interface\Parking.App.Interface.csproj">
+      <Project>{B63B96BD-00CC-45A4-AC12-66B88C5DF490}</Project>
+      <Name>Parking.App.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Parking.App.Language\Parking.App.Language.csproj">
+      <Project>{23CC9A0A-7EC9-49D0-83B0-5378E3EEC412}</Project>
+      <Name>Parking.App.Language</Name>
     </ProjectReference>
     <ProjectReference Include="..\Yolov5Net.Scorer\Yolov5Net.Scorer.csproj">
       <Project>{e6065c1c-ecd7-4fac-9753-f6a888d144ab}</Project>
@@ -343,10 +367,10 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-   <ItemGroup>
-	<None Update="Assets\Weights\best.onnx">
-		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	</None>
+  <ItemGroup>
+    <None Update="Assets\Weights\best.onnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.ML.OnnxRuntime.Managed.1.14.1\build\netstandard2.0\Microsoft.ML.OnnxRuntime.Managed.targets" Condition="Exists('..\packages\Microsoft.ML.OnnxRuntime.Managed.1.14.1\build\netstandard2.0\Microsoft.ML.OnnxRuntime.Managed.targets')" />
