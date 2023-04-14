@@ -44,13 +44,10 @@ namespace ManagementStore.Form
             this.simpleButtonReport = new DevExpress.XtraEditors.SimpleButton();
             this.panelControlMain = new DevExpress.XtraEditors.PanelControl();
             this.panelControlOut = new DevExpress.XtraEditors.PanelControl();
-            this.cameraControlOut3 = new DevExpress.XtraEditors.Camera.CameraControl();
-            this.cameraControlOut2 = new DevExpress.XtraEditors.Camera.CameraControl();
-            this.cameraControlOut1 = new DevExpress.XtraEditors.Camera.CameraControl();
             this.panelControlInPut = new DevExpress.XtraEditors.PanelControl();
-            this.cameraControlIn3 = new DevExpress.XtraEditors.Camera.CameraControl();
-            this.cameraControlIn2 = new DevExpress.XtraEditors.Camera.CameraControl();
-            this.cameraControlIn1 = new DevExpress.XtraEditors.Camera.CameraControl();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pBoxIn1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlHandle)).BeginInit();
             this.panelControlHandle.SuspendLayout();
@@ -59,9 +56,11 @@ namespace ManagementStore.Form
             ((System.ComponentModel.ISupportInitialize)(this.panelControlMain)).BeginInit();
             this.panelControlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlOut)).BeginInit();
-            this.panelControlOut.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlInPut)).BeginInit();
             this.panelControlInPut.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBoxIn1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -188,79 +187,47 @@ namespace ManagementStore.Form
             // 
             // panelControlOut
             // 
-            this.panelControlOut.Controls.Add(this.cameraControlOut3);
-            this.panelControlOut.Controls.Add(this.cameraControlOut2);
-            this.panelControlOut.Controls.Add(this.cameraControlOut1);
             this.panelControlOut.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControlOut.Location = new System.Drawing.Point(2, 245);
             this.panelControlOut.Name = "panelControlOut";
             this.panelControlOut.Size = new System.Drawing.Size(1380, 238);
             this.panelControlOut.TabIndex = 1;
             // 
-            // cameraControlOut3
-            // 
-            this.cameraControlOut3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cameraControlOut3.Location = new System.Drawing.Point(922, 2);
-            this.cameraControlOut3.Name = "cameraControlOut3";
-            this.cameraControlOut3.Size = new System.Drawing.Size(413, 236);
-            this.cameraControlOut3.TabIndex = 3;
-            this.cameraControlOut3.Text = "cameraControlOut3";
-            // 
-            // cameraControlOut2
-            // 
-            this.cameraControlOut2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cameraControlOut2.Location = new System.Drawing.Point(465, 1);
-            this.cameraControlOut2.Name = "cameraControlOut2";
-            this.cameraControlOut2.Size = new System.Drawing.Size(451, 237);
-            this.cameraControlOut2.TabIndex = 2;
-            this.cameraControlOut2.Text = "cameraControlOut2";
-            // 
-            // cameraControlOut1
-            // 
-            this.cameraControlOut1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cameraControlOut1.Location = new System.Drawing.Point(36, 1);
-            this.cameraControlOut1.Name = "cameraControlOut1";
-            this.cameraControlOut1.Size = new System.Drawing.Size(423, 237);
-            this.cameraControlOut1.TabIndex = 1;
-            this.cameraControlOut1.Text = "cameraControlOut1";
-            // 
             // panelControlInPut
             // 
-            this.panelControlInPut.Controls.Add(this.cameraControlIn3);
-            this.panelControlInPut.Controls.Add(this.cameraControlIn2);
-            this.panelControlInPut.Controls.Add(this.cameraControlIn1);
+            this.panelControlInPut.Controls.Add(this.pictureBox3);
+            this.panelControlInPut.Controls.Add(this.pictureBox2);
+            this.panelControlInPut.Controls.Add(this.pBoxIn1);
             this.panelControlInPut.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControlInPut.Location = new System.Drawing.Point(2, 2);
             this.panelControlInPut.Name = "panelControlInPut";
             this.panelControlInPut.Size = new System.Drawing.Size(1380, 243);
             this.panelControlInPut.TabIndex = 0;
             // 
-            // cameraControlIn3
+            // pictureBox3
             // 
-            this.cameraControlIn3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cameraControlIn3.Location = new System.Drawing.Point(922, -2);
-            this.cameraControlIn3.Name = "cameraControlIn3";
-            this.cameraControlIn3.Size = new System.Drawing.Size(413, 239);
-            this.cameraControlIn3.TabIndex = 2;
-            this.cameraControlIn3.Text = "cameraControlIn3";
+            this.pictureBox3.Location = new System.Drawing.Point(911, 5);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(424, 238);
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
             // 
-            // cameraControlIn2
+            // pictureBox2
             // 
-            this.cameraControlIn2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cameraControlIn2.Location = new System.Drawing.Point(465, -2);
-            this.cameraControlIn2.Name = "cameraControlIn2";
-            this.cameraControlIn2.Size = new System.Drawing.Size(451, 239);
-            this.cameraControlIn2.TabIndex = 1;
-            this.cameraControlIn2.Text = "cameraControlIn2";
+            this.pictureBox2.Location = new System.Drawing.Point(465, 5);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(440, 238);
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
             // 
-            // cameraControlIn1
+            // pBoxIn1
             // 
-            this.cameraControlIn1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cameraControlIn1.Location = new System.Drawing.Point(36, 0);
-            this.cameraControlIn1.Name = "cameraControlIn1";
-            this.cameraControlIn1.Size = new System.Drawing.Size(423, 237);
-            this.cameraControlIn1.TabIndex = 0;
-            this.cameraControlIn1.Text = "cameraControlIn1";
+            this.pBoxIn1.Location = new System.Drawing.Point(36, 5);
+            this.pBoxIn1.Name = "pBoxIn1";
+            this.pBoxIn1.Size = new System.Drawing.Size(423, 232);
+            this.pBoxIn1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pBoxIn1.TabIndex = 0;
+            this.pBoxIn1.TabStop = false;
             // 
             // DetectClient
             // 
@@ -275,6 +242,7 @@ namespace ManagementStore.Form
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "DetectClient";
+            this.Load += new System.EventHandler(this.DetectClient_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlHandle)).EndInit();
             this.panelControlHandle.ResumeLayout(false);
@@ -284,9 +252,11 @@ namespace ManagementStore.Form
             ((System.ComponentModel.ISupportInitialize)(this.panelControlMain)).EndInit();
             this.panelControlMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControlOut)).EndInit();
-            this.panelControlOut.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControlInPut)).EndInit();
             this.panelControlInPut.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBoxIn1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,17 +273,14 @@ namespace ManagementStore.Form
         private DevExpress.XtraEditors.PanelControl panelControlMain;
         private DevExpress.XtraEditors.PanelControl panelControlInPut;
         private DevExpress.XtraEditors.PanelControl panelControlOut;
-        private DevExpress.XtraEditors.Camera.CameraControl cameraControlOut3;
-        private DevExpress.XtraEditors.Camera.CameraControl cameraControlOut2;
-        private DevExpress.XtraEditors.Camera.CameraControl cameraControlOut1;
-        private DevExpress.XtraEditors.Camera.CameraControl cameraControlIn3;
-        private DevExpress.XtraEditors.Camera.CameraControl cameraControlIn2;
-        private DevExpress.XtraEditors.Camera.CameraControl cameraControlIn1;
         private DevExpress.XtraBars.BarHeaderItem barHeaderItem1;
         private DevExpress.XtraEditors.SimpleButton simpleButtonReport;
         private DevExpress.XtraEditors.TextEdit textEdit1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.TextEdit textEdit3;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pBoxIn1;
     }
 }
