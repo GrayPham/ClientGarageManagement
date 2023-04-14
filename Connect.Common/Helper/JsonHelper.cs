@@ -21,7 +21,7 @@ namespace Connect.Common.Helper
                 ErrorCurrent = ex.Message;
                 return "[]";
             }
-            return "[]";
+    
         }
         public static List<T> JsonToListInfo<T>(string value)
         {

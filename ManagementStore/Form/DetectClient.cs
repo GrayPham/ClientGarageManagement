@@ -20,7 +20,7 @@ namespace ManagementStore.Form
         {
             InitializeComponent();
         }
-        private async void ProcessFrame(object sender, EventArgs arg)
+        private void ProcessFrame(object sender, EventArgs arg)
         {
             //Image image = new Image();
             //detect.detect(image);
