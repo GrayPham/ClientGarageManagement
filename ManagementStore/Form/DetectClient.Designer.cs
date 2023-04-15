@@ -47,13 +47,13 @@ namespace ManagementStore.Form
             this.panelControlMain = new DevExpress.XtraEditors.PanelControl();
             this.panelControlOut = new DevExpress.XtraEditors.PanelControl();
             this.panelControlInPut = new DevExpress.XtraEditors.PanelControl();
+            this.lbFPS = new System.Windows.Forms.Label();
             this.cBoxOut1 = new System.Windows.Forms.ComboBox();
             this.cBoxIn1 = new System.Windows.Forms.ComboBox();
             this.pBoxOut1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pBoxIn1 = new System.Windows.Forms.PictureBox();
-            this.progressBarControl1 = new DevExpress.XtraEditors.ProgressBarControl();
-            this.lbFPS = new System.Windows.Forms.Label();
+            this.progressBarControlConnect = new DevExpress.XtraEditors.ProgressBarControl();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlHandle)).BeginInit();
             this.panelControlHandle.SuspendLayout();
@@ -67,7 +67,7 @@ namespace ManagementStore.Form
             ((System.ComponentModel.ISupportInitialize)(this.pBoxOut1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxIn1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarControlConnect.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -228,6 +228,15 @@ namespace ManagementStore.Form
             this.panelControlInPut.Size = new System.Drawing.Size(1380, 274);
             this.panelControlInPut.TabIndex = 0;
             // 
+            // lbFPS
+            // 
+            this.lbFPS.AutoSize = true;
+            this.lbFPS.Location = new System.Drawing.Point(33, 243);
+            this.lbFPS.Name = "lbFPS";
+            this.lbFPS.Size = new System.Drawing.Size(34, 16);
+            this.lbFPS.TabIndex = 0;
+            this.lbFPS.Text = "FPS:";
+            // 
             // cBoxOut1
             // 
             this.cBoxOut1.FormattingEnabled = true;
@@ -273,29 +282,20 @@ namespace ManagementStore.Form
             this.pBoxIn1.TabStop = false;
             this.pBoxIn1.Paint += new System.Windows.Forms.PaintEventHandler(this.pBoxIn1_Paint);
             // 
-            // progressBarControl1
+            // progressBarControlConnect
             // 
-            this.progressBarControl1.Location = new System.Drawing.Point(1132, 736);
-            this.progressBarControl1.MenuManager = this.ribbon;
-            this.progressBarControl1.Name = "progressBarControl1";
-            this.progressBarControl1.Size = new System.Drawing.Size(194, 28);
-            this.progressBarControl1.TabIndex = 0;
-            // 
-            // lbFPS
-            // 
-            this.lbFPS.AutoSize = true;
-            this.lbFPS.Location = new System.Drawing.Point(33, 243);
-            this.lbFPS.Name = "lbFPS";
-            this.lbFPS.Size = new System.Drawing.Size(34, 16);
-            this.lbFPS.TabIndex = 0;
-            this.lbFPS.Text = "FPS:";
+            this.progressBarControlConnect.Location = new System.Drawing.Point(1132, 736);
+            this.progressBarControlConnect.MenuManager = this.ribbon;
+            this.progressBarControlConnect.Name = "progressBarControlConnect";
+            this.progressBarControlConnect.Size = new System.Drawing.Size(194, 28);
+            this.progressBarControlConnect.TabIndex = 0;
             // 
             // DetectClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1384, 764);
-            this.Controls.Add(this.progressBarControl1);
+            this.Controls.Add(this.progressBarControlConnect);
             this.Controls.Add(this.panelControlMain);
             this.Controls.Add(this.panelControlHandle);
             this.Controls.Add(this.ribbonStatusBar);
@@ -320,7 +320,7 @@ namespace ManagementStore.Form
             ((System.ComponentModel.ISupportInitialize)(this.pBoxOut1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxIn1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarControlConnect.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -347,7 +347,7 @@ namespace ManagementStore.Form
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pBoxIn1;
         private System.Windows.Forms.ComboBox cBoxIn1;
-        private DevExpress.XtraEditors.ProgressBarControl progressBarControl1;
+        private DevExpress.XtraEditors.ProgressBarControl progressBarControlConnect;
         private DevExpress.XtraBars.BarCheckItem barCheckItem1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private System.Windows.Forms.ComboBox cBoxOut1;

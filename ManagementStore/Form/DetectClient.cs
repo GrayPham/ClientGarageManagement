@@ -36,6 +36,7 @@ namespace ManagementStore.Form
         private SocketDetect encode = new SocketDetect();
         private ClientWebSocket webSocket = new ClientWebSocket();
         private Uri uri = new Uri(ModelConfig.socketFastAPI);
+        private CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
         //Test FPS 
         int currentFrame = 0;
         private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
@@ -66,11 +67,19 @@ namespace ManagementStore.Form
             timer.Start();
 
             // Connect FastAPI
-            var cancellationTokenSource = new CancellationTokenSource();
+            
             webSocket.ConnectAsync(uri, cancellationTokenSource.Token);
         }
         private async void ProcessFrame(object sender, EventArgs arg)
         {
+            if (webSocket.State == WebSocketState.Closed ||
+                       webSocket.State == WebSocketState.Aborted ||
+                       webSocket.State == WebSocketState.CloseReceived ||
+                       webSocket.State == WebSocketState.CloseSent)
+            {     
+                await Task.Delay(2000);
+                await webSocket.ConnectAsync(uri, cancellationTokenSource.Token);
+            }
             if (captureInProgress)
             {
                 Image<Bgr, Byte> ImageFrame = camera1.QueryFrame().ToImage<Bgr, byte>();  //line 1
