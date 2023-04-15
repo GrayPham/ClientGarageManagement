@@ -10,7 +10,7 @@ using Parking.App.Interface.Common;
 using Parking.App.Service.Handlers;
 using System.Net;
 
-namespace Kiosk.App.Factory
+namespace Parking.App.Factory
 {
     public class ProgramFactory : IClientHandler
     {

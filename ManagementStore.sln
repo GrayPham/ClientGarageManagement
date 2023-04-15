@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parking.App.Language", "Par
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parking.App.Service", "Parking.App.Service\Parking.App.Service.csproj", "{B9372C81-0110-4361-B7B9-DE618A4D9D3C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parking.App.Common", "Parking.App.Common\Parking.App.Common.csproj", "{5E42B08D-DC7A-4092-A143-AEBB26F1FE0D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +87,10 @@ Global
 		{B9372C81-0110-4361-B7B9-DE618A4D9D3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9372C81-0110-4361-B7B9-DE618A4D9D3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9372C81-0110-4361-B7B9-DE618A4D9D3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E42B08D-DC7A-4092-A143-AEBB26F1FE0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E42B08D-DC7A-4092-A143-AEBB26F1FE0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E42B08D-DC7A-4092-A143-AEBB26F1FE0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E42B08D-DC7A-4092-A143-AEBB26F1FE0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -102,6 +108,7 @@ Global
 		{B63B96BD-00CC-45A4-AC12-66B88C5DF490} = {CA311ECE-A4AE-4268-A923-AC6C106B1828}
 		{23CC9A0A-7EC9-49D0-83B0-5378E3EEC412} = {CA311ECE-A4AE-4268-A923-AC6C106B1828}
 		{B9372C81-0110-4361-B7B9-DE618A4D9D3C} = {CA311ECE-A4AE-4268-A923-AC6C106B1828}
+		{5E42B08D-DC7A-4092-A143-AEBB26F1FE0D} = {CA311ECE-A4AE-4268-A923-AC6C106B1828}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {930765E2-1DEB-4576-B94C-58AC6F6B8EBC}

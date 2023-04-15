@@ -5,7 +5,7 @@ using Connect.Common.Interface;
 using Connect.Common.Languages;
 using Connect.SocketClient;
 using DevExpress.Images;
-using Kiosk.App.Factory;
+using Parking.App.Factory;
 using ManagementStore.Services;
 using Parking.App.Contract.Common;
 using Parking.App.Interface.Common;

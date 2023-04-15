@@ -5,6 +5,7 @@ namespace Parking.App.Contract.Service
     public class SSignature
     {
         public const uint LoginService = 999; // Nót 
+        public const uint ServerService = 999; // Nót 
         public const uint tblClientSoundMgtService = 100;
         public const uint tblAdMgtService = 101;
         public const uint tblDeviceRequestConnectService = 103;
