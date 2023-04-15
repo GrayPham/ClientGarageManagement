@@ -14,7 +14,7 @@ namespace ManagementStore.Services
     public class YoloDetectServices
     {
 
-        private YoloScorer<YoloCocoP5Model> scorer = new YoloScorer<YoloCocoP5Model>(ModelHelper.dataFolderPath + "/best.onnx");
+        private YoloScorer<YoloCocoP5Model> scorer = new YoloScorer<YoloCocoP5Model>(ModelConfig.dataFolderPath + "/best.onnx");
         public YoloModelDto detect(Image image)
         {
             Image imagebase = new Bitmap(image);

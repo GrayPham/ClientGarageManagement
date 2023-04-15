@@ -192,5 +192,18 @@ namespace ManagementStore.Form.User
             }
             return true;
         }
+
+        private void sButtonVerfication_Click(object sender, EventArgs e)
+        {
+            // Check Null in Phone Field
+            if (txtInputPhone.Text.Length != 0 )
+            {
+                MessageBox.Show(txtInputPhone.Text,"Phone:", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                MessageBox.Show("Phone is not Null","Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }
