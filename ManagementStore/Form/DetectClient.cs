@@ -1,5 +1,8 @@
-﻿using Connect.Common.Contract;
+﻿using Connect.Common;
+using Connect.Common.Common;
+using Connect.Common.Contract;
 using Connect.Common.Interface;
+using Connect.Common.Languages;
 using Connect.SocketClient;
 using Kiosk.App.Factory;
 using ManagementStore.Services;
@@ -19,7 +22,7 @@ namespace ManagementStore.Form
         protected System.Timers.Timer _timer;
         protected int _counter;
         public static int Counter = 10;
-        
+        public DetectClient InternalControl => this;
         public DetectClient()
         {
             _log = ProgramFactory.Instance.Log;
@@ -29,6 +32,7 @@ namespace ManagementStore.Form
         {
             ProgramFactory.Instance.ProgramController = this;
             _log = ProgramFactory.Instance.Log;
+            AddEventCommon();
             barItemIP.Caption = " IP:" + ProgramFactory.Instance.IPServer;
             barItemVersion.Caption = LSystem.LVersion + ApplicationInfo.VersionName;
             barItemPort.Caption = string.Format(LSystem.LPort, ApplicationInfo.PortUser);
@@ -62,9 +66,80 @@ namespace ManagementStore.Form
 
         public void SetStatus(string description)
         {
-            throw new NotImplementedException();
+            barItemConnect.Caption = description;
         }
 
+        protected virtual void OnShown()
+        {
+            _client.Connect();
+        }
+
+        protected virtual void AddEventCommon()
+        {
+            Onload();
+            OnShown();
+        }
+        protected virtual void Onload()
+        {
+            barItemConnect.Caption = FWLanguages.LSetupConnect;
+            _client = ProgramFactory.Instance.SocketClientServer;
+            _client.Connected += OnServerConnected;
+            _client.Disconnected += OnServerDisconnected;
+            ProgramFactory.Instance.ClientSessionHandler.SessionError += ClientSessionHandler_SessionError;
+        }
+        protected virtual void TimerOnTick(object sender, EventArgs eventArgs)
+        {
+            _counter--;
+
+            barItemConnect.Caption = string.Format(FWLanguages.LReConnect, _counter);
+            if (_counter > 0) return;
+
+            barItemConnect.Caption = FWLanguages.LSetupConnect + " ";
+            _timer.Stop();
+            _client.ReConnect();
+
+        }
+        //protected virtual void OnServerConnected(object sender, EventArgs<ITcpClientHandler> e)
+        {
+
+            barItemConnect.Caption = FWLanguages.LConnectSuccessfully;
+        }
+        protected virtual void OnServerDisconnected(object sender, EventArgs<string> e)
+        {
+            _counter = Counter;
+            barItemConnect.Caption = e.Data + string.Format(FWLanguages.LReConnect, _counter);
+            //_view.SwitchConnection.Value = false
+            _timer = new System.Timers.Timer { Interval = 1000 };
+            _timer.Elapsed -= TimerOnTick;
+            _timer.Elapsed += TimerOnTick;
+            _timer.Start();
+
+
+        }
+        private void ClientSessionHandler_SessionError(object sender, EventArgs<ConnectionFailedReason> e)
+        {
+            string mes = "";
+            switch (e.Data)
+            {
+                case ConnectionFailedReason.Unknown:
+                    mes = LSystem.LConnectionFailedReason_Unknown;
+                    break;
+                case ConnectionFailedReason.InvalidSerialNumber:
+                    mes = LSystem.LConnectionFailedReason_InvalidSerialNumber;
+                    break;
+                case ConnectionFailedReason.InvalidLicenseKey:
+                    mes = LSystem.LConnectionFailedReason_InvalidLicenseKey;
+                    break;
+                case ConnectionFailedReason.MacError:
+                    mes = LSystem.LConnectionFailedReason_Unknown;
+                    break;
+                default:
+                    mes = LSystem.LConnectionFailedReason_Default;
+                    break;
+            }
+            _client.Disconnect();
+            _timer.Stop();
+        }
         #endregion
 
 

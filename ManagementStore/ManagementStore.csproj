@@ -320,6 +320,10 @@
       <Project>{12D9262B-762C-43D0-BEFA-5837B5C87038}</Project>
       <Name>Connect.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Connect.RemoteDataProvider\Connect.RemoteDataProvider.csproj">
+      <Project>{25DEB9E9-AD99-482A-817B-6F7F58E3B84F}</Project>
+      <Name>Connect.RemoteDataProvider</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Connect.SocketClient\Connect.SocketClient.csproj">
       <Project>{84F67D5D-2561-45FE-BE48-41220D72C3A0}</Project>
       <Name>Connect.SocketClient</Name>

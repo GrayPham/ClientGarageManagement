@@ -32,6 +32,11 @@ namespace ManagementStore.Form
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetectClient));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barHeaderItem1 = new DevExpress.XtraBars.BarHeaderItem();
+            this.barItemConnect = new DevExpress.XtraBars.BarStaticItem();
+            this.barItemIP = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem3 = new DevExpress.XtraBars.BarStaticItem();
+            this.barItemPort = new DevExpress.XtraBars.BarStaticItem();
+            this.barItemVersion = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup_System = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -51,11 +56,6 @@ namespace ManagementStore.Form
             this.cameraControlIn3 = new DevExpress.XtraEditors.Camera.CameraControl();
             this.cameraControlIn2 = new DevExpress.XtraEditors.Camera.CameraControl();
             this.cameraControlIn1 = new DevExpress.XtraEditors.Camera.CameraControl();
-            this.barItemConnect = new DevExpress.XtraBars.BarStaticItem();
-            this.barItemIP = new DevExpress.XtraBars.BarStaticItem();
-            this.barStaticItem3 = new DevExpress.XtraBars.BarStaticItem();
-            this.barItemPort = new DevExpress.XtraBars.BarStaticItem();
-            this.barItemVersion = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlHandle)).BeginInit();
             this.panelControlHandle.SuspendLayout();
@@ -82,7 +82,7 @@ namespace ManagementStore.Form
             this.barItemPort,
             this.barItemVersion});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 7;
+            this.ribbon.MaxItemId = 9;
             this.ribbon.Name = "ribbon";
             this.ribbon.PageHeaderItemLinks.Add(this.barHeaderItem1);
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -95,6 +95,41 @@ namespace ManagementStore.Form
             this.barHeaderItem1.Caption = "04/12/2023";
             this.barHeaderItem1.Id = 1;
             this.barHeaderItem1.Name = "barHeaderItem1";
+            // 
+            // barItemConnect
+            // 
+            this.barItemConnect.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barItemConnect.Caption = "Kết nối máy chủ";
+            this.barItemConnect.Id = 2;
+            this.barItemConnect.Name = "barItemConnect";
+            this.barItemConnect.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            // 
+            // barItemIP
+            // 
+            this.barItemIP.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barItemIP.Caption = "IP: 192.168.100.10";
+            this.barItemIP.Id = 3;
+            this.barItemIP.Name = "barItemIP";
+            // 
+            // barStaticItem3
+            // 
+            this.barStaticItem3.Caption = "Parking Application";
+            this.barStaticItem3.Id = 4;
+            this.barStaticItem3.ItemAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barStaticItem3.ItemAppearance.Disabled.Options.UseFont = true;
+            this.barStaticItem3.Name = "barStaticItem3";
+            // 
+            // barItemPort
+            // 
+            this.barItemPort.Caption = "Port: 9000";
+            this.barItemPort.Id = 5;
+            this.barItemPort.Name = "barItemPort";
+            // 
+            // barItemVersion
+            // 
+            this.barItemVersion.Caption = "Version: 1.0.0";
+            this.barItemVersion.Id = 6;
+            this.barItemVersion.Name = "barItemVersion";
             // 
             // ribbonPage1
             // 
@@ -276,40 +311,6 @@ namespace ManagementStore.Form
             this.cameraControlIn1.Size = new System.Drawing.Size(423, 237);
             this.cameraControlIn1.TabIndex = 0;
             this.cameraControlIn1.Text = "cameraControlIn1";
-            // 
-            // barItemConnect
-            // 
-            this.barItemConnect.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barItemConnect.Caption = "Kết nối máy chủ";
-            this.barItemConnect.Id = 2;
-            this.barItemConnect.Name = "barItemConnect";
-            // 
-            // barItemIP
-            // 
-            this.barItemIP.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barItemIP.Caption = "IP: 192.168.100.10";
-            this.barItemIP.Id = 3;
-            this.barItemIP.Name = "barItemIP";
-            // 
-            // barStaticItem3
-            // 
-            this.barStaticItem3.Caption = "Parking Application";
-            this.barStaticItem3.Id = 4;
-            this.barStaticItem3.ItemAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.barStaticItem3.ItemAppearance.Disabled.Options.UseFont = true;
-            this.barStaticItem3.Name = "barStaticItem3";
-            // 
-            // barItemPort
-            // 
-            this.barItemPort.Caption = "Port: 9000";
-            this.barItemPort.Id = 5;
-            this.barItemPort.Name = "barItemPort";
-            // 
-            // barItemVersion
-            // 
-            this.barItemVersion.Caption = "Version: 1.0.0";
-            this.barItemVersion.Id = 6;
-            this.barItemVersion.Name = "barItemVersion";
             // 
             // DetectClient
             // 
