@@ -4,6 +4,7 @@ using Connect.Common.Contract;
 using Connect.Common.Interface;
 using Connect.Common.Languages;
 using Connect.SocketClient;
+using DevExpress.Images;
 using Kiosk.App.Factory;
 using ManagementStore.Services;
 using Parking.App.Contract.Common;
@@ -22,7 +23,8 @@ namespace ManagementStore.Form
         protected System.Timers.Timer _timer;
         protected int _counter;
         public static int Counter = 10;
-        public DetectClient InternalControl => this;
+
+
         public DetectClient()
         {
             _log = ProgramFactory.Instance.Log;
@@ -92,23 +94,31 @@ namespace ManagementStore.Form
             _counter--;
 
             barItemConnect.Caption = string.Format(FWLanguages.LReConnect, _counter);
+            barItemConnect.ItemAppearance.Normal.ForeColor = System.Drawing.Color.HotPink;
+            barItemConnect.Glyph = ImageResourceCache.Default.GetImage("images/communication/radio_16x16.png");
             if (_counter > 0) return;
 
             barItemConnect.Caption = FWLanguages.LSetupConnect + " ";
+            barItemConnect.ItemAppearance.Normal.ForeColor = System.Drawing.Color.White;
+            barItemConnect.Glyph = ImageResourceCache.Default.GetImage("images/programming/technology_16x16.png");
+
             _timer.Stop();
             _client.ReConnect();
 
         }
-        //protected virtual void OnServerConnected(object sender, EventArgs<ITcpClientHandler> e)
+        protected virtual void OnServerConnected(object sender, EventArgs<ITcpClientHandler> e)
         {
-
             barItemConnect.Caption = FWLanguages.LConnectSuccessfully;
+            barItemConnect.ItemAppearance.Normal.ForeColor = System.Drawing.Color.GreenYellow;
+            barItemConnect.Glyph = ImageResourceCache.Default.GetImage("images/tasks/status_16x16.png");
         }
         protected virtual void OnServerDisconnected(object sender, EventArgs<string> e)
         {
             _counter = Counter;
             barItemConnect.Caption = e.Data + string.Format(FWLanguages.LReConnect, _counter);
-            //_view.SwitchConnection.Value = false
+            barItemConnect.ItemAppearance.Normal.ForeColor = System.Drawing.Color.HotPink;
+            barItemConnect.Glyph = ImageResourceCache.Default.GetImage("images/communication/wifi_16x16.png");
+
             _timer = new System.Timers.Timer { Interval = 1000 };
             _timer.Elapsed -= TimerOnTick;
             _timer.Elapsed += TimerOnTick;

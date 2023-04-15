@@ -7,10 +7,10 @@ namespace Connect.Common.Contract
 {
     public class ApplicationInfo
     {
-        public static string VersionName = @"1.0.0.0 (271002022)";
+        public static string VersionName = @"1.0.0.0 (15042023)";
         public static int VersionCode = 1010;
         public static string VersionBy = @"Hermes";
-        public static string VersionDate = @"27/10/2022";
+        public static string VersionDate = @"15/04/2023";
         public static string Company = @"Hermes";
         public static string Copyright = @"Copyright";
         public static string FirstName = @"Parking";
@@ -19,7 +19,7 @@ namespace Connect.Common.Contract
         public const string Author = @"Hermes";
         public static Guid AppKey = Guid.NewGuid();
         public static string GuiD = "";
-        public static string Phone = "0782252279";
+        public static string Phone = "0365858975";
         public static string SeriKey = @"151219900968696391";
         public static string LicenseKey = @"";
         public static string SoftwareKey = @"E43E527ED23C381D00FE6DA731C5D64D";

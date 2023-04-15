@@ -56,6 +56,10 @@ namespace ManagementStore.Form
             this.cameraControlIn3 = new DevExpress.XtraEditors.Camera.CameraControl();
             this.cameraControlIn2 = new DevExpress.XtraEditors.Camera.CameraControl();
             this.cameraControlIn1 = new DevExpress.XtraEditors.Camera.CameraControl();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
+            this.repositoryItemTimeSpanEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeSpanEdit();
+            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlHandle)).BeginInit();
             this.panelControlHandle.SuspendLayout();
@@ -67,6 +71,7 @@ namespace ManagementStore.Form
             this.panelControlOut.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlInPut)).BeginInit();
             this.panelControlInPut.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeSpanEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -80,13 +85,18 @@ namespace ManagementStore.Form
             this.barItemIP,
             this.barStaticItem3,
             this.barItemPort,
-            this.barItemVersion});
+            this.barItemVersion,
+            this.skinRibbonGalleryBarItem1,
+            this.barStaticItem1});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 9;
+            this.ribbon.MaxItemId = 14;
             this.ribbon.Name = "ribbon";
             this.ribbon.PageHeaderItemLinks.Add(this.barHeaderItem1);
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
+            this.ribbon.QuickToolbarItemLinks.Add(this.barStaticItem1);
+            this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemTimeSpanEdit1});
             this.ribbon.Size = new System.Drawing.Size(1384, 181);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
@@ -94,14 +104,20 @@ namespace ManagementStore.Form
             // 
             this.barHeaderItem1.Caption = "04/12/2023";
             this.barHeaderItem1.Id = 1;
+            this.barHeaderItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barHeaderItem1.ImageOptions.Image")));
+            this.barHeaderItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barHeaderItem1.ImageOptions.LargeImage")));
             this.barHeaderItem1.Name = "barHeaderItem1";
             // 
             // barItemConnect
             // 
             this.barItemConnect.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barItemConnect.Caption = "Kết nối máy chủ";
             this.barItemConnect.Id = 2;
+            this.barItemConnect.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barItemConnect.ImageOptions.Image")));
+            this.barItemConnect.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barItemConnect.ImageOptions.LargeImage")));
+            this.barItemConnect.ItemAppearance.Normal.ForeColor = System.Drawing.Color.SeaShell;
+            this.barItemConnect.ItemAppearance.Normal.Options.UseForeColor = true;
             this.barItemConnect.Name = "barItemConnect";
+            this.barItemConnect.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.barItemConnect.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
             // 
             // barItemIP
@@ -115,36 +131,47 @@ namespace ManagementStore.Form
             // 
             this.barStaticItem3.Caption = "Parking Application";
             this.barStaticItem3.Id = 4;
+            this.barStaticItem3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barStaticItem3.ImageOptions.Image")));
+            this.barStaticItem3.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barStaticItem3.ImageOptions.LargeImage")));
             this.barStaticItem3.ItemAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.barStaticItem3.ItemAppearance.Disabled.Options.UseFont = true;
             this.barStaticItem3.Name = "barStaticItem3";
+            this.barStaticItem3.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // barItemPort
             // 
             this.barItemPort.Caption = "Port: 9000";
             this.barItemPort.Id = 5;
+            this.barItemPort.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barItemPort.ImageOptions.Image")));
+            this.barItemPort.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barItemPort.ImageOptions.LargeImage")));
             this.barItemPort.Name = "barItemPort";
+            this.barItemPort.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // barItemVersion
             // 
             this.barItemVersion.Caption = "Version: 1.0.0";
             this.barItemVersion.Id = 6;
+            this.barItemVersion.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barItemVersion.ImageOptions.Image")));
+            this.barItemVersion.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barItemVersion.ImageOptions.LargeImage")));
             this.barItemVersion.Name = "barItemVersion";
+            this.barItemVersion.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup_System});
+            this.ribbonPageGroup_System,
+            this.ribbonPageGroup1});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Detect Page";
             // 
             // ribbonPageGroup_System
             // 
             this.ribbonPageGroup_System.Name = "ribbonPageGroup_System";
-            this.ribbonPageGroup_System.Text = "ribbonPageGroup1";
+            this.ribbonPageGroup_System.Text = "Home";
             // 
             // ribbonStatusBar
             // 
+            this.ribbonStatusBar.BackColor = System.Drawing.Color.Black;
             this.ribbonStatusBar.ItemLinks.Add(this.barItemConnect);
             this.ribbonStatusBar.ItemLinks.Add(this.barItemIP);
             this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem3);
@@ -312,6 +339,35 @@ namespace ManagementStore.Form
             this.cameraControlIn1.TabIndex = 0;
             this.cameraControlIn1.Text = "cameraControlIn1";
             // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.skinRibbonGalleryBarItem1);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "Theme";
+            // 
+            // skinRibbonGalleryBarItem1
+            // 
+            this.skinRibbonGalleryBarItem1.Caption = "skinRibbonGalleryBarItem1";
+            this.skinRibbonGalleryBarItem1.Id = 10;
+            this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
+            // 
+            // repositoryItemTimeSpanEdit1
+            // 
+            this.repositoryItemTimeSpanEdit1.AllowEditMilliseconds = true;
+            this.repositoryItemTimeSpanEdit1.AutoHeight = false;
+            this.repositoryItemTimeSpanEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemTimeSpanEdit1.Name = "repositoryItemTimeSpanEdit1";
+            // 
+            // barStaticItem1
+            // 
+            this.barStaticItem1.Caption = "Help?";
+            this.barStaticItem1.Id = 13;
+            this.barStaticItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barStaticItem1.ImageOptions.Image")));
+            this.barStaticItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barStaticItem1.ImageOptions.LargeImage")));
+            this.barStaticItem1.Name = "barStaticItem1";
+            this.barStaticItem1.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
             // DetectClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -338,6 +394,7 @@ namespace ManagementStore.Form
             this.panelControlOut.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControlInPut)).EndInit();
             this.panelControlInPut.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeSpanEdit1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -371,5 +428,9 @@ namespace ManagementStore.Form
         private DevExpress.XtraBars.BarStaticItem barStaticItem3;
         private DevExpress.XtraBars.BarStaticItem barItemPort;
         private DevExpress.XtraBars.BarStaticItem barItemVersion;
+        private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTimeSpanEdit repositoryItemTimeSpanEdit1;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem1;
     }
 }

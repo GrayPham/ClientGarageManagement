@@ -42,10 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\ServerInfo.cs" />
+    <Compile Include="Entity\UserEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\SSignature.cs" />
     <Compile Include="Setting\AccountInfo.cs" />
     <Compile Include="Setting\ClientSessionHandlerInfo.cs" />
+    <Compile Include="Setting\SettingInfo.cs" />
+    <Compile Include="Setting\VersionInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Connect.Common\Connect.Common.csproj">
