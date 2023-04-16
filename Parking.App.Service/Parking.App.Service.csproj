@@ -41,6 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\tblAdMgtService.cs" />
+    <Compile Include="Common\tblClientSoundMgtService.cs" />
+    <Compile Include="Common\tblDeviceRequestConnectService.cs" />
+    <Compile Include="Common\tblStoreDeviceService.cs" />
+    <Compile Include="Common\tblStoreEnvironmentSettingService.cs" />
+    <Compile Include="Common\tblStoreMasterService.cs" />
+    <Compile Include="Common\tblUserMgtStoreService.cs" />
+    <Compile Include="Common\tblUserPhotoService.cs" />
+    <Compile Include="Common\tblUserService.cs" />
     <Compile Include="Handlers\ILoginService.cs" />
     <Compile Include="Handlers\RemoteLoginService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

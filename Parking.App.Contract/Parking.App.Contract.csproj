@@ -41,7 +41,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\AdStoreMgtInfo.cs" />
     <Compile Include="Common\ServerInfo.cs" />
+    <Compile Include="Common\tblAdMgtInfo.cs" />
+    <Compile Include="Common\tblClientSoundDeployHistInfo.cs" />
+    <Compile Include="Common\tblClientSoundMgtInfo.cs" />
+    <Compile Include="Common\tblCommonInfo.cs" />
+    <Compile Include="Common\tblCommonSubInfo.cs" />
+    <Compile Include="Common\tblDeviceRequestConnectInfo.cs" />
+    <Compile Include="Common\tblStoreDeviceInfo.cs" />
+    <Compile Include="Common\tblStoreEnvironmentSettingInfo.cs" />
+    <Compile Include="Common\tblStoreMasterInfo.cs" />
+    <Compile Include="Common\tblStoreUseHistoryInfo.cs" />
+    <Compile Include="Common\tblTempDeployInfo.cs" />
+    <Compile Include="Common\tblUserHistoryInfo.cs" />
+    <Compile Include="Common\tblUserInfo.cs" />
+    <Compile Include="Common\tblUserMgtStoreInfo.cs" />
+    <Compile Include="Common\tblUserPhotoInfo.cs" />
     <Compile Include="Entity\UserEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\SSignature.cs" />
@@ -54,6 +70,10 @@
     <ProjectReference Include="..\Connect.Common\Connect.Common.csproj">
       <Project>{12D9262B-762C-43D0-BEFA-5837B5C87038}</Project>
       <Name>Connect.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Parking.App.Common\Parking.App.Common.csproj">
+      <Project>{5E42B08D-DC7A-4092-A143-AEBB26F1FE0D}</Project>
+      <Name>Parking.App.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

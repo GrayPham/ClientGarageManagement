@@ -10,7 +10,6 @@ using RestSharp;
 using Connect.Common.Helper;
 using System.IO;
 using Parking.App.Common.ViewModels;
-
 namespace Parking.App.Common.ApiMethod
 {
     public class ApiMethod

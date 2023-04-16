@@ -376,6 +376,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Images\choose.png" />
+    <Content Include="Assets\Images\completed.png" />
+    <Content Include="Assets\Images\confirm.png" />
+    <Content Include="Assets\Images\current.png" />
+    <Content Include="Assets\Images\customize.png" />
+    <Content Include="Assets\Images\payment.png" />
+    <Content Include="Assets\Images\pending.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.ML.OnnxRuntime.Managed.1.14.1\build\netstandard2.0\Microsoft.ML.OnnxRuntime.Managed.targets" Condition="Exists('..\packages\Microsoft.ML.OnnxRuntime.Managed.1.14.1\build\netstandard2.0\Microsoft.ML.OnnxRuntime.Managed.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Kiosk.App.Common.Constants
+namespace Parking.App.Common.Constants
 {
     public static class Constants
     {
