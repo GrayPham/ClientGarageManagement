@@ -22,7 +22,7 @@ namespace ManagementStore
             Application.SetCompatibleTextRenderingDefault(false);
 
             BonusSkins.Register();
-            Application.Run(new Home());
+            Application.Run(new DetectClient());
         }
     }
 }
