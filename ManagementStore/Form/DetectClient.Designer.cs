@@ -39,20 +39,21 @@ namespace ManagementStore.Form
             this.barItemVersion = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup_System = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.barBtn_Profile = new DevExpress.XtraBars.BarButtonItem();
             this.panelControlHandle = new DevExpress.XtraEditors.PanelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.textLPIn1 = new DevExpress.XtraEditors.TextEdit();
             this.simpleButtonReport = new DevExpress.XtraEditors.SimpleButton();
             this.panelControlMain = new DevExpress.XtraEditors.PanelControl();
             this.panelControlOut = new DevExpress.XtraEditors.PanelControl();
-            this.cameraControlOut3 = new DevExpress.XtraEditors.Camera.CameraControl();
-            this.cameraControlOut2 = new DevExpress.XtraEditors.Camera.CameraControl();
-            this.cameraControlOut1 = new DevExpress.XtraEditors.Camera.CameraControl();
             this.panelControlInPut = new DevExpress.XtraEditors.PanelControl();
+            this.panelOut = new System.Windows.Forms.Panel();
+            this.panelIn = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.cameraControlIn3 = new DevExpress.XtraEditors.Camera.CameraControl();
             this.cameraControlIn2 = new DevExpress.XtraEditors.Camera.CameraControl();
             this.cameraControlIn1 = new DevExpress.XtraEditors.Camera.CameraControl();
@@ -61,16 +62,17 @@ namespace ManagementStore.Form
             this.repositoryItemTimeSpanEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeSpanEdit();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMarqueeProgressBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlHandle)).BeginInit();
             this.panelControlHandle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textLPIn1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlMain)).BeginInit();
             this.panelControlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlOut)).BeginInit();
-            this.panelControlOut.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlInPut)).BeginInit();
             this.panelControlInPut.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeSpanEdit1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,8 +90,12 @@ namespace ManagementStore.Form
             this.barItemVersion,
             this.skinRibbonGalleryBarItem1,
             this.barStaticItem1});
+            this.barHeaderItem1,
+            this.barCheckItem1,
+            this.barEditItem1,
+            this.BarCheckConnect});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 14;
+            this.ribbon.MaxItemId = 6;
             this.ribbon.Name = "ribbon";
             this.ribbon.PageHeaderItemLinks.Add(this.barHeaderItem1);
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -169,6 +175,13 @@ namespace ManagementStore.Form
             this.ribbonPageGroup_System.Name = "ribbonPageGroup_System";
             this.ribbonPageGroup_System.Text = "Home";
             // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.barCheckItem1);
+            this.ribbonPageGroup1.ItemLinks.Add(this.BarCheckConnect);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "Server Detect";
+            // 
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.BackColor = System.Drawing.Color.Black;
@@ -195,7 +208,7 @@ namespace ManagementStore.Form
             this.panelControlHandle.Controls.Add(this.labelControl2);
             this.panelControlHandle.Controls.Add(this.textEdit3);
             this.panelControlHandle.Controls.Add(this.labelControl1);
-            this.panelControlHandle.Controls.Add(this.textEdit1);
+            this.panelControlHandle.Controls.Add(this.textLPIn1);
             this.panelControlHandle.Controls.Add(this.simpleButtonReport);
             this.panelControlHandle.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControlHandle.Location = new System.Drawing.Point(0, 666);
@@ -233,15 +246,15 @@ namespace ManagementStore.Form
             this.labelControl1.TabIndex = 3;
             this.labelControl1.Text = "LP IN";
             // 
-            // textEdit1
+            // textLPIn1
             // 
-            this.textEdit1.Location = new System.Drawing.Point(157, 19);
-            this.textEdit1.MenuManager = this.ribbon;
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit1.Properties.Appearance.Options.UseFont = true;
-            this.textEdit1.Size = new System.Drawing.Size(304, 34);
-            this.textEdit1.TabIndex = 1;
+            this.textLPIn1.Location = new System.Drawing.Point(157, 19);
+            this.textLPIn1.MenuManager = this.ribbon;
+            this.textLPIn1.Name = "textLPIn1";
+            this.textLPIn1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textLPIn1.Properties.Appearance.Options.UseFont = true;
+            this.textLPIn1.Size = new System.Drawing.Size(304, 34);
+            this.textLPIn1.TabIndex = 1;
             // 
             // simpleButtonReport
             // 
@@ -265,79 +278,47 @@ namespace ManagementStore.Form
             // 
             // panelControlOut
             // 
-            this.panelControlOut.Controls.Add(this.cameraControlOut3);
-            this.panelControlOut.Controls.Add(this.cameraControlOut2);
-            this.panelControlOut.Controls.Add(this.cameraControlOut1);
             this.panelControlOut.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControlOut.Location = new System.Drawing.Point(2, 245);
+            this.panelControlOut.Location = new System.Drawing.Point(2, 366);
             this.panelControlOut.Name = "panelControlOut";
-            this.panelControlOut.Size = new System.Drawing.Size(1380, 238);
+            this.panelControlOut.Size = new System.Drawing.Size(1380, 117);
             this.panelControlOut.TabIndex = 1;
-            // 
-            // cameraControlOut3
-            // 
-            this.cameraControlOut3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cameraControlOut3.Location = new System.Drawing.Point(922, 2);
-            this.cameraControlOut3.Name = "cameraControlOut3";
-            this.cameraControlOut3.Size = new System.Drawing.Size(413, 236);
-            this.cameraControlOut3.TabIndex = 3;
-            this.cameraControlOut3.Text = "cameraControlOut3";
-            // 
-            // cameraControlOut2
-            // 
-            this.cameraControlOut2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cameraControlOut2.Location = new System.Drawing.Point(465, 1);
-            this.cameraControlOut2.Name = "cameraControlOut2";
-            this.cameraControlOut2.Size = new System.Drawing.Size(451, 237);
-            this.cameraControlOut2.TabIndex = 2;
-            this.cameraControlOut2.Text = "cameraControlOut2";
-            // 
-            // cameraControlOut1
-            // 
-            this.cameraControlOut1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cameraControlOut1.Location = new System.Drawing.Point(36, 1);
-            this.cameraControlOut1.Name = "cameraControlOut1";
-            this.cameraControlOut1.Size = new System.Drawing.Size(423, 237);
-            this.cameraControlOut1.TabIndex = 1;
-            this.cameraControlOut1.Text = "cameraControlOut1";
             // 
             // panelControlInPut
             // 
-            this.panelControlInPut.Controls.Add(this.cameraControlIn3);
-            this.panelControlInPut.Controls.Add(this.cameraControlIn2);
-            this.panelControlInPut.Controls.Add(this.cameraControlIn1);
+            this.panelControlInPut.Controls.Add(this.panelOut);
+            this.panelControlInPut.Controls.Add(this.panelIn);
+            this.panelControlInPut.Controls.Add(this.pictureBox2);
             this.panelControlInPut.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControlInPut.Location = new System.Drawing.Point(2, 2);
             this.panelControlInPut.Name = "panelControlInPut";
-            this.panelControlInPut.Size = new System.Drawing.Size(1380, 243);
+            this.panelControlInPut.Size = new System.Drawing.Size(1380, 364);
             this.panelControlInPut.TabIndex = 0;
             // 
-            // cameraControlIn3
+            // panelOut
             // 
-            this.cameraControlIn3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cameraControlIn3.Location = new System.Drawing.Point(922, -2);
-            this.cameraControlIn3.Name = "cameraControlIn3";
-            this.cameraControlIn3.Size = new System.Drawing.Size(413, 239);
-            this.cameraControlIn3.TabIndex = 2;
-            this.cameraControlIn3.Text = "cameraControlIn3";
+            this.panelOut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelOut.Location = new System.Drawing.Point(947, 5);
+            this.panelOut.Name = "panelOut";
+            this.panelOut.Size = new System.Drawing.Size(423, 326);
+            this.panelOut.TabIndex = 3;
             // 
-            // cameraControlIn2
+            // panelIn
             // 
-            this.cameraControlIn2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cameraControlIn2.Location = new System.Drawing.Point(465, -2);
-            this.cameraControlIn2.Name = "cameraControlIn2";
-            this.cameraControlIn2.Size = new System.Drawing.Size(451, 239);
-            this.cameraControlIn2.TabIndex = 1;
-            this.cameraControlIn2.Text = "cameraControlIn2";
+            this.panelIn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelIn.Location = new System.Drawing.Point(10, 5);
+            this.panelIn.Name = "panelIn";
+            this.panelIn.Size = new System.Drawing.Size(423, 326);
+            this.panelIn.TabIndex = 2;
             // 
-            // cameraControlIn1
+            // pictureBox2
             // 
-            this.cameraControlIn1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cameraControlIn1.Location = new System.Drawing.Point(36, 0);
-            this.cameraControlIn1.Name = "cameraControlIn1";
-            this.cameraControlIn1.Size = new System.Drawing.Size(423, 237);
-            this.cameraControlIn1.TabIndex = 0;
-            this.cameraControlIn1.Text = "cameraControlIn1";
+            this.pictureBox2.Image = global::ManagementStore.Properties.Resources.z4155616816568_012163cb7d19d9c79afe2d9fb9a59941__1_;
+            this.pictureBox2.Location = new System.Drawing.Point(465, 5);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(451, 326);
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
             // 
             // ribbonPageGroup1
             // 
@@ -383,18 +364,17 @@ namespace ManagementStore.Form
             this.Text = "DetectClient";
             this.Load += new System.EventHandler(this.DetectClient_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMarqueeProgressBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlHandle)).EndInit();
             this.panelControlHandle.ResumeLayout(false);
             this.panelControlHandle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textLPIn1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlMain)).EndInit();
             this.panelControlMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControlOut)).EndInit();
-            this.panelControlOut.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControlInPut)).EndInit();
             this.panelControlInPut.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeSpanEdit1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -411,18 +391,20 @@ namespace ManagementStore.Form
         private DevExpress.XtraEditors.PanelControl panelControlMain;
         private DevExpress.XtraEditors.PanelControl panelControlInPut;
         private DevExpress.XtraEditors.PanelControl panelControlOut;
-        private DevExpress.XtraEditors.Camera.CameraControl cameraControlOut3;
-        private DevExpress.XtraEditors.Camera.CameraControl cameraControlOut2;
-        private DevExpress.XtraEditors.Camera.CameraControl cameraControlOut1;
-        private DevExpress.XtraEditors.Camera.CameraControl cameraControlIn3;
-        private DevExpress.XtraEditors.Camera.CameraControl cameraControlIn2;
-        private DevExpress.XtraEditors.Camera.CameraControl cameraControlIn1;
         private DevExpress.XtraBars.BarHeaderItem barHeaderItem1;
         private DevExpress.XtraEditors.SimpleButton simpleButtonReport;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit textLPIn1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.TextEdit textEdit3;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private DevExpress.XtraBars.BarCheckItem barCheckItem1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        private DevExpress.XtraBars.BarEditItem barEditItem1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemMarqueeProgressBar repositoryItemMarqueeProgressBar1;
+        private DevExpress.XtraBars.BarCheckItem BarCheckConnect;
+        private System.Windows.Forms.Panel panelIn;
+        private System.Windows.Forms.Panel panelOut;
         private DevExpress.XtraBars.BarStaticItem barItemConnect;
         private DevExpress.XtraBars.BarStaticItem barItemIP;
         private DevExpress.XtraBars.BarStaticItem barStaticItem3;

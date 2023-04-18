@@ -33,6 +33,7 @@ namespace ManagementStore.Form.User
             this.groupControlInfo = new DevExpress.XtraEditors.GroupControl();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -40,8 +41,6 @@ namespace ManagementStore.Form.User
             this.birthdayDate = new DevExpress.XtraEditors.DateEdit();
             this.labelControlAddress = new DevExpress.XtraEditors.LabelControl();
             this.txtInputAddress = new DevExpress.XtraEditors.TextEdit();
-            this.labelControlPhone = new DevExpress.XtraEditors.LabelControl();
-            this.txtInputPhone = new DevExpress.XtraEditors.TextEdit();
             this.labelControlEmail = new DevExpress.XtraEditors.LabelControl();
             this.labelControlLname = new DevExpress.XtraEditors.LabelControl();
             this.labelControlFname = new DevExpress.XtraEditors.LabelControl();
@@ -63,7 +62,12 @@ namespace ManagementStore.Form.User
             this.PictureEditUser = new DevExpress.XtraEditors.PictureEdit();
             this.btnRegister = new DevExpress.XtraEditors.SimpleButton();
             this.hyperLinkLogin = new DevExpress.XtraEditors.HyperlinkLabelControl();
-            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.sButtonVerfication = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControlPhone = new DevExpress.XtraEditors.LabelControl();
+            this.txtInputPhone = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlInfo)).BeginInit();
             this.groupControlInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
@@ -72,7 +76,6 @@ namespace ManagementStore.Form.User
             ((System.ComponentModel.ISupportInitialize)(this.birthdayDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.birthdayDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInputAddress.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtInputPhone.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInputEmail.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInputLastname.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInputFirstname.Properties)).BeginInit();
@@ -81,6 +84,8 @@ namespace ManagementStore.Form.User
             ((System.ComponentModel.ISupportInitialize)(this.txtInputPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInputUsername.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureEditUser.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtInputPhone.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControlInfo
@@ -107,6 +112,12 @@ namespace ManagementStore.Form.User
             // 
             // xtraTabPage1
             // 
+            this.xtraTabPage1.Controls.Add(this.sButtonVerfication);
+            this.xtraTabPage1.Controls.Add(this.labelControl9);
+            this.xtraTabPage1.Controls.Add(this.labelControlPhone);
+            this.xtraTabPage1.Controls.Add(this.txtInputPhone);
+            this.xtraTabPage1.Controls.Add(this.labelControl10);
+            this.xtraTabPage1.Controls.Add(this.textEdit1);
             this.xtraTabPage1.Controls.Add(this.labelControl8);
             this.xtraTabPage1.Controls.Add(this.labelControl7);
             this.xtraTabPage1.Controls.Add(this.labelControl3);
@@ -115,8 +126,6 @@ namespace ManagementStore.Form.User
             this.xtraTabPage1.Controls.Add(this.birthdayDate);
             this.xtraTabPage1.Controls.Add(this.labelControlAddress);
             this.xtraTabPage1.Controls.Add(this.txtInputAddress);
-            this.xtraTabPage1.Controls.Add(this.labelControlPhone);
-            this.xtraTabPage1.Controls.Add(this.txtInputPhone);
             this.xtraTabPage1.Controls.Add(this.labelControlEmail);
             this.xtraTabPage1.Controls.Add(this.labelControlLname);
             this.xtraTabPage1.Controls.Add(this.labelControlFname);
@@ -127,12 +136,23 @@ namespace ManagementStore.Form.User
             this.xtraTabPage1.Size = new System.Drawing.Size(559, 317);
             this.xtraTabPage1.Text = "User Info";
             // 
+            // labelControl8
+            // 
+            this.labelControl8.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl8.Appearance.Options.UseForeColor = true;
+            this.labelControl8.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.labelControl8.Location = new System.Drawing.Point(507, 274);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(8, 16);
+            this.labelControl8.TabIndex = 36;
+            this.labelControl8.Text = "*";
+            // 
             // labelControl7
             // 
             this.labelControl7.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl7.Appearance.Options.UseForeColor = true;
             this.labelControl7.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.labelControl7.Location = new System.Drawing.Point(507, 124);
+            this.labelControl7.Location = new System.Drawing.Point(507, 183);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(8, 16);
             this.labelControl7.TabIndex = 35;
@@ -143,7 +163,7 @@ namespace ManagementStore.Form.User
             this.labelControl3.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl3.Appearance.Options.UseForeColor = true;
             this.labelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.labelControl3.Location = new System.Drawing.Point(507, 78);
+            this.labelControl3.Location = new System.Drawing.Point(507, 134);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(8, 16);
             this.labelControl3.TabIndex = 34;
@@ -154,7 +174,7 @@ namespace ManagementStore.Form.User
             this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl2.Appearance.Options.UseForeColor = true;
             this.labelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.labelControl2.Location = new System.Drawing.Point(507, 26);
+            this.labelControl2.Location = new System.Drawing.Point(507, 85);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(8, 16);
             this.labelControl2.TabIndex = 33;
@@ -177,7 +197,7 @@ namespace ManagementStore.Form.User
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.birthdayDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.birthdayDate.Size = new System.Drawing.Size(187, 22);
+            this.birthdayDate.Size = new System.Drawing.Size(124, 22);
             this.birthdayDate.TabIndex = 31;
             // 
             // labelControlAddress
@@ -195,27 +215,9 @@ namespace ManagementStore.Form.User
             this.txtInputAddress.Size = new System.Drawing.Size(363, 22);
             this.txtInputAddress.TabIndex = 29;
             // 
-            // labelControlPhone
-            // 
-            this.labelControlPhone.Location = new System.Drawing.Point(33, 176);
-            this.labelControlPhone.Name = "labelControlPhone";
-            this.labelControlPhone.Size = new System.Drawing.Size(40, 16);
-            this.labelControlPhone.TabIndex = 28;
-            this.labelControlPhone.Text = "Phone:";
-            // 
-            // txtInputPhone
-            // 
-            this.txtInputPhone.Location = new System.Drawing.Point(137, 173);
-            this.txtInputPhone.Name = "txtInputPhone";
-            this.txtInputPhone.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtInputPhone.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtInputPhone.Properties.MaxLength = 10;
-            this.txtInputPhone.Size = new System.Drawing.Size(363, 22);
-            this.txtInputPhone.TabIndex = 27;
-            // 
             // labelControlEmail
             // 
-            this.labelControlEmail.Location = new System.Drawing.Point(33, 124);
+            this.labelControlEmail.Location = new System.Drawing.Point(33, 183);
             this.labelControlEmail.Name = "labelControlEmail";
             this.labelControlEmail.Size = new System.Drawing.Size(36, 16);
             this.labelControlEmail.TabIndex = 26;
@@ -223,7 +225,7 @@ namespace ManagementStore.Form.User
             // 
             // labelControlLname
             // 
-            this.labelControlLname.Location = new System.Drawing.Point(33, 75);
+            this.labelControlLname.Location = new System.Drawing.Point(33, 134);
             this.labelControlLname.Name = "labelControlLname";
             this.labelControlLname.Size = new System.Drawing.Size(60, 16);
             this.labelControlLname.TabIndex = 25;
@@ -231,7 +233,7 @@ namespace ManagementStore.Form.User
             // 
             // labelControlFname
             // 
-            this.labelControlFname.Location = new System.Drawing.Point(33, 28);
+            this.labelControlFname.Location = new System.Drawing.Point(33, 87);
             this.labelControlFname.Name = "labelControlFname";
             this.labelControlFname.Size = new System.Drawing.Size(62, 16);
             this.labelControlFname.TabIndex = 24;
@@ -239,21 +241,21 @@ namespace ManagementStore.Form.User
             // 
             // txtInputEmail
             // 
-            this.txtInputEmail.Location = new System.Drawing.Point(137, 121);
+            this.txtInputEmail.Location = new System.Drawing.Point(137, 180);
             this.txtInputEmail.Name = "txtInputEmail";
             this.txtInputEmail.Size = new System.Drawing.Size(363, 22);
             this.txtInputEmail.TabIndex = 20;
             // 
             // txtInputLastname
             // 
-            this.txtInputLastname.Location = new System.Drawing.Point(137, 72);
+            this.txtInputLastname.Location = new System.Drawing.Point(137, 131);
             this.txtInputLastname.Name = "txtInputLastname";
             this.txtInputLastname.Size = new System.Drawing.Size(363, 22);
             this.txtInputLastname.TabIndex = 19;
             // 
             // txtInputFirstname
             // 
-            this.txtInputFirstname.Location = new System.Drawing.Point(137, 25);
+            this.txtInputFirstname.Location = new System.Drawing.Point(137, 84);
             this.txtInputFirstname.Name = "txtInputFirstname";
             this.txtInputFirstname.Size = new System.Drawing.Size(363, 22);
             this.txtInputFirstname.TabIndex = 18;
@@ -404,16 +406,58 @@ namespace ManagementStore.Form.User
             this.hyperLinkLogin.Text = "I have a account! login now";
             this.hyperLinkLogin.Click += new System.EventHandler(this.hyperLinkLogin_Click);
             // 
-            // labelControl8
+            // textEdit1
             // 
-            this.labelControl8.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl8.Appearance.Options.UseForeColor = true;
-            this.labelControl8.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.labelControl8.Location = new System.Drawing.Point(330, 275);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(8, 16);
-            this.labelControl8.TabIndex = 36;
-            this.labelControl8.Text = "*";
+            this.textEdit1.Location = new System.Drawing.Point(371, 272);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Size = new System.Drawing.Size(129, 22);
+            this.textEdit1.TabIndex = 38;
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(282, 275);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(79, 16);
+            this.labelControl10.TabIndex = 39;
+            this.labelControl10.Text = "License plate:";
+            // 
+            // sButtonVerfication
+            // 
+            this.sButtonVerfication.Location = new System.Drawing.Point(425, 30);
+            this.sButtonVerfication.Name = "sButtonVerfication";
+            this.sButtonVerfication.Size = new System.Drawing.Size(75, 22);
+            this.sButtonVerfication.TabIndex = 44;
+            this.sButtonVerfication.Text = "Verification";
+            this.sButtonVerfication.Click += new System.EventHandler(this.sButtonVerfication_Click);
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl9.Appearance.Options.UseForeColor = true;
+            this.labelControl9.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.labelControl9.Location = new System.Drawing.Point(402, 32);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(8, 16);
+            this.labelControl9.TabIndex = 43;
+            this.labelControl9.Text = "*";
+            // 
+            // labelControlPhone
+            // 
+            this.labelControlPhone.Location = new System.Drawing.Point(36, 32);
+            this.labelControlPhone.Name = "labelControlPhone";
+            this.labelControlPhone.Size = new System.Drawing.Size(40, 16);
+            this.labelControlPhone.TabIndex = 42;
+            this.labelControlPhone.Text = "Phone:";
+            // 
+            // txtInputPhone
+            // 
+            this.txtInputPhone.Location = new System.Drawing.Point(140, 29);
+            this.txtInputPhone.Name = "txtInputPhone";
+            this.txtInputPhone.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtInputPhone.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtInputPhone.Properties.MaxLength = 10;
+            this.txtInputPhone.Size = new System.Drawing.Size(253, 22);
+            this.txtInputPhone.TabIndex = 41;
             // 
             // Register
             // 
@@ -435,7 +479,6 @@ namespace ManagementStore.Form.User
             ((System.ComponentModel.ISupportInitialize)(this.birthdayDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.birthdayDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInputAddress.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtInputPhone.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInputEmail.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInputLastname.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInputFirstname.Properties)).EndInit();
@@ -445,6 +488,8 @@ namespace ManagementStore.Form.User
             ((System.ComponentModel.ISupportInitialize)(this.txtInputPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInputUsername.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureEditUser.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtInputPhone.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -461,8 +506,6 @@ namespace ManagementStore.Form.User
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private DevExpress.XtraEditors.LabelControl labelControlAddress;
         private DevExpress.XtraEditors.TextEdit txtInputAddress;
-        private DevExpress.XtraEditors.LabelControl labelControlPhone;
-        private DevExpress.XtraEditors.TextEdit txtInputPhone;
         private DevExpress.XtraEditors.LabelControl labelControlEmail;
         private DevExpress.XtraEditors.LabelControl labelControlLname;
         private DevExpress.XtraEditors.LabelControl labelControlFname;
@@ -485,5 +528,11 @@ namespace ManagementStore.Form.User
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.LabelControl labelControl8;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.SimpleButton sButtonVerfication;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.LabelControl labelControlPhone;
+        private DevExpress.XtraEditors.TextEdit txtInputPhone;
     }
 }
