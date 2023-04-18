@@ -33,6 +33,9 @@ namespace ManagementStore.Form
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barHeaderItem1 = new DevExpress.XtraBars.BarHeaderItem();
             this.barCheckItem1 = new DevExpress.XtraBars.BarCheckItem();
+            this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemMarqueeProgressBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemMarqueeProgressBar();
+            this.BarCheckConnect = new DevExpress.XtraBars.BarCheckItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup_System = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -47,14 +50,11 @@ namespace ManagementStore.Form
             this.panelControlMain = new DevExpress.XtraEditors.PanelControl();
             this.panelControlOut = new DevExpress.XtraEditors.PanelControl();
             this.panelControlInPut = new DevExpress.XtraEditors.PanelControl();
-            this.lbFPS = new System.Windows.Forms.Label();
-            this.cBoxOut1 = new System.Windows.Forms.ComboBox();
-            this.cBoxIn1 = new System.Windows.Forms.ComboBox();
-            this.pBoxOut1 = new System.Windows.Forms.PictureBox();
+            this.panelOut = new System.Windows.Forms.Panel();
+            this.panelIn = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pBoxIn1 = new System.Windows.Forms.PictureBox();
-            this.progressBarControlConnect = new DevExpress.XtraEditors.ProgressBarControl();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMarqueeProgressBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlHandle)).BeginInit();
             this.panelControlHandle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
@@ -64,10 +64,7 @@ namespace ManagementStore.Form
             ((System.ComponentModel.ISupportInitialize)(this.panelControlOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlInPut)).BeginInit();
             this.panelControlInPut.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pBoxOut1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pBoxIn1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarControlConnect.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -77,13 +74,17 @@ namespace ManagementStore.Form
             this.ribbon.ExpandCollapseItem,
             this.ribbon.SearchEditItem,
             this.barHeaderItem1,
-            this.barCheckItem1});
+            this.barCheckItem1,
+            this.barEditItem1,
+            this.BarCheckConnect});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 4;
+            this.ribbon.MaxItemId = 6;
             this.ribbon.Name = "ribbon";
             this.ribbon.PageHeaderItemLinks.Add(this.barHeaderItem1);
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
+            this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemMarqueeProgressBar1});
             this.ribbon.Size = new System.Drawing.Size(1384, 181);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
@@ -98,6 +99,26 @@ namespace ManagementStore.Form
             this.barCheckItem1.Caption = "Connect Server";
             this.barCheckItem1.Id = 3;
             this.barCheckItem1.Name = "barCheckItem1";
+            // 
+            // barEditItem1
+            // 
+            this.barEditItem1.Caption = "barEditItem1";
+            this.barEditItem1.Edit = this.repositoryItemMarqueeProgressBar1;
+            this.barEditItem1.Id = 4;
+            this.barEditItem1.Name = "barEditItem1";
+            // 
+            // repositoryItemMarqueeProgressBar1
+            // 
+            this.repositoryItemMarqueeProgressBar1.Name = "repositoryItemMarqueeProgressBar1";
+            // 
+            // BarCheckConnect
+            // 
+            this.BarCheckConnect.Caption = "Connect";
+            this.BarCheckConnect.CheckBoxVisibility = DevExpress.XtraBars.CheckBoxVisibility.BeforeText;
+            this.BarCheckConnect.CheckStyle = DevExpress.XtraBars.BarCheckStyles.Radio;
+            this.BarCheckConnect.Enabled = false;
+            this.BarCheckConnect.Id = 5;
+            this.BarCheckConnect.Name = "BarCheckConnect";
             // 
             // ribbonPage1
             // 
@@ -115,8 +136,9 @@ namespace ManagementStore.Form
             // ribbonPageGroup1
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.barCheckItem1);
+            this.ribbonPageGroup1.ItemLinks.Add(this.BarCheckConnect);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "Server Detect";
             // 
             // ribbonStatusBar
             // 
@@ -209,93 +231,51 @@ namespace ManagementStore.Form
             // panelControlOut
             // 
             this.panelControlOut.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControlOut.Location = new System.Drawing.Point(2, 276);
+            this.panelControlOut.Location = new System.Drawing.Point(2, 309);
             this.panelControlOut.Name = "panelControlOut";
-            this.panelControlOut.Size = new System.Drawing.Size(1380, 207);
+            this.panelControlOut.Size = new System.Drawing.Size(1380, 174);
             this.panelControlOut.TabIndex = 1;
             // 
             // panelControlInPut
             // 
-            this.panelControlInPut.Controls.Add(this.lbFPS);
-            this.panelControlInPut.Controls.Add(this.cBoxOut1);
-            this.panelControlInPut.Controls.Add(this.cBoxIn1);
-            this.panelControlInPut.Controls.Add(this.pBoxOut1);
+            this.panelControlInPut.Controls.Add(this.panelOut);
+            this.panelControlInPut.Controls.Add(this.panelIn);
             this.panelControlInPut.Controls.Add(this.pictureBox2);
-            this.panelControlInPut.Controls.Add(this.pBoxIn1);
             this.panelControlInPut.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControlInPut.Location = new System.Drawing.Point(2, 2);
             this.panelControlInPut.Name = "panelControlInPut";
-            this.panelControlInPut.Size = new System.Drawing.Size(1380, 274);
+            this.panelControlInPut.Size = new System.Drawing.Size(1380, 307);
             this.panelControlInPut.TabIndex = 0;
             // 
-            // lbFPS
+            // panelOut
             // 
-            this.lbFPS.AutoSize = true;
-            this.lbFPS.Location = new System.Drawing.Point(33, 243);
-            this.lbFPS.Name = "lbFPS";
-            this.lbFPS.Size = new System.Drawing.Size(34, 16);
-            this.lbFPS.TabIndex = 0;
-            this.lbFPS.Text = "FPS:";
+            this.panelOut.Location = new System.Drawing.Point(947, 5);
+            this.panelOut.Name = "panelOut";
+            this.panelOut.Size = new System.Drawing.Size(423, 286);
+            this.panelOut.TabIndex = 3;
             // 
-            // cBoxOut1
+            // panelIn
             // 
-            this.cBoxOut1.FormattingEnabled = true;
-            this.cBoxOut1.Location = new System.Drawing.Point(1213, 243);
-            this.cBoxOut1.Name = "cBoxOut1";
-            this.cBoxOut1.Size = new System.Drawing.Size(121, 24);
-            this.cBoxOut1.TabIndex = 1;
-            // 
-            // cBoxIn1
-            // 
-            this.cBoxIn1.FormattingEnabled = true;
-            this.cBoxIn1.Location = new System.Drawing.Point(338, 243);
-            this.cBoxIn1.Name = "cBoxIn1";
-            this.cBoxIn1.Size = new System.Drawing.Size(121, 24);
-            this.cBoxIn1.TabIndex = 0;
-            this.cBoxIn1.SelectedIndexChanged += new System.EventHandler(this.cBoxIn1_SelectedIndexChanged);
-            // 
-            // pBoxOut1
-            // 
-            this.pBoxOut1.Location = new System.Drawing.Point(911, 5);
-            this.pBoxOut1.Name = "pBoxOut1";
-            this.pBoxOut1.Size = new System.Drawing.Size(424, 232);
-            this.pBoxOut1.TabIndex = 2;
-            this.pBoxOut1.TabStop = false;
+            this.panelIn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelIn.Location = new System.Drawing.Point(10, 5);
+            this.panelIn.Name = "panelIn";
+            this.panelIn.Size = new System.Drawing.Size(423, 286);
+            this.panelIn.TabIndex = 2;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::ManagementStore.Properties.Resources.z4155616816568_012163cb7d19d9c79afe2d9fb9a59941__1_;
             this.pictureBox2.Location = new System.Drawing.Point(465, 5);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(440, 232);
+            this.pictureBox2.Size = new System.Drawing.Size(451, 286);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
-            // 
-            // pBoxIn1
-            // 
-            this.pBoxIn1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pBoxIn1.Location = new System.Drawing.Point(36, 5);
-            this.pBoxIn1.Name = "pBoxIn1";
-            this.pBoxIn1.Size = new System.Drawing.Size(423, 232);
-            this.pBoxIn1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pBoxIn1.TabIndex = 0;
-            this.pBoxIn1.TabStop = false;
-            this.pBoxIn1.Paint += new System.Windows.Forms.PaintEventHandler(this.pBoxIn1_Paint);
-            // 
-            // progressBarControlConnect
-            // 
-            this.progressBarControlConnect.Location = new System.Drawing.Point(1132, 736);
-            this.progressBarControlConnect.MenuManager = this.ribbon;
-            this.progressBarControlConnect.Name = "progressBarControlConnect";
-            this.progressBarControlConnect.Size = new System.Drawing.Size(194, 28);
-            this.progressBarControlConnect.TabIndex = 0;
             // 
             // DetectClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1384, 764);
-            this.Controls.Add(this.progressBarControlConnect);
             this.Controls.Add(this.panelControlMain);
             this.Controls.Add(this.panelControlHandle);
             this.Controls.Add(this.ribbonStatusBar);
@@ -306,6 +286,7 @@ namespace ManagementStore.Form
             this.Text = "DetectClient";
             this.Load += new System.EventHandler(this.DetectClient_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMarqueeProgressBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlHandle)).EndInit();
             this.panelControlHandle.ResumeLayout(false);
             this.panelControlHandle.PerformLayout();
@@ -316,11 +297,7 @@ namespace ManagementStore.Form
             ((System.ComponentModel.ISupportInitialize)(this.panelControlOut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlInPut)).EndInit();
             this.panelControlInPut.ResumeLayout(false);
-            this.panelControlInPut.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pBoxOut1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pBoxIn1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarControlConnect.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -343,14 +320,13 @@ namespace ManagementStore.Form
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.TextEdit textEdit3;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private System.Windows.Forms.PictureBox pBoxOut1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pBoxIn1;
-        private System.Windows.Forms.ComboBox cBoxIn1;
-        private DevExpress.XtraEditors.ProgressBarControl progressBarControlConnect;
         private DevExpress.XtraBars.BarCheckItem barCheckItem1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private System.Windows.Forms.ComboBox cBoxOut1;
-        private System.Windows.Forms.Label lbFPS;
+        private DevExpress.XtraBars.BarEditItem barEditItem1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemMarqueeProgressBar repositoryItemMarqueeProgressBar1;
+        private DevExpress.XtraBars.BarCheckItem BarCheckConnect;
+        private System.Windows.Forms.Panel panelIn;
+        private System.Windows.Forms.Panel panelOut;
     }
 }

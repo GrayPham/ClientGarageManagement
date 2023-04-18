@@ -45,6 +45,7 @@ namespace ManagementStore.Form
             this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnProduct = new DevExpress.XtraBars.BarButtonItem();
+            this.btnUserMgt = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage_Product = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup_System = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupProduct = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -57,7 +58,6 @@ namespace ManagementStore.Form
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonGroupEmployee = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnUserMgt = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -196,6 +196,13 @@ namespace ManagementStore.Form
             this.barBtnProduct.Name = "barBtnProduct";
             this.barBtnProduct.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnProduct_ItemClick);
             // 
+            // btnUserMgt
+            // 
+            this.btnUserMgt.Caption = "User Management";
+            this.btnUserMgt.Id = 18;
+            this.btnUserMgt.Name = "btnUserMgt";
+            this.btnUserMgt.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUserMgt_ItemClick);
+            // 
             // ribbonPage_Product
             // 
             this.ribbonPage_Product.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -281,13 +288,6 @@ namespace ManagementStore.Form
             this.ribbonGroupEmployee.ItemLinks.Add(this.barButtonItem3);
             this.ribbonGroupEmployee.Name = "ribbonGroupEmployee";
             this.ribbonGroupEmployee.Text = "Product Management";
-            // 
-            // btnUserMgt
-            // 
-            this.btnUserMgt.Caption = "User Management";
-            this.btnUserMgt.Id = 18;
-            this.btnUserMgt.Name = "btnUserMgt";
-            this.btnUserMgt.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUserMgt_ItemClick);
             // 
             // Main
             // 

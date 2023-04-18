@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraBars;
+using ManagementStore.Form.Camera;
 using ManagementStore.Form.Employee;
 using ManagementStore.Form.Production;
 using ManagementStore.Form.User;
@@ -22,6 +23,7 @@ namespace ManagementStore.Form
         public Main()
         {
             InitializeComponent();
+
         }
 
         UserServices userServices = new UserServices();

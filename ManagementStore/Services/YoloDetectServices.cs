@@ -1,5 +1,6 @@
 ﻿using ManagementStore.Common;
 using ManagementStore.DTO;
+using Microsoft.ML.OnnxRuntime;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -14,7 +15,19 @@ namespace ManagementStore.Services
     public class YoloDetectServices
     {
 
-        private YoloScorer<YoloCocoP5Model> scorer = new YoloScorer<YoloCocoP5Model>(ModelConfig.dataFolderPath + "/best.onnx");
+        private YoloScorer<YoloCocoP5Model> scorer;
+        public YoloDetectServices(bool cuda)
+        {
+            if (cuda)
+            {
+                scorer = new YoloScorer<YoloCocoP5Model>(ModelConfig.dataFolderPath + "/best.onnx", SessionOptions.MakeSessionOptionWithCudaProvider(0));
+
+            }
+            else
+            {
+                scorer = new YoloScorer<YoloCocoP5Model>(ModelConfig.dataFolderPath + "/best.onnx");
+            }
+        }
         public YoloModelDto detect(Image image)
         {
             Image imagebase = new Bitmap(image);
