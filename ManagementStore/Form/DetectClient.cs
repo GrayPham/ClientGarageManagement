@@ -6,55 +6,38 @@ using Connect.Common.Languages;
 using Connect.SocketClient;
 using DevExpress.Images;
 using Parking.App.Factory;
-using DevExpress.XtraCharts;
 using Emgu.CV;
-using Emgu.CV.Cuda;
-using Emgu.CV.CvEnum;
-using Emgu.CV.Structure;
 using ManagementStore.Common;
-using ManagementStore.DTO;
 using ManagementStore.Form.Camera;
-using ManagementStore.Services;
 using Parking.App.Contract.Common;
 using Parking.App.Interface.Common;
 using Parking.App.Language;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net.WebSockets;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Timers;
-using System.Windows.Forms;
 using Security;
 
 namespace ManagementStore.Form
 {
     public partial class DetectClient : DevExpress.XtraBars.Ribbon.RibbonForm, IProgramController
     {
-        private VideoCapture capture = new VideoCapture();
-        private int count = 0;
+        private VideoCapture _capture = new VideoCapture();
+        private int _count = 0;
 
         ILog _log;
-        protected ISocketClient _client;
-        protected System.Timers.Timer _timer;
-        protected int _counter;
-        public static int Counter = 10;
+        private ISocketClient _client;
+        private System.Timers.Timer _timer;
+        private int _counter;
+        private static int Counter = 10;
 
         // Connect Socket 
-        public SocketDetect encode = new SocketDetect();
+        private SocketDetect Encode = new SocketDetect();
         public DetectClient()
         {
             _log = ProgramFactory.Instance.Log;
             InitializeComponent();
-            loadCamera();
-            //loadCamera();
+            LoadCamera();
+
             // Connect FastAPI
-            if (encode.OpenConnect())
+            if (Encode.OpenConnect())
             {
                 ModelConfig.socketOpen = true;
             }
@@ -65,41 +48,38 @@ namespace ManagementStore.Form
             ProgramFactory.Instance.ProgramController = this;
             _log = ProgramFactory.Instance.Log;
             AddEventCommon();
-            barItemIP.Caption = " IP:" + ProgramFactory.Instance.IPServer;
+            barItemIP.Caption = "IP:" + ProgramFactory.Instance.IPServer;
             barItemVersion.Caption = LSystem.LVersion + ApplicationInfo.VersionName;
             barItemPort.Caption = string.Format(LSystem.LPort, ApplicationInfo.PortUser);
-            if (count > 1)
+            if (_count > 1)
             {
-                PictureControl pictureControl = new PictureControl(0, encode);
+                PictureControl pictureControl = new PictureControl(0, Encode);
                 panelIn.Controls.Add(pictureControl);
-                PictureControl pictureControl1 = new PictureControl(1, encode);
+                PictureControl pictureControl1 = new PictureControl(1, Encode);
                 panelOut.Controls.Add(pictureControl1);
             }
-            else if (count == 1)
+            else if (_count == 1)
             {
-                PictureControl pictureControl = new PictureControl(0, encode);
+                PictureControl pictureControl = new PictureControl(0, Encode);
                 panelIn.Controls.Add(pictureControl);
             }
         }
 
-        private void loadCamera()
+        private void LoadCamera()
         {
             for (int i = 0; i < 7; i++)
             {
-                capture = new VideoCapture(i);
+                _capture = new VideoCapture(i);
 
-                if (capture.IsOpened)
+                if (_capture.IsOpened)
                 {
-                    count++;
+                    _count++;
                 }
             }
 
         }
         #region IProgramController
-        void IProgramController.Close()
-        {
 
-        }
         public void ConnectSuccess(ServerInfo info)
         {
             if (_client == null) return;
@@ -107,7 +87,7 @@ namespace ManagementStore.Form
             _client.UpdateIP(info.IPServer);
             _client.UpdatePort(info.Port ?? 0);
 
-            barItemIP.Caption = " IP:" + info.IPServer;
+            barItemIP.Caption = "IP:" + info.IPServer;
             barItemVersion.Caption = "" + info.Port ?? 0 + "||" + LSystem.LVersion + ApplicationInfo.VersionName;
             _client.Connect();
         }
@@ -198,6 +178,7 @@ namespace ManagementStore.Form
                     mes = LSystem.LConnectionFailedReason_Default;
                     break;
             }
+            Console.WriteLine(mes);
             _client.Disconnect();
             _timer.Stop();
         }

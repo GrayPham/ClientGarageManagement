@@ -334,8 +334,6 @@ namespace ManagementStore.Form
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupExportData;
         private DevExpress.XtraBars.BarButtonItem barButtonItem10;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupNotify;
-        private DevExpress.XtraGrid.GridControl gridControlProduct;
-        private DevExpress.XtraGrid.Views.Card.CardView cardView1;
         private DevExpress.XtraBars.BarButtonItem barBtnProduct;
         public DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupEmployee;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageEmployee;

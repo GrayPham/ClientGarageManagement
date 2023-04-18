@@ -19,7 +19,6 @@ namespace Parking.App.Factory
         #region Singleton
 
         //**--------------------------------------------------------------------------------
-        //public MainForm ProgramController { get; set; }
         public event GeneralEventHandler<string> ClientConnected;
         public event GeneralEventHandler<string> ClientDisconnected;
         public event GeneralEventHandler<string> ClientReConnected;

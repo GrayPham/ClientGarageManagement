@@ -116,7 +116,6 @@ namespace Parking.App.Service.Handlers
                     break;
                 case FunctionResponseReLogin:
                     var reSessionInfo = SerializationHelper.Deserialize<SessionInfo>(data);
-                    //_semaWaiting.Set();
                     OnResponseReLogin(true, reSessionInfo);
                     break;
                 case FunctionResponseChangePassWord:
@@ -228,7 +227,6 @@ namespace Parking.App.Service.Handlers
         {
             if (!IsConnected)
             {
-                //Queue.Enqueue(()=>{ Send(FunctionCode.RequestAdd, SerializationHelper.Serialize(info), FrameID); });
                 return new ResultInfo() { Status = false, ErrorMessage = FWLanguages.LConnectFail };
             }
             _semaWaiting.Reset();
@@ -239,7 +237,7 @@ namespace Parking.App.Service.Handlers
         {
             if (!IsConnected)
             {
-                //Queue.Enqueue(()=>{ Send(FunctionCode.RequestAdd, SerializationHelper.Serialize(info), FrameID); });
+
                 return new ResultInfo() { Status = false, ErrorMessage = FWLanguages.LConnectFail };
             }
             _semaWaiting.Reset();
@@ -262,7 +260,6 @@ namespace Parking.App.Service.Handlers
             {
                 if (!IsConnected)
                 {
-                    //Queue.Enqueue(()=>{ Send(FunctionCode.RequestAdd, SerializationHelper.Serialize(info), FrameID); });
                     return new ResultInfo() { Status = false, ErrorMessage = FWLanguages.LConnectFail };
                 }
                 var _requestInfo = new RequestInfo();
@@ -302,7 +299,6 @@ namespace Parking.App.Service.Handlers
             {
                 if (!IsConnected)
                 {
-                    //Queue.Enqueue(()=>{ Send(FunctionCode.RequestAdd, SerializationHelper.Serialize(info), FrameID); });
                     return new ResultInfo() { Status = false, ErrorMessage = FWLanguages.LConnectFail };
                 }
                 var _requestInfo = new RequestInfo();
@@ -313,7 +309,6 @@ namespace Parking.App.Service.Handlers
                 }
                 catch (Exception ex)
                 {
-                    // SetErrored(this.GetType().Name, ex.Message, ex.StackTrace, "", ex);
                     Log.SError(this.GetType().Name, ex.Message, ex.StackTrace, System.Reflection.MethodBase.GetCurrentMethod().Name);
                 }
                 return _resultInfo;
@@ -325,7 +320,6 @@ namespace Parking.App.Service.Handlers
             {
                 if (!IsConnected)
                 {
-                    //Queue.Enqueue(()=>{ Send(FunctionCode.RequestAdd, SerializationHelper.Serialize(info), FrameID); });
                     return new ResultInfo() { Status = false, ErrorMessage = FWLanguages.LConnectFail };
                 }
                 var _requestInfo = new RequestInfo();
@@ -348,7 +342,6 @@ namespace Parking.App.Service.Handlers
                 }
                 catch (Exception ex)
                 {
-                    // SetErrored(this.GetType().Name, ex.Message, ex.StackTrace, "", ex);
                     Log.SError(this.GetType().Name, ex.Message, ex.StackTrace, System.Reflection.MethodBase.GetCurrentMethod().Name);
                 }
                 return _resultInfo;
@@ -359,7 +352,6 @@ namespace Parking.App.Service.Handlers
         {
             if (!IsConnected)
             {
-                //Queue.Enqueue(()=>{ Send(FunctionCode.RequestAdd, SerializationHelper.Serialize(info), FrameID); });
                 return new ResultInfo() { Status = false, ErrorMessage = FWLanguages.LConnectFail };
             }
             var dataSend = new DataRequestInfo(clientID, info);
@@ -382,7 +374,6 @@ namespace Parking.App.Service.Handlers
             {
                 if (!IsConnected)
                 {
-                    //Queue.Enqueue(()=>{ Send(FunctionCode.RequestAdd, SerializationHelper.Serialize(info), FrameID); });
                     return new ResultInfo() { Status = false, ErrorMessage = FWLanguages.LConnectFail };
                 }
                 var dataSend = new DataRequestInfo(clientID, info);

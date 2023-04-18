@@ -383,7 +383,6 @@ namespace ManagementStore.Form
         private DevExpress.XtraEditors.TextEdit textEdit3;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private DevExpress.XtraBars.BarCheckItem BarCheckConnect;
         private System.Windows.Forms.Panel panelIn;
         private System.Windows.Forms.Panel panelOut;
         private DevExpress.XtraBars.BarStaticItem barItemConnect;
