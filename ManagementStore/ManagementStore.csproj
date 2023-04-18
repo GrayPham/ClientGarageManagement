@@ -415,6 +415,10 @@
       <Project>{23CC9A0A-7EC9-49D0-83B0-5378E3EEC412}</Project>
       <Name>Parking.App.Language</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Security\Security.csproj">
+      <Project>{BFFDDE66-1270-4739-B011-4EE859E0BC52}</Project>
+      <Name>Security</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Yolov5Net.Scorer\Yolov5Net.Scorer.csproj">
       <Project>{e6065c1c-ecd7-4fac-9753-f6a888d144ab}</Project>
       <Name>Yolov5Net.Scorer</Name>

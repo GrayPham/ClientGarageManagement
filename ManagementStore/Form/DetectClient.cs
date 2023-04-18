@@ -30,6 +30,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
+using Security;
 
 namespace ManagementStore.Form
 {
@@ -38,14 +39,14 @@ namespace ManagementStore.Form
         private VideoCapture capture = new VideoCapture();
         private int count = 0;
 
-        private YoloDetectServices detect = new YoloDetectServices();
         ILog _log;
         protected ISocketClient _client;
         protected System.Timers.Timer _timer;
         protected int _counter;
         public static int Counter = 10;
 
-
+        // Connect Socket 
+        public SocketDetect encode = new SocketDetect();
         public DetectClient()
         {
             _log = ProgramFactory.Instance.Log;
@@ -67,27 +68,20 @@ namespace ManagementStore.Form
             barItemIP.Caption = " IP:" + ProgramFactory.Instance.IPServer;
             barItemVersion.Caption = LSystem.LVersion + ApplicationInfo.VersionName;
             barItemPort.Caption = string.Format(LSystem.LPort, ApplicationInfo.PortUser);
-        }
-        private void ProcessFrame(object sender, EventArgs arg)
-        {
-            //Image image = new Image();
-            //detect.detect(image);
-
-        private void DetectClient_Load(object sender, EventArgs e)
-        {
-            if(count > 1)
+            if (count > 1)
             {
                 PictureControl pictureControl = new PictureControl(0, encode);
                 panelIn.Controls.Add(pictureControl);
                 PictureControl pictureControl1 = new PictureControl(1, encode);
                 panelOut.Controls.Add(pictureControl1);
-            }else if (count == 1)
+            }
+            else if (count == 1)
             {
                 PictureControl pictureControl = new PictureControl(0, encode);
                 panelIn.Controls.Add(pictureControl);
             }
-
         }
+
         private void loadCamera()
         {
             for (int i = 0; i < 7; i++)

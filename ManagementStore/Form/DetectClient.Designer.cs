@@ -39,7 +39,6 @@ namespace ManagementStore.Form
             this.barItemVersion = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup_System = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.barBtn_Profile = new DevExpress.XtraBars.BarButtonItem();
             this.panelControlHandle = new DevExpress.XtraEditors.PanelControl();
@@ -54,15 +53,10 @@ namespace ManagementStore.Form
             this.panelOut = new System.Windows.Forms.Panel();
             this.panelIn = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.cameraControlIn3 = new DevExpress.XtraEditors.Camera.CameraControl();
-            this.cameraControlIn2 = new DevExpress.XtraEditors.Camera.CameraControl();
-            this.cameraControlIn1 = new DevExpress.XtraEditors.Camera.CameraControl();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.repositoryItemTimeSpanEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeSpanEdit();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMarqueeProgressBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlHandle)).BeginInit();
             this.panelControlHandle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
@@ -79,21 +73,6 @@ namespace ManagementStore.Form
             // ribbon
             // 
             this.ribbon.ExpandCollapseItem.Id = 0;
-            this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbon.ExpandCollapseItem,
-            this.ribbon.SearchEditItem,
-            this.barHeaderItem1,
-            this.barItemConnect,
-            this.barItemIP,
-            this.barStaticItem3,
-            this.barItemPort,
-            this.barItemVersion,
-            this.skinRibbonGalleryBarItem1,
-            this.barStaticItem1});
-            this.barHeaderItem1,
-            this.barCheckItem1,
-            this.barEditItem1,
-            this.BarCheckConnect});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.MaxItemId = 6;
             this.ribbon.Name = "ribbon";
@@ -164,9 +143,6 @@ namespace ManagementStore.Form
             // 
             // ribbonPage1
             // 
-            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup_System,
-            this.ribbonPageGroup1});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Detect Page";
             // 
@@ -177,10 +153,6 @@ namespace ManagementStore.Form
             // 
             // ribbonPageGroup1
             // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.barCheckItem1);
-            this.ribbonPageGroup1.ItemLinks.Add(this.BarCheckConnect);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "Server Detect";
             // 
             // ribbonStatusBar
             // 
@@ -322,9 +294,6 @@ namespace ManagementStore.Form
             // 
             // ribbonPageGroup1
             // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.skinRibbonGalleryBarItem1);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "Theme";
             // 
             // skinRibbonGalleryBarItem1
             // 
@@ -364,7 +333,6 @@ namespace ManagementStore.Form
             this.Text = "DetectClient";
             this.Load += new System.EventHandler(this.DetectClient_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMarqueeProgressBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlHandle)).EndInit();
             this.panelControlHandle.ResumeLayout(false);
             this.panelControlHandle.PerformLayout();
@@ -398,10 +366,6 @@ namespace ManagementStore.Form
         private DevExpress.XtraEditors.TextEdit textEdit3;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private DevExpress.XtraBars.BarCheckItem barCheckItem1;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraBars.BarEditItem barEditItem1;
-        private DevExpress.XtraEditors.Repository.RepositoryItemMarqueeProgressBar repositoryItemMarqueeProgressBar1;
         private DevExpress.XtraBars.BarCheckItem BarCheckConnect;
         private System.Windows.Forms.Panel panelIn;
         private System.Windows.Forms.Panel panelOut;
@@ -411,7 +375,6 @@ namespace ManagementStore.Form
         private DevExpress.XtraBars.BarStaticItem barItemPort;
         private DevExpress.XtraBars.BarStaticItem barItemVersion;
         private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem1;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraEditors.Repository.RepositoryItemTimeSpanEdit repositoryItemTimeSpanEdit1;
         private DevExpress.XtraBars.BarStaticItem barStaticItem1;
     }
