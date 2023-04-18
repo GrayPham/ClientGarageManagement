@@ -66,7 +66,7 @@ namespace ManagementStore.Form.Camera
                 try
                 {
                     capture = new VideoCapture(cameraindex);
-                    cBoxIn1.SelectedIndex = 0;
+                    cBoxIn1.SelectedIndex = cameraindex;
                 }
                 catch (NullReferenceException excpt)
                 {
@@ -79,9 +79,9 @@ namespace ManagementStore.Form.Camera
             if (captureInProgress)
             {
                 double brightness = trackBarBrightness.Value;
-                // Tính giá trị contrast dựa trên giá trị brightness
+                // brightness
                 double contrast = Math.Pow((100.0 + brightness) / 100.0, 2);
-                Image<Bgr, Byte> ImageFrame = capture.QueryFrame().ToImage<Bgr, byte>();  //line 1
+                Image<Bgr, Byte> ImageFrame =  capture.QueryFrame().ToImage<Bgr, byte>();  //line 1
                 CvInvoke.ConvertScaleAbs(ImageFrame, ImageFrame, contrast, brightness);
                 Image image = ImageFrame.ToBitmap();
                 dto = detect.detect(image);
@@ -147,7 +147,7 @@ namespace ManagementStore.Form.Camera
             {
                 cameraindex = cBoxIn1.SelectedIndex;
                 captureInProgress = true;
-                capture = new VideoCapture(cameraindex);
+                //capture = new VideoCapture(cameraindex); // BUG
                 Application.Idle += ProcessFrame;
             }
             else

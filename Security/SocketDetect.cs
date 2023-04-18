@@ -116,7 +116,7 @@ namespace Security
                 }
             }
 
-            catch (Exception ex)
+            catch (WebSocketException ex)
             {
                 return "Exception:" + ex.Message;
             }

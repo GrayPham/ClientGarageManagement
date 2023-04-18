@@ -48,6 +48,7 @@ namespace ManagementStore.Form.Camera
             this.pictureBoxCamera.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxCamera.Name = "pictureBoxCamera";
             this.pictureBoxCamera.Size = new System.Drawing.Size(423, 232);
+            this.pictureBoxCamera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxCamera.TabIndex = 0;
             this.pictureBoxCamera.TabStop = false;
             this.pictureBoxCamera.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxCamera_Paint);

@@ -231,9 +231,9 @@ namespace ManagementStore.Form
             // panelControlOut
             // 
             this.panelControlOut.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControlOut.Location = new System.Drawing.Point(2, 309);
+            this.panelControlOut.Location = new System.Drawing.Point(2, 366);
             this.panelControlOut.Name = "panelControlOut";
-            this.panelControlOut.Size = new System.Drawing.Size(1380, 174);
+            this.panelControlOut.Size = new System.Drawing.Size(1380, 117);
             this.panelControlOut.TabIndex = 1;
             // 
             // panelControlInPut
@@ -244,14 +244,15 @@ namespace ManagementStore.Form
             this.panelControlInPut.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControlInPut.Location = new System.Drawing.Point(2, 2);
             this.panelControlInPut.Name = "panelControlInPut";
-            this.panelControlInPut.Size = new System.Drawing.Size(1380, 307);
+            this.panelControlInPut.Size = new System.Drawing.Size(1380, 364);
             this.panelControlInPut.TabIndex = 0;
             // 
             // panelOut
             // 
+            this.panelOut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelOut.Location = new System.Drawing.Point(947, 5);
             this.panelOut.Name = "panelOut";
-            this.panelOut.Size = new System.Drawing.Size(423, 286);
+            this.panelOut.Size = new System.Drawing.Size(423, 326);
             this.panelOut.TabIndex = 3;
             // 
             // panelIn
@@ -259,7 +260,7 @@ namespace ManagementStore.Form
             this.panelIn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelIn.Location = new System.Drawing.Point(10, 5);
             this.panelIn.Name = "panelIn";
-            this.panelIn.Size = new System.Drawing.Size(423, 286);
+            this.panelIn.Size = new System.Drawing.Size(423, 326);
             this.panelIn.TabIndex = 2;
             // 
             // pictureBox2
@@ -267,7 +268,7 @@ namespace ManagementStore.Form
             this.pictureBox2.Image = global::ManagementStore.Properties.Resources.z4155616816568_012163cb7d19d9c79afe2d9fb9a59941__1_;
             this.pictureBox2.Location = new System.Drawing.Point(465, 5);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(451, 286);
+            this.pictureBox2.Size = new System.Drawing.Size(451, 326);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
