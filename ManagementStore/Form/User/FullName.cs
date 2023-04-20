@@ -12,22 +12,21 @@ using System.Windows.Forms;
 
 namespace ManagementStore.Form.User
 {
-    public partial class InformationUser : System.Windows.Forms.UserControl
+    public partial class FullName : System.Windows.Forms.UserControl
     {
-        public InformationUser()
+        public FullName()
         {
             InitializeComponent();
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            Utils.Forward(ParentForm, "pictureBoxInfo", "pictureBoxName", "FullName");
-
+            Utils.Forward(ParentForm, "pictureBoxName", "pictureBoxFace", "FaceTaken");
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
-            Utils.Back(ParentForm, "pictureBoxInfo", "pictureBoxOTP", "PhoneOTP");
+            Utils.Back(ParentForm, "pictureBoxName", "pictureBoxInfo", "InformationUser");
 
         }
     }

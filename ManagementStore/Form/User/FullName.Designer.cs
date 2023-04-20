@@ -1,7 +1,7 @@
 ﻿
 namespace ManagementStore.Form.User
 {
-    partial class FaceTaken
+    partial class FullName
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,23 +29,9 @@ namespace ManagementStore.Form.User
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnDone = new DevExpress.XtraEditors.SimpleButton();
             this.btnPrev = new DevExpress.XtraEditors.SimpleButton();
+            this.btnNext = new DevExpress.XtraEditors.SimpleButton();
             this.SuspendLayout();
-            // 
-            // btnDone
-            // 
-            this.btnDone.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
-            this.btnDone.Appearance.BorderColor = System.Drawing.Color.White;
-            this.btnDone.Appearance.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDone.Appearance.Options.UseBackColor = true;
-            this.btnDone.Appearance.Options.UseBorderColor = true;
-            this.btnDone.Appearance.Options.UseFont = true;
-            this.btnDone.Location = new System.Drawing.Point(322, 630);
-            this.btnDone.Name = "btnDone";
-            this.btnDone.Size = new System.Drawing.Size(248, 92);
-            this.btnDone.TabIndex = 43;
-            this.btnDone.Text = "Hoàn tất";
             // 
             // btnPrev
             // 
@@ -55,27 +41,43 @@ namespace ManagementStore.Form.User
             this.btnPrev.Appearance.Options.UseBackColor = true;
             this.btnPrev.Appearance.Options.UseBorderColor = true;
             this.btnPrev.Appearance.Options.UseFont = true;
-            this.btnPrev.Location = new System.Drawing.Point(20, 630);
+            this.btnPrev.Location = new System.Drawing.Point(23, 621);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(234, 92);
-            this.btnPrev.TabIndex = 44;
+            this.btnPrev.TabIndex = 42;
             this.btnPrev.Text = "Previous";
             this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
             // 
-            // FaceTaken
+            // btnNext
+            // 
+            this.btnNext.Appearance.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnNext.Appearance.BorderColor = System.Drawing.Color.White;
+            this.btnNext.Appearance.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNext.Appearance.Options.UseBackColor = true;
+            this.btnNext.Appearance.Options.UseBorderColor = true;
+            this.btnNext.Appearance.Options.UseFont = true;
+            this.btnNext.Location = new System.Drawing.Point(335, 621);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(234, 92);
+            this.btnNext.TabIndex = 41;
+            this.btnNext.Text = "Next";
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // FullName
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnPrev);
-            this.Controls.Add(this.btnDone);
-            this.Name = "FaceTaken";
+            this.Controls.Add(this.btnNext);
+            this.Name = "FullName";
             this.Size = new System.Drawing.Size(589, 749);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private DevExpress.XtraEditors.SimpleButton btnDone;
+
         private DevExpress.XtraEditors.SimpleButton btnPrev;
+        private DevExpress.XtraEditors.SimpleButton btnNext;
     }
 }

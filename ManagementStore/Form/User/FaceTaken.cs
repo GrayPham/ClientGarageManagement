@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using ManagementStore.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,12 @@ namespace ManagementStore.Form.User
         public FaceTaken()
         {
             InitializeComponent();
+        }
+
+        private void btnPrev_Click(object sender, EventArgs e)
+        {
+            Utils.Back(ParentForm, "pictureBoxFace", "pictureBoxName", "FullName");
+
         }
     }
 }

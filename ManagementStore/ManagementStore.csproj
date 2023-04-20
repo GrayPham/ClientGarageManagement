@@ -273,6 +273,12 @@
     <Compile Include="Form\User\FaceTaken.Designer.cs">
       <DependentUpon>FaceTaken.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\User\FullName.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\User\FullName.Designer.cs">
+      <DependentUpon>FullName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\User\Guest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -380,6 +386,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\User\FaceTaken.resx">
       <DependentUpon>FaceTaken.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\User\FullName.resx">
+      <DependentUpon>FullName.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\User\Guest.resx">
       <DependentUpon>Guest.cs</DependentUpon>

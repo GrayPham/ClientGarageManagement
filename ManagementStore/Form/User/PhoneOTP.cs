@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using ManagementStore.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,16 @@ namespace ManagementStore.Form.User
         public PhoneOTP()
         {
             InitializeComponent();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            Utils.Forward(ParentForm, "pictureBoxOTP", "pictureBoxInfo", "InformationUser");
+        }
+
+        private void btnOTP_Click(object sender, EventArgs e)
+        {
+            Utils.Back(ParentForm, "pictureBoxOTP", "pictureBoxPhone", "PhoneNumber");
         }
     }
 }

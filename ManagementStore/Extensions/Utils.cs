@@ -32,7 +32,7 @@ namespace ManagementStore.Extensions
             curImage.Image = Properties.Resources.pending;
             PictureBox preImage = (PictureBox)parentForm.Controls.Find(prevPictureBox, true)[0];
             preImage.Image = Properties.Resources.current;
-            parentForm.Controls.Find("panelSlider", true)[0].Controls.Find(prevPictureBox, true)[0].BringToFront();
+            parentForm.Controls.Find("panelSlider", true)[0].Controls.Find(prevPageName, true)[0].BringToFront();
         }
     }
 }
