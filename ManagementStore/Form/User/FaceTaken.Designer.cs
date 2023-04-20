@@ -33,10 +33,10 @@ namespace ManagementStore.Form.User
             // 
             // FaceTaken
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "FaceTaken";
-            this.Size = new System.Drawing.Size(613, 605);
+            this.Size = new System.Drawing.Size(589, 749);
             this.ResumeLayout(false);
 
         }

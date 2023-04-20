@@ -30,39 +30,37 @@ namespace ManagementStore.Form.User
         private void InitializeComponent()
         {
             this.sidePanel1 = new DevExpress.XtraEditors.SidePanel();
-            this.sidePanel5 = new DevExpress.XtraEditors.SidePanel();
+            this.panelSlider = new DevExpress.XtraEditors.SidePanel();
             this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             this.sidePanel4 = new DevExpress.XtraEditors.SidePanel();
-            this.sidePanel3 = new DevExpress.XtraEditors.SidePanel();
-            this.sidePanel2 = new DevExpress.XtraEditors.SidePanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.labelFace = new DevExpress.XtraEditors.LabelControl();
+            this.labelCreate = new DevExpress.XtraEditors.LabelControl();
+            this.labelInfo = new DevExpress.XtraEditors.LabelControl();
+            this.labelPhone = new DevExpress.XtraEditors.LabelControl();
+            this.pictureBoxCreate = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFace = new System.Windows.Forms.PictureBox();
+            this.pictureBoxInfo = new System.Windows.Forms.PictureBox();
+            this.pictureBoxPhone = new System.Windows.Forms.PictureBox();
             this.separatorControl2 = new DevExpress.XtraEditors.SeparatorControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.sidePanel2 = new DevExpress.XtraEditors.SidePanel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.sidePanel1.SuspendLayout();
-            this.sidePanel5.SuspendLayout();
+            this.panelSlider.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
             this.sidePanel4.SuspendLayout();
-            this.sidePanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCreate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInfo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhone)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).BeginInit();
+            this.sidePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // sidePanel1
             // 
-            this.sidePanel1.Controls.Add(this.sidePanel5);
+            this.sidePanel1.Controls.Add(this.panelSlider);
             this.sidePanel1.Controls.Add(this.sidePanel4);
-            this.sidePanel1.Controls.Add(this.sidePanel3);
             this.sidePanel1.Controls.Add(this.sidePanel2);
             this.sidePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidePanel1.Location = new System.Drawing.Point(0, 0);
@@ -71,14 +69,14 @@ namespace ManagementStore.Form.User
             this.sidePanel1.TabIndex = 0;
             this.sidePanel1.Text = "sidePanel1";
             // 
-            // sidePanel5
+            // panelSlider
             // 
-            this.sidePanel5.Controls.Add(this.separatorControl1);
-            this.sidePanel5.Location = new System.Drawing.Point(210, 200);
-            this.sidePanel5.Name = "sidePanel5";
-            this.sidePanel5.Size = new System.Drawing.Size(613, 605);
-            this.sidePanel5.TabIndex = 3;
-            this.sidePanel5.Text = "sidePanel5";
+            this.panelSlider.Controls.Add(this.separatorControl1);
+            this.panelSlider.Location = new System.Drawing.Point(275, 206);
+            this.panelSlider.Name = "panelSlider";
+            this.panelSlider.Size = new System.Drawing.Size(551, 749);
+            this.panelSlider.TabIndex = 3;
+            this.panelSlider.Text = "panelSlider";
             // 
             // separatorControl1
             // 
@@ -89,124 +87,121 @@ namespace ManagementStore.Form.User
             // 
             // sidePanel4
             // 
-            this.sidePanel4.Controls.Add(this.labelControl3);
-            this.sidePanel4.Controls.Add(this.labelControl4);
-            this.sidePanel4.Controls.Add(this.labelControl2);
-            this.sidePanel4.Controls.Add(this.labelControl1);
-            this.sidePanel4.Controls.Add(this.pictureBox4);
-            this.sidePanel4.Controls.Add(this.pictureBox3);
-            this.sidePanel4.Controls.Add(this.pictureBox2);
-            this.sidePanel4.Controls.Add(this.pictureBox1);
+            this.sidePanel4.Appearance.BackColor = System.Drawing.Color.LightGray;
+            this.sidePanel4.Appearance.Options.UseBackColor = true;
+            this.sidePanel4.Controls.Add(this.labelFace);
+            this.sidePanel4.Controls.Add(this.labelCreate);
+            this.sidePanel4.Controls.Add(this.labelInfo);
+            this.sidePanel4.Controls.Add(this.labelPhone);
+            this.sidePanel4.Controls.Add(this.pictureBoxCreate);
+            this.sidePanel4.Controls.Add(this.pictureBoxFace);
+            this.sidePanel4.Controls.Add(this.pictureBoxInfo);
+            this.sidePanel4.Controls.Add(this.pictureBoxPhone);
             this.sidePanel4.Controls.Add(this.separatorControl2);
-            this.sidePanel4.Location = new System.Drawing.Point(0, 200);
+            this.sidePanel4.Location = new System.Drawing.Point(0, 206);
             this.sidePanel4.Name = "sidePanel4";
-            this.sidePanel4.Size = new System.Drawing.Size(204, 605);
+            this.sidePanel4.Size = new System.Drawing.Size(239, 749);
             this.sidePanel4.TabIndex = 2;
             this.sidePanel4.Text = "sidePanel4";
             // 
-            // sidePanel3
+            // labelFace
             // 
-            this.sidePanel3.Location = new System.Drawing.Point(3, 811);
-            this.sidePanel3.Name = "sidePanel3";
-            this.sidePanel3.Size = new System.Drawing.Size(823, 147);
-            this.sidePanel3.TabIndex = 1;
-            this.sidePanel3.Text = "sidePanel3";
+            this.labelFace.Location = new System.Drawing.Point(68, 432);
+            this.labelFace.Name = "labelFace";
+            this.labelFace.Size = new System.Drawing.Size(104, 17);
+            this.labelFace.TabIndex = 7;
+            this.labelFace.Text = "Chụp khuôn mặt";
+            // 
+            // labelCreate
+            // 
+            this.labelCreate.Location = new System.Drawing.Point(78, 581);
+            this.labelCreate.Name = "labelCreate";
+            this.labelCreate.Size = new System.Drawing.Size(83, 17);
+            this.labelCreate.TabIndex = 8;
+            this.labelCreate.Text = "Tạo tài khoản";
+            // 
+            // labelInfo
+            // 
+            this.labelInfo.Location = new System.Drawing.Point(47, 283);
+            this.labelInfo.Name = "labelInfo";
+            this.labelInfo.Size = new System.Drawing.Size(145, 17);
+            this.labelInfo.TabIndex = 6;
+            this.labelInfo.Text = "Nhập thông tin cá nhân";
+            // 
+            // labelPhone
+            // 
+            this.labelPhone.Location = new System.Drawing.Point(64, 135);
+            this.labelPhone.Name = "labelPhone";
+            this.labelPhone.Size = new System.Drawing.Size(113, 17);
+            this.labelPhone.TabIndex = 5;
+            this.labelPhone.Text = "Nhập số điện thoại";
+            // 
+            // pictureBoxCreate
+            // 
+            this.pictureBoxCreate.Image = global::ManagementStore.Properties.Resources.pending;
+            this.pictureBoxCreate.Location = new System.Drawing.Point(70, 507);
+            this.pictureBoxCreate.Name = "pictureBoxCreate";
+            this.pictureBoxCreate.Size = new System.Drawing.Size(100, 68);
+            this.pictureBoxCreate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxCreate.TabIndex = 3;
+            this.pictureBoxCreate.TabStop = false;
+            // 
+            // pictureBoxFace
+            // 
+            this.pictureBoxFace.Image = global::ManagementStore.Properties.Resources.pending;
+            this.pictureBoxFace.Location = new System.Drawing.Point(70, 358);
+            this.pictureBoxFace.Name = "pictureBoxFace";
+            this.pictureBoxFace.Size = new System.Drawing.Size(100, 68);
+            this.pictureBoxFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxFace.TabIndex = 2;
+            this.pictureBoxFace.TabStop = false;
+            // 
+            // pictureBoxInfo
+            // 
+            this.pictureBoxInfo.Image = global::ManagementStore.Properties.Resources.pending;
+            this.pictureBoxInfo.Location = new System.Drawing.Point(70, 209);
+            this.pictureBoxInfo.Name = "pictureBoxInfo";
+            this.pictureBoxInfo.Size = new System.Drawing.Size(100, 68);
+            this.pictureBoxInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxInfo.TabIndex = 1;
+            this.pictureBoxInfo.TabStop = false;
+            // 
+            // pictureBoxPhone
+            // 
+            this.pictureBoxPhone.Image = global::ManagementStore.Properties.Resources.current;
+            this.pictureBoxPhone.Location = new System.Drawing.Point(70, 61);
+            this.pictureBoxPhone.Name = "pictureBoxPhone";
+            this.pictureBoxPhone.Size = new System.Drawing.Size(100, 68);
+            this.pictureBoxPhone.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxPhone.TabIndex = 0;
+            this.pictureBoxPhone.TabStop = false;
+            // 
+            // separatorControl2
+            // 
+            this.separatorControl2.BackColor = System.Drawing.Color.LightGray;
+            this.separatorControl2.LineColor = System.Drawing.Color.Gray;
+            this.separatorControl2.LineOrientation = System.Windows.Forms.Orientation.Vertical;
+            this.separatorControl2.Location = new System.Drawing.Point(108, 80);
+            this.separatorControl2.Name = "separatorControl2";
+            this.separatorControl2.Size = new System.Drawing.Size(25, 463);
+            this.separatorControl2.TabIndex = 4;
             // 
             // sidePanel2
             // 
             this.sidePanel2.Controls.Add(this.pictureBox5);
             this.sidePanel2.Location = new System.Drawing.Point(3, 3);
             this.sidePanel2.Name = "sidePanel2";
-            this.sidePanel2.Size = new System.Drawing.Size(820, 191);
+            this.sidePanel2.Size = new System.Drawing.Size(820, 205);
             this.sidePanel2.TabIndex = 0;
             this.sidePanel2.Text = "sidePanel2";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ManagementStore.Properties.Resources.current;
-            this.pictureBox1.Location = new System.Drawing.Point(60, 51);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 68);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::ManagementStore.Properties.Resources.pending;
-            this.pictureBox2.Location = new System.Drawing.Point(60, 199);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 68);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::ManagementStore.Properties.Resources.pending;
-            this.pictureBox3.Location = new System.Drawing.Point(60, 348);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(100, 68);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::ManagementStore.Properties.Resources.pending;
-            this.pictureBox4.Location = new System.Drawing.Point(60, 497);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(100, 68);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 3;
-            this.pictureBox4.TabStop = false;
-            // 
-            // separatorControl2
-            // 
-            this.separatorControl2.LineOrientation = System.Windows.Forms.Orientation.Vertical;
-            this.separatorControl2.Location = new System.Drawing.Point(98, 70);
-            this.separatorControl2.Name = "separatorControl2";
-            this.separatorControl2.Size = new System.Drawing.Size(25, 463);
-            this.separatorControl2.TabIndex = 4;
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(54, 125);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(113, 17);
-            this.labelControl1.TabIndex = 5;
-            this.labelControl1.Text = "Nhập số điện thoại";
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Location = new System.Drawing.Point(37, 273);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(145, 17);
-            this.labelControl2.TabIndex = 6;
-            this.labelControl2.Text = "Nhập thông tin cá nhân";
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Location = new System.Drawing.Point(58, 422);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(104, 17);
-            this.labelControl3.TabIndex = 7;
-            this.labelControl3.Text = "Chụp khuôn mặt";
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Location = new System.Drawing.Point(68, 571);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(83, 17);
-            this.labelControl4.TabIndex = 8;
-            this.labelControl4.Text = "Tạo tài khoản";
-            // 
             // pictureBox5
             // 
+            this.pictureBox5.BackColor = System.Drawing.Color.RoyalBlue;
             this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox5.Location = new System.Drawing.Point(0, 0);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(820, 191);
+            this.pictureBox5.Size = new System.Drawing.Size(820, 205);
             this.pictureBox5.TabIndex = 0;
             this.pictureBox5.TabStop = false;
             // 
@@ -219,16 +214,16 @@ namespace ManagementStore.Form.User
             this.Name = "RegisterUser";
             this.Text = "RegisterUser";
             this.sidePanel1.ResumeLayout(false);
-            this.sidePanel5.ResumeLayout(false);
+            this.panelSlider.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
             this.sidePanel4.ResumeLayout(false);
             this.sidePanel4.PerformLayout();
-            this.sidePanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCreate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhone)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).EndInit();
+            this.sidePanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
@@ -237,20 +232,19 @@ namespace ManagementStore.Form.User
         #endregion
 
         private DevExpress.XtraEditors.SidePanel sidePanel1;
-        private DevExpress.XtraEditors.SidePanel sidePanel5;
+        private DevExpress.XtraEditors.SidePanel panelSlider;
         private DevExpress.XtraEditors.SidePanel sidePanel4;
-        private DevExpress.XtraEditors.SidePanel sidePanel3;
         private DevExpress.XtraEditors.SidePanel sidePanel2;
         private DevExpress.XtraEditors.SeparatorControl separatorControl1;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LabelControl labelFace;
+        private DevExpress.XtraEditors.LabelControl labelCreate;
+        private DevExpress.XtraEditors.LabelControl labelInfo;
+        private DevExpress.XtraEditors.LabelControl labelPhone;
         private DevExpress.XtraEditors.SeparatorControl separatorControl2;
         private System.Windows.Forms.PictureBox pictureBox5;
+        public System.Windows.Forms.PictureBox pictureBoxCreate;
+        public System.Windows.Forms.PictureBox pictureBoxFace;
+        public System.Windows.Forms.PictureBox pictureBoxInfo;
+        public System.Windows.Forms.PictureBox pictureBoxPhone;
     }
 }

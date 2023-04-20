@@ -70,6 +70,9 @@
     <Reference Include="DevExpress.Data.v19.1" />
     <Reference Include="DevExpress.DataAccess.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Images.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Pdf.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v19.1" />
     <Reference Include="DevExpress.Sparkline.v19.1.Core" />
     <Reference Include="DevExpress.Xpo.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -83,6 +86,7 @@
     <Reference Include="DevExpress.XtraGrid.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraScheduler.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraScheduler.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraVerticalGrid.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -287,6 +291,12 @@
     <Compile Include="Form\User\LoginUser.Designer.cs">
       <DependentUpon>LoginUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\User\PhoneNumber.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\User\PhoneNumber.Designer.cs">
+      <DependentUpon>PhoneNumber.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\User\PhoneOTP.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -379,6 +389,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\User\LoginUser.resx">
       <DependentUpon>LoginUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\User\PhoneNumber.resx">
+      <DependentUpon>PhoneNumber.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\User\PhoneOTP.resx">
       <DependentUpon>PhoneOTP.cs</DependentUpon>

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace ManagementStore.Form.User
 {
-    public partial class InformationUser : DevExpress.XtraEditors.XtraUserControl
+    public partial class InformationUser : System.Windows.Forms.UserControl
     {
         public InformationUser()
         {

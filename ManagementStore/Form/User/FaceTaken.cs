@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace ManagementStore.Form.User
 {
-    public partial class FaceTaken : DevExpress.XtraEditors.XtraUserControl
+    public partial class FaceTaken : System.Windows.Forms.UserControl
     {
         public FaceTaken()
         {
