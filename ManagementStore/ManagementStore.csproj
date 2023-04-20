@@ -61,6 +61,9 @@
     <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
+    <Reference Include="ControlzEx, Version=4.0.0.0, Culture=neutral, PublicKeyToken=69f1c32f803d307e, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.4.4.0\lib\net462\ControlzEx.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.BonusSkins.v19.1" />
     <Reference Include="DevExpress.Charts.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.CodeParser.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -95,6 +98,9 @@
     <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
+    <Reference Include="MetroSet UI, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroSet_UI.2.0.0\lib\net45\MetroSet UI.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNetCore.Cryptography.Internal, Version=6.0.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNetCore.Cryptography.Internal.6.0.3\lib\net461\Microsoft.AspNetCore.Cryptography.Internal.dll</HintPath>
     </Reference>
@@ -104,9 +110,14 @@
     <Reference Include="Microsoft.ML.OnnxRuntime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=f27f157f0a5b7bb6, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ML.OnnxRuntime.Managed.1.14.1\lib\netstandard2.0\Microsoft.ML.OnnxRuntime.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.19\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=8.0.16.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.16\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
@@ -117,6 +128,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing.Common, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Drawing.Common.7.0.0\lib\net462\System.Drawing.Common.dll</HintPath>
     </Reference>
@@ -148,6 +160,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -156,6 +171,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\ModelConfig.cs" />
@@ -245,17 +263,35 @@
     <Compile Include="Form\Production\StockIn.Designer.cs">
       <DependentUpon>StockIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\User\FaceTaken.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\User\FaceTaken.Designer.cs">
+      <DependentUpon>FaceTaken.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\User\Guest.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form\User\Guest.Designer.cs">
       <DependentUpon>Guest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\User\InformationUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\User\InformationUser.Designer.cs">
+      <DependentUpon>InformationUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\User\LoginUser.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form\User\LoginUser.Designer.cs">
       <DependentUpon>LoginUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\User\PhoneOTP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\User\PhoneOTP.Designer.cs">
+      <DependentUpon>PhoneOTP.cs</DependentUpon>
     </Compile>
     <Compile Include="Form\User\Profile.cs">
       <SubType>Form</SubType>
@@ -332,11 +368,20 @@
     <EmbeddedResource Include="Form\Production\StockIn.resx">
       <DependentUpon>StockIn.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\User\FaceTaken.resx">
+      <DependentUpon>FaceTaken.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\User\Guest.resx">
       <DependentUpon>Guest.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\User\InformationUser.resx">
+      <DependentUpon>InformationUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\User\LoginUser.resx">
       <DependentUpon>LoginUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\User\PhoneOTP.resx">
+      <DependentUpon>PhoneOTP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\User\Profile.resx">
       <DependentUpon>Profile.cs</DependentUpon>
@@ -371,6 +416,10 @@
     <None Include="ComputerStoreDataSet.xss">
       <DependentUpon>ComputerStoreDataSet.xsd</DependentUpon>
     </None>
+    <None Include="Fonts\metro.eot" />
+    <None Include="Fonts\metro.ttf" />
+    <None Include="Fonts\metro.woff" />
+    <None Include="Fonts\selection.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -455,6 +504,21 @@
     <Content Include="Assets\Images\customize.png" />
     <Content Include="Assets\Images\payment.png" />
     <Content Include="Assets\Images\pending.png" />
+    <Content Include="Content\metro-colors.css" />
+    <Content Include="Content\metro-colors.min.css" />
+    <Content Include="Content\metro-icons.css" />
+    <Content Include="Content\metro-icons.min.css" />
+    <Content Include="Content\metro-responsive.css" />
+    <Content Include="Content\metro-responsive.min.css" />
+    <Content Include="Content\metro-rtl.css" />
+    <Content Include="Content\metro-rtl.min.css" />
+    <Content Include="Content\metro-schemes.css" />
+    <Content Include="Content\metro-schemes.min.css" />
+    <Content Include="Content\metro.css" />
+    <Content Include="Content\metro.min.css" />
+    <Content Include="Fonts\metro.svg" />
+    <Content Include="Scripts\metro.js" />
+    <Content Include="Scripts\metro.min.js" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="AxDIRECTORSHOCKWAVELib">
