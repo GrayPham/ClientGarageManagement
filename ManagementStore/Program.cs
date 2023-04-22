@@ -1,5 +1,5 @@
 ﻿using DevExpress.UserSkins;
-using ManagementStore.Form.User;
+using ManagementStore.Form;
 using System;
 using System.Windows.Forms;
 
@@ -17,7 +17,7 @@ namespace ManagementStore
             Application.SetCompatibleTextRenderingDefault(false);
 
             BonusSkins.Register();
-            Application.Run(new RegisterUser());
+            Application.Run(new Main());
         }
     }
 }

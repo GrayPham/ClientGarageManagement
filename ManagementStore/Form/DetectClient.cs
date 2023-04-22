@@ -34,13 +34,13 @@ namespace ManagementStore.Form
         {
             _log = ProgramFactory.Instance.Log;
             InitializeComponent();
-            LoadCamera();
+            // LoadCamera();
 
             // Connect FastAPI
-            if (Encode.OpenConnect())
-            {
-                ModelConfig.socketOpen = true;
-            }
+            //if (Encode.OpenConnect())
+            //{
+            //    ModelConfig.socketOpen = true;
+            //}
             //webSocket.ConnectAsync(uri, cancellationTokenSource.Token);
         }
         private void DetectClient_Load(object sender, EventArgs e)
@@ -51,18 +51,18 @@ namespace ManagementStore.Form
             barItemIP.Caption = "IP:" + ProgramFactory.Instance.IPServer;
             barItemVersion.Caption = LSystem.LVersion + ApplicationInfo.VersionName;
             barItemPort.Caption = string.Format(LSystem.LPort, ApplicationInfo.PortUser);
-            if (_count > 1)
-            {
-                PictureControl pictureControl = new PictureControl(0, Encode);
-                panelIn.Controls.Add(pictureControl);
-                PictureControl pictureControl1 = new PictureControl(1, Encode);
-                panelOut.Controls.Add(pictureControl1);
-            }
-            else if (_count == 1)
-            {
-                PictureControl pictureControl = new PictureControl(0, Encode);
-                panelIn.Controls.Add(pictureControl);
-            }
+            //if (_count > 1)
+            //{
+            //    PictureControl pictureControl = new PictureControl(0, Encode);
+            //    panelIn.Controls.Add(pictureControl);
+            //    PictureControl pictureControl1 = new PictureControl(1, Encode);
+            //    panelOut.Controls.Add(pictureControl1);
+            //}
+            //else if (_count == 1)
+            //{
+            //    PictureControl pictureControl = new PictureControl(0, Encode);
+            //    panelIn.Controls.Add(pictureControl);
+            //}
         }
 
         private void LoadCamera()

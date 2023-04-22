@@ -324,7 +324,6 @@ namespace ManagementStore.Form
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::ManagementStore.Properties.Resources.z4155616816568_012163cb7d19d9c79afe2d9fb9a59941__1_;
             this.pictureBox2.Location = new System.Drawing.Point(465, 5);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(451, 326);

@@ -263,6 +263,7 @@ namespace ManagementStore.Form.User
             this.Controls.Add(this.btnNum1);
             this.Name = "PhoneNumber";
             this.Size = new System.Drawing.Size(581, 741);
+            this.Load += new System.EventHandler(this.PhoneNumber_Load);
             ((System.ComponentModel.ISupportInitialize)(this.phoneTxt.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

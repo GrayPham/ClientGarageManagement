@@ -1,14 +1,6 @@
-﻿using DevExpress.XtraEditors;
-using ManagementStore.Extensions;
+﻿using ManagementStore.Extensions;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace ManagementStore.Form.User
 {
@@ -20,7 +12,9 @@ namespace ManagementStore.Form.User
             Num = new List<String>();
             InitializeComponent();
         }
-
+        private void PhoneNumber_Load(object sender, EventArgs e)
+        {
+        }
         private void btnNext_Click(object sender, EventArgs e)
         {
              Utils.Forward(ParentForm, "pictureBoxPhone", "pictureBoxOTP", "PhoneOTP");
@@ -28,69 +22,69 @@ namespace ManagementStore.Form.User
 
         private void btnNum1_Click(object sender, EventArgs e)
         {
-            Num.Add("1");
+            if(Num.Count!=10) Num.Add("1");
             DisplayPhoneNumber();
         }
 
         private void btnNum2_Click(object sender, EventArgs e)
         {
-            Num.Add("2");
+            if (Num.Count != 10) Num.Add("2");
             DisplayPhoneNumber();
 
         }
 
         private void btnNum3_Click(object sender, EventArgs e)
         {
-            Num.Add("3");
+            if (Num.Count != 10) Num.Add("3");
             DisplayPhoneNumber();
 
         }
 
         private void btnNum4_Click(object sender, EventArgs e)
         {
-            Num.Add("4");
+            if (Num.Count != 10) Num.Add("4");
             DisplayPhoneNumber();
 
         }
 
         private void btnNum5_Click(object sender, EventArgs e)
         {
-            Num.Add("5");
+            if (Num.Count != 10) Num.Add("5");
             DisplayPhoneNumber();
 
         }
 
         private void btnNum6_Click(object sender, EventArgs e)
         {
-            Num.Add("6");
+            if (Num.Count != 10) Num.Add("6");
             DisplayPhoneNumber();
 
         }
 
         private void btnNum7_Click(object sender, EventArgs e)
         {
-            Num.Add("7");
+            if (Num.Count != 10) Num.Add("7");
             DisplayPhoneNumber();
 
         }
 
         private void btnNum8_Click(object sender, EventArgs e)
         {
-            Num.Add("8");
+            if (Num.Count != 10) Num.Add("8");
             DisplayPhoneNumber();
 
         }
 
         private void btnNum9_Click(object sender, EventArgs e)
         {
-            Num.Add("9");
+            if (Num.Count != 10) Num.Add("9");
             DisplayPhoneNumber();
 
         }
 
         private void btnNum0_Click(object sender, EventArgs e)
         {
-            Num.Add("0");
+            if (Num.Count != 10) Num.Add("0");
             DisplayPhoneNumber();
 
         }
@@ -116,7 +110,9 @@ namespace ManagementStore.Form.User
         }
         private void DisplayPhoneNumber()
         {
-            phoneTxt.Text = string.Format("{0:### ###-####}", double.Parse(string.Join("", Num.ToArray())));
+            phoneTxt.Text = string.Join("", Num.ToArray());
         }
+
+
     }
 }
