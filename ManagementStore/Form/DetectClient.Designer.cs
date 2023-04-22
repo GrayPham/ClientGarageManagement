@@ -31,11 +31,6 @@ namespace ManagementStore.Form
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetectClient));
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.barItemConnect = new DevExpress.XtraBars.BarStaticItem();
-            this.barItemIP = new DevExpress.XtraBars.BarStaticItem();
-            this.barStaticItem3 = new DevExpress.XtraBars.BarStaticItem();
-            this.barItemPort = new DevExpress.XtraBars.BarStaticItem();
-            this.barItemVersion = new DevExpress.XtraBars.BarStaticItem();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barHeaderItem1 = new DevExpress.XtraBars.BarHeaderItem();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
@@ -75,63 +70,10 @@ namespace ManagementStore.Form
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.BackColor = System.Drawing.Color.Black;
-            this.ribbonStatusBar.ItemLinks.Add(this.barItemConnect);
-            this.ribbonStatusBar.ItemLinks.Add(this.barItemIP);
-            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem3);
-            this.ribbonStatusBar.ItemLinks.Add(this.barItemPort);
-            this.ribbonStatusBar.ItemLinks.Add(this.barItemVersion);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 735);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1384, 29);
-            // 
-            // barItemConnect
-            // 
-            this.barItemConnect.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barItemConnect.Id = 2;
-            this.barItemConnect.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barItemConnect.ImageOptions.Image")));
-            this.barItemConnect.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barItemConnect.ImageOptions.LargeImage")));
-            this.barItemConnect.ItemAppearance.Normal.ForeColor = System.Drawing.Color.SeaShell;
-            this.barItemConnect.ItemAppearance.Normal.Options.UseForeColor = true;
-            this.barItemConnect.Name = "barItemConnect";
-            this.barItemConnect.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.barItemConnect.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-            // 
-            // barItemIP
-            // 
-            this.barItemIP.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barItemIP.Caption = "IP: 192.168.100.10";
-            this.barItemIP.Id = 3;
-            this.barItemIP.Name = "barItemIP";
-            // 
-            // barStaticItem3
-            // 
-            this.barStaticItem3.Caption = "Parking Application";
-            this.barStaticItem3.Id = 4;
-            this.barStaticItem3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barStaticItem3.ImageOptions.Image")));
-            this.barStaticItem3.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barStaticItem3.ImageOptions.LargeImage")));
-            this.barStaticItem3.ItemAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.barStaticItem3.ItemAppearance.Disabled.Options.UseFont = true;
-            this.barStaticItem3.Name = "barStaticItem3";
-            this.barStaticItem3.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // barItemPort
-            // 
-            this.barItemPort.Caption = "Port: 9000";
-            this.barItemPort.Id = 5;
-            this.barItemPort.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barItemPort.ImageOptions.Image")));
-            this.barItemPort.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barItemPort.ImageOptions.LargeImage")));
-            this.barItemPort.Name = "barItemPort";
-            this.barItemPort.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // barItemVersion
-            // 
-            this.barItemVersion.Caption = "Version: 1.0.0";
-            this.barItemVersion.Id = 6;
-            this.barItemVersion.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barItemVersion.ImageOptions.Image")));
-            this.barItemVersion.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barItemVersion.ImageOptions.LargeImage")));
-            this.barItemVersion.Name = "barItemVersion";
-            this.barItemVersion.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // ribbon
             // 
@@ -384,11 +326,6 @@ namespace ManagementStore.Form
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panelIn;
         private System.Windows.Forms.Panel panelOut;
-        private DevExpress.XtraBars.BarStaticItem barItemConnect;
-        private DevExpress.XtraBars.BarStaticItem barItemIP;
-        private DevExpress.XtraBars.BarStaticItem barStaticItem3;
-        private DevExpress.XtraBars.BarStaticItem barItemPort;
-        private DevExpress.XtraBars.BarStaticItem barItemVersion;
         private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem1;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
         private DevExpress.XtraBars.BarHeaderItem barHeaderItem1;
