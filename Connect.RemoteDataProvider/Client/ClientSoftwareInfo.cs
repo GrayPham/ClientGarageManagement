@@ -1,10 +1,7 @@
-﻿using Connect.Common;
-using Connect.Common.Common;
+﻿using Connect.Common.Common;
 using Connect.Common.Helper;
 using Connect.Common.Interface;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Connect.RemoteDataProvider.Client
 {

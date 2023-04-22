@@ -1,12 +1,7 @@
 ﻿using Connect.Common;
 using Connect.Common.Interface;
 using Parking.App.Contract.Common;
-using Parking.Contract.Common;
 using nsConnect.RemoteDataProvider.Client;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
 
 namespace Parking.App.Service.Common
 {

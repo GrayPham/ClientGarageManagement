@@ -36,13 +36,14 @@ namespace ManagementStore.Form
             this.cameraControl1 = new DevExpress.XtraEditors.Camera.CameraControl();
             this.tileBar1 = new DevExpress.XtraBars.Navigation.TileBar();
             this.tileBarGroup2 = new DevExpress.XtraBars.Navigation.TileBarGroup();
-            this.tileBarItem3 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.btnOpenRegister = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tileBarGroup1 = new DevExpress.XtraBars.Navigation.TileBarGroup();
             this.tileBarItem2 = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tileBarGroup4 = new DevExpress.XtraBars.Navigation.TileBarGroup();
             this.tileBarItem1 = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.webBrowserVideo = new System.Windows.Forms.WebBrowser();
+            this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ManagementStore.Form.WaitFormLoader.OpenScreen), true, true);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.SuspendLayout();
@@ -72,19 +73,19 @@ namespace ManagementStore.Form
             // 
             // tileBarGroup2
             // 
-            this.tileBarGroup2.Items.Add(this.tileBarItem3);
+            this.tileBarGroup2.Items.Add(this.btnOpenRegister);
             this.tileBarGroup2.Name = "tileBarGroup2";
             // 
-            // tileBarItem3
+            // btnOpenRegister
             // 
-            this.tileBarItem3.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            this.btnOpenRegister.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
             tileItemElement13.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
             tileItemElement13.Text = "Register Account";
-            this.tileBarItem3.Elements.Add(tileItemElement13);
-            this.tileBarItem3.Id = 2;
-            this.tileBarItem3.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem3.Name = "tileBarItem3";
-            this.tileBarItem3.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBarItem3_ItemClick);
+            this.btnOpenRegister.Elements.Add(tileItemElement13);
+            this.btnOpenRegister.Id = 2;
+            this.btnOpenRegister.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.btnOpenRegister.Name = "btnOpenRegister";
+            this.btnOpenRegister.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.btnOpenRegister_ItemClick);
             // 
             // tileBarGroup1
             // 
@@ -133,6 +134,10 @@ namespace ManagementStore.Form
             this.webBrowserVideo.Size = new System.Drawing.Size(816, 495);
             this.webBrowserVideo.TabIndex = 3;
             // 
+            // splashScreenManager
+            // 
+            this.splashScreenManager.ClosingDelay = 500;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -158,12 +163,14 @@ namespace ManagementStore.Form
         private DevExpress.XtraEditors.Camera.CameraControl cameraControl1;
         private DevExpress.XtraBars.Navigation.TileBar tileBar1;
         private DevExpress.XtraBars.Navigation.TileBarGroup tileBarGroup2;
-        private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem3;
+        private DevExpress.XtraBars.Navigation.TileBarItem btnOpenRegister;
         private DevExpress.XtraBars.Navigation.TileBarGroup tileBarGroup1;
         private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem2;
         private DevExpress.XtraBars.Navigation.TileBarGroup tileBarGroup4;
         private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private System.Windows.Forms.WebBrowser webBrowserVideo;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenParking;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager;
     }
 }

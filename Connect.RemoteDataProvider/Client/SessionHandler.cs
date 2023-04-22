@@ -90,6 +90,7 @@ namespace nsConnect.RemoteDataProvider.Client
         //**--------------------------------------------------------------------------------
 
         public event GeneralEventHandler<ConnectionFailedReason> SessionError;
+        public event GeneralEventHandler<ClientSoftwareInfo> SessionReady;
 
         //**--------------------------------------------------------------------------------
         #endregion

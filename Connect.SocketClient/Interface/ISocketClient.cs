@@ -13,7 +13,7 @@ namespace Connect.SocketClient
         Boolean Connect();
         Boolean ReConnect();
         void ReConnectAsync();
-        void Disconnect();
+        void Disconnect(string mess);
         void UpdateIP(string ip);
         void UpdatePort(int port);
     }

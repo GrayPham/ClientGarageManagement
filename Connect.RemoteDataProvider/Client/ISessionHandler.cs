@@ -1,6 +1,7 @@
 ﻿using Connect.Common;
 using Connect.Common.Common;
 using Connect.Common.Interface;
+using Connect.RemoteDataProvider.Client;
 using Connect.RemoteDataProvider.Interface;
 using System;
 
@@ -27,5 +28,7 @@ namespace nsConnect.RemoteDataProvider.Client
         void Register(IRemoteDataHandler handler);
         void Close();
         event GeneralEventHandler<ConnectionFailedReason> SessionError;
+        event GeneralEventHandler<ClientSoftwareInfo> SessionReady;
+
     }
 }

@@ -1,69 +1,64 @@
-﻿using Connect.Common;
-using Connect.Common.Common;
-using Connect.Common.Contract;
-using Connect.Common.Interface;
-using Connect.Common.Languages;
-using Connect.SocketClient;
-using DevExpress.Images;
-using Parking.App.Factory;
-using Emgu.CV;
+﻿using Emgu.CV;
 using ManagementStore.Common;
 using ManagementStore.Form.Camera;
-using Parking.App.Contract.Common;
-using Parking.App.Interface.Common;
-using Parking.App.Language;
-using System;
 using Security;
+using System;
+
 
 namespace ManagementStore.Form
 {
     public partial class DetectClient : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        private VideoCapture _capture = new VideoCapture();
-        private int _count = 0;
+        private VideoCapture capture = new VideoCapture();
+        private int count = 0;
+
 
         // Connect Socket 
-        private SocketDetect Encode = new SocketDetect();
+        public SocketDetect encode = new SocketDetect();
         public DetectClient()
         {
             InitializeComponent();
-            LoadCamera();
-
+            loadCamera();
+            //loadCamera();
             // Connect FastAPI
-            if (Encode.OpenConnect())
+            if (encode.OpenConnect())
             {
                 ModelConfig.socketOpen = true;
             }
- 
-        }
-        private void DetectClient_Load(object sender, EventArgs e)
-        {
-            if (_count > 1)
-            {
-                PictureControl pictureControl = new PictureControl(0, Encode);
-                panelIn.Controls.Add(pictureControl);
-                PictureControl pictureControl1 = new PictureControl(1, Encode);
-                panelOut.Controls.Add(pictureControl1);
-            }
-            else if (_count == 1)
-            {
-                PictureControl pictureControl = new PictureControl(0, Encode);
-                panelIn.Controls.Add(pictureControl);
-            }
+            //webSocket.ConnectAsync(uri, cancellationTokenSource.Token);
         }
 
-        private void LoadCamera()
+        private void DetectClient_Load(object sender, EventArgs e)
+        {
+            if (count > 1)
+            {
+                PictureControl pictureControl = new PictureControl(0, encode);
+                panelIn.Controls.Add(pictureControl);
+                PictureControl pictureControl1 = new PictureControl(1, encode);
+                panelOut.Controls.Add(pictureControl1);
+            }
+            else if (count == 1)
+            {
+                PictureControl pictureControl = new PictureControl(0, encode);
+                panelIn.Controls.Add(pictureControl);
+            }
+
+        }
+        private void loadCamera()
         {
             for (int i = 0; i < 7; i++)
             {
-                _capture = new VideoCapture(i);
+                capture = new VideoCapture(i);
 
-                if (_capture.IsOpened)
+                if (capture.IsOpened)
                 {
-                    _count++;
+                    count++;
                 }
             }
 
         }
+
+
+
     }
 }

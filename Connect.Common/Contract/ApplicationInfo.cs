@@ -16,7 +16,7 @@ namespace Connect.Common.Contract
         public static string FirstName = @"Parking";
         public static string LastName = @"Management System";
         public static string AppName = @"Parking Management System";
-        public const string Author = @"Hermes";
+        public static string Author = @"Hermes";
         public static Guid AppKey = Guid.NewGuid();
         public static string GuiD = "";
         public static string Phone = "0365858975";

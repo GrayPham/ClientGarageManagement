@@ -829,10 +829,10 @@ namespace Parking.App.Common.Helper
             try
             {
                 String firstMacAddress = NetworkInterface
-        .GetAllNetworkInterfaces()
-        .Where(nic => nic.OperationalStatus == OperationalStatus.Up && nic.NetworkInterfaceType != NetworkInterfaceType.Loopback)
-        .Select(nic => nic.GetPhysicalAddress().ToString())
-        .FirstOrDefault();
+                .GetAllNetworkInterfaces()
+                .Where(nic => nic.OperationalStatus == OperationalStatus.Up && nic.NetworkInterfaceType != NetworkInterfaceType.Loopback)
+                .Select(nic => nic.GetPhysicalAddress().ToString())
+                .FirstOrDefault();
                 return firstMacAddress;
             }
             catch (Exception ex)

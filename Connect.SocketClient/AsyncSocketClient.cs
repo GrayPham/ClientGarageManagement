@@ -143,15 +143,21 @@ namespace Connect.SocketClient
 
             }
         }
-        public void Disconnect()
+        public void Disconnect(string mess)
         {
             if (IsConnected)
             {
                 Log.Info("Currently disconnected");
                 return;
             }
-
-            OnDisconnected(@"Đóng kết nối bởi chương trình");
+            if (string.IsNullOrEmpty(mess))
+            {
+                OnDisconnected(@"Đóng kết nối bởi chương trình");
+            }
+            else
+            {
+                OnDisconnected(mess);
+            }
         }
 
         //-----------------------------------------------------------------------------------------------------

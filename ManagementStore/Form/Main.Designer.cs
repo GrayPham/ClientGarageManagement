@@ -29,7 +29,13 @@ namespace ManagementStore.Form
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.ribbonMain = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.barItemConnect = new DevExpress.XtraBars.BarStaticItem();
+            this.barItemIP = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem3 = new DevExpress.XtraBars.BarStaticItem();
+            this.barItemPort = new DevExpress.XtraBars.BarStaticItem();
+            this.barItemVersion = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.fluentDesignFormContainer1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
@@ -43,12 +49,7 @@ namespace ManagementStore.Form
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.pictureBoxParking = new System.Windows.Forms.PictureBox();
-            this.splashScreenLoad = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ManagementStore.Form.WaitFormLoader.OpenScreen), true, true);
-            this.barItemConnect = new DevExpress.XtraBars.BarStaticItem();
-            this.barItemIP = new DevExpress.XtraBars.BarStaticItem();
-            this.barStaticItem3 = new DevExpress.XtraBars.BarStaticItem();
-            this.barItemPort = new DevExpress.XtraBars.BarStaticItem();
-            this.barItemVersion = new DevExpress.XtraBars.BarStaticItem();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ManagementStore.Form.WaitFormLoader.OpenScreen), true, true);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             this.fluentDesignFormContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -83,6 +84,41 @@ namespace ManagementStore.Form
             this.ribbonMain.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.MacOffice;
             this.ribbonMain.Size = new System.Drawing.Size(1135, 66);
             this.ribbonMain.StatusBar = this.ribbonStatusBar1;
+            // 
+            // barItemConnect
+            // 
+            this.barItemConnect.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barItemConnect.Id = 1;
+            this.barItemConnect.Name = "barItemConnect";
+            // 
+            // barItemIP
+            // 
+            this.barItemIP.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barItemIP.Caption = "IP: 192.168.100.10";
+            this.barItemIP.Id = 2;
+            this.barItemIP.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barItemIP.ImageOptions.Image")));
+            this.barItemIP.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barItemIP.ImageOptions.LargeImage")));
+            this.barItemIP.Name = "barItemIP";
+            this.barItemIP.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // barStaticItem3
+            // 
+            this.barStaticItem3.Caption = "Parking Application";
+            this.barStaticItem3.Id = 3;
+            this.barStaticItem3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barStaticItem3.ImageOptions.Image")));
+            this.barStaticItem3.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barStaticItem3.ImageOptions.LargeImage")));
+            this.barStaticItem3.Name = "barStaticItem3";
+            this.barStaticItem3.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // barItemPort
+            // 
+            this.barItemPort.Id = 4;
+            this.barItemPort.Name = "barItemPort";
+            // 
+            // barItemVersion
+            // 
+            this.barItemVersion.Id = 5;
+            this.barItemVersion.Name = "barItemVersion";
             // 
             // ribbonStatusBar1
             // 
@@ -180,6 +216,8 @@ namespace ManagementStore.Form
             // 
             // panelControl2
             // 
+            this.panelControl2.Appearance.BackColor = System.Drawing.Color.White;
+            this.panelControl2.Appearance.Options.UseBackColor = true;
             this.panelControl2.Controls.Add(this.labelControl1);
             this.panelControl2.Controls.Add(this.pictureBoxParking);
             this.panelControl2.Location = new System.Drawing.Point(40, 47);
@@ -206,38 +244,9 @@ namespace ManagementStore.Form
             this.pictureBoxParking.TabStop = false;
             this.pictureBoxParking.Click += new System.EventHandler(this.pictureBoxParking_Click);
             // 
-            // splashScreenLoad
+            // splashScreenManager1
             // 
-            this.splashScreenLoad.ClosingDelay = 500;
-            // 
-            // barItemConnect
-            // 
-            this.barItemConnect.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barItemConnect.Id = 1;
-            this.barItemConnect.Name = "barItemConnect";
-            // 
-            // barItemIP
-            // 
-            this.barItemIP.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barItemIP.Caption = "IP: 192.168.100.10";
-            this.barItemIP.Id = 2;
-            this.barItemIP.Name = "barItemIP";
-            // 
-            // barStaticItem3
-            // 
-            this.barStaticItem3.Caption = "Parking  Application";
-            this.barStaticItem3.Id = 3;
-            this.barStaticItem3.Name = "barStaticItem3";
-            // 
-            // barItemPort
-            // 
-            this.barItemPort.Id = 4;
-            this.barItemPort.Name = "barItemPort";
-            // 
-            // barItemVersion
-            // 
-            this.barItemVersion.Id = 5;
-            this.barItemVersion.Name = "barItemVersion";
+            this.splashScreenManager1.ClosingDelay = 500;
             // 
             // Main
             // 
@@ -297,5 +306,6 @@ namespace ManagementStore.Form
         private DevExpress.XtraBars.BarStaticItem barStaticItem3;
         private DevExpress.XtraBars.BarStaticItem barItemPort;
         private DevExpress.XtraBars.BarStaticItem barItemVersion;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }

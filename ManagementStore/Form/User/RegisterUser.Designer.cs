@@ -33,30 +33,30 @@ namespace ManagementStore.Form.User
             this.panelSlider = new DevExpress.XtraEditors.SidePanel();
             this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             this.sidePanel4 = new DevExpress.XtraEditors.SidePanel();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.pictureBoxName = new System.Windows.Forms.PictureBox();
             this.labelBday = new DevExpress.XtraEditors.LabelControl();
             this.labelCreate = new DevExpress.XtraEditors.LabelControl();
             this.labelInfo = new DevExpress.XtraEditors.LabelControl();
             this.labelPhone = new DevExpress.XtraEditors.LabelControl();
-            this.separatorControl2 = new DevExpress.XtraEditors.SeparatorControl();
-            this.sidePanel2 = new DevExpress.XtraEditors.SidePanel();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.pictureBoxName = new System.Windows.Forms.PictureBox();
             this.pictureBoxInfo = new System.Windows.Forms.PictureBox();
             this.pictureBoxFace = new System.Windows.Forms.PictureBox();
             this.pictureBoxOTP = new System.Windows.Forms.PictureBox();
             this.pictureBoxPhone = new System.Windows.Forms.PictureBox();
+            this.separatorControl2 = new DevExpress.XtraEditors.SeparatorControl();
+            this.sidePanel2 = new DevExpress.XtraEditors.SidePanel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.sidePanel1.SuspendLayout();
             this.panelSlider.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
             this.sidePanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).BeginInit();
-            this.sidePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOTP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhone)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).BeginInit();
+            this.sidePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,6 +109,24 @@ namespace ManagementStore.Form.User
             this.sidePanel4.TabIndex = 2;
             this.sidePanel4.Text = "sidePanel4";
             // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(88, 514);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(56, 17);
+            this.labelControl1.TabIndex = 10;
+            this.labelControl1.Text = "Nhập tên";
+            // 
+            // pictureBoxName
+            // 
+            this.pictureBoxName.Image = global::ManagementStore.Properties.Resources.pending;
+            this.pictureBoxName.Location = new System.Drawing.Point(68, 440);
+            this.pictureBoxName.Name = "pictureBoxName";
+            this.pictureBoxName.Size = new System.Drawing.Size(100, 68);
+            this.pictureBoxName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxName.TabIndex = 9;
+            this.pictureBoxName.TabStop = false;
+            // 
             // labelBday
             // 
             this.labelBday.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -142,43 +160,6 @@ namespace ManagementStore.Form.User
             this.labelPhone.Size = new System.Drawing.Size(113, 17);
             this.labelPhone.TabIndex = 5;
             this.labelPhone.Text = "Nhập số điện thoại";
-            // 
-            // separatorControl2
-            // 
-            this.separatorControl2.BackColor = System.Drawing.Color.LightGray;
-            this.separatorControl2.LineColor = System.Drawing.Color.Gray;
-            this.separatorControl2.LineOrientation = System.Windows.Forms.Orientation.Vertical;
-            this.separatorControl2.Location = new System.Drawing.Point(106, 63);
-            this.separatorControl2.Name = "separatorControl2";
-            this.separatorControl2.Size = new System.Drawing.Size(25, 552);
-            this.separatorControl2.TabIndex = 4;
-            // 
-            // sidePanel2
-            // 
-            this.sidePanel2.Controls.Add(this.pictureBox5);
-            this.sidePanel2.Location = new System.Drawing.Point(3, 3);
-            this.sidePanel2.Name = "sidePanel2";
-            this.sidePanel2.Size = new System.Drawing.Size(820, 205);
-            this.sidePanel2.TabIndex = 0;
-            this.sidePanel2.Text = "sidePanel2";
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(88, 514);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(56, 17);
-            this.labelControl1.TabIndex = 10;
-            this.labelControl1.Text = "Nhập tên";
-            // 
-            // pictureBoxName
-            // 
-            this.pictureBoxName.Image = global::ManagementStore.Properties.Resources.pending;
-            this.pictureBoxName.Location = new System.Drawing.Point(68, 440);
-            this.pictureBoxName.Name = "pictureBoxName";
-            this.pictureBoxName.Size = new System.Drawing.Size(100, 68);
-            this.pictureBoxName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxName.TabIndex = 9;
-            this.pictureBoxName.TabStop = false;
             // 
             // pictureBoxInfo
             // 
@@ -220,6 +201,25 @@ namespace ManagementStore.Form.User
             this.pictureBoxPhone.TabIndex = 0;
             this.pictureBoxPhone.TabStop = false;
             // 
+            // separatorControl2
+            // 
+            this.separatorControl2.BackColor = System.Drawing.Color.LightGray;
+            this.separatorControl2.LineColor = System.Drawing.Color.Gray;
+            this.separatorControl2.LineOrientation = System.Windows.Forms.Orientation.Vertical;
+            this.separatorControl2.Location = new System.Drawing.Point(106, 63);
+            this.separatorControl2.Name = "separatorControl2";
+            this.separatorControl2.Size = new System.Drawing.Size(25, 552);
+            this.separatorControl2.TabIndex = 4;
+            // 
+            // sidePanel2
+            // 
+            this.sidePanel2.Controls.Add(this.pictureBox5);
+            this.sidePanel2.Location = new System.Drawing.Point(3, 3);
+            this.sidePanel2.Name = "sidePanel2";
+            this.sidePanel2.Size = new System.Drawing.Size(820, 205);
+            this.sidePanel2.TabIndex = 0;
+            this.sidePanel2.Text = "sidePanel2";
+            // 
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.RoyalBlue;
@@ -238,18 +238,19 @@ namespace ManagementStore.Form.User
             this.Controls.Add(this.sidePanel1);
             this.Name = "RegisterUser";
             this.Text = "RegisterUser";
+            this.Load += new System.EventHandler(this.RegisterUser_Load);
             this.sidePanel1.ResumeLayout(false);
             this.panelSlider.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
             this.sidePanel4.ResumeLayout(false);
             this.sidePanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).EndInit();
-            this.sidePanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOTP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhone)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).EndInit();
+            this.sidePanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 

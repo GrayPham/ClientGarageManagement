@@ -40,22 +40,22 @@ namespace ManagementStore.Form
         }
         private void pictureBoxParking_Click(object sender, EventArgs e)
         {
-            splashScreenLoad.ShowWaitForm();
+            splashScreenManager1.ShowWaitForm();
             DetectClient form = new DetectClient();
             form.Show();
             Hide();
             Thread.Sleep(1000);
-            splashScreenLoad.CloseWaitForm();
+            splashScreenManager1.CloseWaitForm();
         }
 
         private void pictureBoxDepart_Click(object sender, EventArgs e)
         {
-            splashScreenLoad.ShowWaitForm();
+            splashScreenManager1.ShowWaitForm();
             Home home = new Home();
             home.Show();
             Hide();
             Thread.Sleep(1000);
-            splashScreenLoad.CloseWaitForm();
+            splashScreenManager1.CloseWaitForm();
         }
 
         private void pictureBoxTracking_Click(object sender, EventArgs e)
@@ -163,8 +163,7 @@ namespace ManagementStore.Form
                     mes = LSystem.LConnectionFailedReason_Default;
                     break;
             }
-            Console.WriteLine(mes);
-            _client.Disconnect();
+            _client.Disconnect(mes);
             _timer.Stop();
         }
         #endregion

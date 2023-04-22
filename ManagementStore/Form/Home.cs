@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Threading;
 using System.Windows.Forms;
 using ManagementStore.Extensions;
+using ManagementStore.Form.User;
+
 namespace ManagementStore.Form
 {
     public partial class Home : DevExpress.XtraEditors.XtraForm
@@ -21,9 +24,15 @@ namespace ManagementStore.Form
             this.webBrowserVideo.DocumentText = string.Format(html, Utils.GetVideoId(url));
         }
 
-        private void tileBarItem3_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
+        private void btnOpenRegister_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
         {
-
+            splashScreenManager.ShowWaitForm();
+            Thread.Sleep(1000);
+            RegisterUser registerUser = new RegisterUser();
+            registerUser.Show();
+            this.webBrowserVideo.DocumentText = "";
+            Hide();
+            splashScreenManager.CloseWaitForm();
         }
     }
 }

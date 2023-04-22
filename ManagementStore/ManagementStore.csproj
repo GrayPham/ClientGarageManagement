@@ -58,6 +58,9 @@
     <StartupObject>ManagementStore.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Apache.NMS, Version=2.0.0.0, Culture=neutral, PublicKeyToken=82756feee3957618, processorArchitecture=MSIL">
+      <HintPath>..\packages\Apache.NMS.2.0.0\lib\net40\Apache.NMS.dll</HintPath>
+    </Reference>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
@@ -175,6 +178,11 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.ReaderWriter.4.3.1\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="WindowsFormsIntegration" />
@@ -275,9 +283,6 @@
     <Compile Include="Model\Warehouse.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ProductServices.cs" />
-    <Compile Include="Services\UserServices.cs" />
-    <Compile Include="Services\WarehouseServices.cs" />
     <Compile Include="Services\YoloDetectServices.cs" />
     <EmbeddedResource Include="Form\Camera\PictureControl.resx">
       <DependentUpon>PictureControl.cs</DependentUpon>
@@ -339,10 +344,6 @@
     <None Include="ComputerStoreDataSet.xss">
       <DependentUpon>ComputerStoreDataSet.xsd</DependentUpon>
     </None>
-    <None Include="Fonts\metro.eot" />
-    <None Include="Fonts\metro.ttf" />
-    <None Include="Fonts\metro.woff" />
-    <None Include="Fonts\selection.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -353,6 +354,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Setting\appsettings.json" />
+    <None Include="Setting\Font\malgun.ttf" />
+    <None Include="Setting\Font\malgunbd.ttf" />
+    <None Include="Setting\Font\malgunsl.ttf" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Connect.Common\Connect.Common.csproj">
@@ -370,6 +375,10 @@
     <ProjectReference Include="..\InfrastructureCore\InfrastructureCore.csproj">
       <Project>{655CC7E8-63CF-45D7-8BE6-FBC21D4CC622}</Project>
       <Name>InfrastructureCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Parking.App.Common\Parking.App.Common.csproj">
+      <Project>{5E42B08D-DC7A-4092-A143-AEBB26F1FE0D}</Project>
+      <Name>Parking.App.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Parking.App.Contract\Parking.App.Contract.csproj">
       <Project>{682D3344-82F5-4AA3-BBC0-090CE78B6639}</Project>
@@ -427,31 +436,14 @@
     <Content Include="Assets\Images\customize.png" />
     <Content Include="Assets\Images\payment.png" />
     <Content Include="Assets\Images\pending.png" />
-    <Content Include="Content\metro-colors.css" />
-    <Content Include="Content\metro-colors.min.css" />
-    <Content Include="Content\metro-icons.css" />
-    <Content Include="Content\metro-icons.min.css" />
-    <Content Include="Content\metro-responsive.css" />
-    <Content Include="Content\metro-responsive.min.css" />
-    <Content Include="Content\metro-rtl.css" />
-    <Content Include="Content\metro-rtl.min.css" />
-    <Content Include="Content\metro-schemes.css" />
-    <Content Include="Content\metro-schemes.min.css" />
-    <Content Include="Content\metro.css" />
-    <Content Include="Content\metro.min.css" />
-    <Content Include="Fonts\metro.svg" />
-    <Content Include="Scripts\metro.js" />
-    <Content Include="Scripts\metro.min.js" />
+    <Content Include="Setting\AdMgtInfos.xml" />
+    <Content Include="Setting\Config.xml" />
+    <Content Include="Setting\haarcascade_frontalface_default.xml" />
+    <Content Include="Setting\OwlClientContent.xml" />
+    <Content Include="Setting\SettingView.xml" />
+    <Content Include="Setting\TextFile1.txt" />
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="AxDIRECTORSHOCKWAVELib">
-      <Guid>{AC4C21AD-9194-416E-9D34-D6C1350F28F6}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>aximp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
     <COMReference Include="DIRECTORSHOCKWAVELib">
       <Guid>{AC4C21AD-9194-416E-9D34-D6C1350F28F6}</Guid>
       <VersionMajor>1</VersionMajor>
