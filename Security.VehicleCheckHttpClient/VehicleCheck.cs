@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Security.VehicleCheckHttpClient.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -7,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Security.VehicleCheckHttpClient
 {
-    public class VehicleCheck
+    public class VehicleCheck: IVehicleManagement
     {
-        public async Task VehicleCheckPost(String platenum, String typeTransport = "car", String typeLP = "2")
+        public async Task<string> CheckInVehicleAsync(string platenum, string typeTransport = "car", string typeLP = "2")
         {
             HttpClient client = new HttpClient();
 
@@ -24,14 +25,38 @@ namespace Security.VehicleCheckHttpClient
             var content = new FormUrlEncodedContent(values);
             // Gọi đến API kiểm tra xe ra vào
             var response = await client.PostAsync("https://localhost:8001/check-vehicle", content);
-
+            //string responseContent = await response.Content.ReadAsStringAsync();
             if (response.IsSuccessStatusCode)
             {
-                Console.WriteLine("Successful");
+                return "Successful";
             }
             else
             {
-                Console.WriteLine("Error");
+                return "Error";
+            }
+        }
+        public async Task<string> VehicleReportAsync(string ImagePlate, string ImageFace)
+        {
+            HttpClient client = new HttpClient();
+
+
+            var values = new Dictionary<string, string>
+            {
+                { "imagePlate", ImagePlate },
+                { "imageFace", ImageFace }
+            };
+
+            var content = new FormUrlEncodedContent(values);
+            // Gọi đến API kiểm tra xe ra vào
+            var response = await client.PostAsync("https://localhost:8001/report", content);
+            //string responseContent = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+            {
+                return "Successful";
+            }
+            else
+            {
+                return "Error";
             }
         }
     }
