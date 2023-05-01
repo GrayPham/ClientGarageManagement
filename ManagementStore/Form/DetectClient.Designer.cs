@@ -40,8 +40,6 @@ namespace ManagementStore.Form
             this.barHeaderItem1 = new DevExpress.XtraBars.BarHeaderItem();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
-            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.repositoryItemTimeSpanEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeSpanEdit();
             this.ribbonPageGroup_System = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barBtn_Profile = new DevExpress.XtraBars.BarButtonItem();
@@ -56,8 +54,11 @@ namespace ManagementStore.Form
             this.panelControlInPut = new DevExpress.XtraEditors.PanelControl();
             this.panelOut = new System.Windows.Forms.Panel();
             this.panelIn = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFace = new System.Windows.Forms.PictureBox();
             this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
+            this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeSpanEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlHandle)).BeginInit();
@@ -69,7 +70,7 @@ namespace ManagementStore.Form
             ((System.ComponentModel.ISupportInitialize)(this.panelControlOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlInPut)).BeginInit();
             this.panelControlInPut.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFace)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonStatusBar
@@ -146,13 +147,11 @@ namespace ManagementStore.Form
             this.ribbon.MaxItemId = 14;
             this.ribbon.Name = "ribbon";
             this.ribbon.PageHeaderItemLinks.Add(this.barHeaderItem1);
-            this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage1});
             this.ribbon.QuickToolbarItemLinks.Add(this.barStaticItem1);
             this.ribbon.QuickToolbarItemLinks.Add(this.barStaticItem2);
             this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTimeSpanEdit1});
-            this.ribbon.Size = new System.Drawing.Size(1384, 181);
+            this.ribbon.Size = new System.Drawing.Size(1384, 66);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // barHeaderItem1
@@ -180,18 +179,6 @@ namespace ManagementStore.Form
             this.barStaticItem2.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barStaticItem2.ImageOptions.LargeImage")));
             this.barStaticItem2.Name = "barStaticItem2";
             this.barStaticItem2.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // ribbonPage1
-            // 
-            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
-            this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "Detect Page";
-            // 
-            // ribbonPageGroup1
-            // 
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "Home";
             // 
             // repositoryItemTimeSpanEdit1
             // 
@@ -282,28 +269,28 @@ namespace ManagementStore.Form
             this.panelControlMain.Controls.Add(this.panelControlOut);
             this.panelControlMain.Controls.Add(this.panelControlInPut);
             this.panelControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControlMain.Location = new System.Drawing.Point(0, 181);
+            this.panelControlMain.Location = new System.Drawing.Point(0, 66);
             this.panelControlMain.Name = "panelControlMain";
-            this.panelControlMain.Size = new System.Drawing.Size(1384, 485);
+            this.panelControlMain.Size = new System.Drawing.Size(1384, 600);
             this.panelControlMain.TabIndex = 3;
             // 
             // panelControlOut
             // 
             this.panelControlOut.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControlOut.Location = new System.Drawing.Point(2, 366);
+            this.panelControlOut.Location = new System.Drawing.Point(2, 338);
             this.panelControlOut.Name = "panelControlOut";
-            this.panelControlOut.Size = new System.Drawing.Size(1380, 117);
+            this.panelControlOut.Size = new System.Drawing.Size(1380, 260);
             this.panelControlOut.TabIndex = 1;
             // 
             // panelControlInPut
             // 
             this.panelControlInPut.Controls.Add(this.panelOut);
             this.panelControlInPut.Controls.Add(this.panelIn);
-            this.panelControlInPut.Controls.Add(this.pictureBox2);
+            this.panelControlInPut.Controls.Add(this.pictureBoxFace);
             this.panelControlInPut.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControlInPut.Location = new System.Drawing.Point(2, 2);
             this.panelControlInPut.Name = "panelControlInPut";
-            this.panelControlInPut.Size = new System.Drawing.Size(1380, 364);
+            this.panelControlInPut.Size = new System.Drawing.Size(1380, 336);
             this.panelControlInPut.TabIndex = 0;
             // 
             // panelOut
@@ -322,19 +309,36 @@ namespace ManagementStore.Form
             this.panelIn.Size = new System.Drawing.Size(423, 326);
             this.panelIn.TabIndex = 2;
             // 
-            // pictureBox2
+            // pictureBoxFace
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(465, 5);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(451, 326);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
+            this.pictureBoxFace.Location = new System.Drawing.Point(465, 5);
+            this.pictureBoxFace.Name = "pictureBoxFace";
+            this.pictureBoxFace.Size = new System.Drawing.Size(451, 326);
+            this.pictureBoxFace.TabIndex = 1;
+            this.pictureBoxFace.TabStop = false;
             // 
             // skinRibbonGalleryBarItem1
             // 
             this.skinRibbonGalleryBarItem1.Caption = "skinRibbonGalleryBarItem1";
             this.skinRibbonGalleryBarItem1.Id = 10;
             this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
+            // 
+            // ribbonPage4
+            // 
+            this.ribbonPage4.Name = "ribbonPage4";
+            this.ribbonPage4.Text = "ribbonPage4";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
+            // 
+            // ribbonPage1
+            // 
+            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup1});
+            this.ribbonPage1.Name = "ribbonPage1";
+            this.ribbonPage1.Text = "ribbonPage1";
             // 
             // DetectClient
             // 
@@ -362,7 +366,7 @@ namespace ManagementStore.Form
             ((System.ComponentModel.ISupportInitialize)(this.panelControlOut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlInPut)).EndInit();
             this.panelControlInPut.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFace)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -381,7 +385,7 @@ namespace ManagementStore.Form
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.TextEdit textEdit3;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBoxFace;
         private System.Windows.Forms.Panel panelIn;
         private System.Windows.Forms.Panel panelOut;
         private DevExpress.XtraBars.BarStaticItem barItemConnect;
@@ -393,9 +397,10 @@ namespace ManagementStore.Form
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
         private DevExpress.XtraBars.BarHeaderItem barHeaderItem1;
         private DevExpress.XtraBars.BarStaticItem barStaticItem1;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTimeSpanEdit repositoryItemTimeSpanEdit1;
         private DevExpress.XtraBars.BarStaticItem barStaticItem2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTimeSpanEdit repositoryItemTimeSpanEdit1;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage4;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
     }
 }
