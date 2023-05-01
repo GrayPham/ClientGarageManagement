@@ -6,6 +6,7 @@ using ManagementStore.Common;
 using ManagementStore.DTO;
 using ManagementStore.Services;
 using Security;
+using Security.VehicleCheckHttpClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,24 +21,30 @@ namespace ManagementStore.Form.Camera
 {
     public partial class PictureControl : DevExpress.XtraEditors.XtraUserControl
     {
-        VideoCapture capture;
-        private VideoCapture camera1;
-        private SocketDetect encode;
+        // YOLO Detect
         private YoloDetectServices detect = new YoloDetectServices(CudaInvoke.HasCuda);
         private YoloModelDto dto;
+        // Video Setting
+        VideoCapture capture;
+        List<string> dataCamera = new List<string>();
+        private VideoCapture camera1;
+        private SocketDetect encode;
         private bool captureInProgress = false;
-        private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
         private byte bitSent = 1;
         int cameraindex = -1;
-        List<string> dataCamera = new List<string>();
+        // API
+        VehicleCheck cVehicle = new VehicleCheck();
+        
+        //Test FPS
+        private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
         private int countTime = 0;
         private int waitTime = 0;
-        //Test FPS 
         int currentFrame = 0;
 
         // Brightness
         double bright = 0;
         double dark = 0;
+        #region Initialization
         public PictureControl(int index, SocketDetect socket )
         {
             InitializeComponent();
@@ -47,22 +54,31 @@ namespace ManagementStore.Form.Camera
             timer.Interval = 1000;
             timer.Tick += (sender, e) =>
             {
-                // Lưu trữ số khung hình hiện tại
                 int previousFrame = currentFrame;
-
-                // Cập nhật số khung hình hiện tại
                 currentFrame = 0;
 
-                // Tính toán và hiển thị số FPS
+                // Calculate and display the number of FPS
                 double fps = (double)(previousFrame) / 1;
                 lbFPS.Text = string.Format("{0:0.00} FPS", fps);
             };
-
-            // Bắt đầu Timer
+            // Start Timer
             timer.Start();
 
         }
+        private void loadCamera()
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                camera1 = new VideoCapture(i);
 
+                if (camera1.IsOpened)
+                {
+                    dataCamera.Add($"Camera {i}");
+
+                }
+            }
+            dataCamera.Add("None");
+        }
         private void PictureControl_Load(object sender, EventArgs e)
         {
             if (capture == null)
@@ -79,38 +95,50 @@ namespace ManagementStore.Form.Camera
                 }
             }
         }
+        #endregion
         private async void ProcessFrame(object sender, EventArgs arg)
         {
             if (captureInProgress)
             {
-                // brightness
+                // Light treatment
                 double contrast = Math.Pow((100.0 + bright) / 100.0, 2);
                 Image<Bgr, Byte> ImageFrame =  capture.QueryFrame().ToImage<Bgr, byte>();  //line 1
                 CvInvoke.ConvertScaleAbs(ImageFrame, ImageFrame, contrast, bright);
                 Image image = ImageFrame.ToBitmap();
                 dto = detect.detect(image);
+                // Check execution time limit
                 if (dto != null)
                 {
                     // Check Velhike input output
                     if (bitSent == 1 && dto.countListPrediction() > 7)
                     {
-                        // Check Result if Error
                         if (waitTime == 10)
                         {
                             bitSent = 0;
                             // return LP
                             string mess = await encode.request(dto.getImageBase(), dto.yoloPredictions);
                             textEditLP.Text = mess;
-                            
+                            // Handle Sent API CheckINOUT
+                            if (ModelConfig.socketOpen)
+                            {
+                                string resultCheckout = await cVehicle.CheckInVehicleAsync(mess);
+                                if (resultCheckout == "Successful")
+                                {
+                                    cEditInVehicle.Checked = true;
+                                }
+                            }
                             countTime = 0;
                             waitTime = 0;
+
+
+
                         }
                         else
                         {
                             waitTime++;
                         }
                     }
-                    // Kiem tra sau 2.5s không nhận được phát hiện xe trong client --> set bitSent = 1
+                    // Check after 2.5s, no vehicle detected in client --> set bitSent = 1
                     if (countTime == 10)
                     {
                         bitSent = 1;
@@ -127,20 +155,7 @@ namespace ManagementStore.Form.Camera
                 }
             }
         }
-        private void loadCamera()
-        {
-            for (int i = 0; i < 7; i++)
-            {
-                camera1 = new VideoCapture(i);
 
-                if (camera1.IsOpened)
-                {
-                    dataCamera.Add($"Camera {i}");
-                    
-                }
-            }
-            dataCamera.Add("None");
-        }
         private void pictureBoxCamera_Paint(object sender, PaintEventArgs e)
         {
             currentFrame++;

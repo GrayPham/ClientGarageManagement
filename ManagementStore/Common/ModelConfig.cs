@@ -12,5 +12,7 @@ namespace ManagementStore.Common
         public static string dataFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets/Weights");
         public static string socketFastAPI = "ws://localhost:8001/ws";
         public static bool socketOpen = false;
+        public readonly static string checkInSuccess = "Successful";
+        public readonly static string checkInError = "Error";
     }
 }
