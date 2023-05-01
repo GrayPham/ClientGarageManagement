@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Security.VehicleCheckHttpClient.Common
 {
-    class Common
+    public class Common
     {
         public static readonly string api = "https://localhost:8001/"; 
     }
