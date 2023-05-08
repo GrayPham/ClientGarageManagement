@@ -29,18 +29,40 @@ namespace ManagementStore.Form.Camera
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBoxCamera = new System.Windows.Forms.PictureBox();
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBoxSetting = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCamera = new System.Windows.Forms.PictureBox();
             this.lbFPS = new System.Windows.Forms.Label();
-            this.trackBarBrightness = new System.Windows.Forms.TrackBar();
-            this.cBoxIn1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textEditLP = new DevExpress.XtraEditors.TextEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamera)).BeginInit();
+            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarBrightness)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSetting)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamera)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditLP.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.pictureBoxSetting);
+            this.panel1.Controls.Add(this.pictureBoxCamera);
+            this.panel1.Location = new System.Drawing.Point(0, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(423, 232);
+            this.panel1.TabIndex = 1;
+            // 
+            // pictureBoxSetting
+            // 
+            this.pictureBoxSetting.Image = global::ManagementStore.Properties.Resources.technology_32x32;
+            this.pictureBoxSetting.Location = new System.Drawing.Point(375, 3);
+            this.pictureBoxSetting.Name = "pictureBoxSetting";
+            this.pictureBoxSetting.Size = new System.Drawing.Size(45, 45);
+            this.pictureBoxSetting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxSetting.TabIndex = 1;
+            this.pictureBoxSetting.TabStop = false;
+            this.pictureBoxSetting.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBoxSetting_MouseClick);
             // 
             // pictureBoxCamera
             // 
@@ -53,14 +75,6 @@ namespace ManagementStore.Form.Camera
             this.pictureBoxCamera.TabStop = false;
             this.pictureBoxCamera.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxCamera_Paint);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.pictureBoxCamera);
-            this.panel1.Location = new System.Drawing.Point(0, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(423, 232);
-            this.panel1.TabIndex = 1;
-            // 
             // lbFPS
             // 
             this.lbFPS.AutoSize = true;
@@ -70,23 +84,6 @@ namespace ManagementStore.Form.Camera
             this.lbFPS.Size = new System.Drawing.Size(32, 18);
             this.lbFPS.TabIndex = 2;
             this.lbFPS.Text = "FPS";
-            // 
-            // trackBarBrightness
-            // 
-            this.trackBarBrightness.Location = new System.Drawing.Point(77, 241);
-            this.trackBarBrightness.Name = "trackBarBrightness";
-            this.trackBarBrightness.Size = new System.Drawing.Size(218, 56);
-            this.trackBarBrightness.TabIndex = 3;
-            // 
-            // cBoxIn1
-            // 
-            this.cBoxIn1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cBoxIn1.FormattingEnabled = true;
-            this.cBoxIn1.Location = new System.Drawing.Point(294, 246);
-            this.cBoxIn1.Name = "cBoxIn1";
-            this.cBoxIn1.Size = new System.Drawing.Size(123, 26);
-            this.cBoxIn1.TabIndex = 4;
-            this.cBoxIn1.SelectedIndexChanged += new System.EventHandler(this.cBoxIn1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -100,7 +97,7 @@ namespace ManagementStore.Form.Camera
             // 
             // textEditLP
             // 
-            this.textEditLP.Location = new System.Drawing.Point(77, 301);
+            this.textEditLP.Location = new System.Drawing.Point(77, 298);
             this.textEditLP.Name = "textEditLP";
             this.textEditLP.Size = new System.Drawing.Size(218, 22);
             this.textEditLP.TabIndex = 6;
@@ -111,17 +108,16 @@ namespace ManagementStore.Form.Camera
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.textEditLP);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.cBoxIn1);
-            this.Controls.Add(this.trackBarBrightness);
             this.Controls.Add(this.lbFPS);
             this.Controls.Add(this.panel1);
             this.Name = "PictureControl";
             this.Size = new System.Drawing.Size(423, 326);
             this.Load += new System.EventHandler(this.PictureControl_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamera)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarBrightness)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSetting)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamera)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditLP.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,9 +128,9 @@ namespace ManagementStore.Form.Camera
         private System.Windows.Forms.PictureBox pictureBoxCamera;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbFPS;
-        private System.Windows.Forms.TrackBar trackBarBrightness;
-        private System.Windows.Forms.ComboBox cBoxIn1;
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.TextEdit textEditLP;
+        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
+        private System.Windows.Forms.PictureBox pictureBoxSetting;
     }
 }

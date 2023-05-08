@@ -29,17 +29,21 @@ namespace ManagementStore.Form.Camera
         private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
         private byte bitSent = 1;
         int cameraindex = -1;
-
+        List<string> dataCamera = new List<string>();
         private int countTime = 0;
         private int waitTime = 0;
         //Test FPS 
         int currentFrame = 0;
+
+        // Brightness
+        double bright = 0;
+        double dark = 0;
         public PictureControl(int index, SocketDetect socket )
         {
             InitializeComponent();
             this.encode = socket;
-            cameraindex = index;
             loadCamera();
+            cameraindex = index;
             timer.Interval = 1000;
             timer.Tick += (sender, e) =>
             {
@@ -61,12 +65,13 @@ namespace ManagementStore.Form.Camera
 
         private void PictureControl_Load(object sender, EventArgs e)
         {
-            if (capture == null && cameraindex != -1)
+            if (capture == null)
             {
                 try
                 {
                     capture = new VideoCapture(cameraindex);
-                    cBoxIn1.SelectedIndex = cameraindex;
+                    captureInProgress = true;
+                    Application.Idle += ProcessFrame;
                 }
                 catch (NullReferenceException excpt)
                 {
@@ -78,11 +83,10 @@ namespace ManagementStore.Form.Camera
         {
             if (captureInProgress)
             {
-                double brightness = trackBarBrightness.Value;
                 // brightness
-                double contrast = Math.Pow((100.0 + brightness) / 100.0, 2);
+                double contrast = Math.Pow((100.0 + bright) / 100.0, 2);
                 Image<Bgr, Byte> ImageFrame =  capture.QueryFrame().ToImage<Bgr, byte>();  //line 1
-                CvInvoke.ConvertScaleAbs(ImageFrame, ImageFrame, contrast, brightness);
+                CvInvoke.ConvertScaleAbs(ImageFrame, ImageFrame, contrast, bright);
                 Image image = ImageFrame.ToBitmap();
                 dto = detect.detect(image);
                 if (dto != null)
@@ -131,33 +135,63 @@ namespace ManagementStore.Form.Camera
 
                 if (camera1.IsOpened)
                 {
-                    cBoxIn1.Items.Add($"Camera {i}");
+                    dataCamera.Add($"Camera {i}");
+                    
                 }
             }
-            cBoxIn1.Items.Add("None");
+            dataCamera.Add("None");
         }
         private void pictureBoxCamera_Paint(object sender, PaintEventArgs e)
         {
             currentFrame++;
         }
 
-        private void cBoxIn1_SelectedIndexChanged(object sender, EventArgs e)
+  
+        #region SubForm Edit
+        private Point clickPoint;
+        private void pictureBoxSetting_MouseClick(object sender, MouseEventArgs e)
         {
-            if (cBoxIn1.SelectedItem.ToString() != "None")
-            {
-                cameraindex = cBoxIn1.SelectedIndex;
-                captureInProgress = true;
-                //capture = new VideoCapture(cameraindex); // BUG
-                Application.Idle += ProcessFrame;
-            }
-            else
+            clickPoint = e.Location;
+            SubFormCamera subFormCamera = new SubFormCamera(dataCamera, cameraindex);
+            subFormCamera.Location = new Point(this.Location.X + clickPoint.X, this.Location.Y + clickPoint.Y);
+            subFormCamera.BringToFront();
+            subFormCamera.ComboBoxIndexChanged += SubForm_ComboBoxIndexChanged;
+            subFormCamera.ValueDarkChanged += SubForm_ValueDarkChanged;
+            subFormCamera.ValueBrightChanged += SubForm_ValueBrightChanged;
+            this.Enabled = false;
+            subFormCamera.ShowDialog();
+            this.Enabled = true;
+        }
+        private void SubForm_ComboBoxIndexChanged(object sender, EventArgs e)
+        {
+            // Cập nhật giá trị của comboBoxIndex khi giá trị trên form con thay đổi
+            cameraindex = ((SubFormCamera)sender).ComboBoxIndex;
+            // Cập nhật các thành phần trên form cha sử dụng giá trị của comboBoxIndex
+            if (dataCamera[cameraindex] == "None")
             {
                 captureInProgress = false;
                 cameraindex = -1;
+
                 Application.Idle -= ProcessFrame;
                 pictureBoxCamera.Image = null;
                 capture.Dispose();
             }
+            else
+            {
+                capture = new VideoCapture(cameraindex);
+                captureInProgress = true;
+                //capture = new VideoCapture(cameraindex); // BUG
+                Application.Idle += ProcessFrame;
+            }
         }
+        private void SubForm_ValueDarkChanged(int value)
+        {
+            dark = value;
+        }
+        private void SubForm_ValueBrightChanged(int value)
+        {
+            bright = value;
+        }
+        #endregion
     }
 }
