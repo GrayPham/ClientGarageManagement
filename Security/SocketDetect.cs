@@ -15,9 +15,13 @@ namespace Security
 {
     public class SocketDetect
     {
-        private ClientWebSocket webSocket1;
+        private ClientWebSocket webSocket1 = new ClientWebSocket();
         private string Id;
         private CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+        public SocketDetect()
+        {
+
+        }
         private byte[] ImageToByteArray(Image image)
         {
             using (var ms = new MemoryStream())
@@ -26,14 +30,14 @@ namespace Security
                 return ms.ToArray();
             }
         }
-        public bool OpenConnect()
+        public async Task<bool> OpenConnectAsync()
         {
             webSocket1 = new ClientWebSocket();
             try
             {
                 // Connect FastAPI
                 Uri uri = new Uri(Config.socketFastAPI);
-                webSocket1.ConnectAsync(uri, cancellationTokenSource.Token);
+                await webSocket1.ConnectAsync(uri, cancellationTokenSource.Token);
                 return true;
             }
             catch (Exception)
@@ -53,13 +57,13 @@ namespace Security
         {
             try
             {
-                // Close the previous WebSocket connection (if any)
-                if (webSocket1 != null)
-                {
-                    await webSocket1.CloseAsync(WebSocketCloseStatus.NormalClosure, "", CancellationToken.None);
-                    webSocket1.Dispose();
-                    webSocket1 = null;
-                }
+                //// Close the previous WebSocket connection (if any)
+                //if (webSocket1 != null)
+                //{
+                //    await webSocket1.CloseAsync(WebSocketCloseStatus.NormalClosure, "", CancellationToken.None);
+                //    webSocket1.Dispose();
+                //    webSocket1 = null;
+                //}
 
                 // Create a new WebSocket connection
                 webSocket1 = new ClientWebSocket();
@@ -87,10 +91,10 @@ namespace Security
             var buffer = new ArraySegment<byte>(Encoding.UTF8.GetBytes(json));
             try
             {
-                
+                // Reopen
                 if(webSocket1.State == WebSocketState.Closed || webSocket1.State == WebSocketState.Aborted)
                 {
-                    bool check = OpenConnect();
+                    bool check = await OpenConnectAsync();
                 }
                 //var message = JsonConvert.SerializeObject(dto);
                 //var buffer = new ArraySegment<byte>(Encoding.UTF8.GetBytes(message));
@@ -125,7 +129,12 @@ namespace Security
         }
         public bool SocketStatus()
         {
-            return webSocket1.State == WebSocketState.Open?true: false;
+            if (webSocket1.State == WebSocketState.Open || webSocket1.State == WebSocketState.Connecting)
+            {
+                return  true ;
+            }
+            return false;
+            
         }
 
     }

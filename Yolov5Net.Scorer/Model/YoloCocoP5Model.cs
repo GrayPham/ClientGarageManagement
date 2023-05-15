@@ -9,7 +9,7 @@ namespace Yolov5Net.Scorer.Models
         public override int Height { get; set; } = 640;
         public override int Depth { get; set; } = 3;
 
-        public override int Dimensions { get; set; } = 9;
+        public override int Dimensions { get; set; } = 6;
 
         public override int[] Strides { get; set; } = new int[] { 32 };
 
@@ -22,7 +22,7 @@ namespace Yolov5Net.Scorer.Models
 
         public override int[] Shapes { get; set; } = new int[] { 80, 40, 20 };
 
-        public override float Confidence { get; set; } = 0.5f;
+        public override float Confidence { get; set; } = 0.8f;
         public override float MulConfidence { get; set; } = 0.5f;
         public override float Overlap { get; set; } = 0.45f;
 
@@ -30,10 +30,8 @@ namespace Yolov5Net.Scorer.Models
 
         public override List<YoloLabel> Labels { get; set; } = new List<YoloLabel>()
         {
-            new YoloLabel { Id = 0, Name = "license-plate" },
-            new YoloLabel { Id = 1, Name = "moto" },
-            new YoloLabel { Id = 2, Name = "number" },
-            new YoloLabel { Id = 3, Name = "oto" }
+            new YoloLabel { Id = 0, Name = "0" },
+
         };
 
         public override bool UseDetect { get; set; } = true;

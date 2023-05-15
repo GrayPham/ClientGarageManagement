@@ -37,11 +37,13 @@ namespace ManagementStore.Form.Camera
             this.label1 = new System.Windows.Forms.Label();
             this.textEditLP = new DevExpress.XtraEditors.TextEdit();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
+            this.cEditInVehicle = new DevExpress.XtraEditors.CheckEdit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSetting)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamera)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditLP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cEditInVehicle.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -102,10 +104,21 @@ namespace ManagementStore.Form.Camera
             this.textEditLP.Size = new System.Drawing.Size(218, 22);
             this.textEditLP.TabIndex = 6;
             // 
+            // cEditInVehicle
+            // 
+            this.cEditInVehicle.Location = new System.Drawing.Point(312, 298);
+            this.cEditInVehicle.Name = "cEditInVehicle";
+            this.cEditInVehicle.Properties.Caption = "Vehicle In";
+            this.cEditInVehicle.Properties.ReadOnly = true;
+            this.cEditInVehicle.Size = new System.Drawing.Size(94, 20);
+            this.cEditInVehicle.TabIndex = 7;
+            this.cEditInVehicle.Click += new System.EventHandler(this.cEditInVehicle_Click);
+            // 
             // PictureControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cEditInVehicle);
             this.Controls.Add(this.textEditLP);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbFPS);
@@ -118,6 +131,7 @@ namespace ManagementStore.Form.Camera
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamera)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditLP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cEditInVehicle.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,5 +146,6 @@ namespace ManagementStore.Form.Camera
         private DevExpress.XtraEditors.TextEdit textEditLP;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private System.Windows.Forms.PictureBox pictureBoxSetting;
+        private DevExpress.XtraEditors.CheckEdit cEditInVehicle;
     }
 }
