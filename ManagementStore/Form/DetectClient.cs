@@ -14,7 +14,7 @@ using Parking.App.Interface.Common;
 using Parking.App.Language;
 using System;
 using Security;
-
+using System.Drawing;
 namespace ManagementStore.Form
 {
     public partial class DetectClient : DevExpress.XtraBars.Ribbon.RibbonForm, IProgramController
@@ -36,11 +36,7 @@ namespace ManagementStore.Form
             InitializeComponent();
             LoadCamera();
 
-            //Connect FastAPI
-            if (Encode.OpenConnect())
-            {
-                ModelConfig.socketOpen = true;
-            }
+
             //webSocket.ConnectAsync(uri, cancellationTokenSource.Token);
         }
         private void DetectClient_Load(object sender, EventArgs e)
@@ -63,6 +59,7 @@ namespace ManagementStore.Form
                 PictureControl pictureControl = new PictureControl(0, Encode);
                 panelIn.Controls.Add(pictureControl);
             //}
+            faceImage = pictureBoxFace.Image;
         }
 
         private void LoadCamera()
@@ -184,6 +181,14 @@ namespace ManagementStore.Form
         }
         #endregion
 
-
+        #region Get Face Image Test
+        private static Image faceImage;
+        public static Image getFaceImage()
+        {
+            if(faceImage != null)
+                return faceImage;
+            return null;
+        }
+        #endregion
     }
 }

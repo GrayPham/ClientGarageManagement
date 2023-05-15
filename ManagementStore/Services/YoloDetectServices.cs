@@ -20,20 +20,17 @@ namespace ManagementStore.Services
         {
             if (cuda)
             {
-                scorer = new YoloScorer<YoloCocoP5Model>(ModelConfig.dataFolderPath + "/best.onnx", SessionOptions.MakeSessionOptionWithCudaProvider(0));
+                scorer = new YoloScorer<YoloCocoP5Model>(ModelConfig.dataFolderPath + "/bestLP.onnx", SessionOptions.MakeSessionOptionWithCudaProvider(0));
 
             }
             else
             {
-                scorer = new YoloScorer<YoloCocoP5Model>(ModelConfig.dataFolderPath + "/best.onnx");
+                scorer = new YoloScorer<YoloCocoP5Model>(ModelConfig.dataFolderPath + "/bestLP.onnx");
             }
         }
         public YoloModelDto detect(Image image)
         {
             Image imagebase = new Bitmap(image);
-            //Mat frame = new Mat();
-            //VideoCapture camera1 = new VideoCapture(0); // thiết lập camera đầu tiên
-            //camera1.Read(frame); // đọc khung hình từ camera đầu tiên
             List<YoloPrediction> predictions = scorer.Predict(image);
             YoloModelDto yolo = new YoloModelDto(imagebase, predictions);
             using var graphics = Graphics.FromImage(image);

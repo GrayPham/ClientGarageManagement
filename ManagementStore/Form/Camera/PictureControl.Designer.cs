@@ -109,8 +109,10 @@ namespace ManagementStore.Form.Camera
             this.cEditInVehicle.Location = new System.Drawing.Point(312, 298);
             this.cEditInVehicle.Name = "cEditInVehicle";
             this.cEditInVehicle.Properties.Caption = "Vehicle In";
+            this.cEditInVehicle.Properties.ReadOnly = true;
             this.cEditInVehicle.Size = new System.Drawing.Size(94, 20);
             this.cEditInVehicle.TabIndex = 7;
+            this.cEditInVehicle.Click += new System.EventHandler(this.cEditInVehicle_Click);
             // 
             // PictureControl
             // 

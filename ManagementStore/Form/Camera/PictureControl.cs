@@ -99,59 +99,89 @@ namespace ManagementStore.Form.Camera
         private async void ProcessFrame(object sender, EventArgs arg)
         {
             if (captureInProgress)
-            {
-                // Light treatment
-                double contrast = Math.Pow((100.0 + bright) / 100.0, 2);
-                Image<Bgr, Byte> ImageFrame =  capture.QueryFrame().ToImage<Bgr, byte>();  //line 1
-                CvInvoke.ConvertScaleAbs(ImageFrame, ImageFrame, contrast, bright);
-                Image image = ImageFrame.ToBitmap();
-                dto = detect.detect(image);
-                // Check execution time limit
-                if (dto != null)
-                {
-                    // Check Velhike input output
-                    if (bitSent == 1 && dto.countListPrediction() > 7)
+            {   
+                if(encode.SocketStatus() == true) 
+                { 
+                    // Light treatment
+                    double contrast = Math.Pow((100.0 + bright) / 100.0, 2);
+                    Image<Bgr, Byte> ImageFrame =  capture.QueryFrame().ToImage<Bgr, byte>();  //line 1
+                    CvInvoke.ConvertScaleAbs(ImageFrame, ImageFrame, contrast, bright);
+                    Image image = ImageFrame.ToBitmap();
+                    dto = detect.detect(image);
+                    // Check execution time limit
+                    if (dto != null )
                     {
-                        if (waitTime == 10)
+                        // Check Velhike input output
+                        if (bitSent == 1 && dto.countListPrediction() > 0)
                         {
-                            bitSent = 0;
-                            // return LP
-                            string mess = await encode.request(dto.getImageBase(), dto.yoloPredictions);
-                            textEditLP.Text = mess;
-                            // Handle Sent API CheckINOUT
-                            if (ModelConfig.socketOpen)
+                            if (waitTime == 10)
                             {
-                                string resultCheckout = await cVehicle.CheckInVehicleAsync(mess);
-                                if (resultCheckout == "Successful")
+                                bitSent = 0;
+                                using (YoloModelDto dto_sent = new YoloModelDto(dto.getImageBase(), dto.yoloPredictions))
                                 {
-                                    cEditInVehicle.Checked = true;
+                                
+                                    // return LP
+                                    string mess = await encode.request(dto_sent.getImageBase(), dto_sent.yoloPredictions);
+                                    textEditLP.Text = mess;
+                                    // Handle Sent API CheckINOUT
+                                    if (ModelConfig.socketOpen && mess != "")
+                                    {
+                                        if(mess != "None")
+                                        {
+                                            Image face = DetectClient.getFaceImage();
+                                            if (face != null || pictureBoxCamera.Image != null)
+                                            {
+                                                Image lp = pictureBoxCamera.Image;
+                                                string resultCheckout = await cVehicle.CheckInVehicleAsync(mess, face, lp);
+                                                if (resultCheckout == "Successful")
+                                                {
+                                                    cEditInVehicle.Checked = true;
+                                                    await Task.Delay(3000);
+                                                    countTime = 0;
+                                                    waitTime = 0;
+                                                    textEditLP.Text = "";
+                                                    cEditInVehicle.Checked = false;
+                                                    bitSent = 1;
+                                                }
+                                                else if(resultCheckout == "Block")
+                                                {
+                                                    cEditInVehicle.ForeColor = Color.Red;
+                                                }    
+                                            }                              
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        // Reopen
+                                        while (true)
+                                        {
+                                            bool connect = await encode.OpenConnectAsync();
+                                            if (connect)
+                                                break;
+                                        }
+                                    }
+
                                 }
+                                bitSent = 1;
                             }
-                            countTime = 0;
-                            waitTime = 0;
-
-
-
+                            else
+                            {
+                                waitTime++;
+                            }
                         }
-                        else
+                        else if (dto.countListPrediction() == 0)
                         {
-                            waitTime++;
+                            waitTime = 0;
                         }
+                        pictureBoxCamera.Image = dto.getImageDetect();
+                        ModelConfig.socketOpen = encode.SocketStatus();
                     }
-                    // Check after 2.5s, no vehicle detected in client --> set bitSent = 1
-                    if (countTime == 10)
-                    {
-                        bitSent = 1;
-                        textEditLP.Text = "";
-                    }
-                    else if (dto.countListPrediction() <= 1)
-                    {
-                        countTime++;
-                    }
-                    pictureBoxCamera.Image = dto.getImageDetect();
-                    ModelConfig.socketOpen = encode.SocketStatus();
-
-
+                }
+                // IF connect ->> waitting 
+                else
+                {
+                    await encode.OpenConnectAsync();
                 }
             }
         }
@@ -208,5 +238,10 @@ namespace ManagementStore.Form.Camera
             bright = value;
         }
         #endregion
+
+        private void cEditInVehicle_Click(object sender, EventArgs e)
+        {
+            cEditInVehicle.ForeColor = Color.Black;
+        }
     }
 }

@@ -311,9 +311,11 @@ namespace ManagementStore.Form
             // 
             // pictureBoxFace
             // 
+            this.pictureBoxFace.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxFace.Image")));
             this.pictureBoxFace.Location = new System.Drawing.Point(465, 5);
             this.pictureBoxFace.Name = "pictureBoxFace";
             this.pictureBoxFace.Size = new System.Drawing.Size(451, 326);
+            this.pictureBoxFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxFace.TabIndex = 1;
             this.pictureBoxFace.TabStop = false;
             // 
@@ -385,7 +387,6 @@ namespace ManagementStore.Form
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.TextEdit textEdit3;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private System.Windows.Forms.PictureBox pictureBoxFace;
         private System.Windows.Forms.Panel panelIn;
         private System.Windows.Forms.Panel panelOut;
         private DevExpress.XtraBars.BarStaticItem barItemConnect;
@@ -402,5 +403,6 @@ namespace ManagementStore.Form
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage4;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
+        public System.Windows.Forms.PictureBox pictureBoxFace;
     }
 }

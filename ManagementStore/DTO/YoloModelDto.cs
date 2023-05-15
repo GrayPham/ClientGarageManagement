@@ -8,7 +8,7 @@ using Yolov5Net.Scorer;
 
 namespace ManagementStore.DTO
 {
-    public class YoloModelDto
+    public class YoloModelDto:IDisposable
     {
         private Image _ImageDetect;
         private List<YoloPrediction> _predictions;
@@ -53,6 +53,23 @@ namespace ManagementStore.DTO
         {
             _ImagwBase = ImagwBase;
             _predictions = predictions;
+        }
+
+        public void Dispose()
+        {
+            if (_ImageDetect != null)
+            {
+                _ImageDetect.Dispose();
+            }
+            if (_ImagwBase != null)
+            {
+                _ImagwBase.Dispose();
+            }
+        }
+
+        ~YoloModelDto()
+        {
+
         }
     }
 }
