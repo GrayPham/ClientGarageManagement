@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ManagementStore.Form.Camera;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,5 +15,6 @@ namespace ManagementStore.Common
         public static bool socketOpen = false;
         public readonly static string checkInSuccess = "Successful";
         public readonly static string checkInError = "Error";
+        public static List<FaceCameraControl> listFaceCamera = new List<FaceCameraControl>();
     }
 }

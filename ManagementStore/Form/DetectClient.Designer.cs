@@ -52,9 +52,9 @@ namespace ManagementStore.Form
             this.panelControlMain = new DevExpress.XtraEditors.PanelControl();
             this.panelControlOut = new DevExpress.XtraEditors.PanelControl();
             this.panelControlInPut = new DevExpress.XtraEditors.PanelControl();
+            this.panelFace = new System.Windows.Forms.Panel();
             this.panelOut = new System.Windows.Forms.Panel();
             this.panelIn = new System.Windows.Forms.Panel();
-            this.pictureBoxFace = new System.Windows.Forms.PictureBox();
             this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -70,7 +70,6 @@ namespace ManagementStore.Form
             ((System.ComponentModel.ISupportInitialize)(this.panelControlOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlInPut)).BeginInit();
             this.panelControlInPut.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFace)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonStatusBar
@@ -277,21 +276,29 @@ namespace ManagementStore.Form
             // panelControlOut
             // 
             this.panelControlOut.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControlOut.Location = new System.Drawing.Point(2, 338);
+            this.panelControlOut.Location = new System.Drawing.Point(2, 353);
             this.panelControlOut.Name = "panelControlOut";
-            this.panelControlOut.Size = new System.Drawing.Size(1380, 260);
+            this.panelControlOut.Size = new System.Drawing.Size(1380, 245);
             this.panelControlOut.TabIndex = 1;
             // 
             // panelControlInPut
             // 
+            this.panelControlInPut.Controls.Add(this.panelFace);
             this.panelControlInPut.Controls.Add(this.panelOut);
             this.panelControlInPut.Controls.Add(this.panelIn);
-            this.panelControlInPut.Controls.Add(this.pictureBoxFace);
             this.panelControlInPut.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControlInPut.Location = new System.Drawing.Point(2, 2);
             this.panelControlInPut.Name = "panelControlInPut";
-            this.panelControlInPut.Size = new System.Drawing.Size(1380, 336);
+            this.panelControlInPut.Size = new System.Drawing.Size(1380, 351);
             this.panelControlInPut.TabIndex = 0;
+            // 
+            // panelFace
+            // 
+            this.panelFace.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelFace.Location = new System.Drawing.Point(481, 5);
+            this.panelFace.Name = "panelFace";
+            this.panelFace.Size = new System.Drawing.Size(423, 326);
+            this.panelFace.TabIndex = 4;
             // 
             // panelOut
             // 
@@ -308,16 +315,6 @@ namespace ManagementStore.Form
             this.panelIn.Name = "panelIn";
             this.panelIn.Size = new System.Drawing.Size(423, 326);
             this.panelIn.TabIndex = 2;
-            // 
-            // pictureBoxFace
-            // 
-            this.pictureBoxFace.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxFace.Image")));
-            this.pictureBoxFace.Location = new System.Drawing.Point(465, 5);
-            this.pictureBoxFace.Name = "pictureBoxFace";
-            this.pictureBoxFace.Size = new System.Drawing.Size(451, 326);
-            this.pictureBoxFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxFace.TabIndex = 1;
-            this.pictureBoxFace.TabStop = false;
             // 
             // skinRibbonGalleryBarItem1
             // 
@@ -368,7 +365,6 @@ namespace ManagementStore.Form
             ((System.ComponentModel.ISupportInitialize)(this.panelControlOut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlInPut)).EndInit();
             this.panelControlInPut.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFace)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -403,6 +399,6 @@ namespace ManagementStore.Form
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage4;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
-        public System.Windows.Forms.PictureBox pictureBoxFace;
+        private System.Windows.Forms.Panel panelFace;
     }
 }

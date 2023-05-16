@@ -47,19 +47,22 @@ namespace ManagementStore.Form
             barItemIP.Caption = "IP:" + ProgramFactory.Instance.IPServer;
             barItemVersion.Caption = LSystem.LVersion + ApplicationInfo.VersionName;
             barItemPort.Caption = string.Format(LSystem.LPort, ApplicationInfo.PortUser);
-            //if (_count > 1)
-            //{
-            //    PictureControl pictureControl = new PictureControl(0, Encode);
-            //    panelIn.Controls.Add(pictureControl);
-            //    PictureControl pictureControl1 = new PictureControl(1, Encode);
-            //    panelOut.Controls.Add(pictureControl1);
-            //}
-            //else if (_count == 1)
-            //{
+            if (_count > 1)
+            {
+                PictureControl pictureControl = new PictureControl(1, Encode);
+                panelIn.Controls.Add(pictureControl);
+                FaceCameraControl faceCameraControl = new FaceCameraControl(0);
+                ModelConfig.listFaceCamera.Add(faceCameraControl);
+                panelFace.Controls.Add(ModelConfig.listFaceCamera[0]);
+                
+
+            }
+            else if (_count == 1)
+            {
                 PictureControl pictureControl = new PictureControl(0, Encode);
                 panelIn.Controls.Add(pictureControl);
-            //}
-            faceImage = pictureBoxFace.Image;
+            }
+            
         }
 
         private void LoadCamera()
@@ -181,14 +184,6 @@ namespace ManagementStore.Form
         }
         #endregion
 
-        #region Get Face Image Test
-        private static Image faceImage;
-        public static Image getFaceImage()
-        {
-            if(faceImage != null)
-                return faceImage;
-            return null;
-        }
-        #endregion
+
     }
 }

@@ -198,6 +198,12 @@
     <Compile Include="Extensions\PasswordExtensions.cs" />
     <Compile Include="Extensions\Utils.cs" />
     <Compile Include="Extensions\ValidateExtensions.cs" />
+    <Compile Include="Form\Camera\FaceCameraControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\Camera\FaceCameraControl.Designer.cs">
+      <DependentUpon>FaceCameraControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\Camera\PictureControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -276,6 +282,9 @@
     <Compile Include="Services\UserServices.cs" />
     <Compile Include="Services\WarehouseServices.cs" />
     <Compile Include="Services\YoloDetectServices.cs" />
+    <EmbeddedResource Include="Form\Camera\FaceCameraControl.resx">
+      <DependentUpon>FaceCameraControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\Camera\PictureControl.resx">
       <DependentUpon>PictureControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -418,6 +427,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Update="Assets\HaarCascade\haarcascade_frontalface_default.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Assets\Images\choose.png" />
     <Content Include="Assets\Images\completed.png" />
     <Content Include="Assets\Images\confirm.png" />
@@ -460,6 +474,10 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\HaarCascade\" />
+    <Folder Include="Form\Camera\Interface\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.ML.OnnxRuntime.Managed.1.14.1\build\netstandard2.0\Microsoft.ML.OnnxRuntime.Managed.targets" Condition="Exists('..\packages\Microsoft.ML.OnnxRuntime.Managed.1.14.1\build\netstandard2.0\Microsoft.ML.OnnxRuntime.Managed.targets')" />
