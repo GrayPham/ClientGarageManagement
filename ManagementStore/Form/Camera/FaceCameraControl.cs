@@ -26,7 +26,7 @@ namespace ManagementStore.Form.Camera
         Image<Bgr, Byte> frame;
         VideoCapture _camera;
         Image<Gray, byte> result;
-        public static bool startDetect = false;
+        public bool startDetect = false;
         string ipMac = "127.1.1.1";
         int countFace = 0;
         #endregion
@@ -99,7 +99,7 @@ namespace ManagementStore.Form.Camera
             currentFrame++;
         }
         #region Get Face Image Test
-        public async Task<Image> getFaceImage()
+        public Image getFaceImage()
         {
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -110,7 +110,7 @@ namespace ManagementStore.Form.Camera
             }
             stopwatch.Stop();
             stopwatch.Reset();
-            if(pBoxFace.Image != null)
+            if (pBoxFace.Image != null)
                 return pBoxFace.Image;
             return null;
         }

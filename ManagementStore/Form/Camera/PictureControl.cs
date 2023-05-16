@@ -129,7 +129,7 @@ namespace ManagementStore.Form.Camera
                                         if(mess != "None")
                                         {
                                             ModelConfig.listFaceCamera[0].startFaceDetect();
-                                            Image face = await ModelConfig.listFaceCamera[0].getFaceImage();
+                                            Image face = ModelConfig.listFaceCamera[0].getFaceImage();
                                             ModelConfig.listFaceCamera[0].endCameraFaceDetect();
                                             if (face != null || pictureBoxCamera.Image != null)
                                             {

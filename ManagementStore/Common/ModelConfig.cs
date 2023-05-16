@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,5 +17,7 @@ namespace ManagementStore.Common
         public readonly static string checkInSuccess = "Successful";
         public readonly static string checkInError = "Error";
         public static List<FaceCameraControl> listFaceCamera = new List<FaceCameraControl>();
+        //Get the list of network cards in the computer
+        public static NetworkInterface[] networkInterfaces = NetworkInterface.GetAllNetworkInterfaces();
     }
 }
