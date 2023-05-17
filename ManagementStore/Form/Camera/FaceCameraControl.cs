@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Emgu.CV;
 using Emgu.CV.Structure;
 using System.Diagnostics;
+using ManagementStore.Common;
 
 namespace ManagementStore.Form.Camera
 {
@@ -25,19 +26,29 @@ namespace ManagementStore.Form.Camera
         CascadeClassifier faceDetect;
         Image<Bgr, Byte> frame;
         VideoCapture _camera;
-        Image<Gray, byte> result;
         public bool startDetect = false;
         string ipMac = "127.1.1.1";
         int countFace = 0;
+        int cameraindex;
+        List<string> dataCamera = new List<string>();
+        // Brightness
+        double bright = 0;
+        double dark = 0;
         #endregion
         public FaceCameraControl(int cameraIndex)
         {
             InitializeComponent();
+            loadCamera();
             if (cameraIndex >= 0)
             {
+                this.cameraindex = cameraIndex;
                 _camera = new VideoCapture(cameraIndex);
                 faceDetect = new CascadeClassifier(Application.StartupPath + "/Assets/HaarCascade/haarcascade_frontalface_default.xml");
                 Application.Idle += ProcessFrame;
+            }
+            else
+            {
+                pBoxFace.Image = Image.FromFile(ModelConfig.constImagePath);
             }
             timer.Interval = 1000;
             timer.Tick += (sender, e) =>
@@ -53,7 +64,10 @@ namespace ManagementStore.Form.Camera
             timer.Start();
 
         }
-        
+        private void loadCamera()
+        {
+            dataCamera.AddRange(ModelConfig.cameraList);
+        }
         private void ProcessFrame(object sender, EventArgs arg)
         {
             frame = _camera.QueryFrame().ToImage<Bgr, Byte>();
@@ -113,6 +127,52 @@ namespace ManagementStore.Form.Camera
             if (pBoxFace.Image != null)
                 return pBoxFace.Image;
             return null;
+        }
+        #endregion
+        #region SubForm Edit
+        private Point clickPoint;
+        private void pictureBoxSetting_MouseClick(object sender, MouseEventArgs e)
+        {
+            clickPoint = e.Location;
+            SubFormCamera subFormCamera = new SubFormCamera(dataCamera, cameraindex);
+            subFormCamera.Location = new Point(this.Location.X + clickPoint.X, this.Location.Y + clickPoint.Y);
+            subFormCamera.BringToFront();
+            subFormCamera.ComboBoxIndexChanged += SubForm_ComboBoxIndexChanged;
+            subFormCamera.ValueDarkChanged += SubForm_ValueDarkChanged;
+            subFormCamera.ValueBrightChanged += SubForm_ValueBrightChanged;
+            this.Enabled = false;
+            subFormCamera.ShowDialog();
+            this.Enabled = true;
+        }
+        private void SubForm_ComboBoxIndexChanged(object sender, EventArgs e)
+        {
+            // Cập nhật giá trị của comboBoxIndex khi giá trị trên form con thay đổi
+            cameraindex = ((SubFormCamera)sender).ComboBoxIndex;
+            // Cập nhật các thành phần trên form cha sử dụng giá trị của comboBoxIndex
+            if (dataCamera[cameraindex] == "None")
+            {
+                
+                cameraindex = -1;
+
+                Application.Idle -= ProcessFrame;
+                pBoxFace.Image = null;
+                _camera.Dispose();
+            }
+            else
+            {
+                _camera.Dispose();
+                _camera = new VideoCapture(cameraindex);
+                //capture = new VideoCapture(cameraindex); // BUG
+                Application.Idle += ProcessFrame;
+            }
+        }
+        private void SubForm_ValueDarkChanged(int value)
+        {
+            dark = value;
+        }
+        private void SubForm_ValueBrightChanged(int value)
+        {
+            bright = value;
         }
         #endregion
     }
