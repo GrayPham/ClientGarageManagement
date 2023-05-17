@@ -202,10 +202,6 @@ namespace Parking.App.Factory
                     Constants.Title3 = _settingInfo.Title3;
                     Constants.CameraTop = _settingInfo.CameraTop;
                     Constants.CameraBot = _settingInfo.CameraBot;
-
-                    //Constants.Content1 = _settingInfo.Content1;
-                    //Constants.Content2 = _settingInfo.Content2;
-                    //Constants.Content3 = _settingInfo.Content3;
                 }
                 #endregion
 
@@ -239,53 +235,44 @@ namespace Parking.App.Factory
                 {
                     _tblAdMgtInfos.AddList(tblAdMgtInfos);
                 }
-                //---------------------------------------------------------------
-                //---------------------------------------------------------------
+
                 RemoteCacheDataService<tblClientSoundMgtInfo>.RegisterType(_log);
                 _tblClientSoundMgtService = new tblClientSoundMgtService(_log, true, SSignature.tblClientSoundMgtService, SSignature.ToString(SSignature.tblClientSoundMgtService));
                 _clientSessionHandler.Register(_tblClientSoundMgtService);
-                //---------------------------------------------------------------
+
                 RemoteCacheDataService<tblAdMgtInfo>.RegisterType(_log);
                 _tblAdMgtService = new tblAdMgtService(_log, false, SSignature.tblAdMgtService, SSignature.ToString(SSignature.tblAdMgtService));
                 _clientSessionHandler.Register(_tblAdMgtService);
-                //---------------------------------------------------------------
+
                 RemoteCacheDataService<tblDeviceRequestConnectInfo>.RegisterType(_log);
                 _tblDeviceRequestConnectService = new tblDeviceRequestConnectService(_log, false, SSignature.tblAdMgtService, SSignature.ToString(SSignature.tblAdMgtService));
                 _clientSessionHandler.Register(_tblDeviceRequestConnectService);
-                //---------------------------------------------------------------
+
                 RemoteCacheDataService<tblUserInfo>.RegisterType(_log);
                 _tblUserService = new tblUserService(_log, false, SSignature.tblUserService, SSignature.ToString(SSignature.tblUserService));
                 _clientSessionHandler.Register(_tblUserService);
-                //---------------------------------------------------------------
+
                 RemoteCacheDataService<tblUserPhotoInfo>.RegisterType(_log);
                 _tblUserPhotoService = new tblUserPhotoService(_log, false, SSignature.tblUserPhotoService, SSignature.ToString(SSignature.tblUserPhotoService));
                 _clientSessionHandler.Register(_tblUserPhotoService);
-                //---------------------------------------------------------------
+
                 RemoteCacheDataService<tblStoreDeviceInfo>.RegisterType(_log);
                 _tblStoreDeviceService = new tblStoreDeviceService(_log, false, SSignature.tblStoreDeviceService, SSignature.ToString(SSignature.tblStoreDeviceService));
                 _clientSessionHandler.Register(_tblStoreDeviceService);
-                //---------------------------------------------------------------
+ 
                 RemoteCacheDataService<tblUserMgtStoreInfo>.RegisterType(_log);
                 _tblUserMgtStoreService = new tblUserMgtStoreService(_log, false, SSignature.tblUserMgtStoreService, SSignature.ToString(SSignature.tblUserMgtStoreService));
                 _clientSessionHandler.Register(_tblUserMgtStoreService);
-
-                //---------------------------------------------------------------
                 RemoteCacheDataService<tblStoreEnvironmentSettingInfo>.RegisterType(_log);
                 _tblStoreEnvironmentSettingService = new tblStoreEnvironmentSettingService(_log, false, SSignature.tblStoreEnvironmentSettingService, SSignature.ToString(SSignature.tblStoreEnvironmentSettingService));
                 _clientSessionHandler.Register(_tblStoreEnvironmentSettingService);
-                //---------------------------------------------------------------
+         
                 RemoteCacheDataService<tblStoreMasterInfo>.RegisterType(_log);
                 _tblStoreMasterService = new tblStoreMasterService(_log, false, SSignature.tblStoreMasterService, SSignature.ToString(SSignature.tblStoreMasterService));
-                _clientSessionHandler.Register(_tblStoreMasterService);
-                //---------------------------------------------------------------
+                _clientSessionHandler.Register(_tblStoreMasterService);       
                 GetStoreNoAsync();
-
                 var _storeMasterClient = _tblStoreMasterService.RegisterClient(_tblStoreMasterService.GetType().Name, StoreMasterSynchronized);
-
-                // //---------------------------------------------------------------
                 GetCommonSub();
-
-                //---------------------------------------------------------------
 
             }
             catch (Exception ex)
