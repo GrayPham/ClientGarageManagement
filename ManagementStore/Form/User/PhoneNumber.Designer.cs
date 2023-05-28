@@ -44,7 +44,9 @@ namespace ManagementStore.Form.User
             this.btnNext = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.phoneTxt = new DevExpress.XtraEditors.TextEdit();
+            this.ccbCountryNumber = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.phoneTxt.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ccbCountryNumber.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNum1
@@ -91,7 +93,7 @@ namespace ManagementStore.Form.User
             this.btnNum8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnNum8.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnNum8.Location = new System.Drawing.Point(200, 397);
+            this.btnNum8.Location = new System.Drawing.Point(198, 397);
             this.btnNum8.Name = "btnNum8";
             this.btnNum8.Size = new System.Drawing.Size(180, 108);
             this.btnNum8.TabIndex = 5;
@@ -104,7 +106,7 @@ namespace ManagementStore.Form.User
             this.btnNum5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnNum5.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnNum5.Location = new System.Drawing.Point(200, 284);
+            this.btnNum5.Location = new System.Drawing.Point(198, 284);
             this.btnNum5.Name = "btnNum5";
             this.btnNum5.Size = new System.Drawing.Size(180, 107);
             this.btnNum5.TabIndex = 4;
@@ -117,7 +119,7 @@ namespace ManagementStore.Form.User
             this.btnNum2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnNum2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnNum2.Location = new System.Drawing.Point(200, 174);
+            this.btnNum2.Location = new System.Drawing.Point(198, 174);
             this.btnNum2.Name = "btnNum2";
             this.btnNum2.Size = new System.Drawing.Size(180, 104);
             this.btnNum2.TabIndex = 3;
@@ -183,7 +185,7 @@ namespace ManagementStore.Form.User
             this.btnNum0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnNum0.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum0.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnNum0.Location = new System.Drawing.Point(200, 511);
+            this.btnNum0.Location = new System.Drawing.Point(198, 511);
             this.btnNum0.Name = "btnNum0";
             this.btnNum0.Size = new System.Drawing.Size(180, 105);
             this.btnNum0.TabIndex = 10;
@@ -232,20 +234,33 @@ namespace ManagementStore.Form.User
             // phoneTxt
             // 
             this.phoneTxt.EditValue = "";
-            this.phoneTxt.Location = new System.Drawing.Point(14, 80);
+            this.phoneTxt.Location = new System.Drawing.Point(202, 80);
             this.phoneTxt.Name = "phoneTxt";
             this.phoneTxt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.phoneTxt.Properties.Appearance.Options.UseFont = true;
             this.phoneTxt.Properties.AutoHeight = false;
             this.phoneTxt.Properties.MaxLength = 10;
             this.phoneTxt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.phoneTxt.Size = new System.Drawing.Size(546, 88);
+            this.phoneTxt.Size = new System.Drawing.Size(358, 88);
             this.phoneTxt.TabIndex = 23;
+            // 
+            // ccbCountryNumber
+            // 
+            this.ccbCountryNumber.Location = new System.Drawing.Point(16, 80);
+            this.ccbCountryNumber.Name = "ccbCountryNumber";
+            this.ccbCountryNumber.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ccbCountryNumber.Properties.Appearance.Options.UseFont = true;
+            this.ccbCountryNumber.Properties.AutoHeight = false;
+            this.ccbCountryNumber.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ccbCountryNumber.Size = new System.Drawing.Size(174, 88);
+            this.ccbCountryNumber.TabIndex = 60;
             // 
             // PhoneNumber
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ccbCountryNumber);
             this.Controls.Add(this.phoneTxt);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.btnNext);
@@ -262,9 +277,10 @@ namespace ManagementStore.Form.User
             this.Controls.Add(this.btnNum4);
             this.Controls.Add(this.btnNum1);
             this.Name = "PhoneNumber";
-            this.Size = new System.Drawing.Size(581, 741);
+            this.Size = new System.Drawing.Size(577, 741);
             this.Load += new System.EventHandler(this.PhoneNumber_Load);
             ((System.ComponentModel.ISupportInitialize)(this.phoneTxt.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ccbCountryNumber.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,5 +303,6 @@ namespace ManagementStore.Form.User
         private DevExpress.XtraEditors.SimpleButton btnNext;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.TextEdit phoneTxt;
+        private DevExpress.XtraEditors.ComboBoxEdit ccbCountryNumber;
     }
 }

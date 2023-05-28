@@ -45,11 +45,11 @@ namespace ManagementStore.Form.User
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(248, 92);
             this.btnDone.TabIndex = 43;
-            this.btnDone.Text = "Hoàn tất";
+            this.btnDone.Text = "Complete";
             // 
             // btnPrev
             // 
-            this.btnPrev.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnPrev.Appearance.BackColor = System.Drawing.Color.Gray;
             this.btnPrev.Appearance.BorderColor = System.Drawing.Color.White;
             this.btnPrev.Appearance.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrev.Appearance.Options.UseBackColor = true;
@@ -69,7 +69,7 @@ namespace ManagementStore.Form.User
             this.Controls.Add(this.btnPrev);
             this.Controls.Add(this.btnDone);
             this.Name = "FaceTaken";
-            this.Size = new System.Drawing.Size(589, 749);
+            this.Size = new System.Drawing.Size(577, 741);
             this.ResumeLayout(false);
 
         }

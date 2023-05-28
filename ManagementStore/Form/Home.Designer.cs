@@ -29,109 +29,175 @@ namespace ManagementStore.Form
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.TileItemElement tileItemElement13 = new DevExpress.XtraEditors.TileItemElement();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
-            DevExpress.XtraEditors.TileItemElement tileItemElement14 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement15 = new DevExpress.XtraEditors.TileItemElement();
-            this.cameraControl1 = new DevExpress.XtraEditors.Camera.CameraControl();
-            this.tileBar1 = new DevExpress.XtraBars.Navigation.TileBar();
-            this.tileBarGroup2 = new DevExpress.XtraBars.Navigation.TileBarGroup();
-            this.btnOpenRegister = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarGroup1 = new DevExpress.XtraBars.Navigation.TileBarGroup();
-            this.tileBarItem2 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarGroup4 = new DevExpress.XtraBars.Navigation.TileBarGroup();
-            this.tileBarItem1 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.cameraControl = new DevExpress.XtraEditors.Camera.CameraControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnIdentity = new DevExpress.XtraEditors.SimpleButton();
+            this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.barItemIP = new DevExpress.XtraBars.BarStaticItem();
+            this.barItemConnect = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem3 = new DevExpress.XtraBars.BarStaticItem();
+            this.barItemPort = new DevExpress.XtraBars.BarStaticItem();
+            this.barItemVersion = new DevExpress.XtraBars.BarStaticItem();
+            this.repositoryItemRatingControl1 = new DevExpress.XtraEditors.Repository.RepositoryItemRatingControl();
+            this.repositoryItemTimeEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
+            this.repositoryItemDateEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
+            this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.webBrowserVideo = new System.Windows.Forms.WebBrowser();
             this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ManagementStore.Form.WaitFormLoader.OpenScreen), true, true);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRatingControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
             this.SuspendLayout();
             // 
-            // cameraControl1
+            // cameraControl
             // 
-            this.cameraControl1.Location = new System.Drawing.Point(5, 5);
-            this.cameraControl1.Name = "cameraControl1";
-            this.cameraControl1.Size = new System.Drawing.Size(821, 321);
-            this.cameraControl1.TabIndex = 0;
-            this.cameraControl1.Text = "cameraControl1";
-            // 
-            // tileBar1
-            // 
-            this.tileBar1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.tileBar1.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            this.tileBar1.Groups.Add(this.tileBarGroup2);
-            this.tileBar1.Groups.Add(this.tileBarGroup1);
-            this.tileBar1.Groups.Add(this.tileBarGroup4);
-            this.tileBar1.Location = new System.Drawing.Point(134, 833);
-            this.tileBar1.MaxId = 5;
-            this.tileBar1.Name = "tileBar1";
-            this.tileBar1.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollButtons;
-            this.tileBar1.Size = new System.Drawing.Size(560, 113);
-            this.tileBar1.TabIndex = 2;
-            this.tileBar1.Text = "12";
-            // 
-            // tileBarGroup2
-            // 
-            this.tileBarGroup2.Items.Add(this.btnOpenRegister);
-            this.tileBarGroup2.Name = "tileBarGroup2";
-            // 
-            // btnOpenRegister
-            // 
-            this.btnOpenRegister.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement13.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
-            tileItemElement13.Text = "Register Account";
-            this.btnOpenRegister.Elements.Add(tileItemElement13);
-            this.btnOpenRegister.Id = 2;
-            this.btnOpenRegister.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.btnOpenRegister.Name = "btnOpenRegister";
-            this.btnOpenRegister.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.btnOpenRegister_ItemClick);
-            // 
-            // tileBarGroup1
-            // 
-            this.tileBarGroup1.Items.Add(this.tileBarItem2);
-            this.tileBarGroup1.Name = "tileBarGroup1";
-            // 
-            // tileBarItem2
-            // 
-            this.tileBarItem2.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement14.Text = "";
-            this.tileBarItem2.Elements.Add(tileItemElement14);
-            this.tileBarItem2.Id = 4;
-            this.tileBarItem2.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem2.Name = "tileBarItem2";
-            // 
-            // tileBarGroup4
-            // 
-            this.tileBarGroup4.Items.Add(this.tileBarItem1);
-            this.tileBarGroup4.Name = "tileBarGroup4";
-            // 
-            // tileBarItem1
-            // 
-            this.tileBarItem1.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement15.Text = "";
-            this.tileBarItem1.Elements.Add(tileItemElement15);
-            this.tileBarItem1.Id = 3;
-            this.tileBarItem1.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem1.Name = "tileBarItem1";
+            this.cameraControl.Location = new System.Drawing.Point(5, 16);
+            this.cameraControl.Name = "cameraControl";
+            this.cameraControl.Size = new System.Drawing.Size(821, 321);
+            this.cameraControl.TabIndex = 0;
+            this.cameraControl.Text = "cameraControl1";
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.simpleButton3);
+            this.panelControl1.Controls.Add(this.btnIdentity);
+            this.panelControl1.Controls.Add(this.ribbonControl1);
+            this.panelControl1.Controls.Add(this.ribbonStatusBar1);
             this.panelControl1.Controls.Add(this.webBrowserVideo);
-            this.panelControl1.Controls.Add(this.tileBar1);
-            this.panelControl1.Controls.Add(this.cameraControl1);
+            this.panelControl1.Controls.Add(this.cameraControl);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(826, 958);
             this.panelControl1.TabIndex = 0;
             // 
+            // simpleButton3
+            // 
+            this.simpleButton3.Location = new System.Drawing.Point(426, 840);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(275, 63);
+            this.simpleButton3.TabIndex = 7;
+            this.simpleButton3.Text = "simpleButton3";
+            // 
+            // btnIdentity
+            // 
+            this.btnIdentity.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary;
+            this.btnIdentity.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIdentity.Appearance.Options.UseBackColor = true;
+            this.btnIdentity.Appearance.Options.UseFont = true;
+            this.btnIdentity.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnIdentity.ImageOptions.Image")));
+            this.btnIdentity.ImageOptions.SvgImageSize = new System.Drawing.Size(40, 40);
+            this.btnIdentity.Location = new System.Drawing.Point(158, 840);
+            this.btnIdentity.Name = "btnIdentity";
+            this.btnIdentity.Size = new System.Drawing.Size(262, 63);
+            this.btnIdentity.TabIndex = 5;
+            this.btnIdentity.Text = "Identity Verification";
+            this.btnIdentity.Click += new System.EventHandler(this.btnIdentity_Click);
+            // 
+            // ribbonControl1
+            // 
+            this.ribbonControl1.ExpandCollapseItem.Id = 0;
+            this.ribbonControl1.ExpandCollapseItem.VisibleInSearchMenu = false;
+            this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.ribbonControl1.ExpandCollapseItem,
+            this.ribbonControl1.SearchEditItem,
+            this.barItemIP,
+            this.barItemConnect,
+            this.barStaticItem3,
+            this.barItemPort,
+            this.barItemVersion});
+            this.ribbonControl1.Location = new System.Drawing.Point(2, 2);
+            this.ribbonControl1.MaxItemId = 10;
+            this.ribbonControl1.Name = "ribbonControl1";
+            this.ribbonControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemRatingControl1,
+            this.repositoryItemTimeEdit1,
+            this.repositoryItemDateEdit1});
+            this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.MacOffice;
+            this.ribbonControl1.Size = new System.Drawing.Size(822, 59);
+            this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
+            // 
+            // barItemIP
+            // 
+            this.barItemIP.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barItemIP.Caption = "IP: 192.168.10.1";
+            this.barItemIP.Id = 5;
+            this.barItemIP.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barItemIP.ImageOptions.Image")));
+            this.barItemIP.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barItemIP.ImageOptions.LargeImage")));
+            this.barItemIP.Name = "barItemIP";
+            this.barItemIP.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // barItemConnect
+            // 
+            this.barItemConnect.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barItemConnect.Caption = "Connection";
+            this.barItemConnect.Id = 6;
+            this.barItemConnect.Name = "barItemConnect";
+            // 
+            // barStaticItem3
+            // 
+            this.barStaticItem3.Caption = "AI Building Information";
+            this.barStaticItem3.Id = 7;
+            this.barStaticItem3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barStaticItem3.ImageOptions.Image")));
+            this.barStaticItem3.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barStaticItem3.ImageOptions.LargeImage")));
+            this.barStaticItem3.Name = "barStaticItem3";
+            this.barStaticItem3.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // barItemPort
+            // 
+            this.barItemPort.Id = 8;
+            this.barItemPort.Name = "barItemPort";
+            // 
+            // barItemVersion
+            // 
+            this.barItemVersion.Id = 9;
+            this.barItemVersion.Name = "barItemVersion";
+            // 
+            // repositoryItemRatingControl1
+            // 
+            this.repositoryItemRatingControl1.AutoHeight = false;
+            this.repositoryItemRatingControl1.Name = "repositoryItemRatingControl1";
+            // 
+            // repositoryItemTimeEdit1
+            // 
+            this.repositoryItemTimeEdit1.AutoHeight = false;
+            this.repositoryItemTimeEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemTimeEdit1.Name = "repositoryItemTimeEdit1";
+            // 
+            // repositoryItemDateEdit1
+            // 
+            this.repositoryItemDateEdit1.AutoHeight = false;
+            this.repositoryItemDateEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDateEdit1.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDateEdit1.Name = "repositoryItemDateEdit1";
+            // 
+            // ribbonStatusBar1
+            // 
+            this.ribbonStatusBar1.ItemLinks.Add(this.barItemConnect);
+            this.ribbonStatusBar1.ItemLinks.Add(this.barItemIP);
+            this.ribbonStatusBar1.ItemLinks.Add(this.barStaticItem3);
+            this.ribbonStatusBar1.ItemLinks.Add(this.barItemPort);
+            this.ribbonStatusBar1.ItemLinks.Add(this.barItemVersion);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(2, 920);
+            this.ribbonStatusBar1.Name = "ribbonStatusBar1";
+            this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(822, 36);
+            // 
             // webBrowserVideo
             // 
-            this.webBrowserVideo.Location = new System.Drawing.Point(5, 332);
+            this.webBrowserVideo.Location = new System.Drawing.Point(12, 343);
             this.webBrowserVideo.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowserVideo.Name = "webBrowserVideo";
-            this.webBrowserVideo.Size = new System.Drawing.Size(816, 495);
+            this.webBrowserVideo.Size = new System.Drawing.Size(816, 472);
             this.webBrowserVideo.TabIndex = 3;
             // 
             // splashScreenManager
@@ -154,23 +220,32 @@ namespace ManagementStore.Form
             this.Load += new System.EventHandler(this.Home_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRatingControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private DevExpress.XtraEditors.Camera.CameraControl cameraControl1;
-        private DevExpress.XtraBars.Navigation.TileBar tileBar1;
-        private DevExpress.XtraBars.Navigation.TileBarGroup tileBarGroup2;
-        private DevExpress.XtraBars.Navigation.TileBarItem btnOpenRegister;
-        private DevExpress.XtraBars.Navigation.TileBarGroup tileBarGroup1;
-        private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem2;
-        private DevExpress.XtraBars.Navigation.TileBarGroup tileBarGroup4;
-        private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private System.Windows.Forms.WebBrowser webBrowserVideo;
-        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenParking;
+        private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
+        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton3;
+        private DevExpress.XtraEditors.SimpleButton btnIdentity;
+        private DevExpress.XtraBars.BarStaticItem barItemIP;
+        private DevExpress.XtraEditors.Repository.RepositoryItemRatingControl repositoryItemRatingControl1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit repositoryItemTimeEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryItemDateEdit1;
+        private DevExpress.XtraBars.BarStaticItem barItemConnect;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem3;
+        private DevExpress.XtraBars.BarStaticItem barItemPort;
+        private DevExpress.XtraBars.BarStaticItem barItemVersion;
+        public DevExpress.XtraEditors.Camera.CameraControl cameraControl;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager;
     }
 }

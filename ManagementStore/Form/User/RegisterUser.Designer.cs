@@ -33,6 +33,7 @@ namespace ManagementStore.Form.User
             this.panelSlider = new DevExpress.XtraEditors.SidePanel();
             this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             this.sidePanel4 = new DevExpress.XtraEditors.SidePanel();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.pictureBoxName = new System.Windows.Forms.PictureBox();
             this.labelBday = new DevExpress.XtraEditors.LabelControl();
@@ -75,9 +76,9 @@ namespace ManagementStore.Form.User
             // panelSlider
             // 
             this.panelSlider.Controls.Add(this.separatorControl1);
-            this.panelSlider.Location = new System.Drawing.Point(266, 214);
+            this.panelSlider.Location = new System.Drawing.Point(284, 213);
             this.panelSlider.Name = "panelSlider";
-            this.panelSlider.Size = new System.Drawing.Size(560, 741);
+            this.panelSlider.Size = new System.Drawing.Size(536, 733);
             this.panelSlider.TabIndex = 3;
             this.panelSlider.Text = "panelSlider";
             // 
@@ -92,6 +93,7 @@ namespace ManagementStore.Form.User
             // 
             this.sidePanel4.Appearance.BackColor = System.Drawing.Color.LightGray;
             this.sidePanel4.Appearance.Options.UseBackColor = true;
+            this.sidePanel4.Controls.Add(this.simpleButton1);
             this.sidePanel4.Controls.Add(this.labelControl1);
             this.sidePanel4.Controls.Add(this.pictureBoxName);
             this.sidePanel4.Controls.Add(this.labelBday);
@@ -109,9 +111,21 @@ namespace ManagementStore.Form.User
             this.sidePanel4.TabIndex = 2;
             this.sidePanel4.Text = "sidePanel4";
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.Tomato;
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton1.Appearance.Options.UseBackColor = true;
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.Location = new System.Drawing.Point(0, 662);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(236, 78);
+            this.simpleButton1.TabIndex = 11;
+            this.simpleButton1.Text = "Exit";
+            // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(88, 514);
+            this.labelControl1.Location = new System.Drawing.Point(87, 493);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(56, 17);
             this.labelControl1.TabIndex = 10;
@@ -120,7 +134,7 @@ namespace ManagementStore.Form.User
             // pictureBoxName
             // 
             this.pictureBoxName.Image = global::ManagementStore.Properties.Resources.pending;
-            this.pictureBoxName.Location = new System.Drawing.Point(68, 440);
+            this.pictureBoxName.Location = new System.Drawing.Point(67, 419);
             this.pictureBoxName.Name = "pictureBoxName";
             this.pictureBoxName.Size = new System.Drawing.Size(100, 68);
             this.pictureBoxName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -131,7 +145,7 @@ namespace ManagementStore.Form.User
             // 
             this.labelBday.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelBday.Appearance.Options.UseFont = true;
-            this.labelBday.Location = new System.Drawing.Point(62, 381);
+            this.labelBday.Location = new System.Drawing.Point(61, 360);
             this.labelBday.Name = "labelBday";
             this.labelBday.Size = new System.Drawing.Size(113, 17);
             this.labelBday.TabIndex = 7;
@@ -139,7 +153,7 @@ namespace ManagementStore.Form.User
             // 
             // labelCreate
             // 
-            this.labelCreate.Location = new System.Drawing.Point(68, 651);
+            this.labelCreate.Location = new System.Drawing.Point(67, 630);
             this.labelCreate.Name = "labelCreate";
             this.labelCreate.Size = new System.Drawing.Size(104, 17);
             this.labelCreate.TabIndex = 8;
@@ -147,7 +161,7 @@ namespace ManagementStore.Form.User
             // 
             // labelInfo
             // 
-            this.labelInfo.Location = new System.Drawing.Point(74, 250);
+            this.labelInfo.Location = new System.Drawing.Point(73, 229);
             this.labelInfo.Name = "labelInfo";
             this.labelInfo.Size = new System.Drawing.Size(85, 17);
             this.labelInfo.TabIndex = 6;
@@ -155,7 +169,7 @@ namespace ManagementStore.Form.User
             // 
             // labelPhone
             // 
-            this.labelPhone.Location = new System.Drawing.Point(62, 118);
+            this.labelPhone.Location = new System.Drawing.Point(61, 97);
             this.labelPhone.Name = "labelPhone";
             this.labelPhone.Size = new System.Drawing.Size(113, 17);
             this.labelPhone.TabIndex = 5;
@@ -164,7 +178,7 @@ namespace ManagementStore.Form.User
             // pictureBoxInfo
             // 
             this.pictureBoxInfo.Image = global::ManagementStore.Properties.Resources.pending;
-            this.pictureBoxInfo.Location = new System.Drawing.Point(68, 307);
+            this.pictureBoxInfo.Location = new System.Drawing.Point(67, 286);
             this.pictureBoxInfo.Name = "pictureBoxInfo";
             this.pictureBoxInfo.Size = new System.Drawing.Size(100, 68);
             this.pictureBoxInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -174,7 +188,7 @@ namespace ManagementStore.Form.User
             // pictureBoxFace
             // 
             this.pictureBoxFace.Image = global::ManagementStore.Properties.Resources.pending;
-            this.pictureBoxFace.Location = new System.Drawing.Point(68, 577);
+            this.pictureBoxFace.Location = new System.Drawing.Point(67, 556);
             this.pictureBoxFace.Name = "pictureBoxFace";
             this.pictureBoxFace.Size = new System.Drawing.Size(100, 68);
             this.pictureBoxFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -184,7 +198,7 @@ namespace ManagementStore.Form.User
             // pictureBoxOTP
             // 
             this.pictureBoxOTP.Image = global::ManagementStore.Properties.Resources.pending;
-            this.pictureBoxOTP.Location = new System.Drawing.Point(68, 176);
+            this.pictureBoxOTP.Location = new System.Drawing.Point(67, 155);
             this.pictureBoxOTP.Name = "pictureBoxOTP";
             this.pictureBoxOTP.Size = new System.Drawing.Size(100, 68);
             this.pictureBoxOTP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -194,7 +208,7 @@ namespace ManagementStore.Form.User
             // pictureBoxPhone
             // 
             this.pictureBoxPhone.Image = global::ManagementStore.Properties.Resources.current;
-            this.pictureBoxPhone.Location = new System.Drawing.Point(68, 44);
+            this.pictureBoxPhone.Location = new System.Drawing.Point(67, 23);
             this.pictureBoxPhone.Name = "pictureBoxPhone";
             this.pictureBoxPhone.Size = new System.Drawing.Size(100, 68);
             this.pictureBoxPhone.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -206,7 +220,7 @@ namespace ManagementStore.Form.User
             this.separatorControl2.BackColor = System.Drawing.Color.LightGray;
             this.separatorControl2.LineColor = System.Drawing.Color.Gray;
             this.separatorControl2.LineOrientation = System.Windows.Forms.Orientation.Vertical;
-            this.separatorControl2.Location = new System.Drawing.Point(106, 63);
+            this.separatorControl2.Location = new System.Drawing.Point(105, 42);
             this.separatorControl2.Name = "separatorControl2";
             this.separatorControl2.Size = new System.Drawing.Size(25, 552);
             this.separatorControl2.TabIndex = 4;
@@ -222,7 +236,7 @@ namespace ManagementStore.Form.User
             // 
             // pictureBox5
             // 
-            this.pictureBox5.BackColor = System.Drawing.Color.RoyalBlue;
+            this.pictureBox5.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox5.Location = new System.Drawing.Point(0, 0);
             this.pictureBox5.Name = "pictureBox5";
@@ -275,5 +289,6 @@ namespace ManagementStore.Form.User
         public System.Windows.Forms.PictureBox pictureBoxPhone;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         public System.Windows.Forms.PictureBox pictureBoxName;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }

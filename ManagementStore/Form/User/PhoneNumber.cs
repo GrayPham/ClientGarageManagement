@@ -1,25 +1,38 @@
-﻿using ManagementStore.Extensions;
+﻿using DevExpress.XtraEditors.Controls;
+using ManagementStore.Extensions;
 using System;
 using System.Collections.Generic;
+using FirebaseAdmin;
+using Google.Apis.Auth.OAuth2;
+using System.IO;
+using FirebaseAdmin.Auth;
 
 namespace ManagementStore.Form.User
 {
     public partial class PhoneNumber : System.Windows.Forms.UserControl
     {
         public List<string> Num;
+        private Dictionary<string, string> phoneCodes;
         public PhoneNumber()
         {
             Num = new List<String>();
             InitializeComponent();
+            // btnNext.Enabled = false;
+
         }
+
         private void PhoneNumber_Load(object sender, EventArgs e)
         {
+            phoneCodes = InitializePhoneCodes();
+            ccbCountryNumber.Properties.TextEditStyle = TextEditStyles.DisableTextEditor;
+            ccbCountryNumber.SelectedIndex = 0;
+            AddFormattedPhoneCodes();
         }
         private void btnNext_Click(object sender, EventArgs e)
         {
              Utils.Forward(ParentForm, "pictureBoxPhone", "pictureBoxOTP", "PhoneOTP");
         }
-
+        #region Number
         private void btnNum1_Click(object sender, EventArgs e)
         {
             if(Num.Count!=10) Num.Add("1");
@@ -108,11 +121,53 @@ namespace ManagementStore.Form.User
             Num = new List<string>();
             DisplayPhoneNumber();
         }
+
+        #endregion
         private void DisplayPhoneNumber()
         {
             phoneTxt.Text = string.Join("", Num.ToArray());
+            if (phoneTxt.Text.Length == 10)
+            {
+                // Phone number is valid
+                btnNext.Enabled = true;
+            }
+            else
+            {
+                // Phone number is invalid
+                btnNext.Enabled = false;
+            }
         }
+        private Dictionary<string, string> InitializePhoneCodes()
+        {
+            Dictionary<string, string> codes = new Dictionary<string, string>()
+        {
+            { "+64", "VN" },
+            { "+1", "US" },      // United States
+            { "+44", "UK" },     // United Kingdom
+            { "+61", "AU" },     // Australia
+            { "+86", "CN" },     // China
+            { "+91", "IN" },     // India
+            { "+81", "JP" },     // Japan
+            { "+27", "ZA" },     // South Africa
+            { "+49", "DE" },     // Germany
+            { "+33", "FR" },     // France
+            { "+39", "IT" },     // Italy
+            { "+7", "RU" },      // Russia
+            { "+31", "NL" },     // Netherlands
+            { "+46", "SE" },     // Sweden
+            { "+34", "ES" },     // Spain
+            { "+55", "BR" },     // Brazil
+        };
 
-
+            return codes;
+        }
+        private void AddFormattedPhoneCodes()
+        {
+            foreach (KeyValuePair<string, string> entry in phoneCodes)
+            {
+                string formattedDisplay = $"{entry.Key} ({entry.Value})";
+                ccbCountryNumber.Properties.Items.Add(formattedDisplay);
+            }
+        }
     }
 }
