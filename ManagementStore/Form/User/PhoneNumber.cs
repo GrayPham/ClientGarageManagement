@@ -1,7 +1,12 @@
-﻿using DevExpress.XtraEditors.Controls;
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraSplashScreen;
 using ManagementStore.Extensions;
+using ManagementStore.Model.Static;
 using System;
 using System.Collections.Generic;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace ManagementStore.Form.User
 {
@@ -19,14 +24,33 @@ namespace ManagementStore.Form.User
 
         private void PhoneNumber_Load(object sender, EventArgs e)
         {
+            phoneTxt.Text = "0365858975";
+            splashScreenManager.ShowWaitForm();
             phoneCodes = InitializePhoneCodes();
-            ccbCountryNumber.Properties.TextEditStyle = TextEditStyles.DisableTextEditor;
-            ccbCountryNumber.SelectedIndex = 0;
+            ccbCountryNumber.Properties.TextEditStyle = TextEditStyles.DisableTextEditor;      
             AddFormattedPhoneCodes();
+            ccbCountryNumber.Select(0, 1);
+            Thread.Sleep(1000);
+            splashScreenManager.CloseWaitForm();
+
         }
         private void btnNext_Click(object sender, EventArgs e)
         {
-             Utils.Forward(ParentForm, "pictureBoxPhone", "pictureBoxOTP", "PhoneOTP");
+            if(ccbCountryNumber.Text == "" || ccbCountryNumber.Text == null)
+            {
+                XtraMessageBox.Show("Invalid phone code, please select it before go to next page!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ccbCountryNumber.Focus();
+                return;
+
+            }
+            string text = ccbCountryNumber.SelectedItem.ToString().Split(' ')[0];
+            VerifyPhoneNumber.PhoneNumber = text + phoneTxt.Text.Trim();
+
+            splashScreenManager.ShowWaitForm();
+            VerifyPhoneNumber.OTPCode = Utils.SendOTPSMS(VerifyPhoneNumber.PhoneNumber);
+            Utils.Forward(ParentForm, "pictureBoxPhone", "pictureBoxOTP", "PhoneOTP");
+            Thread.Sleep(1000);
+            splashScreenManager.CloseWaitForm();
         }
         #region Number
         private void btnNum1_Click(object sender, EventArgs e)
@@ -137,7 +161,7 @@ namespace ManagementStore.Form.User
         {
             Dictionary<string, string> codes = new Dictionary<string, string>()
         {
-            { "+64", "VN" },
+            { "+84", "VN" },
             { "+1", "US" },      // United States
             { "+44", "UK" },     // United Kingdom
             { "+61", "AU" },     // Australia
@@ -162,6 +186,7 @@ namespace ManagementStore.Form.User
             foreach (KeyValuePair<string, string> entry in phoneCodes)
             {
                 string formattedDisplay = $"{entry.Key} ({entry.Value})";
+        
                 ccbCountryNumber.Properties.Items.Add(formattedDisplay);
             }
         }

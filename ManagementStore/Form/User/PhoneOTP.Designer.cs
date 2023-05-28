@@ -29,6 +29,8 @@ namespace ManagementStore.Form.User
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PhoneOTP));
             this.btnNum1 = new System.Windows.Forms.Button();
             this.btnNum4 = new System.Windows.Forms.Button();
             this.btnNum7 = new System.Windows.Forms.Button();
@@ -44,8 +46,10 @@ namespace ManagementStore.Form.User
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnOTP = new DevExpress.XtraEditors.SimpleButton();
             this.btnNext = new DevExpress.XtraEditors.SimpleButton();
-            this.phoneTxt = new DevExpress.XtraEditors.TextEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.phoneTxt.Properties)).BeginInit();
+            this.otpTxt = new DevExpress.XtraEditors.TextEdit();
+            this.btnResendOTP = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
+            this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ManagementStore.Form.WaitFormLoader.LoadingControl), true, true, typeof(System.Windows.Forms.UserControl));
+            ((System.ComponentModel.ISupportInitialize)(this.otpTxt.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNum1
@@ -244,24 +248,44 @@ namespace ManagementStore.Form.User
             this.btnNext.Text = "Next";
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // phoneTxt
+            // otpTxt
             // 
-            this.phoneTxt.EditValue = "";
-            this.phoneTxt.Location = new System.Drawing.Point(14, 76);
-            this.phoneTxt.Name = "phoneTxt";
-            this.phoneTxt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phoneTxt.Properties.Appearance.Options.UseFont = true;
-            this.phoneTxt.Properties.AutoHeight = false;
-            this.phoneTxt.Properties.MaxLength = 10;
-            this.phoneTxt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.phoneTxt.Size = new System.Drawing.Size(546, 88);
-            this.phoneTxt.TabIndex = 41;
+            this.otpTxt.EditValue = "";
+            this.otpTxt.Location = new System.Drawing.Point(14, 76);
+            this.otpTxt.Name = "otpTxt";
+            this.otpTxt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.otpTxt.Properties.Appearance.Options.UseFont = true;
+            this.otpTxt.Properties.AutoHeight = false;
+            this.otpTxt.Properties.MaxLength = 10;
+            this.otpTxt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.otpTxt.Size = new System.Drawing.Size(363, 88);
+            this.otpTxt.TabIndex = 41;
+            // 
+            // btnResendOTP
+            // 
+            windowsUIButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions2.Image")));
+            this.btnResendOTP.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Resend OTP", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
+            this.btnResendOTP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResendOTP.ForeColor = System.Drawing.Color.Orange;
+            this.btnResendOTP.Location = new System.Drawing.Point(383, 76);
+            this.btnResendOTP.Name = "btnResendOTP";
+            this.btnResendOTP.Padding = new System.Windows.Forms.Padding(2);
+            this.btnResendOTP.Size = new System.Drawing.Size(177, 89);
+            this.btnResendOTP.TabIndex = 42;
+            this.btnResendOTP.Text = "btnResendOTP";
+            this.btnResendOTP.Click += new System.EventHandler(this.btnResendOTP_Click);
+            // 
+            // splashScreenManager
+            // 
+            this.splashScreenManager.ClosingDelay = 500;
             // 
             // PhoneOTP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.phoneTxt);
+            this.Controls.Add(this.btnResendOTP);
+            this.Controls.Add(this.otpTxt);
             this.Controls.Add(this.btnOTP);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.labelControl1);
@@ -279,7 +303,7 @@ namespace ManagementStore.Form.User
             this.Controls.Add(this.btnNum1);
             this.Name = "PhoneOTP";
             this.Size = new System.Drawing.Size(577, 741);
-            ((System.ComponentModel.ISupportInitialize)(this.phoneTxt.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otpTxt.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -302,6 +326,8 @@ namespace ManagementStore.Form.User
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.SimpleButton btnOTP;
         private DevExpress.XtraEditors.SimpleButton btnNext;
-        private DevExpress.XtraEditors.TextEdit phoneTxt;
+        private DevExpress.XtraEditors.TextEdit otpTxt;
+        private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel btnResendOTP;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager;
     }
 }

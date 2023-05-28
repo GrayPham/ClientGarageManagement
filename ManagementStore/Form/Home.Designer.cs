@@ -32,6 +32,7 @@ namespace ManagementStore.Form
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.cameraControl = new DevExpress.XtraEditors.Camera.CameraControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.btnIdentity = new DevExpress.XtraEditors.SimpleButton();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barItemIP = new DevExpress.XtraBars.BarStaticItem();
@@ -44,7 +45,6 @@ namespace ManagementStore.Form
             this.repositoryItemDateEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.webBrowserVideo = new System.Windows.Forms.WebBrowser();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
@@ -56,9 +56,9 @@ namespace ManagementStore.Form
             // 
             // cameraControl
             // 
-            this.cameraControl.Location = new System.Drawing.Point(5, 16);
+            this.cameraControl.Location = new System.Drawing.Point(5, 0);
             this.cameraControl.Name = "cameraControl";
-            this.cameraControl.Size = new System.Drawing.Size(821, 321);
+            this.cameraControl.Size = new System.Drawing.Size(821, 337);
             this.cameraControl.TabIndex = 0;
             this.cameraControl.Text = "cameraControl1";
             this.cameraControl.VideoStretchMode = DevExpress.XtraEditors.Camera.VideoStretchMode.Stretch;
@@ -76,6 +76,20 @@ namespace ManagementStore.Form
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(826, 958);
             this.panelControl1.TabIndex = 0;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary;
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton1.Appearance.Options.UseBackColor = true;
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(40, 40);
+            this.simpleButton1.Location = new System.Drawing.Point(426, 840);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(262, 63);
+            this.simpleButton1.TabIndex = 10;
+            this.simpleButton1.Text = "Map";
             // 
             // btnIdentity
             // 
@@ -191,20 +205,6 @@ namespace ManagementStore.Form
             this.webBrowserVideo.Name = "webBrowserVideo";
             this.webBrowserVideo.Size = new System.Drawing.Size(816, 472);
             this.webBrowserVideo.TabIndex = 3;
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary;
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton1.Appearance.Options.UseBackColor = true;
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(40, 40);
-            this.simpleButton1.Location = new System.Drawing.Point(426, 840);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(262, 63);
-            this.simpleButton1.TabIndex = 10;
-            this.simpleButton1.Text = "Map";
             // 
             // Home
             // 

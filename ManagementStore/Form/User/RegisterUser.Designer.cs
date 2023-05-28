@@ -47,6 +47,7 @@ namespace ManagementStore.Form.User
             this.separatorControl2 = new DevExpress.XtraEditors.SeparatorControl();
             this.sidePanel2 = new DevExpress.XtraEditors.SidePanel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ManagementStore.Form.WaitFormLoader.LoadingControl), true, true, DevExpress.XtraSplashScreen.SplashFormStartPosition.Manual, new System.Drawing.Point(0, 0));
             this.sidePanel1.SuspendLayout();
             this.panelSlider.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
@@ -244,6 +245,10 @@ namespace ManagementStore.Form.User
             this.pictureBox5.TabIndex = 0;
             this.pictureBox5.TabStop = false;
             // 
+            // splashScreenManager
+            // 
+            this.splashScreenManager.ClosingDelay = 500;
+            // 
             // RegisterUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -251,6 +256,7 @@ namespace ManagementStore.Form.User
             this.ClientSize = new System.Drawing.Size(826, 958);
             this.Controls.Add(this.sidePanel1);
             this.Name = "RegisterUser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegisterUser";
             this.Load += new System.EventHandler(this.RegisterUser_Load);
             this.sidePanel1.ResumeLayout(false);
@@ -290,5 +296,6 @@ namespace ManagementStore.Form.User
         private DevExpress.XtraEditors.LabelControl labelControl1;
         public System.Windows.Forms.PictureBox pictureBoxName;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager;
     }
 }

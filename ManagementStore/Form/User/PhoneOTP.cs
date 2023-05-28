@@ -1,6 +1,9 @@
-﻿using ManagementStore.Extensions;
+﻿using DevExpress.XtraEditors;
+using ManagementStore.Extensions;
+using ManagementStore.Model.Static;
 using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace ManagementStore.Form.User
 {
@@ -11,17 +14,34 @@ namespace ManagementStore.Form.User
         {
             Num = new List<String>();
             InitializeComponent();
+
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            Utils.Forward(ParentForm, "pictureBoxOTP", "pictureBoxInfo", "InformationUser");
+            splashScreenManager.ShowWaitForm();
+            bool status = Utils.VerifyOTP(VerifyPhoneNumber.PhoneNumber, otpTxt.Text, VerifyPhoneNumber.OTPCode);
+            if(status)
+            {
+                Utils.Forward(ParentForm, "pictureBoxOTP", "pictureBoxInfo", "InformationUser");
+            }
+            else
+            {
+                XtraMessageBox.Show("Incorrect OTP code, please input again or resend OTP!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            splashScreenManager.CloseWaitForm();
         }
 
+        private void btnResendOTP_Click(object sender, EventArgs e)
+        {
+            Utils.SendOTPSMS(VerifyPhoneNumber.PhoneNumber);
+            XtraMessageBox.Show("Resend OTP successfull", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
         private void btnOTP_Click(object sender, EventArgs e)
         {
             Utils.Back(ParentForm, "pictureBoxOTP", "pictureBoxPhone", "PhoneNumber");
         }
+
 
         private void btnNum1_Click(object sender, EventArgs e)
         {
@@ -85,7 +105,7 @@ namespace ManagementStore.Form.User
             }
             else
             {
-                phoneTxt.Text = "";
+                otpTxt.Text = "";
             }
             DisplayPhoneNumber();
         }
@@ -103,7 +123,16 @@ namespace ManagementStore.Form.User
         }
         private void DisplayPhoneNumber()
         {
-            phoneTxt.Text = string.Join("", Num.ToArray());
+            otpTxt.Text = string.Join("", Num.ToArray());
+            if (otpTxt.Text.Length == 6)
+            {
+                btnNext.Enabled = true;
+            }
+            else
+            {
+                btnNext.Enabled = false;
+            }
         }
+
     }
 }
