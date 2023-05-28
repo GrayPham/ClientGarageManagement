@@ -18,7 +18,7 @@ namespace ManagementStore
             Application.SetCompatibleTextRenderingDefault(false);
 
             BonusSkins.Register();
-            Application.Run(new RegisterUser());
+            Application.Run(new Home());
         }
     }
 }

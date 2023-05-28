@@ -169,7 +169,7 @@ namespace Parking.App.Common.ApiMethod
                     FunctionCode = functionCode,
                     Data = req
                 };
-                var options = new RestClientOptions("http://localhost:5001/Kiosk/KioskService/GetData")
+                var options = new RestClientOptions(Constants.Constants.ApiServerURL)
                 {
                     ThrowOnAnyError = true,
                     Timeout = Constants.Constants.RequestTimeOut

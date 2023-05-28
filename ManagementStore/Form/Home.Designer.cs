@@ -32,7 +32,6 @@ namespace ManagementStore.Form
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.cameraControl = new DevExpress.XtraEditors.Camera.CameraControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.btnIdentity = new DevExpress.XtraEditors.SimpleButton();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barItemIP = new DevExpress.XtraBars.BarStaticItem();
@@ -45,7 +44,7 @@ namespace ManagementStore.Form
             this.repositoryItemDateEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.webBrowserVideo = new System.Windows.Forms.WebBrowser();
-            this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ManagementStore.Form.WaitFormLoader.OpenScreen), true, true);
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
@@ -62,10 +61,11 @@ namespace ManagementStore.Form
             this.cameraControl.Size = new System.Drawing.Size(821, 321);
             this.cameraControl.TabIndex = 0;
             this.cameraControl.Text = "cameraControl1";
+            this.cameraControl.VideoStretchMode = DevExpress.XtraEditors.Camera.VideoStretchMode.Stretch;
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.simpleButton3);
+            this.panelControl1.Controls.Add(this.simpleButton1);
             this.panelControl1.Controls.Add(this.btnIdentity);
             this.panelControl1.Controls.Add(this.ribbonControl1);
             this.panelControl1.Controls.Add(this.ribbonStatusBar1);
@@ -76,14 +76,6 @@ namespace ManagementStore.Form
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(826, 958);
             this.panelControl1.TabIndex = 0;
-            // 
-            // simpleButton3
-            // 
-            this.simpleButton3.Location = new System.Drawing.Point(426, 840);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(275, 63);
-            this.simpleButton3.TabIndex = 7;
-            this.simpleButton3.Text = "simpleButton3";
             // 
             // btnIdentity
             // 
@@ -200,9 +192,19 @@ namespace ManagementStore.Form
             this.webBrowserVideo.Size = new System.Drawing.Size(816, 472);
             this.webBrowserVideo.TabIndex = 3;
             // 
-            // splashScreenManager
+            // simpleButton1
             // 
-            this.splashScreenManager.ClosingDelay = 500;
+            this.simpleButton1.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary;
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton1.Appearance.Options.UseBackColor = true;
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(40, 40);
+            this.simpleButton1.Location = new System.Drawing.Point(426, 840);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(262, 63);
+            this.simpleButton1.TabIndex = 10;
+            this.simpleButton1.Text = "Map";
             // 
             // Home
             // 
@@ -235,7 +237,6 @@ namespace ManagementStore.Form
         private System.Windows.Forms.WebBrowser webBrowserVideo;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private DevExpress.XtraEditors.SimpleButton btnIdentity;
         private DevExpress.XtraBars.BarStaticItem barItemIP;
         private DevExpress.XtraEditors.Repository.RepositoryItemRatingControl repositoryItemRatingControl1;
@@ -247,5 +248,6 @@ namespace ManagementStore.Form
         private DevExpress.XtraBars.BarStaticItem barItemVersion;
         public DevExpress.XtraEditors.Camera.CameraControl cameraControl;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }
