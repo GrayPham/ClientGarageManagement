@@ -33,6 +33,7 @@ namespace ManagementStore.Form.User
             this.btnPrev = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.pictureFace = new System.Windows.Forms.PictureBox();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.pictureFace)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,10 +85,19 @@ namespace ManagementStore.Form.User
             this.pictureFace.TabIndex = 47;
             this.pictureFace.TabStop = false;
             // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(15, 72);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(75, 16);
+            this.labelControl2.TabIndex = 48;
+            this.labelControl2.Text = "labelControl2";
+            // 
             // FaceTaken
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.pictureFace);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.btnPrev);
@@ -106,5 +116,6 @@ namespace ManagementStore.Form.User
         private DevExpress.XtraEditors.SimpleButton btnPrev;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private System.Windows.Forms.PictureBox pictureFace;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
     }
 }

@@ -265,6 +265,7 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\FPSCounter.cs" />
     <Compile Include="Common\ModelConfig.cs" />
     <Compile Include="ComputerStoreDataSet.cs">
       <DependentUpon>ComputerStoreDataSet.xsd</DependentUpon>

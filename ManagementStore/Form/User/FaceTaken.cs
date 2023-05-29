@@ -56,8 +56,11 @@ namespace ManagementStore.Form.User
         }
         private void Capture_ImageGrabbed(object sender, EventArgs e)
         {
+            FPSCounter fpsCounter = new FPSCounter();
+            fpsCounter.Start();
             if (capture != null && capture.Ptr != IntPtr.Zero)
             {
+
                 Mat frame = new Mat();
                 capture.Retrieve(frame);
 
@@ -89,6 +92,8 @@ namespace ManagementStore.Form.User
 
                 // Display the frame in the PictureBox control
                 pictureFace.Image = frame.ToBitmap();
+                fpsCounter.Update();
+                labelControl1.Text = fpsCounter.CurrentFPS.ToString();
             }
         }
         private uint[] Preprocess(Mat frame, IReadOnlyDictionary<string, NodeMetadata> inputMeta)
