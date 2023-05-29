@@ -13,11 +13,12 @@ namespace ManagementStore.Form.User
         public RegisterUser()
         {
             InitializeComponent();
+            panelSlider.Controls.Add(new FullName());
+
             panelSlider.Controls.Add(new PhoneNumber());
             panelSlider.Controls.Add(new InformationUser());
             panelSlider.Controls.Add(new FaceTaken());
             panelSlider.Controls.Add(new PhoneOTP());
-            panelSlider.Controls.Add(new FullName());
         }
         private void RegisterUser_Load(object sender, EventArgs e)
         {

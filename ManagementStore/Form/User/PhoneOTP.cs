@@ -21,15 +21,16 @@ namespace ManagementStore.Form.User
         {
             splashScreenManager.ShowWaitForm();
             bool status = Utils.VerifyOTP(VerifyPhoneNumber.PhoneNumber, otpTxt.Text, VerifyPhoneNumber.OTPCode);
-            if(status)
+            splashScreenManager.CloseWaitForm();
+            if (status)
             {
-                Utils.Forward(ParentForm, "pictureBoxOTP", "pictureBoxInfo", "InformationUser");
+                Utils.Forward(ParentForm, "pictureBoxOTP", "pictureBoxInfo", "InformationUser");              
             }
             else
             {
                 XtraMessageBox.Show("Incorrect OTP code, please input again or resend OTP!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            splashScreenManager.CloseWaitForm();
+            
         }
 
         private void btnResendOTP_Click(object sender, EventArgs e)

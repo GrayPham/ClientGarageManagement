@@ -47,7 +47,6 @@ namespace ManagementStore.Form.User
             this.separatorControl2 = new DevExpress.XtraEditors.SeparatorControl();
             this.sidePanel2 = new DevExpress.XtraEditors.SidePanel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ManagementStore.Form.WaitFormLoader.LoadingControl), true, true, DevExpress.XtraSplashScreen.SplashFormStartPosition.Manual, new System.Drawing.Point(0, 0));
             this.sidePanel1.SuspendLayout();
             this.panelSlider.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
@@ -106,9 +105,9 @@ namespace ManagementStore.Form.User
             this.sidePanel4.Controls.Add(this.pictureBoxOTP);
             this.sidePanel4.Controls.Add(this.pictureBoxPhone);
             this.sidePanel4.Controls.Add(this.separatorControl2);
-            this.sidePanel4.Location = new System.Drawing.Point(0, 206);
+            this.sidePanel4.Location = new System.Drawing.Point(0, 213);
             this.sidePanel4.Name = "sidePanel4";
-            this.sidePanel4.Size = new System.Drawing.Size(239, 749);
+            this.sidePanel4.Size = new System.Drawing.Size(239, 742);
             this.sidePanel4.TabIndex = 2;
             this.sidePanel4.Text = "sidePanel4";
             // 
@@ -244,10 +243,6 @@ namespace ManagementStore.Form.User
             this.pictureBox5.Size = new System.Drawing.Size(820, 205);
             this.pictureBox5.TabIndex = 0;
             this.pictureBox5.TabStop = false;
-            // 
-            // splashScreenManager
-            // 
-            this.splashScreenManager.ClosingDelay = 500;
             // 
             // RegisterUser
             // 
