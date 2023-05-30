@@ -3,10 +3,12 @@ using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.DXErrorProvider;
 using ManagementStore.Extensions;
 using ManagementStore.Extensions.Validations;
+using ManagementStore.Model.Static;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace ManagementStore.Form.User
@@ -35,8 +37,12 @@ namespace ManagementStore.Form.User
         }
         private void btnNext_Click(object sender, EventArgs e)
         {
+            splashScreenManager1.ShowWaitForm();
+            Thread.Sleep(1000);
             Utils.Forward(ParentForm, "pictureBoxInfo", "pictureBoxName", "FullName");
-
+            UserInfo.BirthDay = birthDayTxt.Text;
+            UserInfo.Gender = ccbSelectGender.SelectedItem.ToString();
+            splashScreenManager1.CloseWaitForm();
         }
 
         private void btnPrev_Click(object sender, EventArgs e)

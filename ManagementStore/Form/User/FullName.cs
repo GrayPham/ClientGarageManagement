@@ -28,7 +28,11 @@ namespace ManagementStore.Form.User
         }
         private void btnNext_Click(object sender, EventArgs e)
         {
+            splashScreenManager1.ShowWaitForm();
+            ParentForm.Controls.Find("panelSlider", true)[0].Controls.Add(new FaceTaken());
             Utils.Forward(ParentForm, "pictureBoxName", "pictureBoxFace", "FaceTaken");
+            splashScreenManager1.CloseWaitForm();
+
         }
 
         private void btnPrev_Click(object sender, EventArgs e)

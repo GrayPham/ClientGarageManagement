@@ -10,26 +10,100 @@ using System.Collections.Generic;
 using System.Linq;
 using Emgu.CV.CvEnum;
 using ManagementStore.DTO;
+using System.Windows.Forms;
+using ManagementStore.Form.Customize;
+using DevExpress.XtraEditors;
+using ManagementStore.Form.Notify;
+using ManagementStore.Model.Static;
+using System.IO;
 
 namespace ManagementStore.Form.User
 {
     public partial class FaceTaken : System.Windows.Forms.UserControl
     {
         private VideoCapture capture;
-        //private CascadeClassifier cascadeClassifier;
         private InferenceSession session;
+        private FPSCounter fpsCounter;
+        private int countdownValue;
+        private Timer timer;
+        private CountdownPictureBox countdownPicture;
+        private int countObject = 0;
+        ShowImageTaken image;
+
         public FaceTaken()
         {
             InitializeComponent();
+
             string path = System.IO.Path.GetDirectoryName(new System.Uri(System.Reflection.Assembly.GetExecutingAssembly().CodeBase).LocalPath);
-            //cascadeClassifier = new CascadeClassifier(ModelConfig.settingFolderPath + "/haarcascade_frontalface_default.xml");
             // Load the ONNX model
             session = new InferenceSession(ModelConfig.dataFolderPath + "/ssd_mobilenet_v1_12-int8.onnx");
-
             // Initialize the camera capture
             capture = new VideoCapture();
             capture.ImageGrabbed += Capture_ImageGrabbed;
             capture.Start();
+            // Set the initial countdown value and Timer interval
+            countdownValue = 5;
+            timer = new Timer();
+            timer.Interval = 1000; // 1 second
+            timer.Tick += Timer_Tick;
+
+            // Start the Timer
+            timer.Start();
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            countdownValue--;
+            showCountDown.Text = $"Ảnh sẽ được chụp sau {countdownValue.ToString()} giây nữa";
+
+            // When the countdown reaches 0, stop the Timer and capture the picture
+            if (countdownValue == 0)
+            {
+                image = new ShowImageTaken();
+                if (countObject == 0)
+                {
+                    capture.ImageGrabbed -= Capture_ImageGrabbed;
+                    var result = XtraMessageBox.Show("Can not detect the face, please try again", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if(DialogResult.OK == result)
+                    {
+                        countdownValue = 5;
+                        timer.Start();
+                    }
+                }
+                else
+                {
+                    image.Show();
+                    image.pictureBoxTaken.Image = pictureFace.Image;
+                    capture.ImageGrabbed -= Capture_ImageGrabbed;
+                    image.btnTakeAgain.Click += btnTakeAgain_Click;
+                    
+                    image.btnOK.Click += btnOK_Click;
+                }
+                timer.Stop();
+            }
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            capture.ImageGrabbed -= Capture_ImageGrabbed;
+            Image img = image.pictureBoxTaken.Image;
+
+            // Convert the image to a byte array
+            byte[] imageBytes;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg); // Use the appropriate image format
+                imageBytes = ms.ToArray();
+            }
+            UserInfo.Picture = Convert.ToBase64String(imageBytes);
+            image.Close();
+        }
+        private void btnTakeAgain_Click(object sender, EventArgs e)
+        {
+            countdownValue = 5;
+            capture.ImageGrabbed += Capture_ImageGrabbed;
+            timer.Start();
+            image.Close();
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
@@ -56,8 +130,12 @@ namespace ManagementStore.Form.User
         }
         private void Capture_ImageGrabbed(object sender, EventArgs e)
         {
-            FPSCounter fpsCounter = new FPSCounter();
-            fpsCounter.Start();
+            if (fpsCounter == null)
+            {
+                fpsCounter = new FPSCounter();
+                fpsCounter.Start();
+            }
+
             if (capture != null && capture.Ptr != IntPtr.Zero)
             {
 
@@ -93,7 +171,7 @@ namespace ManagementStore.Form.User
                 // Display the frame in the PictureBox control
                 pictureFace.Image = frame.ToBitmap();
                 fpsCounter.Update();
-                labelControl1.Text = fpsCounter.CurrentFPS.ToString();
+                Console.WriteLine("FPS: " + fpsCounter.CurrentFPS.ToString("F2"));
             }
         }
         private uint[] Preprocess(Mat frame, IReadOnlyDictionary<string, NodeMetadata> inputMeta)
@@ -170,7 +248,7 @@ namespace ManagementStore.Form.User
                 detections.Add(new DetectionResult(score, top, right, bottom, left, classLabel, className));
 
             }
-            
+            countObject = detections.Count;
             return detections;
         }
         private void DrawBoundingBoxes(Mat frame, List<DetectionResult> detectionResults)
@@ -193,7 +271,7 @@ namespace ManagementStore.Form.User
                     CvInvoke.Rectangle(frame, rect, new Bgr(Color.Red).MCvScalar, thickness: 2);
                     // Display the class name
                     Point textLocation = new Point(x, y - 10);
-                    CvInvoke.PutText(frame, detection.ClassName + " " + detection.Score.ToString("##.##"), textLocation,
+                    CvInvoke.PutText(frame, detection.ClassName + " " + (detection.Score * 100).ToString("##.##"), textLocation,
                         FontFace.HersheySimplex, fontScale: 0.5, new Bgr(Color.Red).MCvScalar);
                 }
             }

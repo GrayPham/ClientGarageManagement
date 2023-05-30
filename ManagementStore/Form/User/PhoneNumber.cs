@@ -51,6 +51,7 @@ namespace ManagementStore.Form.User
             Utils.Forward(ParentForm, "pictureBoxPhone", "pictureBoxOTP", "PhoneOTP");
             Thread.Sleep(1000);
             splashScreenManager.CloseWaitForm();
+            UserInfo.PhoneNumber = VerifyPhoneNumber.PhoneNumber;
         }
         #region Number
         private void btnNum1_Click(object sender, EventArgs e)

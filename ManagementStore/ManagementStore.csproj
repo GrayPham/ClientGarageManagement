@@ -295,6 +295,12 @@
     <Compile Include="Form\Camera\SubFormCamera.Designer.cs">
       <DependentUpon>SubFormCamera.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\Customize\CountdownPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Form\Customize\TransparentButton .cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Form\DetectClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -312,6 +318,18 @@
     </Compile>
     <Compile Include="Form\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Notify\ShowImageTaken.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Notify\ShowImageTaken.Designer.cs">
+      <DependentUpon>ShowImageTaken.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Notify\ConfirmInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Notify\ConfirmInfo.Designer.cs">
+      <DependentUpon>ConfirmInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Form\User\FaceTaken.cs">
       <SubType>UserControl</SubType>
@@ -388,6 +406,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Notify\ShowImageTaken.resx">
+      <DependentUpon>ShowImageTaken.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Notify\ConfirmInfo.resx">
+      <DependentUpon>ConfirmInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\User\FaceTaken.resx">
       <DependentUpon>FaceTaken.cs</DependentUpon>
@@ -531,6 +555,7 @@
     <Content Include="Assets\Images\customize.png" />
     <Content Include="Assets\Images\payment.png" />
     <Content Include="Assets\Images\pending.png" />
+    <None Include="Resources\megafon_notify2.png" />
     <Content Include="Setting\AdMgtInfos.xml" />
     <Content Include="Setting\Config.xml" />
     <Content Include="Setting\haarcascade_frontalface_default.xml" />

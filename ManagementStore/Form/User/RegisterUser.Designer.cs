@@ -46,6 +46,10 @@ namespace ManagementStore.Form.User
             this.pictureBoxPhone = new System.Windows.Forms.PictureBox();
             this.separatorControl2 = new DevExpress.XtraEditors.SeparatorControl();
             this.sidePanel2 = new DevExpress.XtraEditors.SidePanel();
+            this.showCountDown = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.sidePanel1.SuspendLayout();
             this.panelSlider.SuspendLayout();
@@ -58,6 +62,7 @@ namespace ManagementStore.Form.User
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhone)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).BeginInit();
             this.sidePanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,25 +73,29 @@ namespace ManagementStore.Form.User
             this.sidePanel1.Controls.Add(this.sidePanel2);
             this.sidePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidePanel1.Location = new System.Drawing.Point(0, 0);
+            this.sidePanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sidePanel1.Name = "sidePanel1";
-            this.sidePanel1.Size = new System.Drawing.Size(826, 958);
+            this.sidePanel1.Size = new System.Drawing.Size(708, 778);
             this.sidePanel1.TabIndex = 0;
             this.sidePanel1.Text = "sidePanel1";
             // 
             // panelSlider
             // 
             this.panelSlider.Controls.Add(this.separatorControl1);
-            this.panelSlider.Location = new System.Drawing.Point(284, 213);
+            this.panelSlider.Location = new System.Drawing.Point(243, 173);
+            this.panelSlider.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelSlider.Name = "panelSlider";
-            this.panelSlider.Size = new System.Drawing.Size(536, 733);
+            this.panelSlider.Size = new System.Drawing.Size(459, 596);
             this.panelSlider.TabIndex = 3;
             this.panelSlider.Text = "panelSlider";
             // 
             // separatorControl1
             // 
-            this.separatorControl1.Location = new System.Drawing.Point(424, 182);
+            this.separatorControl1.Location = new System.Drawing.Point(363, 148);
+            this.separatorControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.separatorControl1.Name = "separatorControl1";
-            this.separatorControl1.Size = new System.Drawing.Size(8, 8);
+            this.separatorControl1.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.separatorControl1.Size = new System.Drawing.Size(7, 6);
             this.separatorControl1.TabIndex = 0;
             // 
             // sidePanel4
@@ -105,9 +114,10 @@ namespace ManagementStore.Form.User
             this.sidePanel4.Controls.Add(this.pictureBoxOTP);
             this.sidePanel4.Controls.Add(this.pictureBoxPhone);
             this.sidePanel4.Controls.Add(this.separatorControl2);
-            this.sidePanel4.Location = new System.Drawing.Point(0, 213);
+            this.sidePanel4.Location = new System.Drawing.Point(0, 173);
+            this.sidePanel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sidePanel4.Name = "sidePanel4";
-            this.sidePanel4.Size = new System.Drawing.Size(239, 742);
+            this.sidePanel4.Size = new System.Drawing.Size(205, 603);
             this.sidePanel4.TabIndex = 2;
             this.sidePanel4.Text = "sidePanel4";
             // 
@@ -117,26 +127,29 @@ namespace ManagementStore.Form.User
             this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton1.Appearance.Options.UseBackColor = true;
             this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Location = new System.Drawing.Point(0, 662);
+            this.simpleButton1.Location = new System.Drawing.Point(0, 538);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(236, 78);
+            this.simpleButton1.Size = new System.Drawing.Size(202, 63);
             this.simpleButton1.TabIndex = 11;
             this.simpleButton1.Text = "Exit";
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(87, 493);
+            this.labelControl1.Location = new System.Drawing.Point(75, 401);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(56, 17);
+            this.labelControl1.Size = new System.Drawing.Size(44, 13);
             this.labelControl1.TabIndex = 10;
             this.labelControl1.Text = "Nhập tên";
             // 
             // pictureBoxName
             // 
             this.pictureBoxName.Image = global::ManagementStore.Properties.Resources.pending;
-            this.pictureBoxName.Location = new System.Drawing.Point(67, 419);
+            this.pictureBoxName.Location = new System.Drawing.Point(57, 340);
+            this.pictureBoxName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxName.Name = "pictureBoxName";
-            this.pictureBoxName.Size = new System.Drawing.Size(100, 68);
+            this.pictureBoxName.Size = new System.Drawing.Size(86, 55);
             this.pictureBoxName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxName.TabIndex = 9;
             this.pictureBoxName.TabStop = false;
@@ -145,42 +158,47 @@ namespace ManagementStore.Form.User
             // 
             this.labelBday.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelBday.Appearance.Options.UseFont = true;
-            this.labelBday.Location = new System.Drawing.Point(61, 360);
+            this.labelBday.Location = new System.Drawing.Point(52, 292);
+            this.labelBday.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelBday.Name = "labelBday";
-            this.labelBday.Size = new System.Drawing.Size(113, 17);
+            this.labelBday.Size = new System.Drawing.Size(89, 13);
             this.labelBday.TabIndex = 7;
             this.labelBday.Text = "Ngày sinh/Giới tính";
             // 
             // labelCreate
             // 
-            this.labelCreate.Location = new System.Drawing.Point(67, 630);
+            this.labelCreate.Location = new System.Drawing.Point(57, 512);
+            this.labelCreate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelCreate.Name = "labelCreate";
-            this.labelCreate.Size = new System.Drawing.Size(104, 17);
+            this.labelCreate.Size = new System.Drawing.Size(78, 13);
             this.labelCreate.TabIndex = 8;
             this.labelCreate.Text = "Chụp khuôn mặt";
             // 
             // labelInfo
             // 
-            this.labelInfo.Location = new System.Drawing.Point(73, 229);
+            this.labelInfo.Location = new System.Drawing.Point(63, 186);
+            this.labelInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelInfo.Name = "labelInfo";
-            this.labelInfo.Size = new System.Drawing.Size(85, 17);
+            this.labelInfo.Size = new System.Drawing.Size(65, 13);
             this.labelInfo.TabIndex = 6;
             this.labelInfo.Text = "Nhập mã OTP";
             // 
             // labelPhone
             // 
-            this.labelPhone.Location = new System.Drawing.Point(61, 97);
+            this.labelPhone.Location = new System.Drawing.Point(52, 79);
+            this.labelPhone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelPhone.Name = "labelPhone";
-            this.labelPhone.Size = new System.Drawing.Size(113, 17);
+            this.labelPhone.Size = new System.Drawing.Size(89, 13);
             this.labelPhone.TabIndex = 5;
             this.labelPhone.Text = "Nhập số điện thoại";
             // 
             // pictureBoxInfo
             // 
             this.pictureBoxInfo.Image = global::ManagementStore.Properties.Resources.pending;
-            this.pictureBoxInfo.Location = new System.Drawing.Point(67, 286);
+            this.pictureBoxInfo.Location = new System.Drawing.Point(57, 232);
+            this.pictureBoxInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxInfo.Name = "pictureBoxInfo";
-            this.pictureBoxInfo.Size = new System.Drawing.Size(100, 68);
+            this.pictureBoxInfo.Size = new System.Drawing.Size(86, 55);
             this.pictureBoxInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxInfo.TabIndex = 3;
             this.pictureBoxInfo.TabStop = false;
@@ -188,9 +206,10 @@ namespace ManagementStore.Form.User
             // pictureBoxFace
             // 
             this.pictureBoxFace.Image = global::ManagementStore.Properties.Resources.pending;
-            this.pictureBoxFace.Location = new System.Drawing.Point(67, 556);
+            this.pictureBoxFace.Location = new System.Drawing.Point(57, 452);
+            this.pictureBoxFace.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxFace.Name = "pictureBoxFace";
-            this.pictureBoxFace.Size = new System.Drawing.Size(100, 68);
+            this.pictureBoxFace.Size = new System.Drawing.Size(86, 55);
             this.pictureBoxFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxFace.TabIndex = 2;
             this.pictureBoxFace.TabStop = false;
@@ -198,9 +217,10 @@ namespace ManagementStore.Form.User
             // pictureBoxOTP
             // 
             this.pictureBoxOTP.Image = global::ManagementStore.Properties.Resources.pending;
-            this.pictureBoxOTP.Location = new System.Drawing.Point(67, 155);
+            this.pictureBoxOTP.Location = new System.Drawing.Point(57, 126);
+            this.pictureBoxOTP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxOTP.Name = "pictureBoxOTP";
-            this.pictureBoxOTP.Size = new System.Drawing.Size(100, 68);
+            this.pictureBoxOTP.Size = new System.Drawing.Size(86, 55);
             this.pictureBoxOTP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxOTP.TabIndex = 1;
             this.pictureBoxOTP.TabStop = false;
@@ -208,9 +228,10 @@ namespace ManagementStore.Form.User
             // pictureBoxPhone
             // 
             this.pictureBoxPhone.Image = global::ManagementStore.Properties.Resources.current;
-            this.pictureBoxPhone.Location = new System.Drawing.Point(67, 23);
+            this.pictureBoxPhone.Location = new System.Drawing.Point(57, 19);
+            this.pictureBoxPhone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxPhone.Name = "pictureBoxPhone";
-            this.pictureBoxPhone.Size = new System.Drawing.Size(100, 68);
+            this.pictureBoxPhone.Size = new System.Drawing.Size(86, 55);
             this.pictureBoxPhone.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxPhone.TabIndex = 0;
             this.pictureBoxPhone.TabStop = false;
@@ -220,36 +241,102 @@ namespace ManagementStore.Form.User
             this.separatorControl2.BackColor = System.Drawing.Color.LightGray;
             this.separatorControl2.LineColor = System.Drawing.Color.Gray;
             this.separatorControl2.LineOrientation = System.Windows.Forms.Orientation.Vertical;
-            this.separatorControl2.Location = new System.Drawing.Point(105, 42);
+            this.separatorControl2.Location = new System.Drawing.Point(90, 34);
+            this.separatorControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.separatorControl2.Name = "separatorControl2";
-            this.separatorControl2.Size = new System.Drawing.Size(25, 552);
+            this.separatorControl2.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.separatorControl2.Size = new System.Drawing.Size(21, 448);
             this.separatorControl2.TabIndex = 4;
             // 
             // sidePanel2
             // 
+            this.sidePanel2.Controls.Add(this.showCountDown);
+            this.sidePanel2.Controls.Add(this.labelControl3);
+            this.sidePanel2.Controls.Add(this.labelControl2);
+            this.sidePanel2.Controls.Add(this.pictureEdit1);
             this.sidePanel2.Controls.Add(this.pictureBox5);
-            this.sidePanel2.Location = new System.Drawing.Point(3, 3);
+            this.sidePanel2.Location = new System.Drawing.Point(3, 2);
+            this.sidePanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sidePanel2.Name = "sidePanel2";
-            this.sidePanel2.Size = new System.Drawing.Size(820, 205);
+            this.sidePanel2.Size = new System.Drawing.Size(703, 167);
             this.sidePanel2.TabIndex = 0;
             this.sidePanel2.Text = "sidePanel2";
             // 
+            // showCountDown
+            // 
+            this.showCountDown.Appearance.BackColor = System.Drawing.Color.RoyalBlue;
+            this.showCountDown.Appearance.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showCountDown.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.showCountDown.Appearance.Options.UseBackColor = true;
+            this.showCountDown.Appearance.Options.UseFont = true;
+            this.showCountDown.Appearance.Options.UseForeColor = true;
+            this.showCountDown.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.showCountDown.Location = new System.Drawing.Point(184, 126);
+            this.showCountDown.Name = "showCountDown";
+            this.showCountDown.Size = new System.Drawing.Size(313, 29);
+            this.showCountDown.TabIndex = 5;
+            this.showCountDown.Text = "Close form after 180 seconds";
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Appearance.BackColor = System.Drawing.Color.RoyalBlue;
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl3.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.labelControl3.Appearance.Options.UseBackColor = true;
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.Appearance.Options.UseForeColor = true;
+            this.labelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.labelControl3.Location = new System.Drawing.Point(184, 83);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(397, 23);
+            this.labelControl3.TabIndex = 4;
+            this.labelControl3.Text = "Please enter the information by following";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.BackColor = System.Drawing.Color.RoyalBlue;
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.labelControl2.Appearance.Options.UseBackColor = true;
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Appearance.Options.UseForeColor = true;
+            this.labelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.labelControl2.Location = new System.Drawing.Point(184, 33);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(365, 33);
+            this.labelControl2.TabIndex = 3;
+            this.labelControl2.Text = "Phone Number Verification";
+            // 
+            // pictureEdit1
+            // 
+            this.pictureEdit1.EditValue = global::ManagementStore.Properties.Resources.megafon_notify2;
+            this.pictureEdit1.Location = new System.Drawing.Point(32, 38);
+            this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
+            this.pictureEdit1.Size = new System.Drawing.Size(135, 76);
+            this.pictureEdit1.TabIndex = 2;
+            // 
             // pictureBox5
             // 
-            this.pictureBox5.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.pictureBox5.BackColor = System.Drawing.Color.RoyalBlue;
             this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox5.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(820, 205);
+            this.pictureBox5.Size = new System.Drawing.Size(703, 167);
             this.pictureBox5.TabIndex = 0;
             this.pictureBox5.TabStop = false;
             // 
             // RegisterUser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(826, 958);
+            this.ClientSize = new System.Drawing.Size(708, 778);
             this.Controls.Add(this.sidePanel1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "RegisterUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegisterUser";
@@ -266,6 +353,8 @@ namespace ManagementStore.Form.User
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhone)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).EndInit();
             this.sidePanel2.ResumeLayout(false);
+            this.sidePanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
@@ -283,7 +372,6 @@ namespace ManagementStore.Form.User
         private DevExpress.XtraEditors.LabelControl labelInfo;
         private DevExpress.XtraEditors.LabelControl labelPhone;
         private DevExpress.XtraEditors.SeparatorControl separatorControl2;
-        private System.Windows.Forms.PictureBox pictureBox5;
         public System.Windows.Forms.PictureBox pictureBoxInfo;
         public System.Windows.Forms.PictureBox pictureBoxFace;
         public System.Windows.Forms.PictureBox pictureBoxOTP;
@@ -292,5 +380,10 @@ namespace ManagementStore.Form.User
         public System.Windows.Forms.PictureBox pictureBoxName;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
+        private DevExpress.XtraEditors.LabelControl showCountDown;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
     }
 }

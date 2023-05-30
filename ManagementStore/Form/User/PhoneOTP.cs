@@ -3,6 +3,7 @@ using ManagementStore.Extensions;
 using ManagementStore.Model.Static;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace ManagementStore.Form.User
@@ -19,9 +20,10 @@ namespace ManagementStore.Form.User
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            splashScreenManager.ShowWaitForm();
+            splashScreenManager1.ShowWaitForm();
             bool status = Utils.VerifyOTP(VerifyPhoneNumber.PhoneNumber, otpTxt.Text, VerifyPhoneNumber.OTPCode);
-            splashScreenManager.CloseWaitForm();
+            Thread.Sleep(1000);
+            splashScreenManager1.CloseWaitForm();
             if (status)
             {
                 Utils.Forward(ParentForm, "pictureBoxOTP", "pictureBoxInfo", "InformationUser");              
