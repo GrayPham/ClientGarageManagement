@@ -27,17 +27,16 @@ namespace ManagementStore.Form.Camera
         // Video Setting
         VideoCapture capture;
         List<string> dataCamera = new List<string>();
-        private VideoCapture camera1;
+        //private VideoCapture camera1;
         private SocketDetect encode;
         private bool captureInProgress = false;
         private byte bitSent = 1;
         int cameraindex = -1;
         // API
         VehicleCheck cVehicle = new VehicleCheck();
-        
+        private bool accReport = false;
         //Test FPS
         private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
-        private int countTime = 0;
         private int waitTime = 0;
         int currentFrame = 0;
 
@@ -67,32 +66,33 @@ namespace ManagementStore.Form.Camera
         }
         private void loadCamera()
         {
-            for (int i = 0; i < 7; i++)
-            {
-                camera1 = new VideoCapture(i);
-
-                if (camera1.IsOpened)
-                {
-                    dataCamera.Add($"Camera {i}");
-
-                }
-            }
-            dataCamera.Add("None");
+            dataCamera.AddRange(ModelConfig.cameraList);
+        }
+        private void resetPictureBox()
+        {
+            pictureBoxCamera.Image = Image.FromFile(ModelConfig.constImagePath);
         }
         private void PictureControl_Load(object sender, EventArgs e)
         {
-            if (capture == null)
+            if(cameraindex >= 0)
             {
-                try
+                if (capture == null)
                 {
-                    capture = new VideoCapture(cameraindex);
-                    captureInProgress = true;
-                    Application.Idle += ProcessFrame;
+                    try
+                    {
+                        capture = new VideoCapture(cameraindex);
+                        captureInProgress = true;
+                        Application.Idle += ProcessFrame;
+                    }
+                    catch (NullReferenceException excpt)
+                    {
+                        MessageBox.Show(excpt.Message);
+                    }
                 }
-                catch (NullReferenceException excpt)
-                {
-                    MessageBox.Show(excpt.Message);
-                }
+            }
+            else
+            {
+                resetPictureBox();
             }
         }
         #endregion
@@ -128,7 +128,9 @@ namespace ManagementStore.Form.Camera
                                     {
                                         if(mess != "None")
                                         {
-                                            Image face = DetectClient.getFaceImage();
+                                            ModelConfig.listFaceCamera[0].startFaceDetect();
+                                            Image face = ModelConfig.listFaceCamera[0].getFaceImage();
+                                            ModelConfig.listFaceCamera[0].endCameraFaceDetect();
                                             if (face != null || pictureBoxCamera.Image != null)
                                             {
                                                 Image lp = pictureBoxCamera.Image;
@@ -137,7 +139,6 @@ namespace ManagementStore.Form.Camera
                                                 {
                                                     cEditInVehicle.Checked = true;
                                                     await Task.Delay(3000);
-                                                    countTime = 0;
                                                     waitTime = 0;
                                                     textEditLP.Text = "";
                                                     cEditInVehicle.Checked = false;
@@ -146,6 +147,7 @@ namespace ManagementStore.Form.Camera
                                                 else if(resultCheckout == "Block")
                                                 {
                                                     cEditInVehicle.ForeColor = Color.Red;
+                                                    accReport = true; // Accept for user can report
                                                 }    
                                             }                              
                                         }
@@ -212,13 +214,13 @@ namespace ManagementStore.Form.Camera
             // Cập nhật giá trị của comboBoxIndex khi giá trị trên form con thay đổi
             cameraindex = ((SubFormCamera)sender).ComboBoxIndex;
             // Cập nhật các thành phần trên form cha sử dụng giá trị của comboBoxIndex
-            if (dataCamera[cameraindex] == "None")
+            if (dataCamera[cameraindex] == "OFF")
             {
                 captureInProgress = false;
                 cameraindex = -1;
 
                 Application.Idle -= ProcessFrame;
-                pictureBoxCamera.Image = null;
+                resetPictureBox();
                 capture.Dispose();
             }
             else
@@ -243,5 +245,22 @@ namespace ManagementStore.Form.Camera
         {
             cEditInVehicle.ForeColor = Color.Black;
         }
+        #region Report
+
+        private async void panelInFor_DoubleClickAsync(object sender, EventArgs e)
+        {
+            if(accReport == true)
+            {
+                ModelConfig.listFaceCamera[0].startFaceDetect();
+                Image face = ModelConfig.listFaceCamera[0].getFaceImage();
+                ModelConfig.listFaceCamera[0].endCameraFaceDetect();
+                if (face != null || pictureBoxCamera.Image != null)
+                {
+                    bool resultReport = await cVehicle.TrackReportAsync(pictureBoxCamera.Image,face, textEditLP.Text);
+                    accReport = false;
+                }
+            }
+        }
+        #endregion
     }
 }

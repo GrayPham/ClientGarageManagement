@@ -108,7 +108,7 @@ namespace ManagementStore.Form.Camera
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 258);
+            this.ClientSize = new System.Drawing.Size(284, 259);
             this.Controls.Add(this.trackBarControlBright);
             this.Controls.Add(this.trackBarControlDark);
             this.Controls.Add(this.comboBoxCamera);
@@ -116,7 +116,8 @@ namespace ManagementStore.Form.Camera
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
             this.Name = "SubFormCamera";
-            this.Text = "SubFormCamera";
+            this.ShowIcon = false;
+            this.Text = "Edit Camera";
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxCamera.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarControlDark.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarControlDark)).EndInit();

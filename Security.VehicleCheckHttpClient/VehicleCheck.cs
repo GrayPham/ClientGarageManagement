@@ -39,20 +39,20 @@ namespace Security.VehicleCheckHttpClient
             // Create a JSON payload containing the base64 image data
 
             // Convert the base64 image to a JSON payload
-            var payload = JsonConvert.SerializeObject(new { platenum = platenumber, typeTransport = "car", typeLicensePlate = typeLP, stringFace = base64Image, stringlp = base64Imagelp });
+            var payload = JsonConvert.SerializeObject(new { platenum = platenumber, typeTransport = "car", typeLicensePlate = typeLP, stringFace = base64Image, stringlp = base64Imagelp, siteId=19 });
             // Send the payload to the FastAPI server using an HTTP POST request
             // Gọi đến API kiểm tra xe ra vào
             using (var client = new HttpClient())
             {
                 var content = new StringContent(payload, Encoding.UTF8, "application/json");
-                var response = await client.PostAsync("http://localhost:8003/api/track/trackingVehicle", content);
+                var response = await client.PostAsync("http://localhost:8005/api/track/trackingVehicle", content);
                 //string responseContent = await response.Content.ReadAsStringAsync();
                 if (response.IsSuccessStatusCode)
                 {
                     // Read the response as a string
                     var responseString = await response.Content.ReadAsStringAsync();
                     var result = JsonConvert.DeserializeObject<TrackVehicleRespose>(responseString);
-                    if (result.status != "TEST-BLOCK")
+                    if (result.status != "VEHI01")
                         return "Successful";
                     else
                         return "Block";
@@ -64,29 +64,41 @@ namespace Security.VehicleCheckHttpClient
             }
                 
         }
-        public async Task<string> VehicleTrackAsync(string ImagePlate, string ImageFace,string platenum, string typeTransport = "car", string typeLP = "2")
+        public async Task<bool> TrackReportAsync(Image imagePlate, Image imageFace,string platenum, string typeTransport = "car", string typeLP = "2")
         {
-            var values = new Dictionary<string, string>
-            {
-                { "platenum", platenum },
-                { "typeTransport", typeTransport },
-                { "typeLP", typeLP },
-                { "imagePlate", ImagePlate },
-                { "imageFace", ImageFace }
-            };
+            // Convert the byte array to a base64 string
+            string base64Image = ConvertImageToBase64(imageFace);
+            string base64Imagelp = ConvertImageToBase64(imagePlate);
+            // Convert the base64 image to a JSON payload
+            var payload = JsonConvert.SerializeObject(new { platenum = platenum,
+                                                            typeTransport = typeTransport, 
+                                                            typeLicensePlate = typeLP, 
+                                                            stringFace = base64Image, 
+                                                            stringlp = base64Imagelp, 
+                                                            siteId = 19 });
 
-            var content = new FormUrlEncodedContent(values);
-            // Gọi đến API kiểm tra xe ra vào
-            var response = await client.PostAsync("https://localhost:8001/report", content);
-            //string responseContent = await response.Content.ReadAsStringAsync();
-            if (response.IsSuccessStatusCode)
+            using (var client = new HttpClient())
             {
-                return "Successful";
+                var content = new StringContent(payload, Encoding.UTF8, "application/json");
+                var response = await client.PostAsync("http://localhost:8005/api/track/trackingReports", content);
+                //string responseContent = await response.Content.ReadAsStringAsync();
+                if (response.IsSuccessStatusCode)
+                {
+                    // Read the response as a string
+                    var responseString = await response.Content.ReadAsStringAsync();
+                    var result = JsonConvert.DeserializeObject<TrackReportRespose>(responseString);
+                    if (result.getStatus() != false)
+                        return true;
+                    else
+                        return false;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
-            {
-                return "Error";
-            }
+
         }
+
     }
 }
