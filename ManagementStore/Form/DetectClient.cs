@@ -181,8 +181,7 @@ namespace ManagementStore.Form
             _client.Disconnect();
             _timer.Stop();
         }
+
         #endregion
-
-
     }
 }

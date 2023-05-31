@@ -40,7 +40,7 @@ namespace Security
                 await webSocket1.ConnectAsync(uri, cancellationTokenSource.Token);
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
                 return false;
@@ -108,10 +108,10 @@ namespace Security
                     var bufferGet = new ArraySegment<byte>(new byte[1024]);
 
                     var receivedResult = await webSocket1.ReceiveAsync(bufferGet, cancellationTokenSource.Token);
-                    if (receivedResult.MessageType == WebSocketMessageType.Close)
-                    {
-                        await webSocket1.CloseAsync(WebSocketCloseStatus.NormalClosure, string.Empty, cancellationTokenSource.Token);
-                    }
+                    //if (receivedResult.MessageType == WebSocketMessageType.Close)
+                    //{
+                    //    await webSocket1.CloseAsync(WebSocketCloseStatus.NormalClosure, string.Empty, cancellationTokenSource.Token);
+                    //}
                     var message = Encoding.UTF8.GetString(bufferGet.Array, bufferGet.Offset, receivedResult.Count);
 
                     return message.ToString();

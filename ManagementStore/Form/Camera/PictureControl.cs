@@ -34,7 +34,7 @@ namespace ManagementStore.Form.Camera
         int cameraindex = -1;
         // API
         VehicleCheck cVehicle = new VehicleCheck();
-        
+        private bool accReport = false;
         //Test FPS
         private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
         private int waitTime = 0;
@@ -74,7 +74,7 @@ namespace ManagementStore.Form.Camera
         }
         private void PictureControl_Load(object sender, EventArgs e)
         {
-            if(cameraindex > 0)
+            if(cameraindex >= 0)
             {
                 if (capture == null)
                 {
@@ -147,6 +147,7 @@ namespace ManagementStore.Form.Camera
                                                 else if(resultCheckout == "Block")
                                                 {
                                                     cEditInVehicle.ForeColor = Color.Red;
+                                                    accReport = true; // Accept for user can report
                                                 }    
                                             }                              
                                         }
@@ -244,5 +245,22 @@ namespace ManagementStore.Form.Camera
         {
             cEditInVehicle.ForeColor = Color.Black;
         }
+        #region Report
+
+        private async void panelInFor_DoubleClickAsync(object sender, EventArgs e)
+        {
+            if(accReport == true)
+            {
+                ModelConfig.listFaceCamera[0].startFaceDetect();
+                Image face = ModelConfig.listFaceCamera[0].getFaceImage();
+                ModelConfig.listFaceCamera[0].endCameraFaceDetect();
+                if (face != null || pictureBoxCamera.Image != null)
+                {
+                    bool resultReport = await cVehicle.TrackReportAsync(pictureBoxCamera.Image,face, textEditLP.Text);
+                    accReport = false;
+                }
+            }
+        }
+        #endregion
     }
 }

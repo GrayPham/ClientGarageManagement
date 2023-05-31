@@ -43,7 +43,9 @@
   <ItemGroup>
     <Compile Include="Common\Common.cs" />
     <Compile Include="Interface\IVehicleManagement.cs" />
+    <Compile Include="Models\TrackReportRespose.cs" />
     <Compile Include="Models\TrackVehicleRespose.cs" />
+    <Compile Include="Request\TrackReportRequest.cs" />
     <Compile Include="VehicleCheck.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
