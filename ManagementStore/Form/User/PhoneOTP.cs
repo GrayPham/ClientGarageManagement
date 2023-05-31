@@ -34,12 +34,6 @@ namespace ManagementStore.Form.User
             }
             
         }
-
-        private void btnResendOTP_Click(object sender, EventArgs e)
-        {
-            Utils.SendOTPSMS(VerifyPhoneNumber.PhoneNumber);
-            XtraMessageBox.Show("Resend OTP successfull", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
         private void btnOTP_Click(object sender, EventArgs e)
         {
             Utils.Back(ParentForm, "pictureBoxOTP", "pictureBoxPhone", "PhoneNumber");
@@ -137,5 +131,10 @@ namespace ManagementStore.Form.User
             }
         }
 
+        private void btnResendOTP_Click_1(object sender, EventArgs e)
+        {
+            Utils.SendOTPSMS(VerifyPhoneNumber.PhoneNumber);
+            XtraMessageBox.Show("Resend OTP successfull", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

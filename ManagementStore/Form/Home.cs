@@ -27,7 +27,7 @@ namespace ManagementStore.Form
         public Home()
         {
             _log = ProgramFactory.Instance.Log;
-
+           
             InitializeComponent();
         }
 
@@ -40,12 +40,12 @@ namespace ManagementStore.Form
             barItemVersion.Caption = LSystem.LVersion + ApplicationInfo.VersionName;
             barItemPort.Caption = string.Format(LSystem.LPort, ApplicationInfo.PortUser);
 
-            string html = "<html><head>";
-            string url = "https://www.youtube.com/watch?v=Z9uEn2IVPkQ";
-            html += "<meta content='IE=Edge' http-equiv='X-UA-Compatible'/>";
-            html += "<iframe id='video' src= 'https://www.youtube.com/embed/{0}?autoplay=1' width='680' height='375' frameborder='0' allowfullscreen></iframe>";
-            html += "</body></html>";
-            this.webBrowserVideo.DocumentText = string.Format(html, Utils.GetVideoId(url));
+            //string html = "<html><head>";
+            //string url = "https://www.youtube.com/watch?v=Z9uEn2IVPkQ";
+            //html += "<meta content='IE=Edge' http-equiv='X-UA-Compatible'/>";
+            //html += "<iframe id='video' src= 'https://www.youtube.com/embed/{0}?autoplay=1' width='680' height='370' frameborder='0' allowfullscreen></iframe>";
+            //html += "</body></html>";
+            //this.webBrowserVideo.DocumentText = string.Format(html, Utils.GetVideoId(url));
         }
 
 

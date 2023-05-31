@@ -16,6 +16,11 @@ using DevExpress.XtraEditors;
 using ManagementStore.Form.Notify;
 using ManagementStore.Model.Static;
 using System.IO;
+using Connect.Common.Contract;
+using Parking.App.Common.ApiMethod;
+using Connect.RemoteDataProvider.Common;
+using Parking.App.Common.ViewModels;
+using Parking.App.Contract.Common;
 
 namespace ManagementStore.Form.User
 {
@@ -26,17 +31,16 @@ namespace ManagementStore.Form.User
         private FPSCounter fpsCounter;
         private int countdownValue;
         private Timer timer;
-        private CountdownPictureBox countdownPicture;
         private int countObject = 0;
         ShowImageTaken image;
-
+        ConfirmInfo info;
         public FaceTaken()
         {
             InitializeComponent();
 
             string path = System.IO.Path.GetDirectoryName(new System.Uri(System.Reflection.Assembly.GetExecutingAssembly().CodeBase).LocalPath);
             // Load the ONNX model
-            session = new InferenceSession(ModelConfig.dataFolderPath + "/ssd_mobilenet_v1_12-int8.onnx");
+            session = new InferenceSession(ModelConfig.dataFolderPath + "/ssd_mobilenet_v1_10.onnx");
             // Initialize the camera capture
             capture = new VideoCapture();
             capture.ImageGrabbed += Capture_ImageGrabbed;
@@ -54,7 +58,7 @@ namespace ManagementStore.Form.User
         private void Timer_Tick(object sender, EventArgs e)
         {
             countdownValue--;
-            showCountDown.Text = $"Ảnh sẽ được chụp sau {countdownValue.ToString()} giây nữa";
+            showCountDown.Text = $"The photo will be taken in {countdownValue.ToString()} seconds";
 
             // When the countdown reaches 0, stop the Timer and capture the picture
             if (countdownValue == 0)
@@ -62,10 +66,13 @@ namespace ManagementStore.Form.User
                 image = new ShowImageTaken();
                 if (countObject == 0)
                 {
-                    capture.ImageGrabbed -= Capture_ImageGrabbed;
+                    //capture.ImageGrabbed -= Capture_ImageGrabbed;
+                    capture.Stop();
                     var result = XtraMessageBox.Show("Can not detect the face, please try again", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     if(DialogResult.OK == result)
                     {
+                        //capture.ImageGrabbed += Capture_ImageGrabbed;
+                        capture.Start();
                         countdownValue = 5;
                         timer.Start();
                     }
@@ -74,9 +81,9 @@ namespace ManagementStore.Form.User
                 {
                     image.Show();
                     image.pictureBoxTaken.Image = pictureFace.Image;
-                    capture.ImageGrabbed -= Capture_ImageGrabbed;
+                    //capture.ImageGrabbed -= Capture_ImageGrabbed;
+                    capture.Stop();
                     image.btnTakeAgain.Click += btnTakeAgain_Click;
-                    
                     image.btnOK.Click += btnOK_Click;
                 }
                 timer.Stop();
@@ -85,9 +92,10 @@ namespace ManagementStore.Form.User
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            capture.ImageGrabbed -= Capture_ImageGrabbed;
+            // capture.ImageGrabbed -= Capture_ImageGrabbed;
+            capture.Stop();
             Image img = image.pictureBoxTaken.Image;
-
+            info = new ConfirmInfo();
             // Convert the image to a byte array
             byte[] imageBytes;
             using (MemoryStream ms = new MemoryStream())
@@ -96,8 +104,80 @@ namespace ManagementStore.Form.User
                 imageBytes = ms.ToArray();
             }
             UserInfo.Picture = Convert.ToBase64String(imageBytes);
+            info.fullNameTxt.Text = UserInfo.FullName;
+            info.phoneTxt.Text = UserInfo.PhoneNumber;
+            info.birthdayTxt.Text = UserInfo.BirthDay;
+            info.genderTxt.Text = UserInfo.Gender;
+            info.pictureTaken.Image = img;
+            info.Show();
+            info.btnBack.Click += btnBack_Click;
+            info.btnConfirm.Click += btnConfirm_Click;
             image.Close();
         }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            splashRegisterUser.ShowWaitForm();
+            onCreateUser();
+            splashRegisterUser.CloseWaitForm();
+        }
+
+        private async void onCreateUser()
+        {
+            RequestInfo request = new RequestInfo();
+            var uInfo = new object[5];
+            uInfo[0] = UserInfo.FullName == null ? "Nguyen Ngoc Thien" : UserInfo.FullName;
+            uInfo[1] = UserInfo.PhoneNumber == null ? "0365858975" : UserInfo.PhoneNumber;
+            uInfo[2] = UserInfo.Gender == null ? "Male" : UserInfo.Gender;
+            uInfo[3] = UserInfo.Picture == null ? "124" : UserInfo.Picture;
+            uInfo[4] = UserInfo.BirthDay == null ? "2023-06-23" : UserInfo.BirthDay;
+
+            tblUserInfo user = new tblUserInfo()
+            {
+                UserID = String.Empty,
+                UserType = "USR001",
+                Password = "",
+                UserName = UserInfo.FullName,
+                PhoneNumber = UserInfo.PhoneNumber,
+                Birthday = Convert.ToDateTime(UserInfo.BirthDay),
+                Email = String.Empty,
+                Gender = UserInfo.Gender == "Male" ? true : false,
+                ApproveReject = true,
+                UserStatus = String.Empty,
+                RegistDate = DateTime.Now,
+                Desc = String.Empty,
+                UseYN = false,
+                LoginIP = String.Empty,
+                AuthMethod = "Phone Number"
+            };
+            request.Data = user;
+            DataRequest userMgtData = new DataRequest()
+            {
+                Signature = 104,
+                FrameID = 0,
+                FunctionCode = 4098,
+                DataLength = 10000,
+                Data = request
+            };
+
+            var repose = await ApiMethod.PostCall(userMgtData);
+            if (repose.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+
+            }
+            else
+            {
+                XtraMessageBox.Show("Register user failed", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Settings.countDown = 120;
+            info.Close();
+            Utils.Back(ParentForm, "pictureBoxOTP", "pictureBoxPhone", "PhoneNumber");
+        }
+
         private void btnTakeAgain_Click(object sender, EventArgs e)
         {
             countdownValue = 5;
@@ -112,11 +192,6 @@ namespace ManagementStore.Form.User
 
         }
         
-        private void showCam_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void FaceTaken_Load(object sender, EventArgs e)
         {
         }

@@ -39,8 +39,8 @@ namespace ManagementStore.Form.Notify
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.pictureTaken = new System.Windows.Forms.PictureBox();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnConfirm = new DevExpress.XtraEditors.SimpleButton();
+            this.btnBack = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTaken)).BeginInit();
             this.SuspendLayout();
             // 
@@ -143,37 +143,37 @@ namespace ManagementStore.Form.Notify
             this.pictureTaken.TabIndex = 9;
             this.pictureTaken.TabStop = false;
             // 
-            // simpleButton1
+            // btnConfirm
             // 
-            this.simpleButton1.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary;
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton1.Appearance.Options.UseBackColor = true;
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Location = new System.Drawing.Point(327, 535);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(146, 52);
-            this.simpleButton1.TabIndex = 10;
-            this.simpleButton1.Text = "Comfirm";
+            this.btnConfirm.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary;
+            this.btnConfirm.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirm.Appearance.Options.UseBackColor = true;
+            this.btnConfirm.Appearance.Options.UseFont = true;
+            this.btnConfirm.Location = new System.Drawing.Point(327, 535);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(146, 52);
+            this.btnConfirm.TabIndex = 10;
+            this.btnConfirm.Text = "Comfirm";
             // 
-            // simpleButton2
+            // btnBack
             // 
-            this.simpleButton2.Appearance.BackColor = System.Drawing.Color.DimGray;
-            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton2.Appearance.Options.UseBackColor = true;
-            this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.Location = new System.Drawing.Point(14, 535);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(147, 52);
-            this.simpleButton2.TabIndex = 11;
-            this.simpleButton2.Text = "Back to register";
+            this.btnBack.Appearance.BackColor = System.Drawing.Color.DimGray;
+            this.btnBack.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Appearance.Options.UseBackColor = true;
+            this.btnBack.Appearance.Options.UseFont = true;
+            this.btnBack.Location = new System.Drawing.Point(14, 535);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(147, 52);
+            this.btnBack.TabIndex = 11;
+            this.btnBack.Text = "Back to register";
             // 
             // ConfirmInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(489, 599);
-            this.Controls.Add(this.simpleButton2);
-            this.Controls.Add(this.simpleButton1);
+            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.pictureTaken);
             this.Controls.Add(this.labelControl10);
             this.Controls.Add(this.fullNameTxt);
@@ -204,7 +204,7 @@ namespace ManagementStore.Form.Notify
         public DevExpress.XtraEditors.LabelControl genderTxt;
         public DevExpress.XtraEditors.LabelControl fullNameTxt;
         public System.Windows.Forms.PictureBox pictureTaken;
-        public DevExpress.XtraEditors.SimpleButton simpleButton1;
-        public DevExpress.XtraEditors.SimpleButton simpleButton2;
+        public DevExpress.XtraEditors.SimpleButton btnConfirm;
+        public DevExpress.XtraEditors.SimpleButton btnBack;
     }
 }

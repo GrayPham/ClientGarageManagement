@@ -85,6 +85,7 @@ namespace ManagementStore.Form.Notify
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ShowImageTaken";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Photo Taken";
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTaken)).EndInit();

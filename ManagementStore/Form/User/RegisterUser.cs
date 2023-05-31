@@ -2,6 +2,7 @@
 using Connect.Common.Common;
 using Connect.Common.Contract;
 using Connect.SocketClient;
+using ManagementStore.Model.Static;
 using Parking.App.Contract.Common;
 using Parking.App.Interface.Common;
 using System;
@@ -17,13 +18,13 @@ namespace ManagementStore.Form.User
         public RegisterUser()
         {
             InitializeComponent();
-            
+
             //panelSlider.Controls.Add(new PhoneNumber());
             //panelSlider.Controls.Add(new PhoneOTP());
             //panelSlider.Controls.Add(new InformationUser());
             panelSlider.Controls.Add(new FullName());
             // panelSlider.Controls.Add(new FaceTaken());
-            countdownValue = 120;
+            Settings.countDown = 120;
             timer = new Timer();
             timer.Interval = 1000; // 1 second
             timer.Tick += Timer_Tick;
@@ -34,11 +35,11 @@ namespace ManagementStore.Form.User
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            countdownValue--;
-            showCountDown.Text = $"Close form after {countdownValue.ToString()} seconds";
+            Settings.countDown--;
+            showCountDown.Text = $"Close form after {Settings.countDown.ToString()} seconds";
 
             // When the countdown reaches 0, stop the Timer and capture the picture
-            if (countdownValue == 0)
+            if (Settings.countDown == 0)
             { 
                 timer.Stop();
 

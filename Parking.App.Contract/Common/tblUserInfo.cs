@@ -17,22 +17,14 @@ namespace Parking.App.Contract.Common
         public string Email { get; set; }
         public bool? Gender { get; set; }
         public bool? ApproveReject { get; set; }
-
         public string UserStatus { get; set; }
-
         public bool isRemoveTempUser { get; set; }
-
-
         public DateTime RegistDate { get; set; }
-
         public string Desc { get; set; }
         public List<string> ListUserId { get; set; }
-
         public bool UseYN { get; set; }
         public string AuthMethod { get; set; }
-
         public string StoreList { get;set;}
-
         //-------------------------------------------------------------
         public tblUserMgtStoreInfo TblUserMgtStoreInfo { get; set; }
         public tblUserPhotoInfo TblUserPhotoInfo { get; set; }

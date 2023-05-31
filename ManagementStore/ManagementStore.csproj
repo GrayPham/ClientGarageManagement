@@ -373,6 +373,12 @@
     <Compile Include="Form\WaitFormLoader\LoadingControl.Designer.cs">
       <DependentUpon>LoadingControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\WaitFormLoader\LoadRegisterUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\WaitFormLoader\LoadRegisterUser.Designer.cs">
+      <DependentUpon>LoadRegisterUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\WaitFormLoader\OpenScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -433,6 +439,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\WaitFormLoader\LoadingControl.resx">
       <DependentUpon>LoadingControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\WaitFormLoader\LoadRegisterUser.resx">
+      <DependentUpon>LoadRegisterUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\WaitFormLoader\OpenScreen.resx">
       <DependentUpon>OpenScreen.cs</DependentUpon>

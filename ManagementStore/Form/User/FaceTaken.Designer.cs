@@ -34,6 +34,7 @@ namespace ManagementStore.Form.User
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.pictureFace = new System.Windows.Forms.PictureBox();
             this.showCountDown = new DevExpress.XtraEditors.LabelControl();
+            this.splashRegisterUser = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ManagementStore.Form.WaitFormLoader.LoadRegisterUser), true, true, typeof(System.Windows.Forms.UserControl));
             ((System.ComponentModel.ISupportInitialize)(this.pictureFace)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,6 +101,10 @@ namespace ManagementStore.Form.User
             this.showCountDown.TabIndex = 48;
             this.showCountDown.Text = "Ảnh sẽ được chụp sau 5 giây nữa";
             // 
+            // splashRegisterUser
+            // 
+            this.splashRegisterUser.ClosingDelay = 500;
+            // 
             // FaceTaken
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -126,5 +131,6 @@ namespace ManagementStore.Form.User
         private System.Windows.Forms.PictureBox pictureFace;
         private System.Windows.Forms.PictureBox countdownPictureBox;
         private DevExpress.XtraEditors.LabelControl showCountDown;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashRegisterUser;
     }
 }
