@@ -261,5 +261,40 @@ namespace Parking.App.Common.ApiMethod
 
 
         //**---------------------------------------------------------
+        public static async Task<string> CheckCitizenshipID(string Image) 
+        {
+            try 
+            {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                string apiUrl = Constants.Constants.OcrID;
+                OcrImageRequest dataSend = new OcrImageRequest()
+                {
+                    stringidvn = Image,
+                };
+                using (HttpClient client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(apiUrl);
+                    client.Timeout = TimeSpan.FromSeconds(900);
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    client.DefaultRequestHeaders.Add("X-OCR-SECRET", Constants.Constants.OcrSecretCode);
+
+
+                    var json = JsonConvert.SerializeObject(dataSend);
+                    var stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+
+                    var response = await client.PostAsync(apiUrl, stringContent);
+                    var responseString = await response.Content.ReadAsStringAsync();
+                    var result = JsonConvert.DeserializeObject<OcrDataCccdResponse>(responseString);
+
+                    return result.id;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.ToString();
+            }
+            
+        }
     }
 }
