@@ -46,6 +46,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnNum1 = new System.Windows.Forms.Button();
             this.btnPrev = new DevExpress.XtraEditors.SimpleButton();
             this.btnNext = new DevExpress.XtraEditors.SimpleButton();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ManagementStore.Form.User.ResisterUserSub.WaitForm1), true, true, typeof(System.Windows.Forms.UserControl));
             ((System.ComponentModel.ISupportInitialize)(this.ccbSelectGender.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.birthDayTxt.Properties)).BeginInit();
             this.SuspendLayout();
@@ -289,6 +290,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnNext.TabIndex = 60;
             this.btnNext.Text = "Next";
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // splashScreenManager1
+            // 
+            this.splashScreenManager1.ClosingDelay = 500;
             // 
             // UserInfor
             // 

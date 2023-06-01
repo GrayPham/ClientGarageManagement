@@ -90,13 +90,15 @@ namespace ManagementStore.Form.User.ResisterUserSub
             Image img = image.pictureBoxTaken.Image;
 
             // Convert the image to a byte array
-            byte[] imageBytes;
+            
             using (MemoryStream ms = new MemoryStream())
             {
+                byte[] imageBytes;
                 img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg); // Use the appropriate image format
                 imageBytes = ms.ToArray();
+                UserCCCD.Picture = Convert.ToBase64String(imageBytes);
             }
-            UserCCCD.Picture = Convert.ToBase64String(imageBytes);
+            
             image.Close();
         }
         private void btnTakeAgain_Click(object sender, EventArgs e)
@@ -108,10 +110,17 @@ namespace ManagementStore.Form.User.ResisterUserSub
         }
         private void btnDone_Click(object sender, EventArgs e)
         {
+            splashScreenManager1.ShowWaitForm();
             // Release the resources when closing the form
             capture?.Dispose();
             //cascadeClassifier?.Dispose();
             session?.Dispose();
+            Utils.ForwardCCCD(ParentForm, "pictureBoxName", "pictureBoxFace", "FaceTakenCCCD");
+            ConfimRegister confimRegister = new ConfimRegister();
+            confimRegister.Show();
+
+            splashScreenManager1.CloseWaitForm();
+
         }
 
         private void btnPrev_Click(object sender, EventArgs e)

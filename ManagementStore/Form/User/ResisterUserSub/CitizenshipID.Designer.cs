@@ -30,7 +30,6 @@ namespace ManagementStore.Form.User
         private void InitializeComponent()
         {
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.cccdTxt = new DevExpress.XtraEditors.TextEdit();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnNum0 = new System.Windows.Forms.Button();
             this.btnAC = new System.Windows.Forms.Button();
@@ -46,9 +45,10 @@ namespace ManagementStore.Form.User
             this.btnNext = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonCancel = new DevExpress.XtraEditors.SimpleButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cccdTxt = new DevExpress.XtraEditors.TextEdit();
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ManagementStore.Form.User.ResisterUserSub.WaitForm1), true, true, typeof(System.Windows.Forms.UserControl));
-            ((System.ComponentModel.ISupportInitialize)(this.cccdTxt.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cccdTxt.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -60,19 +60,6 @@ namespace ManagementStore.Form.User
             this.labelControl1.Size = new System.Drawing.Size(331, 34);
             this.labelControl1.TabIndex = 23;
             this.labelControl1.Text = "Nhập số căn cước của bạn";
-            // 
-            // cccdTxt
-            // 
-            this.cccdTxt.EditValue = "";
-            this.cccdTxt.Location = new System.Drawing.Point(16, 80);
-            this.cccdTxt.Name = "cccdTxt";
-            this.cccdTxt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cccdTxt.Properties.Appearance.Options.UseFont = true;
-            this.cccdTxt.Properties.AutoHeight = false;
-            this.cccdTxt.Properties.MaxLength = 10;
-            this.cccdTxt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cccdTxt.Size = new System.Drawing.Size(578, 88);
-            this.cccdTxt.TabIndex = 24;
             // 
             // btnClear
             // 
@@ -273,6 +260,19 @@ namespace ManagementStore.Form.User
             this.pictureBox1.TabIndex = 39;
             this.pictureBox1.TabStop = false;
             // 
+            // cccdTxt
+            // 
+            this.cccdTxt.EditValue = "";
+            this.cccdTxt.Location = new System.Drawing.Point(16, 80);
+            this.cccdTxt.Name = "cccdTxt";
+            this.cccdTxt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cccdTxt.Properties.Appearance.Options.UseFont = true;
+            this.cccdTxt.Properties.AutoHeight = false;
+            this.cccdTxt.Properties.MaxLength = 10;
+            this.cccdTxt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cccdTxt.Size = new System.Drawing.Size(578, 88);
+            this.cccdTxt.TabIndex = 24;
+            // 
             // splashScreenManager1
             // 
             this.splashScreenManager1.ClosingDelay = 500;
@@ -301,8 +301,8 @@ namespace ManagementStore.Form.User
             this.Name = "CitizenshipID";
             this.Size = new System.Drawing.Size(611, 734);
             this.Load += new System.EventHandler(this.CCCDNumber_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.cccdTxt.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cccdTxt.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,7 +311,6 @@ namespace ManagementStore.Form.User
         #endregion
 
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.TextEdit cccdTxt;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnNum0;
         private System.Windows.Forms.Button btnAC;
@@ -327,7 +326,8 @@ namespace ManagementStore.Form.User
         private DevExpress.XtraEditors.SimpleButton btnNext;
         private DevExpress.XtraEditors.SimpleButton simpleButtonCancel;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager;
+        
+        private DevExpress.XtraEditors.TextEdit cccdTxt;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }

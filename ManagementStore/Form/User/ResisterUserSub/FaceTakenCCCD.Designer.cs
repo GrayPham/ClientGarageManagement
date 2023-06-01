@@ -34,6 +34,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnPrev = new DevExpress.XtraEditors.SimpleButton();
             this.btnDone = new DevExpress.XtraEditors.SimpleButton();
             this.pictureFace = new System.Windows.Forms.PictureBox();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ManagementStore.Form.User.ResisterUserSub.WaitForm1), true, true, typeof(System.Windows.Forms.UserControl));
             ((System.ComponentModel.ISupportInitialize)(this.pictureFace)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,6 +102,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.pictureFace.TabIndex = 52;
             this.pictureFace.TabStop = false;
             // 
+            // splashScreenManager1
+            // 
+            this.splashScreenManager1.ClosingDelay = 500;
+            // 
             // FaceTakenCCCD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -125,5 +130,6 @@ namespace ManagementStore.Form.User.ResisterUserSub
         private DevExpress.XtraEditors.SimpleButton btnPrev;
         private DevExpress.XtraEditors.SimpleButton btnDone;
         private System.Windows.Forms.PictureBox pictureFace;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }

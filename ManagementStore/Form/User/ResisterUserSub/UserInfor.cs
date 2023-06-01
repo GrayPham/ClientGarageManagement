@@ -215,15 +215,12 @@ namespace ManagementStore.Form.User.ResisterUserSub
             ParentForm.Controls.Find("panelSlider2", true)[0].Controls.Add(new FullNameCCCD());
             UserCCCD.BirthDay = birthDayTxt.Text;
             UserCCCD.Gender = ccbSelectGender.SelectedItem.ToString();
-
-            // Error
             Utils.ForwardCCCD(ParentForm, "pictureBoxInfo", "pictureBoxName", "FullNameCCCD");
             splashScreenManager1.CloseWaitForm();
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
-            // Error
             Utils.Back(ParentForm, "pictureBoxInfo", "pictureBoxOTP", "PhoneOTP");
         }
     }

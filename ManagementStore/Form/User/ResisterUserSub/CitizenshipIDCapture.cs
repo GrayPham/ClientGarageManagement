@@ -78,11 +78,10 @@ namespace ManagementStore.Form.User
                         string idResult = await ApiMethod.CheckCitizenshipID(UserCCCD.PictureCCCD);
                         labelResult.Text = "RESULT:" + idResult;
                         // Check Result to show Immage and compare with the Input CCCD
-                        if (idResult != badImage && idResult != badDetect && idResult != STATUS_CCCD_5 && idResult != STATUS_CCCD_3)
+                        if (idResult != badImage && idResult != badDetect && idResult != STATUS_CCCD_5 && idResult != STATUS_CCCD_3 && idResult == UserCCCD.CCCDNumber)
                         {
                             btnDone.Enabled = true;
                         }
-                        
                         else
                         {
                             countdownValue = 5;
@@ -112,11 +111,12 @@ namespace ManagementStore.Form.User
         private void btnDone_Click(object sender, EventArgs e)
         {
             splashScreenManager1.ShowWaitForm();
+            capture?.Dispose();
             ParentForm.Controls.Find("panelSlider2", true)[0].Controls.Add(new UserInfor());
 
             Utils.ForwardCCCD(ParentForm, "pictureBoxVCCCD", "pictureBoxInfo", "UserInfor");
             // Release the resources when closing the form
-            capture?.Dispose();
+            
             splashScreenManager1.CloseWaitForm();
         }
 

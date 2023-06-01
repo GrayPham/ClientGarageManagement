@@ -8,6 +8,7 @@ namespace ManagementStore.Model.Static
 {
     public static class UserCCCD
     {
+        public static string CCCDNumber { get; set; }
         public static string Gender { get; set; }
         public static string BirthDay { get; set; }
         public static string FullName { get; set; }

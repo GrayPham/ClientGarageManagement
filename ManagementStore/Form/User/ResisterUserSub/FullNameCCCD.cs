@@ -208,7 +208,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             UserCCCD.FullName = fullNameTxt.Text;
             ParentForm.Controls.Find("panelSlider2", true)[0].Controls.Add(new FaceTakenCCCD());
 
-            Utils.ForwardCCCD(ParentForm, "pictureBoxName", "pictureBoxInfo", "FaceTakenCCCD");
+            Utils.ForwardCCCD(ParentForm, "pictureBoxName", "pictureBoxFace", "FaceTakenCCCD");
             splashScreenManager1.CloseWaitForm();
         }
 
