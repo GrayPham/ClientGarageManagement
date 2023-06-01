@@ -45,10 +45,10 @@ namespace ManagementStore.Form.User
             this.btnDone.Appearance.Options.UseBackColor = true;
             this.btnDone.Appearance.Options.UseBorderColor = true;
             this.btnDone.Appearance.Options.UseFont = true;
-            this.btnDone.Location = new System.Drawing.Point(233, 512);
-            this.btnDone.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDone.Location = new System.Drawing.Point(311, 630);
+            this.btnDone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDone.Name = "btnDone";
-            this.btnDone.Size = new System.Drawing.Size(186, 75);
+            this.btnDone.Size = new System.Drawing.Size(248, 92);
             this.btnDone.TabIndex = 43;
             this.btnDone.Text = "Complete";
             this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
@@ -61,10 +61,10 @@ namespace ManagementStore.Form.User
             this.btnPrev.Appearance.Options.UseBackColor = true;
             this.btnPrev.Appearance.Options.UseBorderColor = true;
             this.btnPrev.Appearance.Options.UseFont = true;
-            this.btnPrev.Location = new System.Drawing.Point(10, 512);
-            this.btnPrev.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPrev.Location = new System.Drawing.Point(13, 630);
+            this.btnPrev.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(176, 75);
+            this.btnPrev.Size = new System.Drawing.Size(235, 92);
             this.btnPrev.TabIndex = 44;
             this.btnPrev.Text = "Previous";
             this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
@@ -73,19 +73,19 @@ namespace ManagementStore.Form.User
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(11, 26);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(2);
+            this.labelControl1.Location = new System.Drawing.Point(15, 32);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(369, 27);
+            this.labelControl1.Size = new System.Drawing.Size(475, 34);
             this.labelControl1.TabIndex = 46;
             this.labelControl1.Text = "Vui lòng đưa khuôn mặt trước camera";
             // 
             // pictureFace
             // 
-            this.pictureFace.Location = new System.Drawing.Point(11, 104);
-            this.pictureFace.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureFace.Location = new System.Drawing.Point(15, 128);
+            this.pictureFace.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureFace.Name = "pictureFace";
-            this.pictureFace.Size = new System.Drawing.Size(408, 333);
+            this.pictureFace.Size = new System.Drawing.Size(544, 410);
             this.pictureFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureFace.TabIndex = 47;
             this.pictureFace.TabStop = false;
@@ -94,24 +94,25 @@ namespace ManagementStore.Form.User
             // 
             this.showCountDown.Appearance.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showCountDown.Appearance.Options.UseFont = true;
-            this.showCountDown.Location = new System.Drawing.Point(11, 68);
+            this.showCountDown.Location = new System.Drawing.Point(15, 84);
+            this.showCountDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.showCountDown.Name = "showCountDown";
-            this.showCountDown.Size = new System.Drawing.Size(246, 21);
+            this.showCountDown.Size = new System.Drawing.Size(325, 27);
             this.showCountDown.TabIndex = 48;
             this.showCountDown.Text = "Ảnh sẽ được chụp sau 5 giây nữa";
             // 
             // FaceTaken
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.showCountDown);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.btnPrev);
             this.Controls.Add(this.btnDone);
             this.Controls.Add(this.pictureFace);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FaceTaken";
-            this.Size = new System.Drawing.Size(433, 602);
+            this.Size = new System.Drawing.Size(577, 741);
             this.Load += new System.EventHandler(this.FaceTaken_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureFace)).EndInit();
             this.ResumeLayout(false);

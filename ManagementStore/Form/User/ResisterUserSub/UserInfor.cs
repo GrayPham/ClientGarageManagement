@@ -211,11 +211,14 @@ namespace ManagementStore.Form.User.ResisterUserSub
 
         private void btnNext_Click(object sender, EventArgs e)
         {
+            splashScreenManager1.ShowWaitForm();
+            ParentForm.Controls.Find("panelSlider2", true)[0].Controls.Add(new FullNameCCCD());
             UserCCCD.BirthDay = birthDayTxt.Text;
             UserCCCD.Gender = ccbSelectGender.SelectedItem.ToString();
 
             // Error
-            Utils.ForwardCCCD(ParentForm, "pictureBoxInfo", "pictureBoxOTP", "PhoneOTP");
+            Utils.ForwardCCCD(ParentForm, "pictureBoxInfo", "pictureBoxName", "FullNameCCCD");
+            splashScreenManager1.CloseWaitForm();
         }
 
         private void btnPrev_Click(object sender, EventArgs e)

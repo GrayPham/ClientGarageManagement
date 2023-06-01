@@ -83,7 +83,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnDone.Appearance.Options.UseBackColor = true;
             this.btnDone.Appearance.Options.UseBorderColor = true;
             this.btnDone.Appearance.Options.UseFont = true;
-            this.btnDone.Location = new System.Drawing.Point(358, 623);
+            this.btnDone.Location = new System.Drawing.Point(393, 623);
             this.btnDone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(283, 92);
@@ -96,7 +96,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.pictureFace.Location = new System.Drawing.Point(19, 121);
             this.pictureFace.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureFace.Name = "pictureFace";
-            this.pictureFace.Size = new System.Drawing.Size(622, 410);
+            this.pictureFace.Size = new System.Drawing.Size(657, 410);
             this.pictureFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureFace.TabIndex = 52;
             this.pictureFace.TabStop = false;
@@ -111,7 +111,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.Controls.Add(this.btnDone);
             this.Controls.Add(this.pictureFace);
             this.Name = "FaceTakenCCCD";
-            this.Size = new System.Drawing.Size(659, 741);
+            this.Size = new System.Drawing.Size(679, 741);
             ((System.ComponentModel.ISupportInitialize)(this.pictureFace)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

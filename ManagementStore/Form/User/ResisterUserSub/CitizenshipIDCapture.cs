@@ -1,6 +1,8 @@
 ﻿using DevExpress.XtraEditors;
 using Emgu.CV;
+using ManagementStore.Extensions;
 using ManagementStore.Form.Notify;
+using ManagementStore.Form.User.ResisterUserSub;
 using ManagementStore.Model.Static;
 using Parking.App.Common.ApiMethod;
 using System;
@@ -72,13 +74,15 @@ namespace ManagementStore.Form.User
                         string  stringImage = ConvertImageToBase64(pictureCCCD.Image);
                         UserCCCD.PictureCCCD = stringImage;
                         // Send data to ML server
+                        splashScreenManager1.ShowWaitForm();
                         string idResult = await ApiMethod.CheckCitizenshipID(UserCCCD.PictureCCCD);
                         labelResult.Text = "RESULT:" + idResult;
                         // Check Result to show Immage and compare with the Input CCCD
-                        if (idResult != badImage || idResult != badDetect || idResult != STATUS_CCCD_5 || idResult != STATUS_CCCD_3)
+                        if (idResult != badImage && idResult != badDetect && idResult != STATUS_CCCD_5 && idResult != STATUS_CCCD_3)
                         {
                             btnDone.Enabled = true;
                         }
+                        
                         else
                         {
                             countdownValue = 5;
@@ -86,36 +90,14 @@ namespace ManagementStore.Form.User
                             capture.ImageGrabbed += Capture_ImageGrabbed;
                             labelResult.Text = "Take a photo again";
                         }
-                        
+                        splashScreenManager1.CloseWaitForm();
+
                     }
                         
                 }
 
             }
             
-        }
-        private void btnTakeAgain_Click(object sender, EventArgs e)
-        {
-            countdownValue = 5;
-            capture.ImageGrabbed += Capture_ImageGrabbed;
-            timer.Start();
-            showImage.Close();
-        }
-        private void btnOK_Click(object sender, EventArgs e)
-        {
-            capture.ImageGrabbed -= Capture_ImageGrabbed;
-            Image img = showImage.pictureBoxTaken.Image;
-
-            // Convert the image to a byte array
-            //byte[] imageBytes;
-            //using (MemoryStream ms = new MemoryStream())
-            //{
-            //    img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg); // Use the appropriate image format
-            //    imageBytes = ms.ToArray();
-            //}
-            // Save Image and CCCD INFOR
-            //UserInfo.Picture = Convert.ToBase64String(imageBytes);
-            showImage.Close();
         }
         private void Capture_ImageGrabbed(object sender, EventArgs e)
         {
@@ -129,7 +111,13 @@ namespace ManagementStore.Form.User
 
         private void btnDone_Click(object sender, EventArgs e)
         {
+            splashScreenManager1.ShowWaitForm();
+            ParentForm.Controls.Find("panelSlider2", true)[0].Controls.Add(new UserInfor());
 
+            Utils.ForwardCCCD(ParentForm, "pictureBoxVCCCD", "pictureBoxInfo", "UserInfor");
+            // Release the resources when closing the form
+            capture?.Dispose();
+            splashScreenManager1.CloseWaitForm();
         }
 
         private void btnPrev_Click(object sender, EventArgs e)

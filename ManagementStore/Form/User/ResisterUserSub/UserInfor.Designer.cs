@@ -66,7 +66,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // 
             // birthDayTxt
             // 
-            this.birthDayTxt.EditValue = "01-01-2001";
+            this.birthDayTxt.EditValue = "01-01-2001 ";
             this.birthDayTxt.Location = new System.Drawing.Point(17, 79);
             this.birthDayTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.birthDayTxt.Name = "birthDayTxt";
@@ -340,5 +340,6 @@ namespace ManagementStore.Form.User.ResisterUserSub
         private System.Windows.Forms.Button btnNum1;
         private DevExpress.XtraEditors.SimpleButton btnPrev;
         private DevExpress.XtraEditors.SimpleButton btnNext;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }

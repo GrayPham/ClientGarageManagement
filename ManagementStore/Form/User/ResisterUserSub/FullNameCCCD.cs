@@ -1,4 +1,6 @@
 ﻿using DevExpress.XtraEditors;
+using ManagementStore.Extensions;
+using ManagementStore.Model.Static;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -202,7 +204,12 @@ namespace ManagementStore.Form.User.ResisterUserSub
 
         private void btnNext_Click(object sender, EventArgs e)
         {
+            splashScreenManager1.ShowWaitForm();
+            UserCCCD.FullName = fullNameTxt.Text;
+            ParentForm.Controls.Find("panelSlider2", true)[0].Controls.Add(new FaceTakenCCCD());
 
+            Utils.ForwardCCCD(ParentForm, "pictureBoxName", "pictureBoxInfo", "FaceTakenCCCD");
+            splashScreenManager1.CloseWaitForm();
         }
 
         private void btnPrev_Click(object sender, EventArgs e)

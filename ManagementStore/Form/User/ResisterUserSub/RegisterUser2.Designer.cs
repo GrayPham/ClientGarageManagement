@@ -128,10 +128,10 @@ namespace ManagementStore.Form.User
             // panelSlider2
             // 
             this.panelSlider2.Controls.Add(this.separatorControl1);
-            this.panelSlider2.Location = new System.Drawing.Point(283, 213);
+            this.panelSlider2.Location = new System.Drawing.Point(245, 213);
             this.panelSlider2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelSlider2.Name = "panelSlider2";
-            this.panelSlider2.Size = new System.Drawing.Size(535, 734);
+            this.panelSlider2.Size = new System.Drawing.Size(585, 742);
             this.panelSlider2.TabIndex = 4;
             this.panelSlider2.Text = "panelSlider2";
             // 

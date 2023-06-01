@@ -11,6 +11,7 @@ using DevExpress.XtraSplashScreen;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ManagementStore.Form.User.ResisterUserSub;
 
 namespace ManagementStore.Form.User
 {
@@ -106,7 +107,12 @@ namespace ManagementStore.Form.User
         }
         private void btnNext_Click(object sender, EventArgs e)
         {
+            splashScreenManager1.ShowWaitForm();
+            ParentForm.Controls.Find("panelSlider2", true)[0].Controls.Add(new CitizenshipIDCapture());
+            
             Utils.ForwardCCCD(ParentForm, "pictureBoxCCCD", "pictureBoxVCCCD", "CitizenshipIDCapture");
+            splashScreenManager1.CloseWaitForm();
+
         }
         #endregion
         private void DisplayCCCDNumber()

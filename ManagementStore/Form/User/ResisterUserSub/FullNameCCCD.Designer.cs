@@ -61,6 +61,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnPrev = new DevExpress.XtraEditors.SimpleButton();
             this.btnNext = new DevExpress.XtraEditors.SimpleButton();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ManagementStore.Form.User.ResisterUserSub.WaitForm1), true, true, typeof(System.Windows.Forms.UserControl));
             ((System.ComponentModel.ISupportInitialize)(this.fullNameTxt.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -512,6 +513,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnNext.Text = "Next";
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
+            // splashScreenManager1
+            // 
+            this.splashScreenManager1.ClosingDelay = 500;
+            // 
             // FullNameCCCD
             // 
             this.Appearance.BackColor = System.Drawing.SystemColors.Control;
@@ -592,5 +597,6 @@ namespace ManagementStore.Form.User.ResisterUserSub
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.SimpleButton btnPrev;
         private DevExpress.XtraEditors.SimpleButton btnNext;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }

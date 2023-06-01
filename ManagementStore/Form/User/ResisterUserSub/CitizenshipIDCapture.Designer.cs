@@ -35,6 +35,7 @@ namespace ManagementStore.Form.User
             this.btnPrev = new DevExpress.XtraEditors.SimpleButton();
             this.btnDone = new DevExpress.XtraEditors.SimpleButton();
             this.labelResult = new System.Windows.Forms.Label();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ManagementStore.Form.User.ResisterUserSub.WaitForm1), true, true, typeof(System.Windows.Forms.UserControl));
             ((System.ComponentModel.ISupportInitialize)(this.pictureCCCD)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,6 +115,10 @@ namespace ManagementStore.Form.User
             this.labelResult.TabIndex = 53;
             this.labelResult.Text = "RESULT:";
             // 
+            // splashScreenManager1
+            // 
+            this.splashScreenManager1.ClosingDelay = 500;
+            // 
             // CitizenshipIDCapture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -140,5 +145,6 @@ namespace ManagementStore.Form.User
         private DevExpress.XtraEditors.SimpleButton btnPrev;
         private DevExpress.XtraEditors.SimpleButton btnDone;
         private System.Windows.Forms.Label labelResult;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }
