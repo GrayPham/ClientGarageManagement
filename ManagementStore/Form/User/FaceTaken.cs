@@ -18,9 +18,9 @@ using ManagementStore.Model.Static;
 using System.IO;
 using Connect.Common.Contract;
 using Parking.App.Common.ApiMethod;
-using Connect.RemoteDataProvider.Common;
 using Parking.App.Common.ViewModels;
 using Parking.App.Contract.Common;
+using ManagementStore.Model.ML;
 
 namespace ManagementStore.Form.User
 {
@@ -34,22 +34,26 @@ namespace ManagementStore.Form.User
         private int countObject = 0;
         ShowImageTaken image;
         ConfirmInfo info;
+        List<DetectionResult> detectionResults;
+        ObjectDetectionSSD ssd;
         public FaceTaken()
         {
             InitializeComponent();
-
             string path = System.IO.Path.GetDirectoryName(new System.Uri(System.Reflection.Assembly.GetExecutingAssembly().CodeBase).LocalPath);
+
+            ssd = new ObjectDetectionSSD(ModelConfig.dataFolderPath + "/mb2-ssd-lite-predict.onnx");
+
             // Load the ONNX model
-            session = new InferenceSession(ModelConfig.dataFolderPath + "/ssd_mobilenet_v1_10.onnx");
+            // session = new InferenceSession(ModelConfig.dataFolderPath + "/mb1-ssd-predict.onnx");
             // Initialize the camera capture
             capture = new VideoCapture();
-            capture.ImageGrabbed += Capture_ImageGrabbed;
+            capture.ImageGrabbed += Capture_ImageGrabbedSSD;
             capture.Start();
             // Set the initial countdown value and Timer interval
             countdownValue = 5;
             timer = new Timer();
             timer.Interval = 1000; // 1 second
-            timer.Tick += Timer_Tick;
+            //timer.Tick += Timer_Tick;
 
             // Start the Timer
             timer.Start();
@@ -69,7 +73,7 @@ namespace ManagementStore.Form.User
                     //capture.ImageGrabbed -= Capture_ImageGrabbed;
                     capture.Stop();
                     var result = XtraMessageBox.Show("Can not detect the face, please try again", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    if(DialogResult.OK == result)
+                    if (DialogResult.OK == result)
                     {
                         //capture.ImageGrabbed += Capture_ImageGrabbed;
                         capture.Start();
@@ -191,7 +195,7 @@ namespace ManagementStore.Form.User
             Utils.Back(ParentForm, "pictureBoxFace", "pictureBoxName", "FullName");
 
         }
-        
+
         private void FaceTaken_Load(object sender, EventArgs e)
         {
         }
@@ -202,6 +206,29 @@ namespace ManagementStore.Form.User
             capture?.Dispose();
             //cascadeClassifier?.Dispose();
             session?.Dispose();
+        }
+
+        private void Capture_ImageGrabbedSSD(object send, EventArgs e)
+        {
+            if (fpsCounter == null)
+            {
+                fpsCounter = new FPSCounter();
+                fpsCounter.Start();
+            }
+            if (capture != null && capture.Ptr != IntPtr.Zero)
+            {
+                Mat frame = new Mat();
+                capture.Retrieve(frame);
+
+
+                detectionResults = ssd.DetectObjects(frame);
+
+                DrawBoundingBoxesSSD(frame, detectionResults);
+                pictureFace.Image = frame.ToBitmap();
+                fpsCounter.Update();
+                Console.WriteLine("FPS: " + fpsCounter.CurrentFPS.ToString("F2"));
+            }
+
         }
         private void Capture_ImageGrabbed(object sender, EventArgs e)
         {
@@ -223,7 +250,7 @@ namespace ManagementStore.Form.User
 
                 // Create an input tensor from the preprocessed data
                 var inputName = inputMeta.Keys.FirstOrDefault();
-                var tensor = new DenseTensor<uint>(inputData, new int[] {1, 300, 300, 3 });
+                var tensor = new DenseTensor<uint>(inputData, new int[] { 1, 3, 300, 300 });
                 // Convert to DenseTensor<byte> (uint8)
                 var byteTensor = new DenseTensor<byte>(tensor.Dimensions);
 
@@ -235,7 +262,7 @@ namespace ManagementStore.Form.User
                 var inputs = new NamedOnnxValue[] { NamedOnnxValue.CreateFromTensor(inputName, byteTensor) };
                 var outputs = session.Run(inputs);
                 var outputName = session.OutputMetadata.Keys.ToList();
-               
+
                 // Get the output tensor with the detected objects
                 var outputTensor = outputs.Select(output => output.AsTensor<float>());
                 var detectionResults = Postprocess(outputTensor.ToList());
@@ -277,7 +304,6 @@ namespace ManagementStore.Form.User
 
             return inputData;
         }
-
 
         private List<DetectionResult> Postprocess(List<Tensor<float>> outputTensor)
         {
@@ -328,18 +354,14 @@ namespace ManagementStore.Form.User
         }
         private void DrawBoundingBoxes(Mat frame, List<DetectionResult> detectionResults)
         {
-            // Draw bounding boxes around the detected objects
-            // Implement the drawing logic based on your model's output format
-            // This is just a placeholder implementation
             foreach (var detection in detectionResults)
             {
-                //CvInvoke.Rectangle(frame, result.BoundingBox, new Bgr(Color.Red).MCvScalar, thickness: 2);
                 int x = (int)(detection.Left * frame.Width);
                 int y = (int)(detection.Top * frame.Height);
                 int width = (int)((detection.Right - detection.Left) * frame.Width);
-                int height = (int)((detection.Bottom -detection.Top) * frame.Height);
+                int height = (int)((detection.Bottom - detection.Top) * frame.Height);
 
-                if(detection.Score > 0.6)
+                if (detection.Score > 0.5)
                 {
                     // Draw the rectangle
                     Rectangle rect = new Rectangle(x, y, width, height);
@@ -351,6 +373,26 @@ namespace ManagementStore.Form.User
                 }
             }
         }
+        private void DrawBoundingBoxesSSD(Mat frame, List<DetectionResult> detectionResults)
+        {
+            foreach (var detection in detectionResults)
+            {
+                int x = (int)detection.Top;
+                int y = (int)detection.Right;
+                int width = (int)(detection.Bottom - detection.Top);
+                int height = (int)(detection.Left - detection.Right);
 
+                if (detection.Score > 0.5)
+                {
+                    // Draw the rectangle
+                    Rectangle rect = new Rectangle(x, y, width, height);
+                    CvInvoke.Rectangle(frame, rect, new Bgr(Color.Red).MCvScalar, thickness: 2);
+                    // Display the class name
+                    Point textLocation = new Point(x, y - 10);
+                    CvInvoke.PutText(frame, detection.ClassName + " " + (detection.Score * 100).ToString("##.##"), textLocation,
+                        FontFace.HersheySimplex, fontScale: 0.5, new Bgr(Color.Red).MCvScalar);
+                }
+            }
+        }
     }
 }

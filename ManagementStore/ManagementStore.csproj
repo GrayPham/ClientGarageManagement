@@ -389,6 +389,7 @@
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\CurrentUser.cs" />
     <Compile Include="Model\FormattedPhoneCode.cs" />
+    <Compile Include="Model\ML\ObjectDetectionSSD.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\AppUser.cs" />
     <Compile Include="Model\Static\Settings.cs" />
