@@ -218,7 +218,7 @@ namespace ManagementStore.Form.User
                 photo = new tblUserPhotoInfo()
                 {
                     UserID = userid,
-                   
+                   // TODO: add image taken 
                 };
             }
 
