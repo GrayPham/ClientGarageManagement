@@ -44,6 +44,7 @@ namespace Parking.App.Common.Helper
 
             return dateFull;
         }
+
         public static int S2Int(object value)
         {
             try

@@ -8,6 +8,8 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
 using Emgu.CV.Structure;
+using ManagementStore.Extensions;
+using Emgu.CV.CvEnum;
 
 namespace ManagementStore.Model.ML
 {
@@ -59,6 +61,27 @@ namespace ManagementStore.Model.ML
             }
 
             return image;
+        }
+        private void DrawBoundingBoxesSSD(Mat frame, List<DetectionResult> detectionResults)
+        {
+            foreach (var detection in detectionResults)
+            {
+                int x = (int)detection.Top;
+                int y = (int)detection.Right;
+                int width = (int)(detection.Bottom - detection.Top);
+                int height = (int)(detection.Left - detection.Right);
+
+                if (detection.Score > 0.5)
+                {
+                    // Draw the rectangle
+                    Rectangle rect = new Rectangle(x, y, width, height);
+                    CvInvoke.Rectangle(frame, rect, new Bgr(Color.Red).MCvScalar, thickness: 2);
+                    // Display the class name
+                    Point textLocation = new Point(x, y - 10);
+                    CvInvoke.PutText(frame, detection.ClassName + " " + (detection.Score * 100).ToString("##.##"), textLocation,
+                        FontFace.HersheySimplex, fontScale: 0.5, new Bgr(Color.Red).MCvScalar);
+                }
+            }
         }
         public List<DetectionResult> DetectObjects(Mat image)
         {

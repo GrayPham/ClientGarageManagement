@@ -3,6 +3,7 @@ using Connect.Common.Common;
 using Connect.Common.Contract;
 using Connect.SocketClient;
 using ManagementStore.Model.Static;
+using Parking.App.Common.Helper;
 using Parking.App.Contract.Common;
 using Parking.App.Interface.Common;
 using System;
@@ -13,15 +14,14 @@ namespace ManagementStore.Form.User
     public partial class RegisterUser : DevExpress.XtraEditors.XtraForm, IProgramController
     {
         private Timer timer;
-        private int countdownValue;
 
         public RegisterUser()
         {
             InitializeComponent();
-
-            //panelSlider.Controls.Add(new PhoneNumber());
-            //panelSlider.Controls.Add(new PhoneOTP());
-            //panelSlider.Controls.Add(new InformationUser());
+            Helpers.PlaySound(@"Assets\Audio\reigsterUser.wav");
+            panelSlider.Controls.Add(new PhoneNumber());
+            panelSlider.Controls.Add(new PhoneOTP());
+            panelSlider.Controls.Add(new InformationUser());
             panelSlider.Controls.Add(new FullName());
             // panelSlider.Controls.Add(new FaceTaken());
             Settings.countDown = 120;
