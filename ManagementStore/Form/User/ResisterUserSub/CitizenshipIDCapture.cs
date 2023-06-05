@@ -1,8 +1,13 @@
 ﻿using DevExpress.XtraEditors;
 using Emgu.CV;
+using Emgu.CV.CvEnum;
+using Emgu.CV.Structure;
+using ManagementStore.Common;
+using ManagementStore.DTO;
 using ManagementStore.Extensions;
 using ManagementStore.Form.Notify;
 using ManagementStore.Form.User.ResisterUserSub;
+using ManagementStore.Model.ML;
 using ManagementStore.Model.Static;
 using Parking.App.Common.ApiMethod;
 using System;
@@ -25,14 +30,23 @@ namespace ManagementStore.Form.User
         private int countdownValue;
         private Timer timer;
         ShowImageCCCD showImage;
+        List<DetectionResult> detectionResults;
+        ObjectDetectionSSD ssd;
+
+
         private const string badImage = "Bad Image";
         private const string badDetect = "Not Detect ID";
         private const string STATUS_CCCD_5 = "Is Unknown";
         private const string STATUS_CCCD_3 = "Not Detect ID";
-
+        
         public CitizenshipIDCapture()
         {
             InitializeComponent();
+            string path = System.IO.Path.GetDirectoryName(new System.Uri(System.Reflection.Assembly.GetExecutingAssembly().CodeBase).LocalPath);
+
+            ssd = new ObjectDetectionSSD(ModelConfig.dataFolderPath + "/mb2-ssd-lite-predict.onnx");
+            
+            
             // Initialize the camera capture
             capture = new VideoCapture();
             showImage = new ShowImageCCCD();
@@ -50,50 +64,63 @@ namespace ManagementStore.Form.User
         private async  void  Timer_TickAsync(object sender, EventArgs e)
         {
             countdownValue--;
-            showCountDown.Text = $"Ảnh sẽ được chụp sau {countdownValue.ToString()} giây nữa";
+            showCountDown.Text = $"The photo will be taken in {countdownValue.ToString()} second.";
 
             // When the countdown reaches 0, stop the Timer and capture the picture
             if (countdownValue == 0)
             {
-                
-                var timer = (Timer)sender;
-                timer.Stop();
-                capture.ImageGrabbed -= Capture_ImageGrabbed;
-                var result = XtraMessageBox.Show("Are you sure to use this image?", "Warning",  MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (DialogResult.No == result)
+                if (detectionResults.Count() > 5)
                 {
-                    countdownValue = 5;
-                    timer.Start();
-                    capture.ImageGrabbed += Capture_ImageGrabbed;
+                    var timer = (Timer)sender;
+                    timer.Stop();
+                    capture.Stop();
+                    capture.ImageGrabbed -= Capture_ImageGrabbed;
+                    var result = XtraMessageBox.Show("Are you sure to use this image?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (DialogResult.No == result)
+                    {
+                        countdownValue = 5;
+                        timer.Start();
+                        capture.ImageGrabbed += Capture_ImageGrabbed;
+                    }
+                    else
+                    {
+                        if (pictureCCCD.Image != null)
+                        {
+                            //Convert Image to string 
+                            string stringImage = ConvertImageToBase64(pictureCCCD.Image);
+                            UserCCCD.PictureCCCD = stringImage;
+                            // Send data to ML server
+                            splashScreenManager1.ShowWaitForm();
+                            string idResult = await ApiMethod.CheckCitizenshipID(UserCCCD.PictureCCCD);
+                            labelResult.Text = "RESULT:" + idResult;
+                            // Check Result to show Immage and compare with the Input CCCD
+                            if (idResult != badImage && idResult != badDetect && idResult != STATUS_CCCD_5 && idResult != STATUS_CCCD_3 && idResult == UserCCCD.CCCDNumber)
+                            {
+                                btnDone.Enabled = true;
+                            }
+                            else
+                            {
+                                countdownValue = 5;
+                                timer.Start();
+                                capture.Start();
+                                capture.ImageGrabbed += Capture_ImageGrabbed;
+                                labelResult.Text = "Take a photo again";
+                            }
+                            splashScreenManager1.CloseWaitForm();
+
+                        }
+
+                    }
                 }
                 else
                 {
-                    if (pictureCCCD.Image != null)
-                    {
-                        //Convert Image to string 
-                        string  stringImage = ConvertImageToBase64(pictureCCCD.Image);
-                        UserCCCD.PictureCCCD = stringImage;
-                        // Send data to ML server
-                        splashScreenManager1.ShowWaitForm();
-                        string idResult = await ApiMethod.CheckCitizenshipID(UserCCCD.PictureCCCD);
-                        labelResult.Text = "RESULT:" + idResult;
-                        // Check Result to show Immage and compare with the Input CCCD
-                        if (idResult != badImage && idResult != badDetect && idResult != STATUS_CCCD_5 && idResult != STATUS_CCCD_3 && idResult == UserCCCD.CCCDNumber)
-                        {
-                            btnDone.Enabled = true;
-                        }
-                        else
-                        {
-                            countdownValue = 5;
-                            timer.Start();
-                            capture.ImageGrabbed += Capture_ImageGrabbed;
-                            labelResult.Text = "Take a photo again";
-                        }
-                        splashScreenManager1.CloseWaitForm();
-
-                    }
-                        
+                    countdownValue = 5;
+                    timer.Start();
+                    capture.Start();
+                    capture.ImageGrabbed += Capture_ImageGrabbed;
+                    labelResult.Text = "Not enough information";
                 }
+
 
             }
             
@@ -104,7 +131,10 @@ namespace ManagementStore.Form.User
             {
                 Mat frame = new Mat();
                 capture.Retrieve(frame);
+                detectionResults = ssd.DetectObjects(frame);
+                DrawBoundingBoxesSSD(frame, detectionResults);
                 pictureCCCD.Image = frame.ToBitmap();
+
             }
         }
 
@@ -122,7 +152,9 @@ namespace ManagementStore.Form.User
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
-
+            splashScreenManager1.ShowWaitForm();
+            Utils.ForwardCCCD(ParentForm, "pictureBoxVCCCD", "pictureBoxCCCD", "CitizenshipID");
+            splashScreenManager1.CloseWaitForm();
         }
 
         public string ConvertImageToBase64(Image image)
@@ -136,6 +168,27 @@ namespace ManagementStore.Form.User
                 // Convert the byte array to a base64 string
                 var base64String = Convert.ToBase64String(imageBytes);
                 return base64String;
+            }
+        }
+        private void DrawBoundingBoxesSSD(Mat frame, List<DetectionResult> detectionResults)
+        {
+            foreach (var detection in detectionResults)
+            {
+                int x = (int)detection.Top;
+                int y = (int)detection.Right;
+                int width = (int)(detection.Bottom - detection.Top);
+                int height = (int)(detection.Left - detection.Right);
+
+                if (detection.Score > 0.5)
+                {
+                    // Draw the rectangle
+                    Rectangle rect = new Rectangle(x, y, width, height);
+                    CvInvoke.Rectangle(frame, rect, new Bgr(Color.Red).MCvScalar, thickness: 2);
+                    // Display the class name
+                    Point textLocation = new Point(x, y - 10);
+                    CvInvoke.PutText(frame, detection.ClassName + " " + (detection.Score * 100).ToString("##.##"), textLocation,
+                        FontFace.HersheySimplex, fontScale: 0.5, new Bgr(Color.Red).MCvScalar);
+                }
             }
         }
     }

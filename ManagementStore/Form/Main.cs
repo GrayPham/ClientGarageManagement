@@ -5,6 +5,7 @@ using Connect.Common.Interface;
 using Connect.Common.Languages;
 using Connect.SocketClient;
 using DevExpress.Images;
+using ManagementStore.Form.User;
 using Parking.App.Contract.Common;
 using Parking.App.Factory;
 using Parking.App.Interface.Common;
@@ -167,6 +168,7 @@ namespace ManagementStore.Form
             _timer.Stop();
         }
         #endregion
+
 
     }
 }

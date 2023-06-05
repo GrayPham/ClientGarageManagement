@@ -49,7 +49,6 @@ namespace ManagementStore.Form
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.pictureBoxParking = new System.Windows.Forms.PictureBox();
-            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ManagementStore.Form.WaitFormLoader.OpenScreen), true, true);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMain)).BeginInit();
             this.fluentDesignFormContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -243,10 +242,6 @@ namespace ManagementStore.Form
             this.pictureBoxParking.TabIndex = 0;
             this.pictureBoxParking.TabStop = false;
             this.pictureBoxParking.Click += new System.EventHandler(this.pictureBoxParking_Click);
-            // 
-            // splashScreenManager1
-            // 
-            this.splashScreenManager1.ClosingDelay = 500;
             // 
             // Main
             // 

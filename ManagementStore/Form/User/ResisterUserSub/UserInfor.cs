@@ -221,7 +221,9 @@ namespace ManagementStore.Form.User.ResisterUserSub
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
-            Utils.Back(ParentForm, "pictureBoxInfo", "pictureBoxOTP", "PhoneOTP");
+            splashScreenManager1.ShowWaitForm();
+            Utils.ForwardCCCD(ParentForm, "pictureBoxInfo", "pictureBoxVCCCD", "CitizenshipIDCapture");
+            splashScreenManager1.CloseWaitForm();
         }
     }
 }

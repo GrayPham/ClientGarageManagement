@@ -162,5 +162,7 @@ namespace ManagementStore.Form
             _client.Disconnect(mes);
             _timer.Stop();
         }
+
+
     }
 }

@@ -180,5 +180,13 @@ namespace ManagementStore.Extensions
             preImage.Image = Properties.Resources.current;
             parentForm.Controls.Find("panelSlider", true)[0].Controls.Find(prevPageName, true)[0].BringToFront();
         }
+        public static void BackCCCD(System.Windows.Forms.Form parentForm, string currentPictureBox, string prevPictureBox, string prevPageName)
+        {
+            PictureBox curImage = (PictureBox)parentForm.Controls.Find(currentPictureBox, true)[0];
+            curImage.Image = Properties.Resources.pending;
+            PictureBox preImage = (PictureBox)parentForm.Controls.Find(prevPictureBox, true)[0];
+            preImage.Image = Properties.Resources.current;
+            parentForm.Controls.Find("panelSlider2", true)[0].Controls.Find(prevPageName, true)[0].BringToFront();
+        }
     }
 }

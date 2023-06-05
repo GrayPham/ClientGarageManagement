@@ -214,7 +214,9 @@ namespace ManagementStore.Form.User.ResisterUserSub
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
-
+            splashScreenManager1.ShowWaitForm();
+            Utils.ForwardCCCD(ParentForm, "pictureBoxFace", "pictureBoxInfo", "UserInfor");
+            splashScreenManager1.CloseWaitForm();
         }
     }
 }
