@@ -18,7 +18,6 @@ namespace ManagementStore.Form.User
         public RegisterUser()
         {
             InitializeComponent();
-            Helpers.PlaySound(@"Assets\Audio\reigsterUser.wav");
             panelSlider.Controls.Add(new PhoneNumber());
             panelSlider.Controls.Add(new PhoneOTP());
             panelSlider.Controls.Add(new InformationUser());

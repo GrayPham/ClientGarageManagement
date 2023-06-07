@@ -185,6 +185,7 @@ namespace ManagementStore.Form.Notify
             this.Controls.Add(this.phoneTxt);
             this.Controls.Add(this.labelControl1);
             this.Name = "ConfirmInfo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Confirm Information";
             ((System.ComponentModel.ISupportInitialize)(this.pictureTaken)).EndInit();
             this.ResumeLayout(false);

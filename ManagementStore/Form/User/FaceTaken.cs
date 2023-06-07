@@ -106,6 +106,7 @@ namespace ManagementStore.Form.User
                 imageBytes = ms.ToArray();
             }
             UserInfo.Picture = Convert.ToBase64String(imageBytes);
+            UserInfo.PictureByte = imageBytes;
             info.fullNameTxt.Text = UserInfo.FullName;
             info.phoneTxt.Text = UserInfo.PhoneNumber;
             info.birthdayTxt.Text = UserInfo.BirthDay;
@@ -218,6 +219,7 @@ namespace ManagementStore.Form.User
                 photo = new tblUserPhotoInfo()
                 {
                     UserID = userid,
+                    TakenPhoto = UserInfo.PictureByte,
                    // TODO: add image taken 
                 };
             }

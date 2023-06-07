@@ -9,6 +9,7 @@ using Connect.SocketClient;
 using DevExpress.Images;
 using ManagementStore.Extensions;
 using ManagementStore.Form.User;
+using Parking.App.Common.Helper;
 using Parking.App.Contract.Common;
 using Parking.App.Factory;
 using Parking.App.Interface.Common;
@@ -33,6 +34,7 @@ namespace ManagementStore.Form
 
         private void Home_Load(object sender, EventArgs e)
         {
+            Helpers.PlaySound(@"Assets\Audio\reigsterUser.wav");
             ProgramFactory.Instance.ProgramController = this;
             _log = ProgramFactory.Instance.Log;
             AddEventCommon();
@@ -53,11 +55,11 @@ namespace ManagementStore.Form
         {
             splashScreenManager.ShowWaitForm();
             Thread.Sleep(1000);
-            RegisterUser registerUser = new RegisterUser();
-
+            TypeRegister registerUser = new TypeRegister();
             registerUser.Show();
             cameraControl.Stop();
             this.webBrowserVideo.DocumentText = "";
+            Helpers.StopSound();
             Hide();
             splashScreenManager.CloseWaitForm();
         }

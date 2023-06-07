@@ -367,6 +367,12 @@
     <Compile Include="Form\User\RegisterUser.Designer.cs">
       <DependentUpon>RegisterUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\User\TypeRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\User\TypeRegister.Designer.cs">
+      <DependentUpon>TypeRegister.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\WaitFormLoader\LoadingControl.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -438,6 +444,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\User\RegisterUser.resx">
       <DependentUpon>RegisterUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\User\TypeRegister.resx">
+      <DependentUpon>TypeRegister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\WaitFormLoader\LoadingControl.resx">
       <DependentUpon>LoadingControl.cs</DependentUpon>
