@@ -1,7 +1,7 @@
 ﻿
 namespace ManagementStore.Form.User
 {
-    partial class InformationUser
+    partial class CitizenshipID
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,9 +29,6 @@ namespace ManagementStore.Form.User
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnPrev = new DevExpress.XtraEditors.SimpleButton();
-            this.btnNext = new DevExpress.XtraEditors.SimpleButton();
-            this.birthDayTxt = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnNum0 = new System.Windows.Forms.Button();
@@ -45,79 +42,34 @@ namespace ManagementStore.Form.User
             this.btnNum7 = new System.Windows.Forms.Button();
             this.btnNum4 = new System.Windows.Forms.Button();
             this.btnNum1 = new System.Windows.Forms.Button();
-            this.ccbSelectGender = new DevExpress.XtraEditors.ComboBoxEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.birthDayTxt.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ccbSelectGender.Properties)).BeginInit();
+            this.btnNext = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cccdTxt = new DevExpress.XtraEditors.TextEdit();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ManagementStore.Form.User.ResisterUserSub.WaitForm1), true, true, typeof(System.Windows.Forms.UserControl));
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cccdTxt.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnPrev
-            // 
-            this.btnPrev.Appearance.BackColor = System.Drawing.Color.Gray;
-            this.btnPrev.Appearance.BorderColor = System.Drawing.Color.White;
-            this.btnPrev.Appearance.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrev.Appearance.Options.UseBackColor = true;
-            this.btnPrev.Appearance.Options.UseBorderColor = true;
-            this.btnPrev.Appearance.Options.UseFont = true;
-            this.btnPrev.Location = new System.Drawing.Point(13, 635);
-            this.btnPrev.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(235, 92);
-            this.btnPrev.TabIndex = 44;
-            this.btnPrev.Text = "Previous";
-            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
-            // 
-            // btnNext
-            // 
-            this.btnNext.Appearance.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnNext.Appearance.BorderColor = System.Drawing.Color.White;
-            this.btnNext.Appearance.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNext.Appearance.Options.UseBackColor = true;
-            this.btnNext.Appearance.Options.UseBorderColor = true;
-            this.btnNext.Appearance.Options.UseFont = true;
-            this.btnNext.Location = new System.Drawing.Point(325, 635);
-            this.btnNext.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(235, 92);
-            this.btnNext.TabIndex = 43;
-            this.btnNext.Text = "Next";
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // birthDayTxt
-            // 
-            this.birthDayTxt.EditValue = "01-01-2001";
-            this.birthDayTxt.Location = new System.Drawing.Point(13, 85);
-            this.birthDayTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.birthDayTxt.Name = "birthDayTxt";
-            this.birthDayTxt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.birthDayTxt.Properties.Appearance.Options.UseFont = true;
-            this.birthDayTxt.Properties.AutoHeight = false;
-            this.birthDayTxt.Properties.MaxLength = 10;
-            this.birthDayTxt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.birthDayTxt.Size = new System.Drawing.Size(365, 89);
-            this.birthDayTxt.TabIndex = 58;
-            this.birthDayTxt.TextChanged += new System.EventHandler(this.birthDayTxt_TextChanged);
             // 
             // labelControl1
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(13, 26);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.labelControl1.Location = new System.Drawing.Point(16, 21);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(439, 30);
-            this.labelControl1.TabIndex = 57;
-            this.labelControl1.Text = "Xin vui lòng nhập ngày sinh và giới tính";
+            this.labelControl1.Size = new System.Drawing.Size(331, 34);
+            this.labelControl1.TabIndex = 23;
+            this.labelControl1.Text = "Nhập số căn cước của bạn";
             // 
             // btnClear
             // 
             this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnClear.Location = new System.Drawing.Point(380, 516);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnClear.Location = new System.Drawing.Point(400, 528);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(180, 105);
-            this.btnClear.TabIndex = 56;
+            this.btnClear.Size = new System.Drawing.Size(194, 107);
+            this.btnClear.TabIndex = 36;
             this.btnClear.Text = "X";
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -127,11 +79,10 @@ namespace ManagementStore.Form.User
             this.btnNum0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnNum0.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum0.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnNum0.Location = new System.Drawing.Point(197, 516);
-            this.btnNum0.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnNum0.Location = new System.Drawing.Point(210, 528);
             this.btnNum0.Name = "btnNum0";
-            this.btnNum0.Size = new System.Drawing.Size(180, 105);
-            this.btnNum0.TabIndex = 55;
+            this.btnNum0.Size = new System.Drawing.Size(192, 107);
+            this.btnNum0.TabIndex = 35;
             this.btnNum0.Text = "0";
             this.btnNum0.UseVisualStyleBackColor = false;
             this.btnNum0.Click += new System.EventHandler(this.btnNum0_Click);
@@ -141,11 +92,10 @@ namespace ManagementStore.Form.User
             this.btnAC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnAC.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnAC.Location = new System.Drawing.Point(13, 516);
-            this.btnAC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAC.Location = new System.Drawing.Point(16, 528);
             this.btnAC.Name = "btnAC";
-            this.btnAC.Size = new System.Drawing.Size(180, 105);
-            this.btnAC.TabIndex = 54;
+            this.btnAC.Size = new System.Drawing.Size(195, 107);
+            this.btnAC.TabIndex = 34;
             this.btnAC.Text = "AC";
             this.btnAC.UseVisualStyleBackColor = false;
             this.btnAC.Click += new System.EventHandler(this.btnAC_Click);
@@ -153,13 +103,13 @@ namespace ManagementStore.Form.User
             // btnNum9
             // 
             this.btnNum9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnNum9.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnNum9.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnNum9.Location = new System.Drawing.Point(380, 402);
-            this.btnNum9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnNum9.Location = new System.Drawing.Point(400, 414);
             this.btnNum9.Name = "btnNum9";
-            this.btnNum9.Size = new System.Drawing.Size(180, 108);
-            this.btnNum9.TabIndex = 53;
+            this.btnNum9.Size = new System.Drawing.Size(194, 107);
+            this.btnNum9.TabIndex = 33;
             this.btnNum9.Text = "9";
             this.btnNum9.UseVisualStyleBackColor = false;
             this.btnNum9.Click += new System.EventHandler(this.btnNum9_Click);
@@ -169,11 +119,10 @@ namespace ManagementStore.Form.User
             this.btnNum6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnNum6.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnNum6.Location = new System.Drawing.Point(380, 289);
-            this.btnNum6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnNum6.Location = new System.Drawing.Point(400, 301);
             this.btnNum6.Name = "btnNum6";
-            this.btnNum6.Size = new System.Drawing.Size(180, 107);
-            this.btnNum6.TabIndex = 52;
+            this.btnNum6.Size = new System.Drawing.Size(194, 107);
+            this.btnNum6.TabIndex = 32;
             this.btnNum6.Text = "6";
             this.btnNum6.UseVisualStyleBackColor = false;
             this.btnNum6.Click += new System.EventHandler(this.btnNum6_Click);
@@ -183,11 +132,10 @@ namespace ManagementStore.Form.User
             this.btnNum3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnNum3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnNum3.Location = new System.Drawing.Point(380, 178);
-            this.btnNum3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnNum3.Location = new System.Drawing.Point(399, 191);
             this.btnNum3.Name = "btnNum3";
-            this.btnNum3.Size = new System.Drawing.Size(180, 103);
-            this.btnNum3.TabIndex = 51;
+            this.btnNum3.Size = new System.Drawing.Size(195, 107);
+            this.btnNum3.TabIndex = 31;
             this.btnNum3.Text = "3";
             this.btnNum3.UseVisualStyleBackColor = false;
             this.btnNum3.Click += new System.EventHandler(this.btnNum3_Click);
@@ -197,11 +145,10 @@ namespace ManagementStore.Form.User
             this.btnNum8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnNum8.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnNum8.Location = new System.Drawing.Point(197, 402);
-            this.btnNum8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnNum8.Location = new System.Drawing.Point(209, 414);
             this.btnNum8.Name = "btnNum8";
-            this.btnNum8.Size = new System.Drawing.Size(180, 108);
-            this.btnNum8.TabIndex = 50;
+            this.btnNum8.Size = new System.Drawing.Size(192, 107);
+            this.btnNum8.TabIndex = 30;
             this.btnNum8.Text = "8";
             this.btnNum8.UseVisualStyleBackColor = false;
             this.btnNum8.Click += new System.EventHandler(this.btnNum8_Click);
@@ -211,11 +158,10 @@ namespace ManagementStore.Form.User
             this.btnNum5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnNum5.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnNum5.Location = new System.Drawing.Point(197, 289);
-            this.btnNum5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnNum5.Location = new System.Drawing.Point(209, 301);
             this.btnNum5.Name = "btnNum5";
-            this.btnNum5.Size = new System.Drawing.Size(180, 107);
-            this.btnNum5.TabIndex = 49;
+            this.btnNum5.Size = new System.Drawing.Size(192, 107);
+            this.btnNum5.TabIndex = 29;
             this.btnNum5.Text = "5";
             this.btnNum5.UseVisualStyleBackColor = false;
             this.btnNum5.Click += new System.EventHandler(this.btnNum5_Click);
@@ -225,11 +171,10 @@ namespace ManagementStore.Form.User
             this.btnNum2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnNum2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnNum2.Location = new System.Drawing.Point(197, 178);
-            this.btnNum2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnNum2.Location = new System.Drawing.Point(209, 191);
             this.btnNum2.Name = "btnNum2";
-            this.btnNum2.Size = new System.Drawing.Size(180, 103);
-            this.btnNum2.TabIndex = 48;
+            this.btnNum2.Size = new System.Drawing.Size(192, 107);
+            this.btnNum2.TabIndex = 28;
             this.btnNum2.Text = "2";
             this.btnNum2.UseVisualStyleBackColor = false;
             this.btnNum2.Click += new System.EventHandler(this.btnNum2_Click);
@@ -239,11 +184,10 @@ namespace ManagementStore.Form.User
             this.btnNum7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnNum7.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnNum7.Location = new System.Drawing.Point(13, 402);
-            this.btnNum7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnNum7.Location = new System.Drawing.Point(16, 414);
             this.btnNum7.Name = "btnNum7";
-            this.btnNum7.Size = new System.Drawing.Size(180, 108);
-            this.btnNum7.TabIndex = 47;
+            this.btnNum7.Size = new System.Drawing.Size(195, 107);
+            this.btnNum7.TabIndex = 27;
             this.btnNum7.Text = "7";
             this.btnNum7.UseVisualStyleBackColor = false;
             this.btnNum7.Click += new System.EventHandler(this.btnNum7_Click);
@@ -253,11 +197,10 @@ namespace ManagementStore.Form.User
             this.btnNum4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnNum4.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnNum4.Location = new System.Drawing.Point(13, 289);
-            this.btnNum4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnNum4.Location = new System.Drawing.Point(16, 301);
             this.btnNum4.Name = "btnNum4";
-            this.btnNum4.Size = new System.Drawing.Size(180, 107);
-            this.btnNum4.TabIndex = 46;
+            this.btnNum4.Size = new System.Drawing.Size(195, 107);
+            this.btnNum4.TabIndex = 26;
             this.btnNum4.Text = "4";
             this.btnNum4.UseVisualStyleBackColor = false;
             this.btnNum4.Click += new System.EventHandler(this.btnNum4_Click);
@@ -267,36 +210,80 @@ namespace ManagementStore.Form.User
             this.btnNum1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnNum1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnNum1.Location = new System.Drawing.Point(13, 178);
-            this.btnNum1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnNum1.Location = new System.Drawing.Point(16, 191);
             this.btnNum1.Name = "btnNum1";
-            this.btnNum1.Size = new System.Drawing.Size(180, 103);
-            this.btnNum1.TabIndex = 45;
+            this.btnNum1.Size = new System.Drawing.Size(195, 107);
+            this.btnNum1.TabIndex = 25;
             this.btnNum1.Text = "1";
             this.btnNum1.UseVisualStyleBackColor = false;
             this.btnNum1.Click += new System.EventHandler(this.btnNum1_Click);
             // 
-            // ccbSelectGender
+            // btnNext
             // 
-            this.ccbSelectGender.Location = new System.Drawing.Point(385, 85);
-            this.ccbSelectGender.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ccbSelectGender.Name = "ccbSelectGender";
-            this.ccbSelectGender.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ccbSelectGender.Properties.Appearance.Options.UseFont = true;
-            this.ccbSelectGender.Properties.AutoHeight = false;
-            this.ccbSelectGender.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.ccbSelectGender.Size = new System.Drawing.Size(173, 89);
-            this.ccbSelectGender.TabIndex = 59;
-            this.ccbSelectGender.DrawItem += new DevExpress.XtraEditors.ListBoxDrawItemEventHandler(this.ccbSelectGender_DrawItem);
+            this.btnNext.Appearance.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnNext.Appearance.BorderColor = System.Drawing.Color.White;
+            this.btnNext.Appearance.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNext.Appearance.Options.UseBackColor = true;
+            this.btnNext.Appearance.Options.UseBorderColor = true;
+            this.btnNext.Appearance.Options.UseFont = true;
+            this.btnNext.Location = new System.Drawing.Point(335, 639);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(254, 95);
+            this.btnNext.TabIndex = 37;
+            this.btnNext.Text = "Next";
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // InformationUser
+            // simpleButtonCancel
+            // 
+            this.simpleButtonCancel.Appearance.BackColor = System.Drawing.Color.DarkOrange;
+            this.simpleButtonCancel.Appearance.BorderColor = System.Drawing.Color.White;
+            this.simpleButtonCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButtonCancel.Appearance.Options.UseBackColor = true;
+            this.simpleButtonCancel.Appearance.Options.UseBorderColor = true;
+            this.simpleButtonCancel.Appearance.Options.UseFont = true;
+            this.simpleButtonCancel.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.simpleButtonCancel.AppearanceDisabled.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.simpleButtonCancel.AppearanceDisabled.Options.UseBackColor = true;
+            this.simpleButtonCancel.Location = new System.Drawing.Point(19, 639);
+            this.simpleButtonCancel.Name = "simpleButtonCancel";
+            this.simpleButtonCancel.Size = new System.Drawing.Size(254, 95);
+            this.simpleButtonCancel.TabIndex = 38;
+            this.simpleButtonCancel.Text = "Close";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ManagementStore.Properties.Resources.cancuoccongdan;
+            this.pictureBox1.Location = new System.Drawing.Point(483, 8);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(147, 66);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 39;
+            this.pictureBox1.TabStop = false;
+            // 
+            // cccdTxt
+            // 
+            this.cccdTxt.EditValue = "";
+            this.cccdTxt.Location = new System.Drawing.Point(16, 80);
+            this.cccdTxt.Name = "cccdTxt";
+            this.cccdTxt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cccdTxt.Properties.Appearance.Options.UseFont = true;
+            this.cccdTxt.Properties.AutoHeight = false;
+            this.cccdTxt.Properties.MaxLength = 10;
+            this.cccdTxt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cccdTxt.Size = new System.Drawing.Size(578, 88);
+            this.cccdTxt.TabIndex = 24;
+            // 
+            // splashScreenManager1
+            // 
+            this.splashScreenManager1.ClosingDelay = 500;
+            // 
+            // CitizenshipID
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.ccbSelectGender);
-            this.Controls.Add(this.birthDayTxt);
-            this.Controls.Add(this.labelControl1);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.simpleButtonCancel);
+            this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnNum0);
             this.Controls.Add(this.btnAC);
@@ -309,14 +296,13 @@ namespace ManagementStore.Form.User
             this.Controls.Add(this.btnNum7);
             this.Controls.Add(this.btnNum4);
             this.Controls.Add(this.btnNum1);
-            this.Controls.Add(this.btnPrev);
-            this.Controls.Add(this.btnNext);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "InformationUser";
-            this.Size = new System.Drawing.Size(577, 741);
-            this.Load += new System.EventHandler(this.InformationUser_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.birthDayTxt.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ccbSelectGender.Properties)).EndInit();
+            this.Controls.Add(this.cccdTxt);
+            this.Controls.Add(this.labelControl1);
+            this.Name = "CitizenshipID";
+            this.Size = new System.Drawing.Size(611, 734);
+            this.Load += new System.EventHandler(this.CCCDNumber_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cccdTxt.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -324,9 +310,6 @@ namespace ManagementStore.Form.User
 
         #endregion
 
-        private DevExpress.XtraEditors.SimpleButton btnPrev;
-        private DevExpress.XtraEditors.SimpleButton btnNext;
-        private DevExpress.XtraEditors.TextEdit birthDayTxt;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnNum0;
@@ -340,7 +323,11 @@ namespace ManagementStore.Form.User
         private System.Windows.Forms.Button btnNum7;
         private System.Windows.Forms.Button btnNum4;
         private System.Windows.Forms.Button btnNum1;
-        private DevExpress.XtraEditors.ComboBoxEdit ccbSelectGender;
+        private DevExpress.XtraEditors.SimpleButton btnNext;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonCancel;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        
+        private DevExpress.XtraEditors.TextEdit cccdTxt;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }

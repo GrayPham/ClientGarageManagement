@@ -113,8 +113,10 @@
     <Compile Include="ViewModels\GetStoreDeviceStatus.cs" />
     <Compile Include="ViewModels\OcrDataRequest.cs" />
     <Compile Include="ViewModels\OcrDataResponse.cs" />
+    <Compile Include="ViewModels\OcrDataCccdResponse.cs" />
     <Compile Include="ViewModels\OcrField.cs" />
     <Compile Include="ViewModels\OcrImageData.cs" />
+    <Compile Include="ViewModels\OcrImageRequest.cs" />
     <Compile Include="ViewModels\PostQRData.cs" />
     <Compile Include="ViewModels\PostQRDataReturn.cs" />
     <Compile Include="ViewModels\RequestUserAddInfo.cs" />
