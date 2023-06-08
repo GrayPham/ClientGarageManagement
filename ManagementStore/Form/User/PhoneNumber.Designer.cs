@@ -45,7 +45,6 @@ namespace ManagementStore.Form.User
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.phoneTxt = new DevExpress.XtraEditors.TextEdit();
             this.ccbCountryNumber = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ManagementStore.Form.WaitFormLoader.LoadingControl), true, true, typeof(System.Windows.Forms.UserControl));
             ((System.ComponentModel.ISupportInitialize)(this.phoneTxt.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ccbCountryNumber.Properties)).BeginInit();
             this.SuspendLayout();
@@ -55,9 +54,10 @@ namespace ManagementStore.Form.User
             this.btnNum1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnNum1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnNum1.Location = new System.Drawing.Point(14, 174);
+            this.btnNum1.Location = new System.Drawing.Point(22, 169);
+            this.btnNum1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNum1.Name = "btnNum1";
-            this.btnNum1.Size = new System.Drawing.Size(180, 104);
+            this.btnNum1.Size = new System.Drawing.Size(135, 84);
             this.btnNum1.TabIndex = 0;
             this.btnNum1.Text = "1";
             this.btnNum1.UseVisualStyleBackColor = false;
@@ -68,9 +68,10 @@ namespace ManagementStore.Form.User
             this.btnNum4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnNum4.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnNum4.Location = new System.Drawing.Point(14, 284);
+            this.btnNum4.Location = new System.Drawing.Point(22, 259);
+            this.btnNum4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNum4.Name = "btnNum4";
-            this.btnNum4.Size = new System.Drawing.Size(180, 107);
+            this.btnNum4.Size = new System.Drawing.Size(135, 87);
             this.btnNum4.TabIndex = 1;
             this.btnNum4.Text = "4";
             this.btnNum4.UseVisualStyleBackColor = false;
@@ -81,9 +82,10 @@ namespace ManagementStore.Form.User
             this.btnNum7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnNum7.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnNum7.Location = new System.Drawing.Point(14, 397);
+            this.btnNum7.Location = new System.Drawing.Point(22, 351);
+            this.btnNum7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNum7.Name = "btnNum7";
-            this.btnNum7.Size = new System.Drawing.Size(180, 108);
+            this.btnNum7.Size = new System.Drawing.Size(135, 88);
             this.btnNum7.TabIndex = 2;
             this.btnNum7.Text = "7";
             this.btnNum7.UseVisualStyleBackColor = false;
@@ -94,9 +96,10 @@ namespace ManagementStore.Form.User
             this.btnNum8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnNum8.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnNum8.Location = new System.Drawing.Point(198, 397);
+            this.btnNum8.Location = new System.Drawing.Point(160, 351);
+            this.btnNum8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNum8.Name = "btnNum8";
-            this.btnNum8.Size = new System.Drawing.Size(180, 108);
+            this.btnNum8.Size = new System.Drawing.Size(135, 88);
             this.btnNum8.TabIndex = 5;
             this.btnNum8.Text = "8";
             this.btnNum8.UseVisualStyleBackColor = false;
@@ -107,9 +110,10 @@ namespace ManagementStore.Form.User
             this.btnNum5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnNum5.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnNum5.Location = new System.Drawing.Point(198, 284);
+            this.btnNum5.Location = new System.Drawing.Point(160, 259);
+            this.btnNum5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNum5.Name = "btnNum5";
-            this.btnNum5.Size = new System.Drawing.Size(180, 107);
+            this.btnNum5.Size = new System.Drawing.Size(135, 87);
             this.btnNum5.TabIndex = 4;
             this.btnNum5.Text = "5";
             this.btnNum5.UseVisualStyleBackColor = false;
@@ -120,9 +124,10 @@ namespace ManagementStore.Form.User
             this.btnNum2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnNum2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnNum2.Location = new System.Drawing.Point(198, 174);
+            this.btnNum2.Location = new System.Drawing.Point(160, 169);
+            this.btnNum2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNum2.Name = "btnNum2";
-            this.btnNum2.Size = new System.Drawing.Size(180, 104);
+            this.btnNum2.Size = new System.Drawing.Size(135, 84);
             this.btnNum2.TabIndex = 3;
             this.btnNum2.Text = "2";
             this.btnNum2.UseVisualStyleBackColor = false;
@@ -134,9 +139,10 @@ namespace ManagementStore.Form.User
             this.btnNum9.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnNum9.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnNum9.Location = new System.Drawing.Point(380, 397);
+            this.btnNum9.Location = new System.Drawing.Point(297, 351);
+            this.btnNum9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNum9.Name = "btnNum9";
-            this.btnNum9.Size = new System.Drawing.Size(180, 108);
+            this.btnNum9.Size = new System.Drawing.Size(135, 88);
             this.btnNum9.TabIndex = 8;
             this.btnNum9.Text = "9";
             this.btnNum9.UseVisualStyleBackColor = false;
@@ -147,9 +153,10 @@ namespace ManagementStore.Form.User
             this.btnNum6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnNum6.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnNum6.Location = new System.Drawing.Point(380, 284);
+            this.btnNum6.Location = new System.Drawing.Point(297, 259);
+            this.btnNum6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNum6.Name = "btnNum6";
-            this.btnNum6.Size = new System.Drawing.Size(180, 107);
+            this.btnNum6.Size = new System.Drawing.Size(135, 87);
             this.btnNum6.TabIndex = 7;
             this.btnNum6.Text = "6";
             this.btnNum6.UseVisualStyleBackColor = false;
@@ -160,9 +167,10 @@ namespace ManagementStore.Form.User
             this.btnNum3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnNum3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnNum3.Location = new System.Drawing.Point(380, 174);
+            this.btnNum3.Location = new System.Drawing.Point(297, 169);
+            this.btnNum3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNum3.Name = "btnNum3";
-            this.btnNum3.Size = new System.Drawing.Size(180, 104);
+            this.btnNum3.Size = new System.Drawing.Size(135, 84);
             this.btnNum3.TabIndex = 6;
             this.btnNum3.Text = "3";
             this.btnNum3.UseVisualStyleBackColor = false;
@@ -173,9 +181,10 @@ namespace ManagementStore.Form.User
             this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnClear.Location = new System.Drawing.Point(380, 511);
+            this.btnClear.Location = new System.Drawing.Point(297, 443);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(180, 105);
+            this.btnClear.Size = new System.Drawing.Size(135, 85);
             this.btnClear.TabIndex = 11;
             this.btnClear.Text = "X";
             this.btnClear.UseVisualStyleBackColor = false;
@@ -186,9 +195,10 @@ namespace ManagementStore.Form.User
             this.btnNum0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnNum0.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNum0.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnNum0.Location = new System.Drawing.Point(198, 511);
+            this.btnNum0.Location = new System.Drawing.Point(160, 443);
+            this.btnNum0.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNum0.Name = "btnNum0";
-            this.btnNum0.Size = new System.Drawing.Size(180, 105);
+            this.btnNum0.Size = new System.Drawing.Size(135, 85);
             this.btnNum0.TabIndex = 10;
             this.btnNum0.Text = "0";
             this.btnNum0.UseVisualStyleBackColor = false;
@@ -199,9 +209,10 @@ namespace ManagementStore.Form.User
             this.btnAC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnAC.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnAC.Location = new System.Drawing.Point(14, 511);
+            this.btnAC.Location = new System.Drawing.Point(22, 443);
+            this.btnAC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAC.Name = "btnAC";
-            this.btnAC.Size = new System.Drawing.Size(180, 105);
+            this.btnAC.Size = new System.Drawing.Size(135, 85);
             this.btnAC.TabIndex = 9;
             this.btnAC.Text = "AC";
             this.btnAC.UseVisualStyleBackColor = false;
@@ -215,9 +226,10 @@ namespace ManagementStore.Form.User
             this.btnNext.Appearance.Options.UseBackColor = true;
             this.btnNext.Appearance.Options.UseBorderColor = true;
             this.btnNext.Appearance.Options.UseFont = true;
-            this.btnNext.Location = new System.Drawing.Point(326, 643);
+            this.btnNext.Location = new System.Drawing.Point(254, 563);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(234, 92);
+            this.btnNext.Size = new System.Drawing.Size(176, 75);
             this.btnNext.TabIndex = 19;
             this.btnNext.Text = "Next";
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
@@ -226,44 +238,43 @@ namespace ManagementStore.Form.User
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(14, 21);
+            this.labelControl1.Location = new System.Drawing.Point(20, 23);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(492, 34);
+            this.labelControl1.Size = new System.Drawing.Size(385, 27);
             this.labelControl1.TabIndex = 22;
             this.labelControl1.Text = "Xin vui lòng nhập số điện thoại của bạn";
             // 
             // phoneTxt
             // 
             this.phoneTxt.EditValue = "";
-            this.phoneTxt.Location = new System.Drawing.Point(202, 80);
+            this.phoneTxt.Location = new System.Drawing.Point(162, 71);
+            this.phoneTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.phoneTxt.Name = "phoneTxt";
             this.phoneTxt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.phoneTxt.Properties.Appearance.Options.UseFont = true;
             this.phoneTxt.Properties.AutoHeight = false;
             this.phoneTxt.Properties.MaxLength = 10;
             this.phoneTxt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.phoneTxt.Size = new System.Drawing.Size(358, 88);
+            this.phoneTxt.Size = new System.Drawing.Size(268, 72);
             this.phoneTxt.TabIndex = 23;
             // 
             // ccbCountryNumber
             // 
-            this.ccbCountryNumber.Location = new System.Drawing.Point(16, 80);
+            this.ccbCountryNumber.Location = new System.Drawing.Point(22, 71);
+            this.ccbCountryNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ccbCountryNumber.Name = "ccbCountryNumber";
             this.ccbCountryNumber.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ccbCountryNumber.Properties.Appearance.Options.UseFont = true;
             this.ccbCountryNumber.Properties.AutoHeight = false;
             this.ccbCountryNumber.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.ccbCountryNumber.Size = new System.Drawing.Size(174, 88);
+            this.ccbCountryNumber.Size = new System.Drawing.Size(130, 72);
             this.ccbCountryNumber.TabIndex = 60;
-            // 
-            // splashScreenManager
-            // 
-            this.splashScreenManager.ClosingDelay = 500;
             // 
             // PhoneNumber
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.ccbCountryNumber);
             this.Controls.Add(this.phoneTxt);
@@ -281,8 +292,9 @@ namespace ManagementStore.Form.User
             this.Controls.Add(this.btnNum7);
             this.Controls.Add(this.btnNum4);
             this.Controls.Add(this.btnNum1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "PhoneNumber";
-            this.Size = new System.Drawing.Size(577, 741);
+            this.Size = new System.Drawing.Size(459, 666);
             this.Load += new System.EventHandler(this.PhoneNumber_Load);
             ((System.ComponentModel.ISupportInitialize)(this.phoneTxt.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ccbCountryNumber.Properties)).EndInit();

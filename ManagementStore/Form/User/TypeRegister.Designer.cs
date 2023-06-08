@@ -38,13 +38,13 @@ namespace ManagementStore.Form.User
             this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             this.panelSlider = new DevExpress.XtraEditors.SidePanel();
             this.sidePanel4 = new DevExpress.XtraEditors.SidePanel();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.pictureBoxPhone = new System.Windows.Forms.PictureBox();
             this.sidePanel3 = new DevExpress.XtraEditors.SidePanel();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btmExit = new System.Windows.Forms.Button();
             this.sidePanel1 = new DevExpress.XtraEditors.SidePanel();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.sidePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
@@ -142,7 +142,7 @@ namespace ManagementStore.Form.User
             this.panelSlider.Location = new System.Drawing.Point(3, 173);
             this.panelSlider.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelSlider.Name = "panelSlider";
-            this.panelSlider.Size = new System.Drawing.Size(699, 596);
+            this.panelSlider.Size = new System.Drawing.Size(699, 686);
             this.panelSlider.TabIndex = 3;
             this.panelSlider.Text = "panelSlider";
             // 
@@ -152,11 +152,25 @@ namespace ManagementStore.Form.User
             this.sidePanel4.Appearance.Options.UseBackColor = true;
             this.sidePanel4.Controls.Add(this.labelControl3);
             this.sidePanel4.Controls.Add(this.pictureBoxPhone);
-            this.sidePanel4.Location = new System.Drawing.Point(363, 36);
+            this.sidePanel4.Location = new System.Drawing.Point(363, 68);
             this.sidePanel4.Name = "sidePanel4";
             this.sidePanel4.Size = new System.Drawing.Size(300, 443);
             this.sidePanel4.TabIndex = 4;
             this.sidePanel4.Text = "sidePanel4";
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl3.Appearance.ForeColor = System.Drawing.Color.White;
+            this.labelControl3.Appearance.Options.UseBorderColor = true;
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.Appearance.Options.UseForeColor = true;
+            this.labelControl3.Location = new System.Drawing.Point(34, 348);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(243, 19);
+            this.labelControl3.TabIndex = 3;
+            this.labelControl3.Text = "Verification by Phone Number";
             // 
             // pictureBoxPhone
             // 
@@ -175,7 +189,7 @@ namespace ManagementStore.Form.User
             this.sidePanel3.Appearance.Options.UseBackColor = true;
             this.sidePanel3.Controls.Add(this.labelControl1);
             this.sidePanel3.Controls.Add(this.pictureBox3);
-            this.sidePanel3.Location = new System.Drawing.Point(32, 36);
+            this.sidePanel3.Location = new System.Drawing.Point(32, 68);
             this.sidePanel3.Name = "sidePanel3";
             this.sidePanel3.Size = new System.Drawing.Size(300, 443);
             this.sidePanel3.TabIndex = 3;
@@ -210,7 +224,7 @@ namespace ManagementStore.Form.User
             this.btmExit.BackColor = System.Drawing.Color.Silver;
             this.btmExit.Font = new System.Drawing.Font("Tahoma", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btmExit.ForeColor = System.Drawing.Color.Gray;
-            this.btmExit.Location = new System.Drawing.Point(32, 508);
+            this.btmExit.Location = new System.Drawing.Point(32, 581);
             this.btmExit.Margin = new System.Windows.Forms.Padding(10);
             this.btmExit.Name = "btmExit";
             this.btmExit.Size = new System.Drawing.Size(631, 78);
@@ -226,29 +240,15 @@ namespace ManagementStore.Form.User
             this.sidePanel1.Location = new System.Drawing.Point(0, 0);
             this.sidePanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sidePanel1.Name = "sidePanel1";
-            this.sidePanel1.Size = new System.Drawing.Size(708, 778);
+            this.sidePanel1.Size = new System.Drawing.Size(708, 861);
             this.sidePanel1.TabIndex = 1;
             this.sidePanel1.Text = "sidePanel1";
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl3.Appearance.Options.UseBorderColor = true;
-            this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Appearance.Options.UseForeColor = true;
-            this.labelControl3.Location = new System.Drawing.Point(34, 348);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(243, 19);
-            this.labelControl3.TabIndex = 3;
-            this.labelControl3.Text = "Verification by Phone Number";
             // 
             // TypeRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(708, 778);
+            this.ClientSize = new System.Drawing.Size(708, 861);
             this.Controls.Add(this.sidePanel1);
             this.Name = "TypeRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
