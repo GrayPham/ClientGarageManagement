@@ -13,6 +13,8 @@ namespace ManagementStore.Model.Static
         public static string BirthDay { get; set; }
         public static string FullName { get; set; }
         public static string Picture { get; set; }
+        public static byte[] PictureByte { get; set; }
         public static string PictureCCCD { get; set; }
+        public static byte[] PictureCCCDByte { get; set; }
     }
 }

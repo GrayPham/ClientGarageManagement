@@ -97,6 +97,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
                 img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg); // Use the appropriate image format
                 imageBytes = ms.ToArray();
                 UserCCCD.Picture = Convert.ToBase64String(imageBytes);
+                UserCCCD.PictureByte = imageBytes;
             }
             
             image.Close();

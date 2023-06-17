@@ -59,7 +59,7 @@ namespace ManagementStore.Model.ML
 
             return image;
         }
-        public List<DetectionResult> DetectObjects(Mat image)
+        public  List<DetectionResult> DetectObjects(Mat image)
         {
             detections = new List<DetectionResult>();
             float[] preprocessedImage = PreprocessImage(image);
@@ -256,7 +256,7 @@ namespace ManagementStore.Model.ML
                 }
             }
 
-            Console.WriteLine($"Detected {detections.Count} in the frame");
+            //Console.WriteLine($"Detected {detections.Count} in the frame");
 
             return detections;
 
