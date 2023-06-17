@@ -69,12 +69,12 @@ namespace ManagementStore.Form.User
             // When the countdown reaches 0, stop the Timer and capture the picture
             if (countdownValue == 0)
             {
-                if (detectionResults.Count() > 5)
+                var timer = (Timer)sender;
+                timer.Stop();
+                capture.Stop();
+                Application.Idle -= Capture_ImageGrabbed;
+                if (detectionResults.Count() > 2)
                 {
-                    var timer = (Timer)sender;
-                    timer.Stop();
-                    capture.Stop();
-                    Application.Idle -= Capture_ImageGrabbed;
                     var result = XtraMessageBox.Show("Are you sure to use this image?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (DialogResult.No == result)
                     {
@@ -120,7 +120,7 @@ namespace ManagementStore.Form.User
                     countdownValue = 5;
                     timer.Start();
                     capture.Start();
-                    //capture.ImageGrabbed += Capture_ImageGrabbed;
+                    Application.Idle += Capture_ImageGrabbed;
                     labelResult.Text = "Not enough information";
                 }
 
@@ -135,7 +135,7 @@ namespace ManagementStore.Form.User
                 using (Mat ImageFrame = capture.QueryFrame())
                 {
                     detectionResults = ssd.DetectObjects(ImageFrame);
-                    DrawBoundingBoxesSSD(ImageFrame, detectionResults);
+                    //DrawBoundingBoxesSSD(ImageFrame, detectionResults);
                     Image<Bgr, Byte> image = ImageFrame.ToImage<Bgr, byte>();
                     pictureCCCD.Image = image.ToBitmap();
                 }

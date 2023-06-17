@@ -169,7 +169,8 @@ namespace ManagementStore.Form.User.ResisterUserSub
                 DrawBoundingBoxes(frame, detectionResults);
 
                 // Display the frame in the PictureBox control
-                pictureFace.Image = frame.ToBitmap();
+                Image<Bgr, Byte> image = frame.ToImage<Bgr, byte>();
+                pictureFace.Image = image.ToBitmap();
                 fpsCounter.Update();
                 Console.WriteLine("FPS: " + fpsCounter.CurrentFPS.ToString("F2"));
             }
