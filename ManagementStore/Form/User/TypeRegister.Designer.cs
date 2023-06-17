@@ -29,6 +29,7 @@ namespace ManagementStore.Form.User
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, null, true, true);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TypeRegister));
             this.showCountDown = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -56,6 +57,10 @@ namespace ManagementStore.Form.User
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.sidePanel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // splashScreenManager1
+            // 
+            splashScreenManager1.ClosingDelay = 500;
             // 
             // showCountDown
             // 
@@ -166,7 +171,7 @@ namespace ManagementStore.Form.User
             this.labelControl3.Appearance.Options.UseBorderColor = true;
             this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Appearance.Options.UseForeColor = true;
-            this.labelControl3.Location = new System.Drawing.Point(34, 348);
+            this.labelControl3.Location = new System.Drawing.Point(34, 367);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(243, 19);
             this.labelControl3.TabIndex = 3;
@@ -203,7 +208,7 @@ namespace ManagementStore.Form.User
             this.labelControl1.Appearance.Options.UseBorderColor = true;
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Appearance.Options.UseForeColor = true;
-            this.labelControl1.Location = new System.Drawing.Point(50, 348);
+            this.labelControl1.Location = new System.Drawing.Point(50, 367);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(185, 19);
             this.labelControl1.TabIndex = 2;
@@ -251,7 +256,7 @@ namespace ManagementStore.Form.User
             this.ClientSize = new System.Drawing.Size(708, 861);
             this.Controls.Add(this.sidePanel1);
             this.Name = "TypeRegister";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Authentication Method";
             this.Load += new System.EventHandler(this.TypeRegister_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();

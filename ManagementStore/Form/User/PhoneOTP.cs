@@ -20,10 +20,10 @@ namespace ManagementStore.Form.User
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            splashScreenManager1.ShowWaitForm();
+            // splashScreenManager1.ShowWaitForm();
             bool status = Utils.VerifyOTP(VerifyPhoneNumber.PhoneNumber, otpTxt.Text, VerifyPhoneNumber.OTPCode);
             Thread.Sleep(1000);
-            splashScreenManager1.CloseWaitForm();
+            // splashScreenManager1.CloseWaitForm();
             if (status)
             {
                 Utils.Forward(ParentForm, "pictureBoxOTP", "pictureBoxInfo", "InformationUser");              

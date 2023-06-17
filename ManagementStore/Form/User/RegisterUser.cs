@@ -7,6 +7,7 @@ using Parking.App.Common.Helper;
 using Parking.App.Contract.Common;
 using Parking.App.Interface.Common;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ManagementStore.Form.User
@@ -47,16 +48,15 @@ namespace ManagementStore.Form.User
 
         private void RegisterUser_Load(object sender, EventArgs e)
         {
-            
+            pictureBoxNotify.BackColor = ColorTranslator.FromHtml("#2980b9");
+            labelControl2.BackColor = ColorTranslator.FromHtml("#2980b9");
+            labelControl3.BackColor = ColorTranslator.FromHtml("#2980b9");
+            showCountDown.BackColor = ColorTranslator.FromHtml("#2980b9");
         }
-
-
-
         public void LoginSuccess(SessionInfo info)
         {
             
         }
-
         public void SetStatus(string description)
         {
            

@@ -25,13 +25,13 @@ namespace ManagementStore.Form.User
         private void PhoneNumber_Load(object sender, EventArgs e)
         {
             phoneTxt.Text = "0365858975";
-            splashScreenManager.ShowWaitForm();
+            // splashScreenManager.ShowWaitForm();
             phoneCodes = InitializePhoneCodes();
             ccbCountryNumber.Properties.TextEditStyle = TextEditStyles.DisableTextEditor;      
             AddFormattedPhoneCodes();
             ccbCountryNumber.Select(0, 1);
             Thread.Sleep(1000);
-            splashScreenManager.CloseWaitForm();
+            // splashScreenManager.CloseWaitForm();
 
         }
         private void btnNext_Click(object sender, EventArgs e)
@@ -46,11 +46,11 @@ namespace ManagementStore.Form.User
             string text = ccbCountryNumber.SelectedItem.ToString().Split(' ')[0];
             VerifyPhoneNumber.PhoneNumber = text + phoneTxt.Text.Trim();
 
-            splashScreenManager.ShowWaitForm();
+            // splashScreenManager.ShowWaitForm();
             VerifyPhoneNumber.OTPCode = Utils.SendOTPSMS(VerifyPhoneNumber.PhoneNumber);
             Utils.Forward(ParentForm, "pictureBoxPhone", "pictureBoxOTP", "PhoneOTP");
             Thread.Sleep(1000);
-            splashScreenManager.CloseWaitForm();
+            // splashScreenManager.CloseWaitForm();
             UserInfo.PhoneNumber = VerifyPhoneNumber.PhoneNumber;
         }
         #region Number

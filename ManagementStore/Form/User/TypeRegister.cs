@@ -24,7 +24,7 @@ namespace ManagementStore.Form.User
         private void Timer_Tick(object sender, EventArgs e)
         {
             countDown--;
-            showCountDown.Text = $"Close form after {Settings.countDown.ToString()} seconds";
+            showCountDown.Text = $"Close form after {countDown} seconds";
 
             // When the countdown reaches 0, stop the Timer and capture the picture
             if (countDown == 0)

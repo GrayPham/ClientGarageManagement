@@ -41,22 +41,22 @@ namespace ManagementStore.Form
         }
         private void pictureBoxParking_Click(object sender, EventArgs e)
         {
-            splashScreenManager1.ShowWaitForm();
+            // splashScreenManager1.ShowWaitForm();
             DetectClient form = new DetectClient();
             form.Show();
             Hide();
             Thread.Sleep(1000);
-            splashScreenManager1.CloseWaitForm();
+            // splashScreenManager1.CloseWaitForm();
         }
 
         private void pictureBoxDepart_Click(object sender, EventArgs e)
         {
-            splashScreenManager1.ShowWaitForm();
+            // splashScreenManager1.ShowWaitForm();
             Home home = new Home();
             home.Show();
             Hide();
             Thread.Sleep(1000);
-            splashScreenManager1.CloseWaitForm();
+            // splashScreenManager1.CloseWaitForm();
         }
 
         private void pictureBoxTracking_Click(object sender, EventArgs e)

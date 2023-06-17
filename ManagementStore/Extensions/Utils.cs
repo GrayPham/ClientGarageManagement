@@ -6,14 +6,18 @@ using Twilio;
 using Twilio.Rest.Api.V2010.Account;
 using ManagementStore.Model.Static;
 using System.Collections.Generic;
+using System.Text;
 
 namespace ManagementStore.Extensions
 {
     public static class Utils
     {
+      
         const string accountSid = "AC0e8a283c2cf0564d3e3a02a565d23c45";
         const string authToken = "1ccb383bd206438135ef9ad0dfb1abdd";
         const string serviceSid = "VAffb5b04aee098d3f4ebf3e22346d49f7"; // Replace with your Twilio Verify service SID
+        private static Random random = new Random();
+        private const string allowedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
 
         public static Dictionary<int, string> GetCoCoClasses()
         {
@@ -110,6 +114,38 @@ namespace ManagementStore.Extensions
             return yMatch.Success ? yMatch.Groups[1].Value : string.Empty;
         }
 
+        public static string GenerateRandomPassword(int length)
+        {
+            StringBuilder password = new StringBuilder();
+
+            for (int i = 0; i < length; i++)
+            {
+                int randomIndex = random.Next(allowedChars.Length);
+                password.Append(allowedChars[randomIndex]);
+            }
+
+            return password.ToString();
+        }
+        public static bool SendRegisterSuccess(string phoneNumber, string password, string userName)
+        {
+            try
+            {
+
+                //TwilioClient.Init(accountSid, authToken);
+                //// Send the SMS
+                //var message = VerificationResource.Create(
+                //    pathServiceSid: serviceSid,
+                //    to: phoneNumber,
+                //    channel: "sms",
+                //    customMessage: $"Congratulations on your successful registration! Please visit our website at deeplearning.com to complete your profile. Your username and password are: ${userName}, ${password}. Welcome aboard!"
+                //);
+                return true;
+            }
+            catch(Exception e)
+            {
+                return false;
+            }
+        }
         public static string SendOTPSMS(string phoneNumber)
         {
             TwilioClient.Init(accountSid, authToken);

@@ -34,21 +34,24 @@ namespace ManagementStore.Form.User
         ShowImageTaken image;
         ConfirmInfo info;
         List<DetectionResult> detectionResults;
-        ObjectDetectionSSD ssd;
+        ObjectDetectionVGG ssd;
         ObjectDetectionMB mb;
         public static string fullPathMainForm = Helpers.GetFullPathOfMainForm();
+        string imgPath = "";
         public FaceTaken()
         {
             InitializeComponent();
             string path = System.IO.Path.GetDirectoryName(new System.Uri(System.Reflection.Assembly.GetExecutingAssembly().CodeBase).LocalPath);
 
-            ssd = new ObjectDetectionSSD(ModelConfig.dataFolderPath + "/mb2-ssd-lite-predict.onnx");
+            ssd = new ObjectDetectionVGG(ModelConfig.dataFolderPath + "/vgg16-ssd-vehicle.onnx");
             mb = new ObjectDetectionMB(ModelConfig.dataFolderPath + "/ssd_mobilenet_v1_10.onnx");
+            imgPath = Path.Combine(ModelConfig.imageFolder, "temp.bmp");
+
             capture = new VideoCapture();
             capture.ImageGrabbed += Capture_ImageGrabbed;
             capture.Start();
             // Set the initial countdown value and Timer interval
-            countdownValue = 5;
+            countdownValue = 3600;
             timer = new Timer();
             timer.Interval = 1000; // 1 second
             timer.Tick += Timer_Tick;
@@ -57,6 +60,16 @@ namespace ManagementStore.Form.User
             timer.Start();
         }
 
+        public void SaveImage()
+        {
+            byte[] imageBytes;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                pictureFace.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+                imageBytes = ms.ToArray();
+            }
+            File.WriteAllBytes(imgPath, imageBytes);
+        }
         private void Timer_Tick(object sender, EventArgs e)
         {
             countdownValue--;
@@ -69,24 +82,23 @@ namespace ManagementStore.Form.User
                 if (detectionResults.Count == 0)
                 {
                     //capture.ImageGrabbed -= Capture_ImageGrabbed;
-                    capture.Stop();
                     var result = XtraMessageBox.Show("Can not detect the face, please try again", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     if (DialogResult.OK == result)
                     {
                         //capture.ImageGrabbed += Capture_ImageGrabbed;
-                        capture.Start();
-                        countdownValue = 5;
+                        countdownValue = 3;
                         timer.Start();
                     }
                 }
                 else
                 {
+                    SaveImage();
+                    image.pictureBoxTaken.Image = Image.FromFile(imgPath);
                     image.Show();
-                    image.pictureBoxTaken.Image = pictureFace.Image;
                     //capture.ImageGrabbed -= Capture_ImageGrabbed;
-                    capture.Stop();
                     image.btnTakeAgain.Click += btnTakeAgain_Click;
                     image.btnOK.Click += btnOK_Click;
+                    
                 }
                 timer.Stop();
             }
@@ -95,15 +107,18 @@ namespace ManagementStore.Form.User
         private void btnOK_Click(object sender, EventArgs e)
         {
             // capture.ImageGrabbed -= Capture_ImageGrabbed;
-            capture.Stop();
-            Image img = image.pictureBoxTaken.Image;
+           
+            Image img = Image.FromFile(imgPath);
             info = new ConfirmInfo();
             // Convert the image to a byte array
             byte[] imageBytes;
-            using (MemoryStream ms = new MemoryStream())
+            using (Bitmap bitmap = new Bitmap(img))
             {
-                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg); // Use the appropriate image format
-                imageBytes = ms.ToArray();
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    imageBytes = ms.ToArray();
+                }
             }
             UserInfo.Picture = Convert.ToBase64String(imageBytes);
             UserInfo.PictureByte = imageBytes;
@@ -121,9 +136,10 @@ namespace ManagementStore.Form.User
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             capture?.Dispose();
-            splashRegisterUser.ShowWaitForm();
+            // splashRegisterUser.ShowWaitForm();
             onCreateUser();
-            splashRegisterUser.CloseWaitForm();
+            // splashRegisterUser.CloseWaitForm();
+            capture.Stop();
         }
 
         public static string GetLocalIPv4()
@@ -158,12 +174,13 @@ namespace ManagementStore.Form.User
             uInfo[3] = UserInfo.Picture == null ? "124" : UserInfo.Picture;
             uInfo[4] = UserInfo.BirthDay == null ? "2023-06-23" : UserInfo.BirthDay;
 
+            string password = "123456"; // Utils.GenerateRandomPassword(10);
             string userid = DateTime.Now.ToString("yyyyMMddHHmmss");
             tblUserInfo user = new tblUserInfo()
             {
                 UserID = userid,
                 UserType = "USR001",
-                Password = Helpers.HashCodePassword("DPSS01"),
+                Password = password,
                 UserName = userid,
                 PhoneNumber = UserInfo.PhoneNumber,
                 Birthday = Convert.ToDateTime(UserInfo.BirthDay),
@@ -253,6 +270,9 @@ namespace ManagementStore.Form.User
             if (repose.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 XtraMessageBox.Show("Registed account successfully", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Utils.SendRegisterSuccess(UserInfo.PhoneNumber, password, userid);
+                info.Close();
+                image.Close();
                 // TODO: send message register successfully
             }
             else
@@ -282,7 +302,6 @@ namespace ManagementStore.Form.User
         private void btnTakeAgain_Click(object sender, EventArgs e)
         {
             countdownValue = 5;
-            capture.ImageGrabbed += Capture_ImageGrabbed;
             timer.Start();
             image.Close();
         }

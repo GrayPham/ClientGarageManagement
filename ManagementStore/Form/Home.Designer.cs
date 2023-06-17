@@ -87,7 +87,7 @@ namespace ManagementStore.Form
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
             this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(40, 40);
-            this.simpleButton1.Location = new System.Drawing.Point(360, 766);
+            this.simpleButton1.Location = new System.Drawing.Point(366, 766);
             this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(225, 51);
@@ -102,7 +102,7 @@ namespace ManagementStore.Form
             this.btnIdentity.Appearance.Options.UseFont = true;
             this.btnIdentity.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnIdentity.ImageOptions.Image")));
             this.btnIdentity.ImageOptions.SvgImageSize = new System.Drawing.Size(40, 40);
-            this.btnIdentity.Location = new System.Drawing.Point(130, 766);
+            this.btnIdentity.Location = new System.Drawing.Point(120, 766);
             this.btnIdentity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnIdentity.Name = "btnIdentity";
             this.btnIdentity.Size = new System.Drawing.Size(225, 51);
@@ -256,6 +256,6 @@ namespace ManagementStore.Form
         private DevExpress.XtraBars.BarStaticItem barItemVersion;
         public DevExpress.XtraEditors.Camera.CameraControl cameraControl;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManage;
     }
 }

@@ -37,12 +37,12 @@ namespace ManagementStore.Form.User
         }
         private void btnNext_Click(object sender, EventArgs e)
         {
-            splashScreenManager1.ShowWaitForm();
+            // splashScreenManager1.ShowWaitForm();
             Thread.Sleep(1000);
             Utils.Forward(ParentForm, "pictureBoxInfo", "pictureBoxName", "FullName");
             UserInfo.BirthDay = birthDayTxt.Text;
             UserInfo.Gender = ccbSelectGender.SelectedItem.ToString();
-            splashScreenManager1.CloseWaitForm();
+            // splashScreenManager1.CloseWaitForm();
         }
 
         private void btnPrev_Click(object sender, EventArgs e)

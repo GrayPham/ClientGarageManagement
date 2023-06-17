@@ -53,7 +53,7 @@ namespace ManagementStore.Form
 
         private void btnIdentity_Click(object sender, EventArgs e)
         {
-            splashScreenManager.ShowWaitForm();
+            // splashScreenManage.ShowWaitForm();
             Thread.Sleep(1000);
             TypeRegister registerUser = new TypeRegister();
             registerUser.Show();
@@ -61,7 +61,7 @@ namespace ManagementStore.Form
             this.webBrowserVideo.DocumentText = "";
             Helpers.StopSound();
             Hide();
-            splashScreenManager.CloseWaitForm();
+            // splashScreenManage.CloseWaitForm();
         }
 
         public void LoginSuccess(SessionInfo info)

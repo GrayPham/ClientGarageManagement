@@ -31,9 +31,8 @@ namespace ManagementStore.Form.User
         {
             this.sidePanel1 = new DevExpress.XtraEditors.SidePanel();
             this.panelSlider = new DevExpress.XtraEditors.SidePanel();
-            this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             this.sidePanel4 = new DevExpress.XtraEditors.SidePanel();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.pictureBoxName = new System.Windows.Forms.PictureBox();
             this.labelBday = new DevExpress.XtraEditors.LabelControl();
@@ -50,10 +49,8 @@ namespace ManagementStore.Form.User
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxNotify = new System.Windows.Forms.PictureBox();
             this.sidePanel1.SuspendLayout();
-            this.panelSlider.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
             this.sidePanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInfo)).BeginInit();
@@ -63,7 +60,7 @@ namespace ManagementStore.Form.User
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).BeginInit();
             this.sidePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNotify)).BeginInit();
             this.SuspendLayout();
             // 
             // sidePanel1
@@ -81,28 +78,18 @@ namespace ManagementStore.Form.User
             // 
             // panelSlider
             // 
-            this.panelSlider.Controls.Add(this.separatorControl1);
-            this.panelSlider.Location = new System.Drawing.Point(243, 173);
+            this.panelSlider.Location = new System.Drawing.Point(237, 184);
             this.panelSlider.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelSlider.Name = "panelSlider";
             this.panelSlider.Size = new System.Drawing.Size(459, 666);
             this.panelSlider.TabIndex = 3;
             this.panelSlider.Text = "panelSlider";
             // 
-            // separatorControl1
-            // 
-            this.separatorControl1.Location = new System.Drawing.Point(363, 148);
-            this.separatorControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.separatorControl1.Name = "separatorControl1";
-            this.separatorControl1.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.separatorControl1.Size = new System.Drawing.Size(7, 6);
-            this.separatorControl1.TabIndex = 0;
-            // 
             // sidePanel4
             // 
             this.sidePanel4.Appearance.BackColor = System.Drawing.Color.LightGray;
             this.sidePanel4.Appearance.Options.UseBackColor = true;
-            this.sidePanel4.Controls.Add(this.simpleButton1);
+            this.sidePanel4.Controls.Add(this.btnExit);
             this.sidePanel4.Controls.Add(this.labelControl1);
             this.sidePanel4.Controls.Add(this.pictureBoxName);
             this.sidePanel4.Controls.Add(this.labelBday);
@@ -121,22 +108,22 @@ namespace ManagementStore.Form.User
             this.sidePanel4.TabIndex = 2;
             this.sidePanel4.Text = "sidePanel4";
             // 
-            // simpleButton1
+            // btnExit
             // 
-            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.Tomato;
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton1.Appearance.Options.UseBackColor = true;
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Location = new System.Drawing.Point(0, 538);
-            this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(202, 63);
-            this.simpleButton1.TabIndex = 11;
-            this.simpleButton1.Text = "Exit";
+            this.btnExit.Appearance.BackColor = System.Drawing.Color.Tomato;
+            this.btnExit.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Appearance.Options.UseBackColor = true;
+            this.btnExit.Appearance.Options.UseFont = true;
+            this.btnExit.Location = new System.Drawing.Point(0, 621);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(202, 63);
+            this.btnExit.TabIndex = 11;
+            this.btnExit.Text = "Exit";
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(75, 401);
+            this.labelControl1.Location = new System.Drawing.Point(73, 451);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(44, 13);
@@ -146,7 +133,7 @@ namespace ManagementStore.Form.User
             // pictureBoxName
             // 
             this.pictureBoxName.Image = global::ManagementStore.Properties.Resources.pending;
-            this.pictureBoxName.Location = new System.Drawing.Point(57, 340);
+            this.pictureBoxName.Location = new System.Drawing.Point(58, 390);
             this.pictureBoxName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxName.Name = "pictureBoxName";
             this.pictureBoxName.Size = new System.Drawing.Size(86, 55);
@@ -158,7 +145,7 @@ namespace ManagementStore.Form.User
             // 
             this.labelBday.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelBday.Appearance.Options.UseFont = true;
-            this.labelBday.Location = new System.Drawing.Point(52, 292);
+            this.labelBday.Location = new System.Drawing.Point(54, 329);
             this.labelBday.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelBday.Name = "labelBday";
             this.labelBday.Size = new System.Drawing.Size(89, 13);
@@ -167,7 +154,7 @@ namespace ManagementStore.Form.User
             // 
             // labelCreate
             // 
-            this.labelCreate.Location = new System.Drawing.Point(57, 512);
+            this.labelCreate.Location = new System.Drawing.Point(59, 573);
             this.labelCreate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelCreate.Name = "labelCreate";
             this.labelCreate.Size = new System.Drawing.Size(78, 13);
@@ -176,7 +163,7 @@ namespace ManagementStore.Form.User
             // 
             // labelInfo
             // 
-            this.labelInfo.Location = new System.Drawing.Point(63, 186);
+            this.labelInfo.Location = new System.Drawing.Point(66, 208);
             this.labelInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelInfo.Name = "labelInfo";
             this.labelInfo.Size = new System.Drawing.Size(65, 13);
@@ -185,7 +172,7 @@ namespace ManagementStore.Form.User
             // 
             // labelPhone
             // 
-            this.labelPhone.Location = new System.Drawing.Point(52, 79);
+            this.labelPhone.Location = new System.Drawing.Point(57, 83);
             this.labelPhone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelPhone.Name = "labelPhone";
             this.labelPhone.Size = new System.Drawing.Size(89, 13);
@@ -195,7 +182,7 @@ namespace ManagementStore.Form.User
             // pictureBoxInfo
             // 
             this.pictureBoxInfo.Image = global::ManagementStore.Properties.Resources.pending;
-            this.pictureBoxInfo.Location = new System.Drawing.Point(57, 232);
+            this.pictureBoxInfo.Location = new System.Drawing.Point(58, 269);
             this.pictureBoxInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxInfo.Name = "pictureBoxInfo";
             this.pictureBoxInfo.Size = new System.Drawing.Size(86, 55);
@@ -206,7 +193,7 @@ namespace ManagementStore.Form.User
             // pictureBoxFace
             // 
             this.pictureBoxFace.Image = global::ManagementStore.Properties.Resources.pending;
-            this.pictureBoxFace.Location = new System.Drawing.Point(57, 452);
+            this.pictureBoxFace.Location = new System.Drawing.Point(58, 513);
             this.pictureBoxFace.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxFace.Name = "pictureBoxFace";
             this.pictureBoxFace.Size = new System.Drawing.Size(86, 55);
@@ -217,7 +204,7 @@ namespace ManagementStore.Form.User
             // pictureBoxOTP
             // 
             this.pictureBoxOTP.Image = global::ManagementStore.Properties.Resources.pending;
-            this.pictureBoxOTP.Location = new System.Drawing.Point(57, 126);
+            this.pictureBoxOTP.Location = new System.Drawing.Point(58, 148);
             this.pictureBoxOTP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxOTP.Name = "pictureBoxOTP";
             this.pictureBoxOTP.Size = new System.Drawing.Size(86, 55);
@@ -228,7 +215,7 @@ namespace ManagementStore.Form.User
             // pictureBoxPhone
             // 
             this.pictureBoxPhone.Image = global::ManagementStore.Properties.Resources.current;
-            this.pictureBoxPhone.Location = new System.Drawing.Point(57, 19);
+            this.pictureBoxPhone.Location = new System.Drawing.Point(59, 23);
             this.pictureBoxPhone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxPhone.Name = "pictureBoxPhone";
             this.pictureBoxPhone.Size = new System.Drawing.Size(86, 55);
@@ -245,7 +232,7 @@ namespace ManagementStore.Form.User
             this.separatorControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.separatorControl2.Name = "separatorControl2";
             this.separatorControl2.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.separatorControl2.Size = new System.Drawing.Size(21, 448);
+            this.separatorControl2.Size = new System.Drawing.Size(21, 488);
             this.separatorControl2.TabIndex = 4;
             // 
             // sidePanel2
@@ -254,7 +241,7 @@ namespace ManagementStore.Form.User
             this.sidePanel2.Controls.Add(this.labelControl3);
             this.sidePanel2.Controls.Add(this.labelControl2);
             this.sidePanel2.Controls.Add(this.pictureEdit1);
-            this.sidePanel2.Controls.Add(this.pictureBox5);
+            this.sidePanel2.Controls.Add(this.pictureBoxNotify);
             this.sidePanel2.Location = new System.Drawing.Point(3, 2);
             this.sidePanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sidePanel2.Name = "sidePanel2";
@@ -317,16 +304,16 @@ namespace ManagementStore.Form.User
             this.pictureEdit1.Size = new System.Drawing.Size(135, 76);
             this.pictureEdit1.TabIndex = 2;
             // 
-            // pictureBox5
+            // pictureBoxNotify
             // 
-            this.pictureBox5.BackColor = System.Drawing.Color.RoyalBlue;
-            this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox5.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(703, 167);
-            this.pictureBox5.TabIndex = 0;
-            this.pictureBox5.TabStop = false;
+            this.pictureBoxNotify.BackColor = System.Drawing.Color.RoyalBlue;
+            this.pictureBoxNotify.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxNotify.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxNotify.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxNotify.Name = "pictureBoxNotify";
+            this.pictureBoxNotify.Size = new System.Drawing.Size(703, 167);
+            this.pictureBoxNotify.TabIndex = 0;
+            this.pictureBoxNotify.TabStop = false;
             // 
             // RegisterUser
             // 
@@ -342,8 +329,6 @@ namespace ManagementStore.Form.User
             this.Text = "RegisterUser";
             this.Load += new System.EventHandler(this.RegisterUser_Load);
             this.sidePanel1.ResumeLayout(false);
-            this.panelSlider.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
             this.sidePanel4.ResumeLayout(false);
             this.sidePanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxName)).EndInit();
@@ -355,7 +340,7 @@ namespace ManagementStore.Form.User
             this.sidePanel2.ResumeLayout(false);
             this.sidePanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNotify)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -366,7 +351,6 @@ namespace ManagementStore.Form.User
         private DevExpress.XtraEditors.SidePanel panelSlider;
         private DevExpress.XtraEditors.SidePanel sidePanel4;
         private DevExpress.XtraEditors.SidePanel sidePanel2;
-        private DevExpress.XtraEditors.SeparatorControl separatorControl1;
         private DevExpress.XtraEditors.LabelControl labelBday;
         private DevExpress.XtraEditors.LabelControl labelCreate;
         private DevExpress.XtraEditors.LabelControl labelInfo;
@@ -378,12 +362,12 @@ namespace ManagementStore.Form.User
         public System.Windows.Forms.PictureBox pictureBoxPhone;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         public System.Windows.Forms.PictureBox pictureBoxName;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btnExit;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraEditors.LabelControl showCountDown;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBoxNotify;
     }
 }

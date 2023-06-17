@@ -45,7 +45,7 @@ namespace ManagementStore.Form.User
             this.btnDone.Appearance.Options.UseBackColor = true;
             this.btnDone.Appearance.Options.UseBorderColor = true;
             this.btnDone.Appearance.Options.UseFont = true;
-            this.btnDone.Location = new System.Drawing.Point(244, 565);
+            this.btnDone.Location = new System.Drawing.Point(244, 580);
             this.btnDone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(186, 75);
@@ -61,7 +61,7 @@ namespace ManagementStore.Form.User
             this.btnPrev.Appearance.Options.UseBackColor = true;
             this.btnPrev.Appearance.Options.UseBorderColor = true;
             this.btnPrev.Appearance.Options.UseFont = true;
-            this.btnPrev.Location = new System.Drawing.Point(21, 565);
+            this.btnPrev.Location = new System.Drawing.Point(22, 580);
             this.btnPrev.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(176, 75);
@@ -73,7 +73,7 @@ namespace ManagementStore.Form.User
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(22, 35);
+            this.labelControl1.Location = new System.Drawing.Point(22, 9);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(369, 27);
@@ -82,10 +82,10 @@ namespace ManagementStore.Form.User
             // 
             // pictureFace
             // 
-            this.pictureFace.Location = new System.Drawing.Point(22, 113);
+            this.pictureFace.Location = new System.Drawing.Point(22, 89);
             this.pictureFace.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureFace.Name = "pictureFace";
-            this.pictureFace.Size = new System.Drawing.Size(408, 430);
+            this.pictureFace.Size = new System.Drawing.Size(408, 454);
             this.pictureFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureFace.TabIndex = 47;
             this.pictureFace.TabStop = false;
@@ -94,7 +94,7 @@ namespace ManagementStore.Form.User
             // 
             this.showCountDown.Appearance.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showCountDown.Appearance.Options.UseFont = true;
-            this.showCountDown.Location = new System.Drawing.Point(22, 77);
+            this.showCountDown.Location = new System.Drawing.Point(22, 44);
             this.showCountDown.Name = "showCountDown";
             this.showCountDown.Size = new System.Drawing.Size(246, 21);
             this.showCountDown.TabIndex = 48;
