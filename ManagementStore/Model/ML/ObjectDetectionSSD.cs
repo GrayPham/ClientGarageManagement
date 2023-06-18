@@ -86,6 +86,7 @@ namespace ManagementStore.Model.ML
         public List<DetectionResult> DetectObjects(Mat image)
         {
             detections = new List<DetectionResult>();
+            var cardClasses = Utils.GetCardClasses();
             float[] preprocessedImage = PreprocessImage(image);
             int height = image.Height;
             int width = image.Width;
@@ -131,7 +132,7 @@ namespace ManagementStore.Model.ML
                 List<float> scoresNew = new List<float>();
                 for (int i = 0; i < probs.Length; i++)
                 {
-                    if (probs[i] > 0.5)
+                    if (probs[i] > 0.4)
                     {
                         mask.Add(i);
                         scoresNew.Add(probs[i]);
@@ -276,7 +277,7 @@ namespace ManagementStore.Model.ML
                         newBoxes[i, 2],
                         newBoxes[i, 3],
                         pickedLabels[i],
-                        ""));
+                        cardClasses[pickedLabels[i]]));
                 }
             }
 

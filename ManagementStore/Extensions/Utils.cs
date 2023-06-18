@@ -19,6 +19,24 @@ namespace ManagementStore.Extensions
         private static Random random = new Random();
         private const string allowedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
 
+
+        public static Dictionary<int, string> GetCardClasses()
+        {
+            // Map the class indices to class labels using coco_classes dictionary
+            Dictionary<int, string> cardClasses = new Dictionary<int, string>
+            {
+                { 1, "address" },
+                { 2, "birth" },
+                { 3, "card" },
+                { 4, "id" },
+                { 5, "name" },
+                { 6, "origin" },
+                { 7, "title" }
+            };
+            return cardClasses;
+        }
+
+
         public static Dictionary<int, string> GetCoCoClasses()
         {
             // Map the class indices to class labels using coco_classes dictionary

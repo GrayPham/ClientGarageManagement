@@ -36,6 +36,7 @@ namespace ManagementStore.Form.User
         List<DetectionResult> detectionResults;
         ObjectDetectionVGG ssd;
         ObjectDetectionMB mb;
+        ObjectDetectionSSD cccd;
         public static string fullPathMainForm = Helpers.GetFullPathOfMainForm();
         string imgPath = "";
         public FaceTaken()
@@ -43,12 +44,13 @@ namespace ManagementStore.Form.User
             InitializeComponent();
             string path = System.IO.Path.GetDirectoryName(new System.Uri(System.Reflection.Assembly.GetExecutingAssembly().CodeBase).LocalPath);
 
-            ssd = new ObjectDetectionVGG(ModelConfig.dataFolderPath + "/vgg16-ssd-vehicle.onnx");
-            mb = new ObjectDetectionMB(ModelConfig.dataFolderPath + "/ssd_mobilenet_v1_10.onnx");
+            // ssd = new ObjectDetectionVGG(ModelConfig.dataFolderPath + "/vgg16-ssd-vehicle.onnx");
+            // mb = new ObjectDetectionMB(ModelConfig.dataFolderPath + "/ssd_mobilenet_v1_10.onnx");
+            cccd = new ObjectDetectionSSD(ModelConfig.dataFolderPath + "/cccd.onnx");
             imgPath = Path.Combine(ModelConfig.imageFolder, "temp.bmp");
 
             capture = new VideoCapture();
-            capture.ImageGrabbed += Capture_ImageGrabbed;
+            Application.Idle += Capture_ImageGrabbedCCCD;
             capture.Start();
             // Set the initial countdown value and Timer interval
             countdownValue = 3600;
@@ -337,6 +339,36 @@ namespace ManagementStore.Form.User
                 pictureFace.Image = frame.ToBitmap();
                 fpsCounter.Update();
                 Console.WriteLine("FPS: " + fpsCounter.CurrentFPS.ToString("F2"));
+            }
+
+        }
+        private void Capture_ImageGrabbedCCCD(object send, EventArgs e)
+        {
+            if (fpsCounter == null)
+            {
+                fpsCounter = new FPSCounter();
+                fpsCounter.Start();
+            }
+
+            if (capture != null && capture.Ptr != IntPtr.Zero)
+            {
+                using (Mat frame = capture.QueryFrame())
+                {
+                    detectionResults = cccd.DetectObjects(frame);
+                    DrawBoundingBoxesSSD(frame, detectionResults);
+                    Image<Bgr, byte> image = frame.ToImage<Bgr, byte>();
+                    pictureFace.Image = image.ToBitmap();
+                    fpsCounter.Update();
+                    Console.WriteLine("FPS: " + fpsCounter.CurrentFPS.ToString("F2"));
+                }
+
+                //Mat frame = new Mat();
+                //capture.Retrieve(frame);
+                //detectionResults = cccd.DetectObjects(frame);
+                //DrawBoundingBoxesSSD(frame, detectionResults);
+                //pictureFace.Image = frame.ToBitmap();
+                //fpsCounter.Update();
+                //Console.WriteLine("FPS: " + fpsCounter.CurrentFPS.ToString("F2"));
             }
 
         }
