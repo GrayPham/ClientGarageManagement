@@ -23,15 +23,29 @@ namespace ManagementStore.Extensions
         public static Dictionary<int, string> GetCardClasses()
         {
             // Map the class indices to class labels using coco_classes dictionary
+            //Dictionary<int, string> cardClasses = new Dictionary<int, string>
+            //{
+            //    { 1, "address" },
+            //    { 2, "birth" },
+            //    { 3, "card" },
+            //    { 4, "id" },
+            //    { 5, "name" },
+            //    { 6, "origin" },
+            //    { 7, "title" }
+            //};
             Dictionary<int, string> cardClasses = new Dictionary<int, string>
             {
-                { 1, "address" },
-                { 2, "birth" },
-                { 3, "card" },
-                { 4, "id" },
-                { 5, "name" },
-                { 6, "origin" },
-                { 7, "title" }
+                { 1, "motorcycle" },
+                { 2, "character" },
+                { 3, "car " },
+                { 4, "man" },
+                { 5, "human face" },
+                { 6, "woman" },
+                { 7, "human eye" },
+                { 8, "bicycle" },
+                { 9, "picture frame" },
+                { 10, "vehicle registration plate" },
+                { 11, "mobile phone" }
             };
             return cardClasses;
         }

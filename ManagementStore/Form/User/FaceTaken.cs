@@ -46,7 +46,7 @@ namespace ManagementStore.Form.User
 
             // ssd = new ObjectDetectionVGG(ModelConfig.dataFolderPath + "/vgg16-ssd-vehicle.onnx");
             // mb = new ObjectDetectionMB(ModelConfig.dataFolderPath + "/ssd_mobilenet_v1_10.onnx");
-            cccd = new ObjectDetectionSSD(ModelConfig.dataFolderPath + "/cccd.onnx");
+            cccd = new ObjectDetectionSSD(ModelConfig.dataFolderPath + "/vehicle.onnx");
             imgPath = Path.Combine(ModelConfig.imageFolder, "temp.bmp");
 
             capture = new VideoCapture();
