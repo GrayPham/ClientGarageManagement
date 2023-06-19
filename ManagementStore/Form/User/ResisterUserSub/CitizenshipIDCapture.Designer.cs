@@ -45,7 +45,7 @@ namespace ManagementStore.Form.User
             this.pictureCCCD.Location = new System.Drawing.Point(3, 128);
             this.pictureCCCD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureCCCD.Name = "pictureCCCD";
-            this.pictureCCCD.Size = new System.Drawing.Size(586, 410);
+            this.pictureCCCD.Size = new System.Drawing.Size(653, 410);
             this.pictureCCCD.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureCCCD.TabIndex = 48;
             this.pictureCCCD.TabStop = false;
@@ -97,7 +97,7 @@ namespace ManagementStore.Form.User
             this.btnDone.Appearance.Options.UseBorderColor = true;
             this.btnDone.Appearance.Options.UseFont = true;
             this.btnDone.Enabled = false;
-            this.btnDone.Location = new System.Drawing.Point(324, 630);
+            this.btnDone.Location = new System.Drawing.Point(391, 630);
             this.btnDone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(265, 92);
@@ -130,7 +130,7 @@ namespace ManagementStore.Form.User
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.pictureCCCD);
             this.Name = "CitizenshipIDCapture";
-            this.Size = new System.Drawing.Size(600, 740);
+            this.Size = new System.Drawing.Size(659, 741);
             ((System.ComponentModel.ISupportInitialize)(this.pictureCCCD)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

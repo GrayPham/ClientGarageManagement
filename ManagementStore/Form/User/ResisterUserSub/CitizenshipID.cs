@@ -40,52 +40,52 @@ namespace ManagementStore.Form.User
         #region Button click
         private void btnNum1_Click(object sender, EventArgs e)
         {
-            if (Num.Count != 10) Num.Add("1");
+            if (Num.Count != 12) Num.Add("1");
             DisplayCCCDNumber();
         }
         private void btnNum2_Click(object sender, EventArgs e)
         {
-            if (Num.Count != 10) Num.Add("2");
+            if (Num.Count != 12) Num.Add("2");
             DisplayCCCDNumber();
         }
         private void btnNum3_Click(object sender, EventArgs e)
         {
-            if (Num.Count != 10) Num.Add("3");
+            if (Num.Count != 12) Num.Add("3");
             DisplayCCCDNumber();
         }
         private void btnNum4_Click(object sender, EventArgs e)
         {
-            if (Num.Count != 10) Num.Add("4");
+            if (Num.Count != 12) Num.Add("4");
             DisplayCCCDNumber();
         }
         private void btnNum5_Click(object sender, EventArgs e)
         {
-            if (Num.Count != 10) Num.Add("5");
+            if (Num.Count != 12) Num.Add("5");
             DisplayCCCDNumber();
         }
         private void btnNum6_Click(object sender, EventArgs e)
         {
-            if (Num.Count != 10) Num.Add("6");
+            if (Num.Count != 12) Num.Add("6");
             DisplayCCCDNumber();
         }
         private void btnNum7_Click(object sender, EventArgs e)
         {
-            if (Num.Count != 10) Num.Add("7");
+            if (Num.Count != 12) Num.Add("7");
             DisplayCCCDNumber();
         }
         private void btnNum8_Click(object sender, EventArgs e)
         {
-            if (Num.Count != 10) Num.Add("8");
+            if (Num.Count != 12) Num.Add("8");
             DisplayCCCDNumber();
         }
         private void btnNum9_Click(object sender, EventArgs e)
         {
-            if (Num.Count != 10) Num.Add("9");
+            if (Num.Count != 12) Num.Add("9");
             DisplayCCCDNumber();
         }
         private void btnNum0_Click(object sender, EventArgs e)
         {
-            if (Num.Count != 10) Num.Add("0");
+            if (Num.Count != 12) Num.Add("0");
             DisplayCCCDNumber();
         }
         private void btnAC_Click(object sender, EventArgs e)
@@ -110,8 +110,14 @@ namespace ManagementStore.Form.User
         {
             splashScreenManager1.ShowWaitForm();
             UserCCCD.CCCDNumber = cccdTxt.Text;
+            var citizenCapture = ParentForm.Controls.Find("CitizenshipIDCapture", true);
+            if(citizenCapture.Length > 0)
+            {
+                var controlToRemove = citizenCapture[0];
+                ParentForm.Controls.Remove(controlToRemove);
+                controlToRemove.Dispose();
+            }
             ParentForm.Controls.Find("panelSlider2", true)[0].Controls.Add(new CitizenshipIDCapture());
-            
             Utils.ForwardCCCD(ParentForm, "pictureBoxCCCD", "pictureBoxVCCCD", "CitizenshipIDCapture");
             splashScreenManager1.CloseWaitForm();
 

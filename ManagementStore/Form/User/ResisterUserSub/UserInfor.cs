@@ -222,7 +222,17 @@ namespace ManagementStore.Form.User.ResisterUserSub
         private void btnPrev_Click(object sender, EventArgs e)
         {
             splashScreenManager1.ShowWaitForm();
-            Utils.ForwardCCCD(ParentForm, "pictureBoxInfo", "pictureBoxVCCCD", "CitizenshipIDCapture");
+            var citizenshipIDCapture = ParentForm.Controls.Find("CitizenshipIDCapture", true);
+            if (citizenshipIDCapture.Length == 0)
+            {
+                ParentForm.Controls.Find("panelSlider2", true)[0].Controls.Add(new CitizenshipIDCapture());
+
+            }
+            else
+            {
+                citizenshipIDCapture[0].BringToFront();
+            }
+            Utils.BackCCCD(ParentForm, "pictureBoxInfo", "pictureBoxVCCCD", "CitizenshipIDCapture");
             splashScreenManager1.CloseWaitForm();
         }
     }

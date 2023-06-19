@@ -23,6 +23,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
 {
     public partial class ConfimRegister : DevExpress.XtraEditors.XtraForm
     {
+        public bool CaptureAgain { get; private set; }
         public ConfimRegister()
         {
             InitializeComponent();
@@ -173,6 +174,12 @@ namespace ManagementStore.Form.User.ResisterUserSub
                 XtraMessageBox.Show("Register user failed", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             
+        }
+
+        private void btnReturnRegis_Click(object sender, EventArgs e)
+        {
+            CaptureAgain = true;
+            this.Close();
         }
     }
 }

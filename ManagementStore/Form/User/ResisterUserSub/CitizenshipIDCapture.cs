@@ -135,7 +135,7 @@ namespace ManagementStore.Form.User
                     if (ImageFrame != null)
                     {
                         detectionResults = ssd.DetectObjects(ImageFrame);
-                        DrawBoundingBoxesSSD(ImageFrame, detectionResults);
+                        //DrawBoundingBoxesSSD(ImageFrame, detectionResults);
                         Image<Bgr, Byte> image = ImageFrame.ToImage<Bgr, byte>();
                         pictureCCCD.Image = image.ToBitmap();
                     }
@@ -149,9 +149,24 @@ namespace ManagementStore.Form.User
             splashScreenManager1.ShowWaitForm();
             Application.Idle -= Capture_ImageGrabbed;
             capture?.Dispose();
-            ParentForm.Controls.Find("panelSlider2", true)[0].Controls.Add(new UserInfor());
+            var userInfor = ParentForm.Controls.Find("UserInfor", true);
+            if(userInfor.Length == 0)
+            {
+                ParentForm.Controls.Find("panelSlider2", true)[0].Controls.Add(new UserInfor());
 
+            }
+            else
+            {
+                userInfor[0].BringToFront();
+            }
             Utils.ForwardCCCD(ParentForm, "pictureBoxVCCCD", "pictureBoxInfo", "UserInfor");
+            var citizenCapture = ParentForm.Controls.Find("CitizenshipIDCapture", true);
+            if (citizenCapture.Length > 0)
+            {
+                var controlToRemove = citizenCapture[0];
+                ParentForm.Controls.Remove(controlToRemove);
+                controlToRemove.Dispose();
+            }
             splashScreenManager1.CloseWaitForm();
         }
 
@@ -159,7 +174,7 @@ namespace ManagementStore.Form.User
         {
             splashScreenManager1.ShowWaitForm();
             Application.Idle -= Capture_ImageGrabbed;
-            capture?.Dispose();
+            capture.Dispose();
             Utils.BackCCCD(ParentForm, "pictureBoxVCCCD", "pictureBoxCCCD", "CitizenshipID");
             
             //Control CitizenshipIDCapture = ParentForm.Controls.Find("panelSlider", true)[0].Controls.Find("CitizenshipIDCapture", true)[0];
