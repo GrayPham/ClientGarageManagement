@@ -48,11 +48,11 @@ namespace ManagementStore.Form.User
             
             
             // Initialize the camera capture
-            capture = new VideoCapture();
-            showImage = new ShowImageCCCD();
-            capture.ImageGrabbed += Capture_ImageGrabbed;
+            capture = new VideoCapture(0);
+            //showImage = new ShowImageCCCD();
+            Application.Idle += Capture_ImageGrabbed;
             capture.Start();
-            // Set the initial countdown value and Timer interval
+            //Set the initial countdown value and Timer interval
             countdownValue = 5;
             timer = new Timer();
             timer.Interval = 1000; // 1 second
