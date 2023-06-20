@@ -311,7 +311,7 @@ namespace ManagementStore.Form.User
         private void btnPrev_Click(object sender, EventArgs e)
         {
             Utils.Back(ParentForm, "pictureBoxFace", "pictureBoxName", "FullName");
-
+            capture.Dispose();
         }
 
         private void FaceTaken_Load(object sender, EventArgs e)

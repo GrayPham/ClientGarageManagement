@@ -29,7 +29,18 @@ namespace ManagementStore.Form.User
         private void btnNext_Click(object sender, EventArgs e)
         {
             // splashScreenManager1.ShowWaitForm();
-            ParentForm.Controls.Find("panelSlider", true)[0].Controls.Add(new FaceTaken());
+            var faceTaken = ParentForm.Controls.Find("FaceTaken", true);
+            if(faceTaken.Length == 0)
+            {
+                ParentForm.Controls.Find("panelSlider", true)[0].Controls.Add(new FaceTaken());
+            }
+            else
+            {
+                faceTaken[0].BringToFront();
+                faceTaken[0]
+            }
+            
+            var data = ParentForm.Controls.Find("panelSlider", true)[0];
             Utils.Forward(ParentForm, "pictureBoxName", "pictureBoxFace", "FaceTaken");
             // splashScreenManager1.CloseWaitForm();
 
