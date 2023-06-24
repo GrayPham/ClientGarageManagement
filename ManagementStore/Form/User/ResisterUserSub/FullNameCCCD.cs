@@ -206,6 +206,13 @@ namespace ManagementStore.Form.User.ResisterUserSub
         {
             splashScreenManager1.ShowWaitForm();
             UserCCCD.FullName = fullNameTxt.Text;
+            var citizenCapture = ParentForm.Controls.Find("FaceTakenCCCD", true);
+            if (citizenCapture.Length > 0)
+            {
+                var controlToRemove = citizenCapture[0];
+                ParentForm.Controls.Remove(controlToRemove);
+                controlToRemove.Dispose();
+            }
             ParentForm.Controls.Find("panelSlider2", true)[0].Controls.Add(new FaceTakenCCCD());
 
             Utils.ForwardCCCD(ParentForm, "pictureBoxName", "pictureBoxFace", "FaceTakenCCCD");
@@ -215,7 +222,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
         private void btnPrev_Click(object sender, EventArgs e)
         {
             splashScreenManager1.ShowWaitForm();
-            Utils.ForwardCCCD(ParentForm, "pictureBoxFace", "pictureBoxInfo", "UserInfor");
+            Utils.BackCCCD(ParentForm, "pictureBoxName", "pictureBoxInfo", "UserInfor");
             splashScreenManager1.CloseWaitForm();
         }
     }

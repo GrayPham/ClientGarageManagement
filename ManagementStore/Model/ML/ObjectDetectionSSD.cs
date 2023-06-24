@@ -281,7 +281,7 @@ namespace ManagementStore.Model.ML
                 }
             }
 
-            Console.WriteLine($"Detected {detections.Count} in the frame");
+            //Console.WriteLine($"Detected {detections.Count} in the frame");
 
             return detections;
 

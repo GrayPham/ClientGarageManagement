@@ -311,6 +311,12 @@
     <Compile Include="Form\Camera\SubFormCamera.Designer.cs">
       <DependentUpon>SubFormCamera.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\CheckVehicle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\CheckVehicle.Designer.cs">
+      <DependentUpon>CheckVehicle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\Customize\CountdownPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -334,6 +340,12 @@
     </Compile>
     <Compile Include="Form\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Notify\ShowImageCCCD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Notify\ShowImageCCCD.Designer.cs">
+      <DependentUpon>ShowImageCCCD.cs</DependentUpon>
     </Compile>
     <Compile Include="Form\Notify\ShowImageTaken.cs">
       <SubType>Form</SubType>
@@ -383,11 +395,61 @@
     <Compile Include="Form\User\RegisterUser.Designer.cs">
       <DependentUpon>RegisterUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\User\ResisterUserSub\CitizenshipID.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\User\ResisterUserSub\CitizenshipID.Designer.cs">
+      <DependentUpon>CitizenshipID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\User\ResisterUserSub\CitizenshipIDCapture.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\User\ResisterUserSub\CitizenshipIDCapture.Designer.cs">
+      <DependentUpon>CitizenshipIDCapture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\User\ResisterUserSub\ConfimRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\User\ResisterUserSub\ConfimRegister.Designer.cs">
+      <DependentUpon>ConfimRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\User\ResisterUserSub\FaceTakenCCCD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\User\ResisterUserSub\FaceTakenCCCD.Designer.cs">
+      <DependentUpon>FaceTakenCCCD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\User\ResisterUserSub\FullNameCCCD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\User\ResisterUserSub\FullNameCCCD.Designer.cs">
+      <DependentUpon>FullNameCCCD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\User\ResisterUserSub\RegisterUser2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\User\ResisterUserSub\RegisterUser2.Designer.cs">
+      <DependentUpon>RegisterUser2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\User\ResisterUserSub\UserInfor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\User\ResisterUserSub\UserInfor.Designer.cs">
+      <DependentUpon>UserInfor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\User\ResisterUserSub\WaitForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\User\ResisterUserSub\WaitForm1.Designer.cs">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
+    </Compile>
+
     <Compile Include="Form\User\TypeRegister.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form\User\TypeRegister.Designer.cs">
       <DependentUpon>TypeRegister.cs</DependentUpon>
+
     </Compile>
     <Compile Include="Form\WaitFormLoader\LoadingControl.cs">
       <SubType>Form</SubType>
@@ -411,12 +473,14 @@
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\CurrentUser.cs" />
     <Compile Include="Model\FormattedPhoneCode.cs" />
+
     <Compile Include="Model\ML\ObjectDetectionMB.cs" />
     <Compile Include="Model\ML\ObjectDetectionSSD.cs" />
     <Compile Include="Model\ML\ObjectDetectionVGG.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\AppUser.cs" />
     <Compile Include="Model\Static\Settings.cs" />
+    <Compile Include="Model\Static\UserCCCD.cs" />
     <Compile Include="Model\Static\UserInfo.cs" />
     <Compile Include="Model\Static\VerifyPhoneNumber.cs" />
     <Compile Include="Model\Warehouse.cs" />
@@ -429,6 +493,9 @@
     <EmbeddedResource Include="Form\Camera\SubFormCamera.resx">
       <DependentUpon>SubFormCamera.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\CheckVehicle.resx">
+      <DependentUpon>CheckVehicle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\DetectClient.resx">
       <DependentUpon>DetectClient.cs</DependentUpon>
     </EmbeddedResource>
@@ -437,6 +504,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Notify\ShowImageCCCD.resx">
+      <DependentUpon>ShowImageCCCD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Notify\ShowImageTaken.resx">
       <DependentUpon>ShowImageTaken.cs</DependentUpon>
@@ -461,6 +531,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\User\RegisterUser.resx">
       <DependentUpon>RegisterUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\User\ResisterUserSub\CitizenshipID.resx">
+      <DependentUpon>CitizenshipID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\User\ResisterUserSub\CitizenshipIDCapture.resx">
+      <DependentUpon>CitizenshipIDCapture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\User\ResisterUserSub\ConfimRegister.resx">
+      <DependentUpon>ConfimRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\User\ResisterUserSub\FaceTakenCCCD.resx">
+      <DependentUpon>FaceTakenCCCD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\User\ResisterUserSub\FullNameCCCD.resx">
+      <DependentUpon>FullNameCCCD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\User\ResisterUserSub\RegisterUser2.resx">
+      <DependentUpon>RegisterUser2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\User\ResisterUserSub\UserInfor.resx">
+      <DependentUpon>UserInfor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\User\ResisterUserSub\WaitForm1.resx">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\User\TypeRegister.resx">
       <DependentUpon>TypeRegister.cs</DependentUpon>
