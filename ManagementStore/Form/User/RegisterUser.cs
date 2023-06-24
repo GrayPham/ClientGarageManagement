@@ -2,9 +2,12 @@
 using Connect.Common.Common;
 using Connect.Common.Contract;
 using Connect.SocketClient;
+using ManagementStore.Model.Static;
+using Parking.App.Common.Helper;
 using Parking.App.Contract.Common;
 using Parking.App.Interface.Common;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ManagementStore.Form.User
@@ -12,18 +15,16 @@ namespace ManagementStore.Form.User
     public partial class RegisterUser : DevExpress.XtraEditors.XtraForm, IProgramController
     {
         private Timer timer;
-        private int countdownValue;
 
         public RegisterUser()
         {
             InitializeComponent();
-            
             //panelSlider.Controls.Add(new PhoneNumber());
             //panelSlider.Controls.Add(new PhoneOTP());
             //panelSlider.Controls.Add(new InformationUser());
             panelSlider.Controls.Add(new FullName());
             // panelSlider.Controls.Add(new FaceTaken());
-            countdownValue = 120;
+            Settings.countDown = 120;
             timer = new Timer();
             timer.Interval = 1000; // 1 second
             timer.Tick += Timer_Tick;
@@ -34,11 +35,11 @@ namespace ManagementStore.Form.User
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            countdownValue--;
-            showCountDown.Text = $"Close form after {countdownValue.ToString()} seconds";
+            Settings.countDown--;
+            showCountDown.Text = $"Close form after {Settings.countDown.ToString()} seconds";
 
             // When the countdown reaches 0, stop the Timer and capture the picture
-            if (countdownValue == 0)
+            if (Settings.countDown == 0)
             { 
                 timer.Stop();
 
@@ -47,16 +48,15 @@ namespace ManagementStore.Form.User
 
         private void RegisterUser_Load(object sender, EventArgs e)
         {
-            
+            pictureBoxNotify.BackColor = ColorTranslator.FromHtml("#2980b9");
+            labelControl2.BackColor = ColorTranslator.FromHtml("#2980b9");
+            labelControl3.BackColor = ColorTranslator.FromHtml("#2980b9");
+            showCountDown.BackColor = ColorTranslator.FromHtml("#2980b9");
         }
-
-
-
         public void LoginSuccess(SessionInfo info)
         {
             
         }
-
         public void SetStatus(string description)
         {
            

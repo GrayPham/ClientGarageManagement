@@ -20,10 +20,10 @@ namespace ManagementStore.Form.User
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            splashScreenManager1.ShowWaitForm();
+            // splashScreenManager1.ShowWaitForm();
             bool status = Utils.VerifyOTP(VerifyPhoneNumber.PhoneNumber, otpTxt.Text, VerifyPhoneNumber.OTPCode);
             Thread.Sleep(1000);
-            splashScreenManager1.CloseWaitForm();
+            // splashScreenManager1.CloseWaitForm();
             if (status)
             {
                 Utils.Forward(ParentForm, "pictureBoxOTP", "pictureBoxInfo", "InformationUser");              
@@ -33,12 +33,6 @@ namespace ManagementStore.Form.User
                 XtraMessageBox.Show("Incorrect OTP code, please input again or resend OTP!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             
-        }
-
-        private void btnResendOTP_Click(object sender, EventArgs e)
-        {
-            Utils.SendOTPSMS(VerifyPhoneNumber.PhoneNumber);
-            XtraMessageBox.Show("Resend OTP successfull", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         private void btnOTP_Click(object sender, EventArgs e)
         {
@@ -137,5 +131,10 @@ namespace ManagementStore.Form.User
             }
         }
 
+        private void btnResendOTP_Click_1(object sender, EventArgs e)
+        {
+            Utils.SendOTPSMS(VerifyPhoneNumber.PhoneNumber);
+            XtraMessageBox.Show("Resend OTP successfull", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

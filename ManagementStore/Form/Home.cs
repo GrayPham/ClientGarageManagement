@@ -9,6 +9,7 @@ using Connect.SocketClient;
 using DevExpress.Images;
 using ManagementStore.Extensions;
 using ManagementStore.Form.User;
+using Parking.App.Common.Helper;
 using Parking.App.Contract.Common;
 using Parking.App.Factory;
 using Parking.App.Interface.Common;
@@ -27,12 +28,13 @@ namespace ManagementStore.Form
         public Home()
         {
             _log = ProgramFactory.Instance.Log;
-
+           
             InitializeComponent();
         }
 
         private void Home_Load(object sender, EventArgs e)
         {
+            Helpers.PlaySound(@"Assets\Audio\reigsterUser.wav");
             ProgramFactory.Instance.ProgramController = this;
             _log = ProgramFactory.Instance.Log;
             AddEventCommon();
@@ -40,26 +42,26 @@ namespace ManagementStore.Form
             barItemVersion.Caption = LSystem.LVersion + ApplicationInfo.VersionName;
             barItemPort.Caption = string.Format(LSystem.LPort, ApplicationInfo.PortUser);
 
-            string html = "<html><head>";
-            string url = "https://www.youtube.com/watch?v=Z9uEn2IVPkQ";
-            html += "<meta content='IE=Edge' http-equiv='X-UA-Compatible'/>";
-            html += "<iframe id='video' src= 'https://www.youtube.com/embed/{0}?autoplay=1' width='680' height='375' frameborder='0' allowfullscreen></iframe>";
-            html += "</body></html>";
-            this.webBrowserVideo.DocumentText = string.Format(html, Utils.GetVideoId(url));
+            //string html = "<html><head>";
+            //string url = "https://www.youtube.com/watch?v=Z9uEn2IVPkQ";
+            //html += "<meta content='IE=Edge' http-equiv='X-UA-Compatible'/>";
+            //html += "<iframe id='video' src= 'https://www.youtube.com/embed/{0}?autoplay=1' width='680' height='370' frameborder='0' allowfullscreen></iframe>";
+            //html += "</body></html>";
+            //this.webBrowserVideo.DocumentText = string.Format(html, Utils.GetVideoId(url));
         }
 
 
         private void btnIdentity_Click(object sender, EventArgs e)
         {
-            splashScreenManager.ShowWaitForm();
+            // splashScreenManage.ShowWaitForm();
             Thread.Sleep(1000);
-            RegisterUser registerUser = new RegisterUser();
-
+            TypeRegister registerUser = new TypeRegister();
             registerUser.Show();
             cameraControl.Stop();
             this.webBrowserVideo.DocumentText = "";
+            Helpers.StopSound();
             Hide();
-            splashScreenManager.CloseWaitForm();
+            // splashScreenManage.CloseWaitForm();
         }
 
         public void LoginSuccess(SessionInfo info)

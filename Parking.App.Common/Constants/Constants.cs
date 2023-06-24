@@ -88,7 +88,8 @@ namespace Parking.App.Common.Constants
         public static string AutoRunApp_StartDate = "04/01/2022 12:10:15 AM";
         public static string AutoRunApp_EndDate = "04/09/2030 12:10:15 AM";
         public static string AutoRunApp_AppName = "Kiosk.App.Shell.exe";
-        public static string CardImage = @"IdCardImage\CardImage.JPG";
+        public static string CardImage = @"Assets\Images\CardImage.JPG";
+        public static string FaceImage = @"Assets\Images\FaceImage.JPG";
         public static string UipassImageFolder = @"C:\UIPASS\IMAGE";
         public static string UipassGateFile = @"C:\gate.txt"; 
         public static string DisplayImage = @"IdCardImage\DisplayImage.JPG";

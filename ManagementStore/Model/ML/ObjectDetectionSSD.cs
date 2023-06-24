@@ -8,10 +8,13 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
 using Emgu.CV.Structure;
+using ManagementStore.Extensions;
+using Emgu.CV.CvEnum;
 
 namespace ManagementStore.Model.ML
 {
-    class ObjectDetectionSSD
+
+    public class ObjectDetectionSSD
     {
         private InferenceSession session;
         List<DetectionResult> detections = new List<DetectionResult>();
@@ -59,9 +62,31 @@ namespace ManagementStore.Model.ML
 
             return image;
         }
-        public  List<DetectionResult> DetectObjects(Mat image)
+        private void DrawBoundingBoxesSSD(Mat frame, List<DetectionResult> detectionResults)
+        {
+            foreach (var detection in detectionResults)
+            {
+                int x = (int)detection.Top;
+                int y = (int)detection.Right;
+                int width = (int)(detection.Bottom - detection.Top);
+                int height = (int)(detection.Left - detection.Right);
+
+                if (detection.Score > 0.5)
+                {
+                    // Draw the rectangle
+                    Rectangle rect = new Rectangle(x, y, width, height);
+                    CvInvoke.Rectangle(frame, rect, new Bgr(Color.Red).MCvScalar, thickness: 2);
+                    // Display the class name
+                    Point textLocation = new Point(x, y - 10);
+                    CvInvoke.PutText(frame, detection.ClassName + " " + (detection.Score * 100).ToString("##.##"), textLocation,
+                        FontFace.HersheySimplex, fontScale: 0.5, new Bgr(Color.Red).MCvScalar);
+                }
+            }
+        }
+        public List<DetectionResult> DetectObjects(Mat image)
         {
             detections = new List<DetectionResult>();
+            var cardClasses = Utils.GetCardClasses();
             float[] preprocessedImage = PreprocessImage(image);
             int height = image.Height;
             int width = image.Width;
@@ -107,7 +132,7 @@ namespace ManagementStore.Model.ML
                 List<float> scoresNew = new List<float>();
                 for (int i = 0; i < probs.Length; i++)
                 {
-                    if (probs[i] > 0.5)
+                    if (probs[i] > 0.4)
                     {
                         mask.Add(i);
                         scoresNew.Add(probs[i]);
@@ -252,7 +277,7 @@ namespace ManagementStore.Model.ML
                         newBoxes[i, 2],
                         newBoxes[i, 3],
                         pickedLabels[i],
-                        ""));
+                        cardClasses[pickedLabels[i]]));
                 }
             }
 
