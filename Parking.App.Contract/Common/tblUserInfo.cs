@@ -13,6 +13,7 @@ namespace Parking.App.Contract.Common
         public string Password { get; set; }
         public string UserName { get; set; }
         public string PhoneNumber { get; set; }
+        public string IdentityNo { get; set; }
         public DateTime Birthday { get; set; }
         public string Email { get; set; }
         public bool? Gender { get; set; }
@@ -48,6 +49,7 @@ namespace Parking.App.Contract.Common
             Password = String.Empty;
             UserName = String.Empty;
             PhoneNumber = String.Empty;
+            IdentityNo = String.Empty;
             Birthday = DateTime.Now;
             Email = String.Empty;
             Gender = false;

@@ -27,11 +27,11 @@ namespace ManagementStore.Form.User.ResisterUserSub
         public ConfimRegister()
         {
             InitializeComponent();
-            fullNameTxt.Text = UserCCCD.FullName;
+            fullNameTxt.Text = UserCCCD.FullName != null ? UserCCCD.FullName : "Pham Van Manh Hung";
             birthdayTxt.Text = UserCCCD.BirthDay;
-            genderTxt.Text = UserCCCD.Gender;
-            pictureTaken.Image = ConvertBase64ToImage(UserCCCD.Picture);
-            pictureBoxCCCD.Image = ConvertBase64ToImage(UserCCCD.PictureCCCD);
+            genderTxt.Text = UserCCCD.Gender != null ? UserCCCD.Gender : "Male"; ;
+            pictureTaken.Image = UserCCCD.Picture != null ? ConvertBase64ToImage(UserCCCD.Picture): pictureTaken.Image;
+            pictureBoxCCCD.Image = UserCCCD.PictureCCCD != null ? ConvertBase64ToImage(UserCCCD.PictureCCCD) : pictureBoxCCCD.Image;
         }
         public Image ConvertBase64ToImage(string base64String)
         {
@@ -43,6 +43,17 @@ namespace ManagementStore.Form.User.ResisterUserSub
                 // Tạo đối tượng hình ảnh từ mảng byte
                 Image image = Image.FromStream(ms);
                 return image;
+            }
+        }
+        public byte[] ConvertImageToByte(Image image)
+        {
+            // Chuyển chuỗi Base64 thành mảng byte
+            
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                return ms.ToArray();
             }
         }
         public static string GetLocalIPv4()
@@ -82,8 +93,8 @@ namespace ManagementStore.Form.User.ResisterUserSub
                 UserType = "USR001",
                 Password = Helpers.HashCodePassword("DPSS01"),
                 UserName = userid,
-                PhoneNumber = UserInfo.PhoneNumber,
-                Birthday = Convert.ToDateTime(UserCCCD.BirthDay),
+                IdentityNo = UserCCCD.CCCDNumber != null ? UserCCCD.CCCDNumber : "066201000447" ,
+                Birthday = UserCCCD.BirthDay != null ? Convert.ToDateTime(UserCCCD.BirthDay) : DateTime.Now,
                 Email = String.Empty,
                 Gender = UserCCCD.Gender == "Male" ? true : false,
                 ApproveReject = true,
@@ -93,7 +104,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
                 UseYN = false,
                 LoginIP = GetLocalIPv4() ?? " ",
                 LastSimilarityRate = ConfigClass.SimilarityRate,
-                AuthMethod = "Card Method" == Constants.PhoneMethod ? "APPTP1" : "APPTP2"
+                AuthMethod = "Card Id" == Constants.CardMethod ? "APPTP1" : "APPTP2"
             };
 
             tblUserMgtStoreInfo userMgt = new tblUserMgtStoreInfo()
@@ -101,7 +112,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
                 UserID = userid,
                 RegistDate = DateTime.Now,
                 Memo = "",
-                StoreNo = 19
+                StoreNo = 19 // Need update
             };
 
             tblStoreUseHistoryInfo storeUseHistory = new tblStoreUseHistoryInfo()
@@ -111,20 +122,25 @@ namespace ManagementStore.Form.User.ResisterUserSub
                 StoreNo = 19
             };
 
-            tblUserPhotoInfo photo = new tblUserPhotoInfo();
-            var facePhotoPath = "";
-            var IdcardPhoto = "";
+            tblUserPhotoInfo photo;
+            //var facePhotoPath = "";
+            //var IdcardPhoto = "";
 
 
-            if ("Phone Number" == Constants.CardMethod)
+            if ("IdCardAuth" == Constants.CardMethod)
             {
                 // TODO: save image taken and image in card ID
                 
                 photo = new tblUserPhotoInfo()
                 {
                     UserID = userid,
+                    // TEST
+
                     TakenPhoto = UserCCCD.PictureByte,
                     IdCardPhoto = UserCCCD.PictureCCCDByte
+
+                    //TakenPhoto = ConvertImageToByte(pictureTaken.Image),
+                    //IdCardPhoto = ConvertImageToByte(pictureBoxCCCD.Image)
                 };
             }
             else
@@ -138,10 +154,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
                 };
             }
 
-            tblUserInfo userInfo = new tblUserInfo()
-            {
+            //tblUserInfo userInfo = new tblUserInfo()
+            //{
 
-            };
+            //};
 
             user.TblUserMgtStoreInfo = userMgt;
             user.TblStoreUseHistoryInfo = storeUseHistory;
