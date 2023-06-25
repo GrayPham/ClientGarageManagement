@@ -34,7 +34,7 @@ namespace ManagementStore.Form
 
         private void Home_Load(object sender, EventArgs e)
         {
-            Helpers.PlaySound(@"Assets\Audio\reigsterUser.wav");
+            // Helpers.PlaySound(@"Assets\Audio\reigsterUser.wav");
             ProgramFactory.Instance.ProgramController = this;
             _log = ProgramFactory.Instance.Log;
             AddEventCommon();
