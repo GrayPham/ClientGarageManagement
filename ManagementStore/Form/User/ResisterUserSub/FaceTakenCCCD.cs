@@ -20,6 +20,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ManagementStore.Extensions;
+using Parking.App.Common.Helper;
 
 namespace ManagementStore.Form.User.ResisterUserSub
 {
@@ -36,6 +37,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
         public FaceTakenCCCD()
         {
             InitializeComponent();
+
             string path = System.IO.Path.GetDirectoryName(new System.Uri(System.Reflection.Assembly.GetExecutingAssembly().CodeBase).LocalPath);
             // Load the ONNX model
             session = new InferenceSession(ModelConfig.dataFolderPath + "/ssd_mobilenet_v1_12-int8.onnx");
@@ -43,6 +45,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             capture = new VideoCapture();
             capture.ImageGrabbed += Capture_ImageGrabbed;
             capture.Start();
+            Helpers.PlaySound(@"Assets\Audio\FaceTaken.wav");
             // Set the initial countdown value and Timer interval
             countdownValue = 5;
             timer = new Timer();
@@ -123,8 +126,9 @@ namespace ManagementStore.Form.User.ResisterUserSub
             session?.Dispose();
 
 
-
+            Helpers.StopSound();
             Utils.ForwardCCCD(ParentForm, "pictureBoxFace", "pictureBoxFace", "FaceTakenCCCD");
+
             ConfimRegister confimRegister = new ConfimRegister();
             splashScreenManager1.CloseWaitForm();
             confimRegister.ShowDialog();
@@ -152,6 +156,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
+            Helpers.StopSound();
             Utils.BackCCCD(ParentForm, "pictureBoxFace", "pictureBoxName", "FullNameCCCD");
         }
         private void Capture_ImageGrabbed(object sender, EventArgs e)

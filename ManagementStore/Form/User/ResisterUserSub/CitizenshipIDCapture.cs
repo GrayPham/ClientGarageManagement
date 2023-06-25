@@ -10,6 +10,7 @@ using ManagementStore.Form.User.ResisterUserSub;
 using ManagementStore.Model.ML;
 using ManagementStore.Model.Static;
 using Parking.App.Common.ApiMethod;
+using Parking.App.Common.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,6 +48,7 @@ namespace ManagementStore.Form.User
             ssd = new ObjectDetectionSSD(ModelConfig.dataFolderPath + "/mb2-ssd-lite-predict.onnx");
             // Initialize the camera capture
             capture = new VideoCapture(0);
+            Helpers.PlaySound(@"Assets\Audio\DuaCCCDToCamera.wav");
             // ShowImage = new ShowImageCCCD();
             Application.Idle += Capture_ImageGrabbed;
             //capture.Start();
@@ -150,7 +152,8 @@ namespace ManagementStore.Form.User
             Application.Idle -= Capture_ImageGrabbed;
             capture?.Dispose();
             var userInfor = ParentForm.Controls.Find("UserInfor", true);
-            if(userInfor.Length == 0)
+            Helpers.StopSound();
+            if (userInfor.Length == 0)
             {
                 ParentForm.Controls.Find("panelSlider2", true)[0].Controls.Add(new UserInfor());
 
@@ -175,6 +178,7 @@ namespace ManagementStore.Form.User
             splashScreenManager1.ShowWaitForm();
             Application.Idle -= Capture_ImageGrabbed;
             capture.Dispose();
+            Helpers.StopSound();
             Utils.BackCCCD(ParentForm, "pictureBoxVCCCD", "pictureBoxCCCD", "CitizenshipID");
             
             //Control CitizenshipIDCapture = ParentForm.Controls.Find("panelSlider", true)[0].Controls.Find("CitizenshipIDCapture", true)[0];

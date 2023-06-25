@@ -43,7 +43,7 @@ namespace ManagementStore.Form.User
         {
             InitializeComponent();
             string path = System.IO.Path.GetDirectoryName(new System.Uri(System.Reflection.Assembly.GetExecutingAssembly().CodeBase).LocalPath);
-
+            Helpers.PlaySound(@"Assets\Audio\FaceTaken.wav");
             // ssd = new ObjectDetectionVGG(ModelConfig.dataFolderPath + "/vgg16-ssd-vehicle.onnx");
             // mb = new ObjectDetectionMB(ModelConfig.dataFolderPath + "/ssd_mobilenet_v1_10.onnx");
             cccd = new ObjectDetectionSSD(ModelConfig.dataFolderPath + "/vehicle.onnx");
@@ -168,6 +168,7 @@ namespace ManagementStore.Form.User
 
         private async void onCreateUser()
         {
+            Helpers.StopSound();
             RequestInfo request = new RequestInfo();
             var uInfo = new object[5];
             uInfo[0] = UserInfo.FullName == null ? "Nguyen Ngoc Thien" : UserInfo.FullName;
@@ -271,6 +272,7 @@ namespace ManagementStore.Form.User
             var repose = await ApiMethod.PostCall(userMgtData);
             if (repose.StatusCode == System.Net.HttpStatusCode.OK)
             {
+                Helpers.PlaySound(@"Assets\Audio\RegisteredMember.wav");
                 XtraMessageBox.Show("Registed account successfully", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Utils.SendRegisterSuccess(UserInfo.PhoneNumber, password, userid);
                 info.Close();

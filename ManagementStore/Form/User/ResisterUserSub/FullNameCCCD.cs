@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using ManagementStore.Extensions;
 using ManagementStore.Model.Static;
+using Parking.App.Common.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +21,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
         {
             InitializeComponent();
             character = new List<String>();
+            Helpers.PlaySound(@"Assets\Audio\FullnameCCCD.wav");
         }
         private void DisplayPhoneNumber()
         {
@@ -206,6 +208,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
         {
             splashScreenManager1.ShowWaitForm();
             UserCCCD.FullName = fullNameTxt.Text;
+            Helpers.StopSound();
             var citizenCapture = ParentForm.Controls.Find("FaceTakenCCCD", true);
             if (citizenCapture.Length > 0)
             {
@@ -222,6 +225,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
         private void btnPrev_Click(object sender, EventArgs e)
         {
             splashScreenManager1.ShowWaitForm();
+            Helpers.StopSound();
             Utils.BackCCCD(ParentForm, "pictureBoxName", "pictureBoxInfo", "UserInfor");
             splashScreenManager1.CloseWaitForm();
         }

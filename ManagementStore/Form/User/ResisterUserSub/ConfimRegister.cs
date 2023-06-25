@@ -27,11 +27,13 @@ namespace ManagementStore.Form.User.ResisterUserSub
         public ConfimRegister()
         {
             InitializeComponent();
+            Helpers.PlaySound(@"Assets\Audio\SuccessfulRegister.wav");
             fullNameTxt.Text = UserCCCD.FullName != null ? UserCCCD.FullName : "Pham Van Manh Hung";
             birthdayTxt.Text = UserCCCD.BirthDay;
             genderTxt.Text = UserCCCD.Gender != null ? UserCCCD.Gender : "Male"; ;
             pictureTaken.Image = UserCCCD.Picture != null ? ConvertBase64ToImage(UserCCCD.Picture): pictureTaken.Image;
             pictureBoxCCCD.Image = UserCCCD.PictureCCCD != null ? ConvertBase64ToImage(UserCCCD.PictureCCCD) : pictureBoxCCCD.Image;
+        
         }
         public Image ConvertBase64ToImage(string base64String)
         {
@@ -78,6 +80,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
         }
         private async void buttonConfirm_Click(object sender, EventArgs e)
         {
+            Helpers.StopSound();
             RequestInfo request = new RequestInfo();
             var uInfo = new object[5];
             uInfo[0] = UserCCCD.FullName == null ? "Nguyen Ngoc Thien" : UserCCCD.FullName;
@@ -182,8 +185,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             var repose = await ApiMethod.PostCall(userMgtData);
             if (repose.StatusCode == System.Net.HttpStatusCode.OK)
             {
+                Helpers.PlaySound(@"Assets\Audio\RegisteredMember.wav");
                 XtraMessageBox.Show("Registed account successfully", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // TODO: send message register successfully
+                
             }
             else
             {
@@ -195,7 +200,9 @@ namespace ManagementStore.Form.User.ResisterUserSub
         private void btnReturnRegis_Click(object sender, EventArgs e)
         {
             CaptureAgain = true;
+            Helpers.StopSound();
             this.Close();
+           
         }
     }
 }

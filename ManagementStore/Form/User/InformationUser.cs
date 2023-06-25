@@ -4,6 +4,7 @@ using DevExpress.XtraEditors.DXErrorProvider;
 using ManagementStore.Extensions;
 using ManagementStore.Extensions.Validations;
 using ManagementStore.Model.Static;
+using Parking.App.Common.Helper;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -22,6 +23,7 @@ namespace ManagementStore.Form.User
         {
             Num = new List<String>();
             InitializeComponent();
+            Helpers.PlaySound(@"Assets\Audio\userInfor.wav");
         }
         private void InformationUser_Load(object sender, EventArgs e)
         {

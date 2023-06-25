@@ -45,6 +45,7 @@ namespace ManagementStore.Form
             this.repositoryItemDateEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.webBrowserVideo = new System.Windows.Forms.WebBrowser();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ManagementStore.Form.User.ResisterUserSub.WaitForm1), true, true);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
@@ -213,6 +214,10 @@ namespace ManagementStore.Form
             this.webBrowserVideo.Size = new System.Drawing.Size(709, 384);
             this.webBrowserVideo.TabIndex = 3;
             // 
+            // splashScreenManager1
+            // 
+            this.splashScreenManager1.ClosingDelay = 500;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,6 +261,6 @@ namespace ManagementStore.Form
         private DevExpress.XtraBars.BarStaticItem barItemVersion;
         public DevExpress.XtraEditors.Camera.CameraControl cameraControl;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManage;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }

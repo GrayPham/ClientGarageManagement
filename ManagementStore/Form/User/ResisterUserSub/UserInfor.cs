@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ManagementStore.Model.Static;
+using Parking.App.Common.Helper;
 
 namespace ManagementStore.Form.User.ResisterUserSub
 {
@@ -22,6 +23,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
         {
             InitializeComponent();
             Num = new List<String>();
+            Helpers.PlaySound(@"Assets\Audio\userInfor.wav");
         }
         private void UserInfor_Load(object sender, EventArgs e)
         {
@@ -215,6 +217,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             ParentForm.Controls.Find("panelSlider2", true)[0].Controls.Add(new FullNameCCCD());
             UserCCCD.BirthDay = birthDayTxt.Text;
             UserCCCD.Gender = ccbSelectGender.SelectedItem.ToString();
+            Helpers.StopSound();
             Utils.ForwardCCCD(ParentForm, "pictureBoxInfo", "pictureBoxName", "FullNameCCCD");
             splashScreenManager1.CloseWaitForm();
         }
@@ -223,6 +226,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
         {
             splashScreenManager1.ShowWaitForm();
             var citizenshipIDCapture = ParentForm.Controls.Find("CitizenshipIDCapture", true);
+            Helpers.StopSound();
             if (citizenshipIDCapture.Length == 0)
             {
                 ParentForm.Controls.Find("panelSlider2", true)[0].Controls.Add(new CitizenshipIDCapture());

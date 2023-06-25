@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ManagementStore.Form.User.ResisterUserSub;
 using ManagementStore.Model.Static;
+using Parking.App.Common.Helper;
 
 namespace ManagementStore.Form.User
 {
@@ -23,6 +24,7 @@ namespace ManagementStore.Form.User
         public CitizenshipID()
         {
             InitializeComponent();
+            Helpers.PlaySound(@"Assets\Audio\NhapCCCD.wav");
             Num = new List<String>();
         }
         private void CCCDNumber_Load(object sender, EventArgs e)
@@ -110,6 +112,7 @@ namespace ManagementStore.Form.User
         {
             splashScreenManager1.ShowWaitForm();
             UserCCCD.CCCDNumber = cccdTxt.Text;
+            Helpers.StopSound();
             var citizenCapture = ParentForm.Controls.Find("CitizenshipIDCapture", true);
             if(citizenCapture.Length > 0)
             {

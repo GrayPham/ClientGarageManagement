@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.Windows.Forms;
 using Connect.Common;
 using Connect.Common.Common;
 using Connect.Common.Contract;
@@ -34,7 +35,7 @@ namespace ManagementStore.Form
 
         private void Home_Load(object sender, EventArgs e)
         {
-            // Helpers.PlaySound(@"Assets\Audio\reigsterUser.wav");
+            Helpers.PlaySound(@"Assets\Audio\reigsterUser.wav");
             ProgramFactory.Instance.ProgramController = this;
             _log = ProgramFactory.Instance.Log;
             AddEventCommon();
@@ -53,15 +54,21 @@ namespace ManagementStore.Form
 
         private void btnIdentity_Click(object sender, EventArgs e)
         {
-            // splashScreenManage.ShowWaitForm();
+            splashScreenManager1.ShowWaitForm();
             Thread.Sleep(1000);
-            TypeRegister registerUser = new TypeRegister();
-            registerUser.Show();
+            
             cameraControl.Stop();
             this.webBrowserVideo.DocumentText = "";
             Helpers.StopSound();
+            
+            TypeRegister typeRegister = new TypeRegister();
+            
             Hide();
-            // splashScreenManage.CloseWaitForm();
+
+            splashScreenManager1.CloseWaitForm();
+            typeRegister.ShowDialog();
+            Show();
+
         }
 
         public void LoginSuccess(SessionInfo info)

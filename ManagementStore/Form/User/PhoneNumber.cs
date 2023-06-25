@@ -3,6 +3,7 @@ using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraSplashScreen;
 using ManagementStore.Extensions;
 using ManagementStore.Model.Static;
+using Parking.App.Common.Helper;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -19,6 +20,7 @@ namespace ManagementStore.Form.User
             Num = new List<String>();
             InitializeComponent();
             // btnNext.Enabled = false;
+            Helpers.PlaySound(@"Assets\Audio\InputPhone.wav");
 
         }
 

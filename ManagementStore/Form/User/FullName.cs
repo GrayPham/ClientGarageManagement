@@ -13,6 +13,7 @@ namespace ManagementStore.Form.User
             character = new List<String>();
 
             InitializeComponent();
+            Helpers.PlaySound(@"Assets\Audio\FullnameCCCD.wav");
         }
 
         private void FullName_Load(object sender, EventArgs e)

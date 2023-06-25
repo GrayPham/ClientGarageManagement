@@ -43,7 +43,7 @@ namespace ManagementStore.Form.User
             this.pictureBoxPhone = new System.Windows.Forms.PictureBox();
             this.sidePanel3 = new DevExpress.XtraEditors.SidePanel();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCard = new System.Windows.Forms.PictureBox();
             this.btmExit = new System.Windows.Forms.Button();
             this.sidePanel1 = new DevExpress.XtraEditors.SidePanel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -54,7 +54,7 @@ namespace ManagementStore.Form.User
             this.sidePanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhone)).BeginInit();
             this.sidePanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCard)).BeginInit();
             this.sidePanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -193,7 +193,7 @@ namespace ManagementStore.Form.User
             this.sidePanel3.Appearance.BackColor = System.Drawing.Color.RoyalBlue;
             this.sidePanel3.Appearance.Options.UseBackColor = true;
             this.sidePanel3.Controls.Add(this.labelControl1);
-            this.sidePanel3.Controls.Add(this.pictureBox3);
+            this.sidePanel3.Controls.Add(this.pictureBoxCard);
             this.sidePanel3.Location = new System.Drawing.Point(32, 68);
             this.sidePanel3.Name = "sidePanel3";
             this.sidePanel3.Size = new System.Drawing.Size(300, 443);
@@ -214,21 +214,22 @@ namespace ManagementStore.Form.User
             this.labelControl1.TabIndex = 2;
             this.labelControl1.Text = "Verification by Card ID";
             // 
-            // pictureBox3
+            // pictureBoxCard
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(25, 52);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(251, 279);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
+            this.pictureBoxCard.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxCard.Image")));
+            this.pictureBoxCard.Location = new System.Drawing.Point(25, 52);
+            this.pictureBoxCard.Name = "pictureBoxCard";
+            this.pictureBoxCard.Size = new System.Drawing.Size(251, 279);
+            this.pictureBoxCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCard.TabIndex = 1;
+            this.pictureBoxCard.TabStop = false;
+            this.pictureBoxCard.Click += new System.EventHandler(this.pictureBoxCard_Click);
             // 
             // btmExit
             // 
-            this.btmExit.BackColor = System.Drawing.Color.Silver;
+            this.btmExit.BackColor = System.Drawing.Color.RoyalBlue;
             this.btmExit.Font = new System.Drawing.Font("Tahoma", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btmExit.ForeColor = System.Drawing.Color.Gray;
+            this.btmExit.ForeColor = System.Drawing.Color.Transparent;
             this.btmExit.Location = new System.Drawing.Point(32, 581);
             this.btmExit.Margin = new System.Windows.Forms.Padding(10);
             this.btmExit.Name = "btmExit";
@@ -236,6 +237,7 @@ namespace ManagementStore.Form.User
             this.btmExit.TabIndex = 2;
             this.btmExit.Text = "Back";
             this.btmExit.UseVisualStyleBackColor = false;
+            this.btmExit.Click += new System.EventHandler(this.btmExit_Click);
             // 
             // sidePanel1
             // 
@@ -270,7 +272,7 @@ namespace ManagementStore.Form.User
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhone)).EndInit();
             this.sidePanel3.ResumeLayout(false);
             this.sidePanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCard)).EndInit();
             this.sidePanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -291,7 +293,7 @@ namespace ManagementStore.Form.User
         private System.Windows.Forms.Button btmExit;
         private System.Windows.Forms.PictureBox pictureBoxPhone;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBoxCard;
         private DevExpress.XtraEditors.LabelControl labelControl3;
     }
 }

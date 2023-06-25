@@ -19,10 +19,10 @@ namespace ManagementStore.Form.User
         public RegisterUser()
         {
             InitializeComponent();
-            //panelSlider.Controls.Add(new PhoneNumber());
+            panelSlider.Controls.Add(new PhoneNumber());
             //panelSlider.Controls.Add(new PhoneOTP());
             //panelSlider.Controls.Add(new InformationUser());
-            panelSlider.Controls.Add(new FullName());
+            //panelSlider.Controls.Add(new FullName());
             // panelSlider.Controls.Add(new FaceTaken());
             Settings.countDown = 120;
             timer = new Timer();
