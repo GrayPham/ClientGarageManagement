@@ -37,7 +37,6 @@ namespace ManagementStore.Form.User
             else
             {
                 faceTaken[0].BringToFront();
-                faceTaken[0]
             }
             
             var data = ParentForm.Controls.Find("panelSlider", true)[0];
