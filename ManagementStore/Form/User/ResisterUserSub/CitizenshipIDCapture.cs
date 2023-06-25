@@ -29,7 +29,7 @@ namespace ManagementStore.Form.User
         private VideoCapture capture;
         private int countdownValue;
         private Timer timer;
-        ShowImageCCCD showImage;
+        //ShowImageCCCD showImage;
         List<DetectionResult> detectionResults;
         ObjectDetectionSSD ssd;
 
@@ -45,13 +45,11 @@ namespace ManagementStore.Form.User
             string path = System.IO.Path.GetDirectoryName(new System.Uri(System.Reflection.Assembly.GetExecutingAssembly().CodeBase).LocalPath);
 
             ssd = new ObjectDetectionSSD(ModelConfig.dataFolderPath + "/mb2-ssd-lite-predict.onnx");
-            
-            
             // Initialize the camera capture
             capture = new VideoCapture(0);
-            //showImage = new ShowImageCCCD();
+            // ShowImage = new ShowImageCCCD();
             Application.Idle += Capture_ImageGrabbed;
-            capture.Start();
+            //capture.Start();
             //Set the initial countdown value and Timer interval
             countdownValue = 5;
             timer = new Timer();
@@ -61,53 +59,55 @@ namespace ManagementStore.Form.User
             // Start the Timer
             timer.Start();
         }
-        private async  void  Timer_TickAsync(object sender, EventArgs e)
+        private async void  Timer_TickAsync(object sender, EventArgs e)
         {
             countdownValue--;
             showCountDown.Text = $"The photo will be taken in {countdownValue.ToString()} second.";
-
             // When the countdown reaches 0, stop the Timer and capture the picture
             if (countdownValue == 0)
             {
-                if (detectionResults.Count() > 5)
+                var timer = (Timer)sender;
+                timer.Stop();
+                //Application.Idle -= Capture_ImageGrabbed;
+                //capture.Stop();
+                if (detectionResults.Count() > 2)
                 {
-                    var timer = (Timer)sender;
-                    timer.Stop();
-                    capture.Stop();
-                    capture.ImageGrabbed -= Capture_ImageGrabbed;
                     var result = XtraMessageBox.Show("Are you sure to use this image?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (DialogResult.No == result)
                     {
                         countdownValue = 5;
                         timer.Start();
-                        capture.ImageGrabbed += Capture_ImageGrabbed;
+                        //Application.Idle += Capture_ImageGrabbed;
                     }
                     else
                     {
                         if (pictureCCCD.Image != null)
                         {
+                            splashScreenManager1.ShowWaitForm();
                             //Convert Image to string 
                             string stringImage = ConvertImageToBase64(pictureCCCD.Image);
-                            UserCCCD.PictureCCCD = stringImage;
                             // Send data to ML server
-                            splashScreenManager1.ShowWaitForm();
-                            string idResult = await ApiMethod.CheckCitizenshipID(UserCCCD.PictureCCCD);
+                            string idResult = await ApiMethod.CheckCitizenshipID(stringImage);
                             labelResult.Text = "RESULT:" + idResult;
                             // Check Result to show Immage and compare with the Input CCCD
                             if (idResult != badImage && idResult != badDetect && idResult != STATUS_CCCD_5 && idResult != STATUS_CCCD_3 && idResult == UserCCCD.CCCDNumber)
                             {
+                                UserCCCD.PictureCCCD = stringImage;
+                                // Convert Image to Byte
+                                UserCCCD.PictureCCCDByte = ConvertImageToByte(pictureCCCD.Image);
                                 btnDone.Enabled = true;
+                                Application.Idle -= Capture_ImageGrabbed;
+                                capture.Stop();
                             }
                             else
                             {
                                 countdownValue = 5;
                                 timer.Start();
-                                capture.Start();
-                                capture.ImageGrabbed += Capture_ImageGrabbed;
+                                //capture.Start();
+                                //Application.Idle += Capture_ImageGrabbed;
                                 labelResult.Text = "Take a photo again";
                             }
                             splashScreenManager1.CloseWaitForm();
-
                         }
 
                     }
@@ -116,8 +116,8 @@ namespace ManagementStore.Form.User
                 {
                     countdownValue = 5;
                     timer.Start();
-                    capture.Start();
-                    capture.ImageGrabbed += Capture_ImageGrabbed;
+                    // capture.Start();
+                    // Application.Idle += Capture_ImageGrabbed;
                     labelResult.Text = "Not enough information";
                 }
 
@@ -126,34 +126,59 @@ namespace ManagementStore.Form.User
             
         }
         private void Capture_ImageGrabbed(object sender, EventArgs e)
-        {
+        { 
+            // Try catch
             if (capture != null && capture.Ptr != IntPtr.Zero)
             {
-                Mat frame = new Mat();
-                capture.Retrieve(frame);
-                detectionResults = ssd.DetectObjects(frame);
-                DrawBoundingBoxesSSD(frame, detectionResults);
-                pictureCCCD.Image = frame.ToBitmap();
+                using (Mat ImageFrame = capture.QueryFrame())
+                {
+                    if (ImageFrame != null)
+                    {
+                        detectionResults = ssd.DetectObjects(ImageFrame);
+                        //DrawBoundingBoxesSSD(ImageFrame, detectionResults);
+                        Image<Bgr, Byte> image = ImageFrame.ToImage<Bgr, byte>();
+                        pictureCCCD.Image = image.ToBitmap();
+                    }
 
+                }
             }
         }
 
         private void btnDone_Click(object sender, EventArgs e)
         {
             splashScreenManager1.ShowWaitForm();
+            Application.Idle -= Capture_ImageGrabbed;
             capture?.Dispose();
-            ParentForm.Controls.Find("panelSlider2", true)[0].Controls.Add(new UserInfor());
+            var userInfor = ParentForm.Controls.Find("UserInfor", true);
+            if(userInfor.Length == 0)
+            {
+                ParentForm.Controls.Find("panelSlider2", true)[0].Controls.Add(new UserInfor());
 
+            }
+            else
+            {
+                userInfor[0].BringToFront();
+            }
             Utils.ForwardCCCD(ParentForm, "pictureBoxVCCCD", "pictureBoxInfo", "UserInfor");
-            // Release the resources when closing the form
-            
+            var citizenCapture = ParentForm.Controls.Find("CitizenshipIDCapture", true);
+            if (citizenCapture.Length > 0)
+            {
+                var controlToRemove = citizenCapture[0];
+                ParentForm.Controls.Remove(controlToRemove);
+                controlToRemove.Dispose();
+            }
             splashScreenManager1.CloseWaitForm();
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
             splashScreenManager1.ShowWaitForm();
-            Utils.ForwardCCCD(ParentForm, "pictureBoxVCCCD", "pictureBoxCCCD", "CitizenshipID");
+            Application.Idle -= Capture_ImageGrabbed;
+            capture.Dispose();
+            Utils.BackCCCD(ParentForm, "pictureBoxVCCCD", "pictureBoxCCCD", "CitizenshipID");
+            
+            //Control CitizenshipIDCapture = ParentForm.Controls.Find("panelSlider", true)[0].Controls.Find("CitizenshipIDCapture", true)[0];
+            //ParentForm.Controls.Find("panelSlider2", true)[0].Controls.Remove(CitizenshipIDCapture);
             splashScreenManager1.CloseWaitForm();
         }
 
@@ -169,6 +194,16 @@ namespace ManagementStore.Form.User
                 var base64String = Convert.ToBase64String(imageBytes);
                 return base64String;
             }
+        }
+        private byte[] ConvertImageToByte(Image img)
+        {
+            byte[] imageBytes;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg); // Use the appropriate image format
+                imageBytes = ms.ToArray();
+            }
+            return imageBytes;
         }
         private void DrawBoundingBoxesSSD(Mat frame, List<DetectionResult> detectionResults)
         {

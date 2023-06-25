@@ -84,6 +84,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnDone.Appearance.Options.UseBackColor = true;
             this.btnDone.Appearance.Options.UseBorderColor = true;
             this.btnDone.Appearance.Options.UseFont = true;
+            this.btnDone.Enabled = false;
             this.btnDone.Location = new System.Drawing.Point(393, 623);
             this.btnDone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDone.Name = "btnDone";

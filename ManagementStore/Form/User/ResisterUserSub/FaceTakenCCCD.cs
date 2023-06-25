@@ -79,6 +79,8 @@ namespace ManagementStore.Form.User.ResisterUserSub
                     image.btnTakeAgain.Click += btnTakeAgain_Click;
 
                     image.btnOK.Click += btnOK_Click;
+                    btnPrev.Enabled = false;
+
                 }
                 timer.Stop();
             }
@@ -97,9 +99,12 @@ namespace ManagementStore.Form.User.ResisterUserSub
                 img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg); // Use the appropriate image format
                 imageBytes = ms.ToArray();
                 UserCCCD.Picture = Convert.ToBase64String(imageBytes);
+                UserCCCD.PictureByte = imageBytes;
             }
             
             image.Close();
+            btnPrev.Enabled = true;
+            btnDone.Enabled = true;
         }
         private void btnTakeAgain_Click(object sender, EventArgs e)
         {
@@ -107,6 +112,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             capture.ImageGrabbed += Capture_ImageGrabbed;
             timer.Start();
             image.Close();
+            btnPrev.Enabled = true;
         }
         private void btnDone_Click(object sender, EventArgs e)
         {
@@ -115,17 +121,38 @@ namespace ManagementStore.Form.User.ResisterUserSub
             capture?.Dispose();
             //cascadeClassifier?.Dispose();
             session?.Dispose();
-            Utils.ForwardCCCD(ParentForm, "pictureBoxName", "pictureBoxFace", "FaceTakenCCCD");
-            ConfimRegister confimRegister = new ConfimRegister();
-            confimRegister.Show();
 
+
+
+            Utils.ForwardCCCD(ParentForm, "pictureBoxFace", "pictureBoxFace", "FaceTakenCCCD");
+            ConfimRegister confimRegister = new ConfimRegister();
             splashScreenManager1.CloseWaitForm();
+            confimRegister.ShowDialog();
+
+            if (confimRegister.CaptureAgain)
+            {
+                splashScreenManager1.ShowWaitForm();
+                btnDone.Enabled = false;
+                btnPrev.Enabled = false;
+                session = new InferenceSession(ModelConfig.dataFolderPath + "/ssd_mobilenet_v1_12-int8.onnx");
+                // Initialize the camera capture
+                capture = new VideoCapture();
+                capture.ImageGrabbed += Capture_ImageGrabbed;
+                capture.Start();
+                countdownValue = 5;
+                timer.Start();
+                btnDone.Enabled = true;
+                btnPrev.Enabled = true;
+                splashScreenManager1.CloseWaitForm();
+                //Utils.BackCCCD(ParentForm, "pictureBoxName", "pictureBoxFace", "FaceTakenCCCD");
+
+            }
 
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
-            Utils.Back(ParentForm, "pictureBoxFace", "pictureBoxName", "FullNameCCCD");
+            Utils.BackCCCD(ParentForm, "pictureBoxFace", "pictureBoxName", "FullNameCCCD");
         }
         private void Capture_ImageGrabbed(object sender, EventArgs e)
         {
@@ -168,7 +195,8 @@ namespace ManagementStore.Form.User.ResisterUserSub
                 DrawBoundingBoxes(frame, detectionResults);
 
                 // Display the frame in the PictureBox control
-                pictureFace.Image = frame.ToBitmap();
+                Image<Bgr, Byte> image = frame.ToImage<Bgr, byte>();
+                pictureFace.Image = image.ToBitmap();
                 fpsCounter.Update();
                 Console.WriteLine("FPS: " + fpsCounter.CurrentFPS.ToString("F2"));
             }

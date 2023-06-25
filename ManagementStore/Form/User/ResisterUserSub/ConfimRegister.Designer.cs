@@ -29,7 +29,8 @@ namespace ManagementStore.Form.User.ResisterUserSub
         /// </summary>
         private void InitializeComponent()
         {
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfimRegister));
+            this.btnReturnRegis = new DevExpress.XtraEditors.SimpleButton();
             this.buttonConfirm = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.fullNameTxt = new DevExpress.XtraEditors.LabelControl();
@@ -47,18 +48,19 @@ namespace ManagementStore.Form.User.ResisterUserSub
             ((System.ComponentModel.ISupportInitialize)(this.pictureTaken)).BeginInit();
             this.SuspendLayout();
             // 
-            // simpleButton2
+            // btnReturnRegis
             // 
-            this.simpleButton2.Appearance.BackColor = System.Drawing.Color.DimGray;
-            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton2.Appearance.Options.UseBackColor = true;
-            this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.Location = new System.Drawing.Point(25, 881);
-            this.simpleButton2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(171, 64);
-            this.simpleButton2.TabIndex = 23;
-            this.simpleButton2.Text = "Back to register";
+            this.btnReturnRegis.Appearance.BackColor = System.Drawing.Color.DimGray;
+            this.btnReturnRegis.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturnRegis.Appearance.Options.UseBackColor = true;
+            this.btnReturnRegis.Appearance.Options.UseFont = true;
+            this.btnReturnRegis.Location = new System.Drawing.Point(25, 881);
+            this.btnReturnRegis.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnReturnRegis.Name = "btnReturnRegis";
+            this.btnReturnRegis.Size = new System.Drawing.Size(171, 64);
+            this.btnReturnRegis.TabIndex = 23;
+            this.btnReturnRegis.Text = "Back to register";
+            this.btnReturnRegis.Click += new System.EventHandler(this.btnReturnRegis_Click);
             // 
             // buttonConfirm
             // 
@@ -174,6 +176,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // 
             // pictureBoxCCCD
             // 
+            this.pictureBoxCCCD.Image = global::ManagementStore.Properties.Resources._0a7c9f51b5ed46b31ffc;
             this.pictureBoxCCCD.Location = new System.Drawing.Point(158, 504);
             this.pictureBoxCCCD.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBoxCCCD.Name = "pictureBoxCCCD";
@@ -184,11 +187,12 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // 
             // pictureTaken
             // 
+            this.pictureTaken.Image = ((System.Drawing.Image)(resources.GetObject("pictureTaken.Image")));
             this.pictureTaken.Location = new System.Drawing.Point(158, 129);
             this.pictureTaken.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureTaken.Name = "pictureTaken";
             this.pictureTaken.Size = new System.Drawing.Size(642, 369);
-            this.pictureTaken.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureTaken.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureTaken.TabIndex = 21;
             this.pictureTaken.TabStop = false;
             // 
@@ -202,7 +206,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBoxCCCD);
-            this.Controls.Add(this.simpleButton2);
+            this.Controls.Add(this.btnReturnRegis);
             this.Controls.Add(this.buttonConfirm);
             this.Controls.Add(this.pictureTaken);
             this.Controls.Add(this.labelControl10);
@@ -224,7 +228,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
 
         #endregion
 
-        public DevExpress.XtraEditors.SimpleButton simpleButton2;
+        public DevExpress.XtraEditors.SimpleButton btnReturnRegis;
         public DevExpress.XtraEditors.SimpleButton buttonConfirm;
         public System.Windows.Forms.PictureBox pictureTaken;
         private DevExpress.XtraEditors.LabelControl labelControl10;
