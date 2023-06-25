@@ -155,6 +155,58 @@ namespace Parking.App.Common.ApiMethod
                 return DownFileAdmgt(key, filePath);
             });
         }
+        public static async Task<ResultInfo> RequestPostAsync(UInt32 signature, UInt16 functionCode, RequestInfo req)
+        {
+            var result = new ResultInfo();
+            try
+            {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                DataRequest dataSend = new DataRequest()
+                {
+                    Signature = signature,
+                    FrameID = 0,
+                    DataLength = 0,
+                    FunctionCode = functionCode,
+                    Data = req
+                };
+
+                var options = new RestClientOptions(Constants.Constants.ApiServerURL)
+                {
+                    ThrowOnAnyError = true,
+                    Timeout = Constants.Constants.RequestTimeOut
+                };
+
+                var client = new RestClient(options);
+                var request = new RestRequest();
+                request.AddHeader("Content-Type", "application/json");
+                request.AddHeader("Accept", "application/json");
+                request.Timeout = Constants.Constants.RequestTimeOut;
+
+                var json = JsonConvert.SerializeObject(dataSend);
+                request.AddParameter("application/json", json, ParameterType.RequestBody);
+
+                var resp = await client.ExecutePostAsync(request);
+
+                if (resp.StatusCode == HttpStatusCode.OK)
+                {
+                    var infoRep = JsonHelper.JsonToInfo<ResultInfo>(resp.Content);
+                    if (infoRep != null)
+                        return infoRep;
+                }
+
+                result.Status = false;
+                result.ErrorMessage = resp.Content;
+            }
+            catch (Exception ex)
+            {
+                result.Status = false;
+                result.ErrorMessage = ex.Message;
+            }
+
+            return result;
+        }
+
+
         public static ResultInfo RequestPost(UInt32 signature, UInt16 functionCode, RequestInfo req)
         {
             var result = new ResultInfo();
@@ -203,12 +255,12 @@ namespace Parking.App.Common.ApiMethod
 
             return result;
         }
-        public static Task<ResultInfo> RequestPostAsync(UInt32 signature, UInt16 functionCode, RequestInfo req)
-        {
-            return Task.Run<ResultInfo>(() => {
-                return RequestPost(signature, functionCode, req);
-            });
-        }
+        //public static Task<ResultInfo> RequestPostAsync(UInt32 signature, UInt16 functionCode, RequestInfo req)
+        //{
+        //    return Task.Run<ResultInfo>(() => {
+        //        return RequestPost(signature, functionCode, req);
+        //    });
+        //}
 
         //**---------------------------------------------------------
 
