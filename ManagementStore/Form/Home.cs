@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading;
+using System.Threading.Tasks;
 using Connect.Common;
 using Connect.Common.Common;
 using Connect.Common.Contract;
@@ -26,6 +27,7 @@ using Parking.App.Contract.Common;
 using Parking.App.Factory;
 using Parking.App.Interface.Common;
 using Parking.App.Language;
+using Parking.App.Service.Common;
 using Parking.Contract.Common;
 
 namespace ManagementStore.Form
@@ -41,19 +43,23 @@ namespace ManagementStore.Form
         //**------------------------------------------------------------------------
         private ICacheDataService<tblClientSoundMgtInfo> _tblClientSoundMgtService;
         private ICacheDataService<tblStoreDeviceInfo> _tblStoreDeviceInfoService;
-        private ICacheDataService<tblAdMgtInfo> _tblAdMgtService;
+        private ICacheDataService<tblAdMgtInfo> _tblAdMgtServiceInfo;
+        private readonly tblAdMgtService _tblAdMgtService;
         private IList<tblClientSoundMgtInfo> _listSetting;
 
         private readonly XMLReader _xml = new XMLReader();
         private int _clientSound;
         private int _clientStoreDevice;
         public bool IsReConnect { get; set; } = true;
+        public static bool isCanChangeTheAd = true;
+        public static bool isCanModify { get; set; } = false;
+        public static bool isShouldOpenCamera { get; set; } = false;
         //**------------------------------------------------------
 
-        public Home()
+        public Home(tblAdMgtService tblAdMgtService)
         {
             _log = ProgramFactory.Instance.Log;
-
+            _tblAdMgtService = tblAdMgtService;
             InitializeComponent();
         }
 
@@ -67,27 +73,164 @@ namespace ManagementStore.Form
             barItemVersion.Caption = LSystem.LVersion + ApplicationInfo.VersionName;
             barItemPort.Caption = string.Format(LSystem.LPort, ApplicationInfo.PortUser);
             _tblClientSoundMgtService = ProgramFactory.Instance.tblClientSoundMgtService;
-            _tblAdMgtService = ProgramFactory.Instance.tblAdMgtService;
+            _tblAdMgtServiceInfo = ProgramFactory.Instance.tblAdMgtService;
             _listSetting = ProgramFactory.Instance.tblClientSoundMgtInfos;
             _tblStoreDeviceInfoService = ProgramFactory.Instance.tblStoreDeviceService;
 
             _clientStoreDevice = _tblStoreDeviceInfoService.RegisterClient(_tblStoreDeviceInfoService.GetType().Name, StoreDeviceSynchronized);
             _clientSound = _tblClientSoundMgtService.RegisterClient(_tblClientSoundMgtService.GetType().Name, SoundSynchronized);
-            _tblClientSoundMgtService.SetAddedListener(_clientSound, ClientSoundAdd);
-            _tblClientSoundMgtService.SetListAddedListener(_clientSound, ClientSoundListAdd);
-            _tblClientSoundMgtService.SetRemovedListener(_clientSound, ClientSoundRemoved);
-            _tblClientSoundMgtService.SetUpdatedListener(_clientSound, ClientSoundUpdated);
-
+            //_tblClientSoundMgtService.SetAddedListener(_clientSound, ClientSoundAdd);
+            //_tblClientSoundMgtService.SetListAddedListener(_clientSound, ClientSoundListAdd);
+            //_tblClientSoundMgtService.SetRemovedListener(_clientSound, ClientSoundRemoved);
+            //_tblClientSoundMgtService.SetUpdatedListener(_clientSound, ClientSoundUpdated);
+            var _adMgtClient = _tblAdMgtService.RegisterClient(_tblAdMgtService.GetType().Name, AdMgtSynchronized);
+            _tblAdMgtService.AddCompleted += AdMgt_Added;
+            _tblAdMgtService.UpdateCompleted += AdMgt_Updated;
+            _tblAdMgtService.RemoveCompleted += AdMgt_Removed;
             _tblClientSoundMgtService.SetCustomizedListener(_clientSound, SendSoundEvent);
             _tblStoreDeviceInfoService.SetCustomizedListener(_clientStoreDevice, SendStoreEvent);
+            string url = "https://www.youtube.com/watch?v=Z9uEn2IVPkQ";
+            string videoId = Utils.GetVideoId(url);
 
-            //string html = "<html><head>";
-            //string url = "https://www.youtube.com/watch?v=Z9uEn2IVPkQ";
-            //html += "<meta content='IE=Edge' http-equiv='X-UA-Compatible'/>";
-            //html += "<iframe id='video' src= 'https://www.youtube.com/embed/{0}?autoplay=1' width='680' height='370' frameborder='0' allowfullscreen></iframe>";
-            //html += "</body></html>";
-            //this.webBrowserVideo.DocumentText = string.Format(html, Utils.GetVideoId(url));
+            string html = @"
+            <html>
+            <head>
+                <meta content='IE=Edge' http-equiv='X-UA-Compatible'/>
+                <style>
+                    body, html { margin: 0; padding: 0; overflow: hidden; }
+                    iframe { width: 100%; height: 370px; }
+                </style>
+                <script>
+                    function playVideo() {
+                        var videoElement = document.querySelector('video');
+                        if (videoElement) {
+                            videoElement.muted = true;
+                            videoElement.play();
+                            videoElement.requestFullscreen();
+                        }
+                    }
+                </script>
+            </head>
+            <body onload='playVideo()'>
+                <iframe id='video' src='https://www.youtube.com/embed/Z9uEn2IVPkQ?autoplay=1&mute=1' frameborder='0' allowfullscreen></iframe>
+            </body>
+            </html>";
+
+            string tempHtmlFilePath = Path.GetTempFileName() + ".html";
+            File.WriteAllText(tempHtmlFilePath, string.Format(html, videoId));
+            webBrowserVideo.Navigate(tempHtmlFilePath);
+
         }
+        private void AdMgtSynchronized(object sender, EventArgs<int> e)
+        {
+
+            if (isCanChangeTheAd)
+                DisplayAd();
+        }
+        private void AdMgt_Removed(object sender, EventArgs<object> e)
+        {
+
+            if (isCanChangeTheAd)
+                DisplayAd();
+        }
+        private void AdMgt_Updated(object sender, EventArgs<tblAdMgtInfo> e)
+        {
+
+            if (isCanChangeTheAd)
+                DisplayAd();
+        }
+        private void AdMgt_Added(object sender, EventArgs<tblAdMgtInfo> e)
+        {
+
+            if (isCanChangeTheAd)
+                DisplayAd();
+        }
+        public Task DisplayAd()
+        {
+            return Task.Factory.StartNew(async () =>
+            {
+                try
+                {
+                    tblAdMgtInfo adMgtInfo = new tblAdMgtInfo();
+                    tblAdStoreMgtInfo tblAdStore = new tblAdStoreMgtInfo();
+
+                    Datas dataAdMgt = new Datas
+                    {
+                        Data = adMgtInfo
+                    };
+
+                    Datas dataAdStore = new Datas
+                    {
+                        Data = tblAdStore
+                    };
+
+                    DataRequest dataAdMgtRequest = new DataRequest()
+                    {
+                        Signature = 101,
+                        FrameID = 0,
+                        FunctionCode = 12292,
+                        DataLength = 0,
+                        Data = dataAdMgt
+                    };
+
+                    DataRequest dataAdStoreRequest = new DataRequest()
+                    {
+                        Signature = 115,
+                        FrameID = 0,
+                        FunctionCode = 12292,
+                        DataLength = 0,
+                        Data = dataAdStore
+                    };
+                    var data1 = await ApiMethod.PostCall(dataAdMgtRequest);
+                    var data2 = await ApiMethod.PostCall(dataAdStoreRequest);
+
+                    if (data1.StatusCode != HttpStatusCode.OK || data2.StatusCode != HttpStatusCode.OK)
+                        return;
+
+                    RequestInfo data1Get = JsonConvert.DeserializeObject<RequestInfo>(data1.Content.ReadAsStringAsync().Result);
+                    List<tblAdMgtInfo> AdMgtData = Helpers.ConvertObjectToListModel<tblAdMgtInfo>(data1Get.Data);
+
+
+                    RequestInfo data2Get = JsonConvert.DeserializeObject<RequestInfo>(data2.Content.ReadAsStringAsync().Result);
+                    List<tblAdStoreMgtInfo> AdStoreData = JsonHelper.JsonToListInfo<tblAdStoreMgtInfo>(string.Empty + data2Get.Data);
+
+                    tblAdMgtInfo AdTopShow = null;
+                    tblAdMgtInfo AdBotShow = null;
+
+                    var innerJoin = from s in AdMgtData // outer sequence
+                                    join st in AdStoreData //inner sequence 
+                                    on s.AdNo equals st.AdNo
+                                    where st.StoreNo == ConfigClass.StoreNo
+                                    select s;
+
+                    var dateNow = DateTime.Now;
+                    isShouldOpenCamera = (BetweenTimeOfDayCamera(DateTime.Now, ConfigClass.TimeStart, ConfigClass.TimeEnd));
+                }
+                catch (Exception e)
+                {
+
+                }
+            });
+        }
+        public bool BetweenTimeOfDayCamera(DateTime input, DateTime? date1, DateTime? date2)
+        {
+            try
+            {
+                if (date1?.TimeOfDay < date2?.TimeOfDay)
+                {
+                    return (input.TimeOfDay >= date1?.TimeOfDay && input.TimeOfDay < date2?.TimeOfDay);
+                }
+
+                return (input.TimeOfDay >= date1?.TimeOfDay || input.TimeOfDay < date2?.TimeOfDay);
+            }
+            catch (Exception ex)
+            {
+
+                _log.SError(this.GetType().Name, ex.Message, ex.StackTrace, ex.Message);
+                return false; ;
+            }
+        }
+
         private void btnIdentity_Click(object sender, EventArgs e)
         {
             // splashScreenManage.ShowWaitForm();

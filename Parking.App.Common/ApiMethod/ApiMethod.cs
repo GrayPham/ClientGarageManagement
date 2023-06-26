@@ -26,12 +26,9 @@ namespace Parking.App.Common.ApiMethod
                     client.Timeout = TimeSpan.FromSeconds(900);
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
                     var json = JsonConvert.SerializeObject(model);
                     var stringContent = new StringContent(json, Encoding.UTF8, "application/json");
-
                     var response = await client.PostAsync(apiUrl, stringContent);
-                    // response.Wait();
                     return response;
                 }
             }
@@ -170,32 +167,28 @@ namespace Parking.App.Common.ApiMethod
                     Data = req
                 };
 
-                var options = new RestClientOptions(Constants.Constants.ApiServerURL)
-                {
-                    ThrowOnAnyError = true,
-                    Timeout = Constants.Constants.RequestTimeOut
-                };
-
-                var client = new RestClient(options);
-                var request = new RestRequest();
-                request.AddHeader("Content-Type", "application/json");
-                request.AddHeader("Accept", "application/json");
-                request.Timeout = Constants.Constants.RequestTimeOut;
-
                 var json = JsonConvert.SerializeObject(dataSend);
-                request.AddParameter("application/json", json, ParameterType.RequestBody);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                var resp = await client.ExecutePostAsync(request);
-
-                if (resp.StatusCode == HttpStatusCode.OK)
+                using (HttpClient client = new HttpClient())
                 {
-                    var infoRep = JsonHelper.JsonToInfo<ResultInfo>(resp.Content);
-                    if (infoRep != null)
-                        return infoRep;
-                }
+                    client.Timeout = TimeSpan.FromSeconds(Constants.Constants.RequestTimeOut);
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                result.Status = false;
-                result.ErrorMessage = resp.Content;
+                    HttpResponseMessage response = await client.PostAsync(Constants.Constants.ApiServerURL, content);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseContent = await response.Content.ReadAsStringAsync();
+                        var infoRep = JsonHelper.JsonToInfo<ResultInfo>(responseContent);
+                        if (infoRep != null)
+                            return infoRep;
+                    }
+
+                    result.Status = false;
+                    result.ErrorMessage = response.Content.ReadAsStringAsync().Result;
+                }
             }
             catch (Exception ex)
             {

@@ -2,6 +2,7 @@
 using ManagementStore.Form;
 using ManagementStore.Form.User;
 using ManagementStore.Form.User.ResisterUserSub;
+using Parking.App.Factory;
 using System;
 using System.Windows.Forms;
 
@@ -19,7 +20,7 @@ namespace ManagementStore
             Application.SetCompatibleTextRenderingDefault(false);
 
             BonusSkins.Register();
-            Application.Run(new Home());
+            Application.Run(new Home(ProgramFactory.Instance.tblAdMgtService));
         }
     }
 }

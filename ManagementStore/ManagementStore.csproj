@@ -673,6 +673,10 @@
       <Project>{23CC9A0A-7EC9-49D0-83B0-5378E3EEC412}</Project>
       <Name>Parking.App.Language</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Parking.App.Service\Parking.App.Service.csproj">
+      <Project>{B9372C81-0110-4361-B7B9-DE618A4D9D3C}</Project>
+      <Name>Parking.App.Service</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Security\Security.csproj">
       <Project>{BFFDDE66-1270-4739-B011-4EE859E0BC52}</Project>
       <Name>Security</Name>
@@ -733,6 +737,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="AdMgt\" />
     <Folder Include="Assets\Audio\" />
     <Folder Include="Assets\Images\User\" />
   </ItemGroup>
