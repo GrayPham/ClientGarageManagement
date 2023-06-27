@@ -11,6 +11,7 @@ using Connect.Common.Interface;
 using Connect.Common.Languages;
 using Connect.SocketClient;
 using DevExpress.Images;
+using ManagementStore.Common;
 using ManagementStore.DTO;
 using ManagementStore.Extensions;
 using ManagementStore.Form.User;
@@ -44,7 +45,7 @@ namespace ManagementStore.Form
 
         private void Home_Load(object sender, EventArgs e)
         {
-            GetListSound(123);
+            GetListSound(AudioConstants.HomeAudio);
             if(fileNameAudio != null || fileNameAudio != "")
             {
                 Helpers.PlaySound(@"Assets\Audio\"+ fileNameAudio + ".wav");
@@ -196,7 +197,7 @@ namespace ManagementStore.Form
                 string soundRequest = await ApiMethod.GetCallSoundAudio();
                 if (soundRequest != null)
                 {
-                    List<tblClientSoundMgtInfo> clientSoundMgtInfoOld = new List<tblClientSoundMgtInfo>();
+                    
                     List<tblClientSoundMgtInfo> clientSoundMgtInfoNew = JsonConvert.DeserializeObject<List<tblClientSoundMgtInfo>>(soundRequest);
                     tblClientSoundMgtInfo foundItemNew = clientSoundMgtInfoNew.Find(item => item.SoundNo == audioId);
                     if (!File.Exists(filePath))
@@ -207,7 +208,7 @@ namespace ManagementStore.Form
                     {
                         // Load Data from older Json file
                         string oldJsonFile = File.ReadAllText(filePath);
-                        clientSoundMgtInfoOld = JsonConvert.DeserializeObject<List<tblClientSoundMgtInfo>>(oldJsonFile);
+                        List<tblClientSoundMgtInfo> clientSoundMgtInfoOld = clientSoundMgtInfoOld = JsonConvert.DeserializeObject<List<tblClientSoundMgtInfo>>(oldJsonFile);
                         tblClientSoundMgtInfo foundItemOld = clientSoundMgtInfoOld.Find(item => item.SoundNo == audioId);
                         
                         if (foundItemOld.Version != foundItemNew.Version)
