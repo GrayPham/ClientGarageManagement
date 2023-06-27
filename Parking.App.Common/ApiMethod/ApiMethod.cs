@@ -18,6 +18,7 @@ namespace Parking.App.Common.ApiMethod
         {
             try
             {
+                // m dung ham nay thu xem
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 string apiUrl = Constants.Constants.ApiServerURL;
                 using (HttpClient client = new HttpClient())
@@ -103,6 +104,7 @@ namespace Parking.App.Common.ApiMethod
 
                 using (var httpClient = new HttpClient())
                 {
+
                     // Call the API and get the response
                     var response = await httpClient.GetAsync(url2);
 
@@ -118,6 +120,68 @@ namespace Parking.App.Common.ApiMethod
                 throw;
                 
             }
+        }
+        public async static Task<string> GetCallSoundAudio()
+        {
+            try
+            {
+                var url = "http://localhost:57966/api/apivoicefile/getlistaudiofile";
+                //var url2 = $"{url}={soundNo}";
+
+                using (var httpClient = new HttpClient())
+                {
+                    var data = new { audioId = (string)null, audioName = (string)null };
+                    var json = JsonConvert.SerializeObject(data);
+                    var stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+
+                    // Call the API and wait for the response synchronously
+                    var response = httpClient.PostAsync(url, stringContent).Result;
+
+                    // Get the content of the response as a string
+                    string content = await response.Content.ReadAsStringAsync();
+
+                    // Print the content to the console
+                    return content;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Bug + " + ex.ToString());
+
+                return "";
+            }
+           
+        }
+        public async static Task<string> GetSourceAudio(string soundNo)
+        {
+            try
+            {
+                var url = "http://localhost:57966/api/apivoicefile/getsourceaudiofile?soundNo";
+                var url2 = $"{url}={soundNo}";
+
+                using (var httpClient = new HttpClient())
+                {
+                    //var data = new { audioId = (string)null, audioName = (string)null };
+                    //var json = JsonConvert.SerializeObject(data);
+                    //var stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+
+                    // Call the API and wait for the response synchronously
+                    var response = httpClient.GetAsync(url2).Result;
+
+                    
+                    string content = await response.Content.ReadAsStringAsync();
+
+                    // Print the content to the console
+                    return content;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Bug + " + ex.ToString());
+
+                return "";
+            }
+
         }
         public static ResultInfo DownFileAdmgt(object key,string filePath)
         {
