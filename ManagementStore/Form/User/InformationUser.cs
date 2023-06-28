@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.DXErrorProvider;
+using ManagementStore.Common;
 using ManagementStore.Extensions;
 using ManagementStore.Extensions.Validations;
 using ManagementStore.Model.Static;
@@ -18,17 +19,20 @@ namespace ManagementStore.Form.User
     public partial class InformationUser : System.Windows.Forms.UserControl
     {
         public List<string> Num;
-
+        private string fileNameAudio;
         public InformationUser()
         {
             Num = new List<String>();
             InitializeComponent();
-            Helpers.PlaySound(@"Assets\Audio\userInfor.wav");
         }
-        private void InformationUser_Load(object sender, EventArgs e)
+        private async void InformationUser_Load(object sender, EventArgs e)
         {
             // Add items to the ComboBoxEdit
-
+            fileNameAudio = await AudioConstants.GetListSound(AudioConstants.InforUser);
+            if (fileNameAudio != null && fileNameAudio != "")
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+            }
             ccbSelectGender.Properties.Items.Add("Male");
             ccbSelectGender.Properties.Items.Add("Female");
             ccbSelectGender.Properties.Items.Add("Other");

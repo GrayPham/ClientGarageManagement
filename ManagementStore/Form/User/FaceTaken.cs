@@ -39,11 +39,11 @@ namespace ManagementStore.Form.User
         ObjectDetectionSSD cccd;
         public static string fullPathMainForm = Helpers.GetFullPathOfMainForm();
         string imgPath = "";
+        private string fileNameAudio;
         public FaceTaken()
         {
             InitializeComponent();
             string path = System.IO.Path.GetDirectoryName(new System.Uri(System.Reflection.Assembly.GetExecutingAssembly().CodeBase).LocalPath);
-            Helpers.PlaySound(@"Assets\Audio\FaceTaken.wav");
             // ssd = new ObjectDetectionVGG(ModelConfig.dataFolderPath + "/vgg16-ssd-vehicle.onnx");
             // mb = new ObjectDetectionMB(ModelConfig.dataFolderPath + "/ssd_mobilenet_v1_10.onnx");
             cccd = new ObjectDetectionSSD(ModelConfig.dataFolderPath + "/vehicle.onnx");
@@ -316,8 +316,13 @@ namespace ManagementStore.Form.User
             capture.Dispose();
         }
 
-        private void FaceTaken_Load(object sender, EventArgs e)
+        private async void FaceTaken_Load(object sender, EventArgs e)
         {
+            fileNameAudio = await AudioConstants.GetListSound(AudioConstants.InforUser);
+            if (fileNameAudio != null && fileNameAudio != "")
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+            }
         }
 
         private void btnDone_Click(object sender, EventArgs e)

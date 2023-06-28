@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraSplashScreen;
+using ManagementStore.Common;
 using ManagementStore.Extensions;
 using ManagementStore.Model.Static;
 using Parking.App.Common.Helper;
@@ -15,16 +16,17 @@ namespace ManagementStore.Form.User
     {
         public List<string> Num;
         private Dictionary<string, string> phoneCodes;
+        private string fileNameAudio;
         public PhoneNumber()
         {
             Num = new List<String>();
             InitializeComponent();
             // btnNext.Enabled = false;
-            Helpers.PlaySound(@"Assets\Audio\InputPhone.wav");
+            
 
         }
 
-        private void PhoneNumber_Load(object sender, EventArgs e)
+        private async void PhoneNumber_Load(object sender, EventArgs e)
         {
             phoneTxt.Text = "0365858975";
             // splashScreenManager.ShowWaitForm();
@@ -32,7 +34,11 @@ namespace ManagementStore.Form.User
             ccbCountryNumber.Properties.TextEditStyle = TextEditStyles.DisableTextEditor;      
             AddFormattedPhoneCodes();
             ccbCountryNumber.Select(0, 1);
-            Thread.Sleep(1000);
+            fileNameAudio = await AudioConstants.GetListSound(AudioConstants.InputPhone);
+            if (fileNameAudio != null && fileNameAudio != "")
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+            }
             // splashScreenManager.CloseWaitForm();
 
         }
@@ -50,8 +56,17 @@ namespace ManagementStore.Form.User
 
             // splashScreenManager.ShowWaitForm();
             VerifyPhoneNumber.OTPCode = Utils.SendOTPSMS(VerifyPhoneNumber.PhoneNumber);
+            
+            var citizenCapture = ParentForm.Controls.Find("PhoneOTP", true);
+            if (citizenCapture.Length > 0)
+            {
+                var controlToRemove = citizenCapture[0];
+                ParentForm.Controls.Remove(controlToRemove);
+                controlToRemove.Dispose();
+            }
+            ParentForm.Controls.Find("panelSlider", true)[0].Controls.Add(new PhoneOTP());
             Utils.Forward(ParentForm, "pictureBoxPhone", "pictureBoxOTP", "PhoneOTP");
-            Thread.Sleep(1000);
+            
             // splashScreenManager.CloseWaitForm();
             UserInfo.PhoneNumber = VerifyPhoneNumber.PhoneNumber;
         }

@@ -24,6 +24,8 @@ namespace ManagementStore.Common
         public static readonly int FaceTaken = 204;
         public static readonly int SuccessfulRegister = 303;
         public static readonly int RegisteredMember = 101;
+        public static readonly int InputPhone = 301;
+        public static readonly int OTPPhone = 302;
         public static async Task<string> GetListSound(int audioId)
         {
             try

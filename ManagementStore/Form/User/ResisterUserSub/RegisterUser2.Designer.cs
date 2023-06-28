@@ -37,7 +37,7 @@ namespace ManagementStore.Form.User
             this.panelSlider2 = new DevExpress.XtraEditors.SidePanel();
             this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             this.sidePanel4 = new DevExpress.XtraEditors.SidePanel();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.pictureBoxName = new System.Windows.Forms.PictureBox();
             this.labelBday = new DevExpress.XtraEditors.LabelControl();
@@ -156,7 +156,7 @@ namespace ManagementStore.Form.User
             // 
             this.sidePanel4.Appearance.BackColor = System.Drawing.Color.LightGray;
             this.sidePanel4.Appearance.Options.UseBackColor = true;
-            this.sidePanel4.Controls.Add(this.simpleButton1);
+            this.sidePanel4.Controls.Add(this.btnExit);
             this.sidePanel4.Controls.Add(this.labelControl1);
             this.sidePanel4.Controls.Add(this.pictureBoxName);
             this.sidePanel4.Controls.Add(this.labelBday);
@@ -175,18 +175,19 @@ namespace ManagementStore.Form.User
             this.sidePanel4.TabIndex = 7;
             this.sidePanel4.Text = "sidePanel4";
             // 
-            // simpleButton1
+            // btnExit
             // 
-            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.Tomato;
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton1.Appearance.Options.UseBackColor = true;
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Location = new System.Drawing.Point(0, 538);
-            this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(202, 63);
-            this.simpleButton1.TabIndex = 11;
-            this.simpleButton1.Text = "Exit";
+            this.btnExit.Appearance.BackColor = System.Drawing.Color.Tomato;
+            this.btnExit.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Appearance.Options.UseBackColor = true;
+            this.btnExit.Appearance.Options.UseFont = true;
+            this.btnExit.Location = new System.Drawing.Point(0, 538);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(202, 63);
+            this.btnExit.TabIndex = 11;
+            this.btnExit.Text = "Exit";
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // labelControl1
             // 
@@ -325,6 +326,7 @@ namespace ManagementStore.Form.User
             this.Name = "RegisterUser2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegisterUser2";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RegisterUser2_FormClosed);
             this.sidePanel1.ResumeLayout(false);
             this.sidePanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -353,7 +355,7 @@ namespace ManagementStore.Form.User
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.SidePanel sidePanel4;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btnExit;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         public System.Windows.Forms.PictureBox pictureBoxName;
         private DevExpress.XtraEditors.LabelControl labelBday;

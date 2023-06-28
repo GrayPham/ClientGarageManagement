@@ -66,13 +66,14 @@ namespace ManagementStore.Form
             this.webBrowserVideo.DocumentText = "";
             Helpers.StopSound();
             
-            TypeRegister typeRegister = new TypeRegister();
+            TypeRegister typeRegister = new TypeRegister(this);
             
             Hide();
 
             splashScreenManager1.CloseWaitForm();
-            typeRegister.ShowDialog();
-            Show();
+            typeRegister.Show();
+            //Show();
+            //cameraControl.Start();
 
         }
 

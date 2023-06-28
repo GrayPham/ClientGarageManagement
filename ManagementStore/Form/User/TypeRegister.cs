@@ -12,8 +12,10 @@ namespace ManagementStore.Form.User
         private Timer timer;
         private int countDown = 0;
         private string fileNameAudio;
-        public TypeRegister()
+        private Home _home;
+        public TypeRegister(Home home)
         {
+            _home = home;
             InitializeComponent();
             
             
@@ -64,14 +66,14 @@ namespace ManagementStore.Form.User
         private void pictureBoxCard_Click(object sender, EventArgs e)
         {
             Helpers.StopSound();
-            RegisterUser2 registerUserCard = new RegisterUser2();
+            RegisterUser2 registerUserCard = new RegisterUser2(_home);
             registerUserCard.Show();
             this.Close();
         }
 
         private void btmExit_Click(object sender, EventArgs e)
         {
-
+            _home.Show();
             this.Close();
         }
     }

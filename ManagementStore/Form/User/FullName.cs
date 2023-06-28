@@ -1,4 +1,5 @@
-﻿using ManagementStore.Extensions;
+﻿using ManagementStore.Common;
+using ManagementStore.Extensions;
 using Parking.App.Common.Helper;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ namespace ManagementStore.Form.User
     public partial class FullName : System.Windows.Forms.UserControl
     {
         public List<string> character;
+        private string fileNameAudio;
         public FullName()
         {
             character = new List<String>();
@@ -17,9 +19,14 @@ namespace ManagementStore.Form.User
             Helpers.PlaySound(@"Assets\Audio\FullnameCCCD.wav");
         }
 
-        private void FullName_Load(object sender, EventArgs e)
+        private async void FullName_Load(object sender, EventArgs e)
         {
             //CustomKeyboardForm();
+            fileNameAudio = await AudioConstants.GetListSound(AudioConstants.FullName);
+            if (fileNameAudio != null && fileNameAudio != "")
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+            }
         }
 
         private void Button_Click(object sender, EventArgs e)

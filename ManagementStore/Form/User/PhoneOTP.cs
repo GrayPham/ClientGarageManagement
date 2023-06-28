@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using ManagementStore.Common;
 using ManagementStore.Extensions;
 using ManagementStore.Model.Static;
 using Parking.App.Common.Helper;
@@ -12,12 +13,21 @@ namespace ManagementStore.Form.User
     public partial class PhoneOTP : System.Windows.Forms.UserControl
     {
         public List<string> Num;
+        private string fileNameAudio;
         public PhoneOTP()
         {
             Num = new List<String>();
             InitializeComponent();
-            Helpers.PlaySound(@"Assets\Audio\otpPhone.wav");
+            
 
+        }
+        private async void PhoneOTP_Load(object sender, EventArgs e)
+        {
+            fileNameAudio = await AudioConstants.GetListSound(AudioConstants.OTPPhone);
+            if (fileNameAudio != null && fileNameAudio != "")
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+            }
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -138,5 +148,7 @@ namespace ManagementStore.Form.User
             Utils.SendOTPSMS(VerifyPhoneNumber.PhoneNumber);
             XtraMessageBox.Show("Resend OTP successfull", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+
     }
 }
