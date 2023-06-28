@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using ManagementStore.Common;
 using ManagementStore.Extensions;
 using ManagementStore.Model.Static;
 using Parking.App.Common.Helper;
@@ -17,11 +18,20 @@ namespace ManagementStore.Form.User.ResisterUserSub
     public partial class FullNameCCCD : DevExpress.XtraEditors.XtraUserControl
     {
         public List<string> character;
+        private string fileNameAudio;
         public FullNameCCCD()
         {
             InitializeComponent();
             character = new List<String>();
-            Helpers.PlaySound(@"Assets\Audio\FullnameCCCD.wav");
+  
+        }
+        private async void FullNameCCCD_Load(object sender, EventArgs e)
+        {
+            fileNameAudio = await AudioConstants.GetListSound(AudioConstants.FullName);
+            if (fileNameAudio != null && fileNameAudio != "")
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+            }
         }
         private void DisplayPhoneNumber()
         {
@@ -229,5 +239,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             Utils.BackCCCD(ParentForm, "pictureBoxName", "pictureBoxInfo", "UserInfor");
             splashScreenManager1.CloseWaitForm();
         }
+
+
     }
 }

@@ -13,27 +13,34 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ManagementStore.Model.Static;
 using Parking.App.Common.Helper;
+using ManagementStore.Common;
 
 namespace ManagementStore.Form.User.ResisterUserSub
 {
     public partial class UserInfor : System.Windows.Forms.UserControl
     {
         public List<string> Num;
+        private string fileNameAudio;
         public UserInfor()
         {
             InitializeComponent();
             Num = new List<String>();
-            Helpers.PlaySound(@"Assets\Audio\userInfor.wav");
+            
         }
-        private void UserInfor_Load(object sender, EventArgs e)
+        private async void UserInfor_Load(object sender, EventArgs e)
         {
             ccbSelectGender.Properties.Items.Add("Male");
             ccbSelectGender.Properties.Items.Add("Female");
             ccbSelectGender.Properties.Items.Add("Other");
             ccbSelectGender.Properties.TextEditStyle = TextEditStyles.DisableTextEditor;
-
             ccbSelectGender.Properties.DropDownRows = 5;
             ccbSelectGender.SelectedIndex = 0;
+
+            fileNameAudio = await AudioConstants.GetListSound(AudioConstants.InforUser);
+            if (fileNameAudio != null && fileNameAudio != "")
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+            }
         }
         #region Number
         private void btnNum8_Click(object sender, EventArgs e)

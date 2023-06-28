@@ -34,12 +34,19 @@ namespace ManagementStore.Form.User
         List<DetectionResult> detectionResults;
         ObjectDetectionSSD ssd;
 
-
+        private string fileNameAudio;
         private const string badImage = "Bad Image";
         private const string badDetect = "Not Detect ID";
         private const string STATUS_CCCD_5 = "Is Unknown";
         private const string STATUS_CCCD_3 = "Not Detect ID";
-        
+        private async void CitizenshipIDCapture_Load(object sender, EventArgs e)
+        {
+            fileNameAudio = await AudioConstants.GetListSound(AudioConstants.AuthenticationCCCD);
+            if (fileNameAudio != null && fileNameAudio != "")
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+            }
+        }
         public CitizenshipIDCapture()
         {
             InitializeComponent();
@@ -48,7 +55,7 @@ namespace ManagementStore.Form.User
             ssd = new ObjectDetectionSSD(ModelConfig.dataFolderPath + "/mb2-ssd-lite-predict.onnx");
             // Initialize the camera capture
             capture = new VideoCapture(0);
-            Helpers.PlaySound(@"Assets\Audio\DuaCCCDToCamera.wav");
+            
             // ShowImage = new ShowImageCCCD();
             Application.Idle += Capture_ImageGrabbed;
             //capture.Start();
@@ -230,5 +237,7 @@ namespace ManagementStore.Form.User
                 }
             }
         }
+
+
     }
 }

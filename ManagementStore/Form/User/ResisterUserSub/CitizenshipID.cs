@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using ManagementStore.Form.User.ResisterUserSub;
 using ManagementStore.Model.Static;
 using Parking.App.Common.Helper;
+using ManagementStore.Common;
 
 namespace ManagementStore.Form.User
 {
@@ -21,13 +22,13 @@ namespace ManagementStore.Form.User
     {
         public List<string> Num;
         private int number_character = 12;
+        private string fileNameAudio;
         public CitizenshipID()
         {
             InitializeComponent();
-            Helpers.PlaySound(@"Assets\Audio\NhapCCCD.wav");
             Num = new List<String>();
         }
-        private void CCCDNumber_Load(object sender, EventArgs e)
+        private async void CCCDNumber_Load(object sender, EventArgs e)
         {
             //splashScreenManager.ShowWaitForm();
             cccdTxt.Text = "066201000447";
@@ -35,8 +36,13 @@ namespace ManagementStore.Form.User
             //ccbCountryNumber.Properties.TextEditStyle = TextEditStyles.DisableTextEditor;
             //AddFormattedPhoneCodes();
             //ccbCountryNumber.Select(0, 1);
-            Thread.Sleep(1000);
+            //Thread.Sleep(1000);
             //splashScreenManager.CloseWaitForm();
+            fileNameAudio = await AudioConstants.GetListSound(AudioConstants.InputCCCD);
+            if (fileNameAudio != null && fileNameAudio != "")
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+            }
 
         }
         #region Button click

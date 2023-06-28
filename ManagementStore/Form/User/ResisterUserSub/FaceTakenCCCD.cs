@@ -34,6 +34,15 @@ namespace ManagementStore.Form.User.ResisterUserSub
         private CountdownPictureBox countdownPicture;
         private int countObject = 0;
         ShowImageTaken image;
+        private string fileNameAudio;
+        private async void FaceTakenCCCD_Load(object sender, EventArgs e)
+        {
+            fileNameAudio = await AudioConstants.GetListSound(AudioConstants.FaceTaken);
+            if (fileNameAudio != null && fileNameAudio != "")
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+            }
+        }
         public FaceTakenCCCD()
         {
             InitializeComponent();
@@ -45,7 +54,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             capture = new VideoCapture();
             capture.ImageGrabbed += Capture_ImageGrabbed;
             capture.Start();
-            Helpers.PlaySound(@"Assets\Audio\FaceTaken.wav");
+           
             // Set the initial countdown value and Timer interval
             countdownValue = 5;
             timer = new Timer();
@@ -308,6 +317,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
                 }
             }
         }
+
 
     }
 }

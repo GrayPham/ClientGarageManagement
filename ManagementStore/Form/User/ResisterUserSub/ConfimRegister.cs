@@ -1,5 +1,6 @@
 ﻿using Connect.Common.Contract;
 using DevExpress.XtraEditors;
+using ManagementStore.Common;
 using ManagementStore.Model.Static;
 using Parking.App.Common;
 using Parking.App.Common.ApiMethod;
@@ -24,16 +25,24 @@ namespace ManagementStore.Form.User.ResisterUserSub
     public partial class ConfimRegister : DevExpress.XtraEditors.XtraForm
     {
         public bool CaptureAgain { get; private set; }
+        private string fileNameAudio;
         public ConfimRegister()
         {
             InitializeComponent();
-            Helpers.PlaySound(@"Assets\Audio\SuccessfulRegister.wav");
             fullNameTxt.Text = UserCCCD.FullName != null ? UserCCCD.FullName : "Pham Van Manh Hung";
             birthdayTxt.Text = UserCCCD.BirthDay;
             genderTxt.Text = UserCCCD.Gender != null ? UserCCCD.Gender : "Male"; ;
             pictureTaken.Image = UserCCCD.Picture != null ? ConvertBase64ToImage(UserCCCD.Picture): pictureTaken.Image;
             pictureBoxCCCD.Image = UserCCCD.PictureCCCD != null ? ConvertBase64ToImage(UserCCCD.PictureCCCD) : pictureBoxCCCD.Image;
         
+        }
+        private async void ConfimRegister_Load(object sender, EventArgs e)
+        {
+            fileNameAudio = await AudioConstants.GetListSound(AudioConstants.SuccessfulRegister);
+            if (fileNameAudio != null && fileNameAudio != "")
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+            }
         }
         public Image ConvertBase64ToImage(string base64String)
         {
@@ -185,7 +194,11 @@ namespace ManagementStore.Form.User.ResisterUserSub
             var repose = await ApiMethod.PostCall(userMgtData);
             if (repose.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                Helpers.PlaySound(@"Assets\Audio\RegisteredMember.wav");
+                fileNameAudio = await AudioConstants.GetListSound(AudioConstants.RegisteredMember);
+                if (fileNameAudio != null && fileNameAudio != "")
+                {
+                    Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+                }
                 XtraMessageBox.Show("Registed account successfully", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // TODO: send message register successfully
                 
@@ -204,5 +217,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.Close();
            
         }
+
+
     }
 }
