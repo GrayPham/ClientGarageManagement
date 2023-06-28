@@ -1,4 +1,5 @@
-﻿using ManagementStore.Model.Static;
+﻿using ManagementStore.Common;
+using ManagementStore.Model.Static;
 using Parking.App.Common.Helper;
 using System;
 using System.Drawing;
@@ -10,10 +11,12 @@ namespace ManagementStore.Form.User
     {
         private Timer timer;
         private int countDown = 0;
+        private string fileNameAudio;
         public TypeRegister()
         {
             InitializeComponent();
-            Helpers.PlaySound(@"Assets\Audio\typeRegister.wav");
+            
+            
             sidePanel3.BackColor = ColorTranslator.FromHtml("#2980b9");
             sidePanel4.BackColor = ColorTranslator.FromHtml("#2980b9");
             pictureBox5.BackColor = ColorTranslator.FromHtml("#2980b9");
@@ -44,8 +47,13 @@ namespace ManagementStore.Form.User
             this.Hide();
         }
 
-        private void TypeRegister_Load(object sender, System.EventArgs e)
+        private async void TypeRegister_Load(object sender, System.EventArgs e)
         {
+            fileNameAudio = await AudioConstants.GetListSound(AudioConstants.TypeRegister);
+            if (fileNameAudio != null && fileNameAudio != "")
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+            }
             timer = new Timer();
             timer.Interval = 1000; // 1 second
             timer.Tick += Timer_Tick;

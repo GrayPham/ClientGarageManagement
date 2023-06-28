@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using Connect.Common;
 using Connect.Common.Common;
 using Connect.Common.Contract;
@@ -12,18 +8,12 @@ using Connect.Common.Languages;
 using Connect.SocketClient;
 using DevExpress.Images;
 using ManagementStore.Common;
-using ManagementStore.DTO;
-using ManagementStore.Extensions;
 using ManagementStore.Form.User;
-using NAudio.Wave;
-using Newtonsoft.Json;
-using Parking.App.Common.ApiMethod;
 using Parking.App.Common.Helper;
 using Parking.App.Contract.Common;
 using Parking.App.Factory;
 using Parking.App.Interface.Common;
 using Parking.App.Language;
-using Parking.Contract.Common;
 
 namespace ManagementStore.Form
 {
@@ -35,7 +25,7 @@ namespace ManagementStore.Form
         private int _counter;
         private static int Counter = 10;
         private string fileNameAudio;
-
+        //private const int soundAudioNo = 123;
         public Home()
         {
             _log = ProgramFactory.Instance.Log;
@@ -43,10 +33,10 @@ namespace ManagementStore.Form
             InitializeComponent();
         }
 
-        private void Home_Load(object sender, EventArgs e)
+        private async void Home_Load(object sender, EventArgs e)
         {
-            GetListSound(AudioConstants.HomeAudio);
-            if(fileNameAudio != null || fileNameAudio != "")
+            fileNameAudio= await AudioConstants.GetListSound(AudioConstants.HomeAudio);
+            if(fileNameAudio != null && fileNameAudio != "")
             {
                 Helpers.PlaySound(@"Assets\Audio\"+ fileNameAudio + ".wav");
             }
@@ -187,92 +177,6 @@ namespace ManagementStore.Form
             _timer.Stop();
         }
 
-        #region Audio
-        private async void GetListSound(int audioId)
-        {
-            try
-            {
-                // Request to Page View 
-                string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Settings\\audioSettings.json");
-                string soundRequest = await ApiMethod.GetCallSoundAudio();
-                if (soundRequest != null)
-                {
-                    
-                    List<tblClientSoundMgtInfo> clientSoundMgtInfoNew = JsonConvert.DeserializeObject<List<tblClientSoundMgtInfo>>(soundRequest);
-                    tblClientSoundMgtInfo foundItemNew = clientSoundMgtInfoNew.Find(item => item.SoundNo == audioId);
-                    if (!File.Exists(filePath))
-                    {
-                        File.Create(filePath);
-                    }
-                    else
-                    {
-                        // Load Data from older Json file
-                        string oldJsonFile = File.ReadAllText(filePath);
-                        List<tblClientSoundMgtInfo> clientSoundMgtInfoOld = clientSoundMgtInfoOld = JsonConvert.DeserializeObject<List<tblClientSoundMgtInfo>>(oldJsonFile);
-                        tblClientSoundMgtInfo foundItemOld = clientSoundMgtInfoOld.Find(item => item.SoundNo == audioId);
-                        
-                        if (foundItemOld.Version != foundItemNew.Version)
-                        {
-                            // Sent API to get New file audio
-                            string result = await ApiMethod.GetSourceAudio("123");
-                            if (result != "")
-                            {
-                                ResultAudioDto resultAudioDto = JsonConvert.DeserializeObject<ResultAudioDto>(result);
-                                if (resultAudioDto.Success == true)
-                                {
-                                    string folderAudio = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets\\Audio");
-                                    ByteArrayToWaveFile(resultAudioDto.Data, folderAudio+"\\"+ resultAudioDto.SoundName);
-                                    string tempSound = Path.Combine(folderAudio, folderAudio + "\\" + resultAudioDto.SoundName);
-                                    if (File.Exists(tempSound))
-                                    {
-                                        using (var reader = new MediaFoundationReader(tempSound))
-                                        {
-                                            WaveFileWriter.CreateWaveFile(Path.Combine(tempSound + ".wav"), reader);
-                                            File.Delete(tempSound);
-                   
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        
-                    }
-                    fileNameAudio = foundItemNew.SoundName;
-                    //Convert Json Object and Update New Json File 
-                    var jsonObject = JsonConvert.DeserializeObject(soundRequest);
-                    File.WriteAllText(filePath, JsonConvert.SerializeObject(jsonObject));
 
-                    
-                }
-                
-            }
-            catch
-            {
-                throw;
-            }
-
-
-        }
-        public static void ByteArrayToWaveFile(byte[] byteArray, string fileName)
-        {
-            // Create a FileStream object to write the byte array to a file
-            FileStream fileStream = new FileStream(fileName, FileMode.Create);
-
-            try
-            {
-                // Write the byte array to the FileStream
-                fileStream.Write(byteArray, 0, byteArray.Length);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error writing wave file: " + ex.Message);
-            }
-            finally
-            {
-                // Close the FileStream
-                fileStream.Close();
-            }
-        }
-        #endregion
     }
 }
