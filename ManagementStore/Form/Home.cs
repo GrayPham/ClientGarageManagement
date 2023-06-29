@@ -40,6 +40,10 @@ namespace ManagementStore.Form
             {
                 Helpers.PlaySound(@"Assets\Audio\"+ fileNameAudio + ".wav");
             }
+            else
+            {
+                Helpers.PlaySound(@"Assets\DefaultAudio\" + AudioConstants.HomeAudio + ".wav");
+            }
             
             ProgramFactory.Instance.ProgramController = this;
             _log = ProgramFactory.Instance.Log;

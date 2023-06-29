@@ -15,18 +15,18 @@ namespace ManagementStore.Common
     class AudioConstants
     {
         private static string basePath = AppDomain.CurrentDomain.BaseDirectory;
-        public static readonly int HomeAudio = 123;
-        public static readonly int TypeRegister = 100;
-        public static readonly int InputCCCD = 1;
-        public static readonly int AuthenticationCCCD = 201;
-        public static readonly int InforUser = 202;
-        public static readonly int FullName = 203;
-        public static readonly int FaceTaken = 204;
-        public static readonly int SuccessfulRegister = 303;
-        public static readonly int RegisteredMember = 101;
-        public static readonly int InputPhone = 301;
-        public static readonly int OTPPhone = 302;
-        public static async Task<string> GetListSound(int audioId)
+        public static readonly string HomeAudio = "SOUN19";
+        public static readonly string TypeRegister = "SOUN28";
+        public static readonly string InputCCCD = "SOUN23";
+        public static readonly string AuthenticationCCCD = "SOUN24";
+        public static readonly string InforUser = "SOUN25";
+        public static readonly string FullName = "SOUN26";
+        public static readonly string FaceTaken = "SOUN27";
+        public static readonly string SuccessfulRegister = "SOUN17";
+        public static readonly string RegisteredMember = "SOUN16";
+        public static readonly string InputPhone = "SOUN03";
+        public static readonly string OTPPhone = "SOUN04";
+        public static async Task<string> GetListSound(string typeName)
         {
             try
             {
@@ -39,45 +39,47 @@ namespace ManagementStore.Common
 
                     List<tblClientSoundMgtInfo> clientSoundMgtInfoNew = JsonConvert.DeserializeObject<List<tblClientSoundMgtInfo>>(soundRequest);
                     tblClientSoundMgtInfo foundItemNew = new tblClientSoundMgtInfo();
-                    foundItemNew = clientSoundMgtInfoNew.Find(item => item.SoundNo == audioId);
+                    foundItemNew = clientSoundMgtInfoNew.Find(item => item.SoundType == typeName);
                     if (!File.Exists(filePath))
                     {
                         File.Create(filePath).Close();
                         //Convert Json Object and Update New Json File 
                         var jsonObject = JsonConvert.DeserializeObject(soundRequest);
                         File.WriteAllText(filePath, JsonConvert.SerializeObject(jsonObject));
-                        GetByteArrayAudio(audioId);
-
-
+                        GetByteArrayAudio(foundItemNew.SoundNo);
                     }
                     else
                     {
                         // Load Data from older Json file
                         string oldJsonFile = File.ReadAllText(filePath);
                         List<tblClientSoundMgtInfo> clientSoundMgtInfoOld = clientSoundMgtInfoOld = JsonConvert.DeserializeObject<List<tblClientSoundMgtInfo>>(oldJsonFile);
-                        tblClientSoundMgtInfo foundItemOld = clientSoundMgtInfoOld.Find(item => item.SoundNo == audioId);
-                        // ? Neu nhu khong khac version nhung chua co file trong he thong thi sao
-                        if (foundItemOld.Version != foundItemNew.Version)
+                        tblClientSoundMgtInfo foundItemOld = clientSoundMgtInfoOld.Find(item => item.SoundNo == foundItemNew.SoundNo);
+                        if(foundItemOld != null)
                         {
-                            //Convert Json Object and Update New Json File 
-                            var jsonObject = JsonConvert.DeserializeObject(soundRequest);
-                            File.WriteAllText(filePath, JsonConvert.SerializeObject(jsonObject));
-                            // Sent API to get New file audio
-                            GetByteArrayAudio(audioId);
-                        }
-                        else
-                        {
-                            string folderAudioFile = Path.Combine(basePath, "Assets\\Audio\\"+ foundItemNew.SoundName + ".wav");
-                            if (!File.Exists(folderAudioFile))
+                            if (foundItemOld.Version != foundItemNew.Version)  // Update Type Sound && Version Sound && New Datetime 
                             {
-                                GetByteArrayAudio(audioId);
+                                //Convert Json Object and Update New Json File 
+                                var jsonObject = JsonConvert.DeserializeObject(soundRequest);
+                                File.WriteAllText(filePath, JsonConvert.SerializeObject(jsonObject));
+                                // Sent API to get New file audio
+                                GetByteArrayAudio(foundItemNew.SoundNo);
+                            }
+                            else
+                            {
+                                string folderAudioFile = Path.Combine(basePath, "Assets\\Audio\\" + foundItemNew.SoundName + ".wav");
+                                if (!File.Exists(folderAudioFile))
+                                {
+                                    GetByteArrayAudio(foundItemNew.SoundNo);
+                                }
                             }
                         }
+                        else // If not found oldFile
+                        {
+                            GetByteArrayAudio(foundItemNew.SoundNo);
+                        }
+                        
 
                     }
-                    
-
-
                     return foundItemNew.SoundName;
                 }
                 return "";

@@ -43,6 +43,10 @@ namespace ManagementStore.Form.User
             {
                 Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
             }
+            else
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + AudioConstants.InputCCCD + ".wav");
+            }
 
         }
         #region Button click

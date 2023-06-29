@@ -41,6 +41,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             {
                 Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
             }
+            else
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + AudioConstants.InforUser + ".wav");
+            }
         }
         #region Number
         private void btnNum8_Click(object sender, EventArgs e)

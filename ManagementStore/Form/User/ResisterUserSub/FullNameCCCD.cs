@@ -32,6 +32,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             {
                 Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
             }
+            else
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + AudioConstants.FullName + ".wav");
+            }
         }
         private void DisplayPhoneNumber()
         {

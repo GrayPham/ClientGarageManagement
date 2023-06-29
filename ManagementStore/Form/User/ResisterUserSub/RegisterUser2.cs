@@ -25,36 +25,52 @@ namespace ManagementStore.Form.User
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+            
 
-            foreach (Control control in panelSlider2.Controls)
+            var citizenCapture = panelSlider2.Controls.Find("CitizenshipIDCapture", true);
+            if (citizenCapture.Length > 0)
             {
-                if (control is UserControl)
-                {
-                    
-                    panelSlider2.Controls.Remove(control);
-                    
-                }
+                var controlToRemove = citizenCapture[0] as CitizenshipIDCapture;
+                controlToRemove.capture.Dispose();
+                Application.Idle -= controlToRemove.Capture_ImageGrabbed;
+                controlToRemove.timer.Tick -= controlToRemove.Timer_TickAsync;
+                panelSlider2.Controls.Remove(controlToRemove);
+                controlToRemove.Dispose();
             }
-            _home.Show();
-            _home.cameraControl.Start();
-            this.Close();
+            panelSlider2.Controls.Clear();
+            sidePanel4.Controls.Clear();
+            panelSlider2.Dispose();
+            sidePanel4.Dispose();
+            pictureEdit1.Dispose();
+            sidePanel1.Dispose();
+
+            _home.Invoke(new Action(() =>
+            {
+                _home.Show();
+                _home.cameraControl.Start();
+            }));
+
+            Close();
         }
 
         private void RegisterUser2_FormClosed(object sender, FormClosedEventArgs e)
         {
-            
-            _home.Show();
-            _home.cameraControl.Start();
-            //panelSlider2.Controls.RE
-            foreach (Control control in panelSlider2.Controls)
+            panelSlider2.Controls.Clear();
+            sidePanel4.Controls.Clear();
+
+
+            panelSlider2.Dispose();
+            sidePanel4.Dispose();
+            pictureEdit1.Dispose();
+            sidePanel1.Dispose();
+
+            _home.Invoke(new Action(() =>
             {
-                if (control is UserControl)
-                {
-                    panelSlider2.Controls.Remove(control);
-                    control.Dispose();
-                }
-            }
-            this.Close();
+                _home.Show();
+                _home.cameraControl.Start();
+            }));
+
+            Close();
         }
     }
 }

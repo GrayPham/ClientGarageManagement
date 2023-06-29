@@ -43,6 +43,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             {
                 Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
             }
+            else
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + AudioConstants.SuccessfulRegister + ".wav");
+            }
         }
         public Image ConvertBase64ToImage(string base64String)
         {
@@ -198,6 +202,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
                 if (fileNameAudio != null && fileNameAudio != "")
                 {
                     Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+                }
+                else
+                {
+                    Helpers.PlaySound(@"Assets\Audio\" + AudioConstants.RegisteredMember + ".wav");
                 }
                 XtraMessageBox.Show("Registed account successfully", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // TODO: send message register successfully

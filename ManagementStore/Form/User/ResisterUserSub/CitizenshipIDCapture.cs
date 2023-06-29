@@ -27,9 +27,9 @@ namespace ManagementStore.Form.User
 {
     public partial class CitizenshipIDCapture : System.Windows.Forms.UserControl
     {
-        private VideoCapture capture;
+        public VideoCapture capture;
         private int countdownValue;
-        private Timer timer;
+        public Timer timer;
         //ShowImageCCCD showImage;
         List<DetectionResult> detectionResults;
         ObjectDetectionSSD ssd;
@@ -68,7 +68,7 @@ namespace ManagementStore.Form.User
             // Start the Timer
             timer.Start();
         }
-        private async void  Timer_TickAsync(object sender, EventArgs e)
+        public async void  Timer_TickAsync(object sender, EventArgs e)
         {
             countdownValue--;
             showCountDown.Text = $"The photo will be taken in {countdownValue.ToString()} second.";
@@ -134,7 +134,7 @@ namespace ManagementStore.Form.User
             }
             
         }
-        private void Capture_ImageGrabbed(object sender, EventArgs e)
+        public void Capture_ImageGrabbed(object sender, EventArgs e)
         { 
             // Try catch
             if (capture != null && capture.Ptr != IntPtr.Zero)

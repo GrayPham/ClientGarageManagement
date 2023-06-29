@@ -44,7 +44,7 @@ namespace ManagementStore.Form.User
         private void pictureBoxPhone_Click(object sender, System.EventArgs e)
         {
             Helpers.StopSound();
-            RegisterUser registerUser = new RegisterUser();
+            RegisterUser registerUser = new RegisterUser(_home);
             registerUser.Show();
             this.Hide();
         }
@@ -55,6 +55,10 @@ namespace ManagementStore.Form.User
             if (fileNameAudio != null && fileNameAudio != "")
             {
                 Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+            }
+            else
+            {
+                Helpers.PlaySound(@"Assets\DefaultAudio\" + AudioConstants.TypeRegister + ".wav");
             }
             timer = new Timer();
             timer.Interval = 1000; // 1 second

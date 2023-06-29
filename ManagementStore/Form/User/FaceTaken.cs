@@ -318,10 +318,14 @@ namespace ManagementStore.Form.User
 
         private async void FaceTaken_Load(object sender, EventArgs e)
         {
-            fileNameAudio = await AudioConstants.GetListSound(AudioConstants.InforUser);
+            fileNameAudio = await AudioConstants.GetListSound(AudioConstants.FaceTaken);
             if (fileNameAudio != null && fileNameAudio != "")
             {
                 Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+            }
+            else
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + AudioConstants.FaceTaken + ".wav");
             }
         }
 

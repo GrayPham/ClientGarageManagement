@@ -15,9 +15,11 @@ namespace ManagementStore.Form.User
     public partial class RegisterUser : DevExpress.XtraEditors.XtraForm, IProgramController
     {
         private Timer timer;
+        private Home _home;
 
-        public RegisterUser()
+        public RegisterUser(Home home)
         {
+            _home = home;
             InitializeComponent();
             panelSlider.Controls.Add(new PhoneNumber());
             //panelSlider.Controls.Add(new PhoneOTP());
@@ -104,6 +106,38 @@ namespace ManagementStore.Form.User
         public void ConnectSuccess(ServerInfo info)
         {
             throw new NotImplementedException();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            panelSlider.Dispose();
+            sidePanel4.Dispose();
+            pictureEdit1.Dispose();
+            sidePanel1.Dispose();
+
+            _home.BeginInvoke(new Action(() =>
+            {
+                _home.Show();
+                _home.cameraControl.Start();
+            }));
+
+            Close();
+        }
+
+        private void RegisterUser_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            panelSlider.Dispose();
+            sidePanel4.Dispose();
+            pictureEdit1.Dispose();
+            sidePanel1.Dispose();
+
+            _home.BeginInvoke(new Action(() =>
+            {
+                _home.Show();
+                _home.cameraControl.Start();
+            }));
+
+            Close();
         }
     }
 }

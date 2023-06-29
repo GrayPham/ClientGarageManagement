@@ -28,6 +28,10 @@ namespace ManagementStore.Form.User
             {
                 Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
             }
+            else
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + AudioConstants.OTPPhone + ".wav");
+            }
         }
 
         private void btnNext_Click(object sender, EventArgs e)

@@ -27,6 +27,10 @@ namespace ManagementStore.Form.User
             {
                 Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
             }
+            else
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + AudioConstants.FullName + ".wav");
+            }
         }
 
         private void Button_Click(object sender, EventArgs e)

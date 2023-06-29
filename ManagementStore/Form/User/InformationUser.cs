@@ -33,6 +33,10 @@ namespace ManagementStore.Form.User
             {
                 Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
             }
+            else
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + AudioConstants.InforUser + ".wav");
+            }
             ccbSelectGender.Properties.Items.Add("Male");
             ccbSelectGender.Properties.Items.Add("Female");
             ccbSelectGender.Properties.Items.Add("Other");
