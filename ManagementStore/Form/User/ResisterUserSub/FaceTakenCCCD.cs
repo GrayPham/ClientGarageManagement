@@ -26,11 +26,11 @@ namespace ManagementStore.Form.User.ResisterUserSub
 {
     public partial class FaceTakenCCCD : System.Windows.Forms.UserControl
     {
-        private VideoCapture capture;
+        public VideoCapture capture;
         private InferenceSession session;
         private FPSCounter fpsCounter;
         private int countdownValue;
-        private Timer timer;
+        public Timer timer;
         private CountdownPictureBox countdownPicture;
         private int countObject = 0;
         ShowImageTaken image;
@@ -68,7 +68,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // Start the Timer
             timer.Start();
         }
-        private void Timer_Tick(object sender, EventArgs e)
+        public void Timer_Tick(object sender, EventArgs e)
         {
             countdownValue--;
             showCountDown.Text = $"Ảnh sẽ được chụp sau {countdownValue.ToString()} giây nữa";
@@ -172,7 +172,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             Helpers.StopSound();
             Utils.BackCCCD(ParentForm, "pictureBoxFace", "pictureBoxName", "FullNameCCCD");
         }
-        private void Capture_ImageGrabbed(object sender, EventArgs e)
+        public void Capture_ImageGrabbed(object sender, EventArgs e)
         {
             if (fpsCounter == null)
             {

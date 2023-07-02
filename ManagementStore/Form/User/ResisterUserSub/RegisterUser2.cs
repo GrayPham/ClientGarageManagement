@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using ManagementStore.Form.User.ResisterUserSub;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,6 +38,16 @@ namespace ManagementStore.Form.User
                 panelSlider2.Controls.Remove(controlToRemove);
                 controlToRemove.Dispose();
             }
+            var citizenCaptureFace = panelSlider2.Controls.Find("FaceTakenCCCD", true);
+            if (citizenCapture.Length > 0)
+            {
+                var controlToRemove = citizenCapture[0] as FaceTakenCCCD;
+                controlToRemove.capture.Dispose();
+                Application.Idle -= controlToRemove.Capture_ImageGrabbed;
+                controlToRemove.timer.Tick -= controlToRemove.Timer_Tick;
+                panelSlider2.Controls.Remove(controlToRemove);
+                controlToRemove.Dispose();
+            }
             panelSlider2.Controls.Clear();
             sidePanel4.Controls.Clear();
             panelSlider2.Dispose();
@@ -70,7 +81,7 @@ namespace ManagementStore.Form.User
                 _home.cameraControl.Start();
             }));
 
-            Close();
+
         }
     }
 }

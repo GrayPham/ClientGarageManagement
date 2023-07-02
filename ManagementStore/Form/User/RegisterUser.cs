@@ -110,12 +110,24 @@ namespace ManagementStore.Form.User
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+            var citizenCapture = panelSlider.Controls.Find("FaceTaken", true);
+            if (citizenCapture.Length > 0)
+            {
+                var controlToRemove = citizenCapture[0] as FaceTaken;
+                controlToRemove.capture.Dispose();
+                Application.Idle -= controlToRemove.Capture_ImageGrabbedSSD;
+                controlToRemove.timer.Tick -= controlToRemove.Timer_Tick;
+                panelSlider.Controls.Remove(controlToRemove);
+                controlToRemove.Dispose();
+            }
+            panelSlider.Controls.Clear();
+            sidePanel4.Controls.Clear();
             panelSlider.Dispose();
             sidePanel4.Dispose();
             pictureEdit1.Dispose();
             sidePanel1.Dispose();
 
-            _home.BeginInvoke(new Action(() =>
+            _home.Invoke(new Action(() =>
             {
                 _home.Show();
                 _home.cameraControl.Start();
@@ -126,18 +138,28 @@ namespace ManagementStore.Form.User
 
         private void RegisterUser_FormClosed(object sender, FormClosedEventArgs e)
         {
+            var citizenCapture = panelSlider.Controls.Find("FaceTaken", true);
+            if (citizenCapture.Length > 0)
+            {
+                var controlToRemove = citizenCapture[0] as FaceTaken;
+                controlToRemove.capture.Dispose();
+                Application.Idle -= controlToRemove.Capture_ImageGrabbedSSD;
+                controlToRemove.timer.Tick -= controlToRemove.Timer_Tick;
+                panelSlider.Controls.Remove(controlToRemove);
+                controlToRemove.Dispose();
+            }
+            panelSlider.Controls.Clear();
+            sidePanel4.Controls.Clear();
             panelSlider.Dispose();
             sidePanel4.Dispose();
             pictureEdit1.Dispose();
             sidePanel1.Dispose();
 
-            _home.BeginInvoke(new Action(() =>
+            _home.Invoke(new Action(() =>
             {
                 _home.Show();
                 _home.cameraControl.Start();
             }));
-
-            Close();
         }
     }
 }

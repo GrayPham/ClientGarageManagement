@@ -61,6 +61,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnPrev = new DevExpress.XtraEditors.SimpleButton();
             this.btnNext = new DevExpress.XtraEditors.SimpleButton();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ManagementStore.Form.User.ResisterUserSub.WaitForm1), true, true, typeof(System.Windows.Forms.UserControl));
             ((System.ComponentModel.ISupportInitialize)(this.fullNameTxt.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,10 +70,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnCharN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCharN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCharN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCharN.Location = new System.Drawing.Point(251, 286);
+            this.btnCharN.Location = new System.Drawing.Point(293, 352);
             this.btnCharN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCharN.Name = "btnCharN";
-            this.btnCharN.Size = new System.Drawing.Size(73, 67);
+            this.btnCharN.Size = new System.Drawing.Size(85, 82);
             this.btnCharN.TabIndex = 119;
             this.btnCharN.Text = "N";
             this.btnCharN.UseVisualStyleBackColor = false;
@@ -83,10 +84,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnCharY.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCharY.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCharY.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCharY.Location = new System.Drawing.Point(329, 429);
+            this.btnCharY.Location = new System.Drawing.Point(384, 528);
             this.btnCharY.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCharY.Name = "btnCharY";
-            this.btnCharY.Size = new System.Drawing.Size(73, 67);
+            this.btnCharY.Size = new System.Drawing.Size(85, 82);
             this.btnCharY.TabIndex = 118;
             this.btnCharY.Text = "Y";
             this.btnCharY.UseVisualStyleBackColor = false;
@@ -97,10 +98,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnCharZ.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCharZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCharZ.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCharZ.Location = new System.Drawing.Point(409, 430);
+            this.btnCharZ.Location = new System.Drawing.Point(477, 529);
             this.btnCharZ.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCharZ.Name = "btnCharZ";
-            this.btnCharZ.Size = new System.Drawing.Size(73, 67);
+            this.btnCharZ.Size = new System.Drawing.Size(85, 82);
             this.btnCharZ.TabIndex = 117;
             this.btnCharZ.Text = "Z";
             this.btnCharZ.UseVisualStyleBackColor = false;
@@ -111,10 +112,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnSpace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnSpace.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSpace.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnSpace.Location = new System.Drawing.Point(171, 429);
+            this.btnSpace.Location = new System.Drawing.Point(199, 528);
             this.btnSpace.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSpace.Name = "btnSpace";
-            this.btnSpace.Size = new System.Drawing.Size(153, 67);
+            this.btnSpace.Size = new System.Drawing.Size(178, 82);
             this.btnSpace.TabIndex = 116;
             this.btnSpace.UseVisualStyleBackColor = false;
             this.btnSpace.Click += new System.EventHandler(this.btnSpace_Click);
@@ -124,10 +125,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnCharX.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCharX.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCharX.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCharX.Location = new System.Drawing.Point(93, 429);
+            this.btnCharX.Location = new System.Drawing.Point(108, 528);
             this.btnCharX.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCharX.Name = "btnCharX";
-            this.btnCharX.Size = new System.Drawing.Size(73, 67);
+            this.btnCharX.Size = new System.Drawing.Size(85, 82);
             this.btnCharX.TabIndex = 115;
             this.btnCharX.Text = "X";
             this.btnCharX.UseVisualStyleBackColor = false;
@@ -138,10 +139,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnCharW.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCharW.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCharW.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCharW.Location = new System.Drawing.Point(13, 429);
+            this.btnCharW.Location = new System.Drawing.Point(15, 528);
             this.btnCharW.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCharW.Name = "btnCharW";
-            this.btnCharW.Size = new System.Drawing.Size(73, 67);
+            this.btnCharW.Size = new System.Drawing.Size(85, 82);
             this.btnCharW.TabIndex = 114;
             this.btnCharW.Text = "W";
             this.btnCharW.UseVisualStyleBackColor = false;
@@ -152,10 +153,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnCharV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCharV.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCharV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCharV.Location = new System.Drawing.Point(409, 358);
+            this.btnCharV.Location = new System.Drawing.Point(477, 441);
             this.btnCharV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCharV.Name = "btnCharV";
-            this.btnCharV.Size = new System.Drawing.Size(73, 67);
+            this.btnCharV.Size = new System.Drawing.Size(85, 82);
             this.btnCharV.TabIndex = 113;
             this.btnCharV.Text = "V";
             this.btnCharV.UseVisualStyleBackColor = false;
@@ -166,10 +167,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnCharU.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCharU.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCharU.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCharU.Location = new System.Drawing.Point(328, 358);
+            this.btnCharU.Location = new System.Drawing.Point(383, 441);
             this.btnCharU.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCharU.Name = "btnCharU";
-            this.btnCharU.Size = new System.Drawing.Size(73, 67);
+            this.btnCharU.Size = new System.Drawing.Size(85, 82);
             this.btnCharU.TabIndex = 112;
             this.btnCharU.Text = "U";
             this.btnCharU.UseVisualStyleBackColor = false;
@@ -180,10 +181,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnCharT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCharT.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCharT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCharT.Location = new System.Drawing.Point(251, 358);
+            this.btnCharT.Location = new System.Drawing.Point(293, 441);
             this.btnCharT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCharT.Name = "btnCharT";
-            this.btnCharT.Size = new System.Drawing.Size(73, 67);
+            this.btnCharT.Size = new System.Drawing.Size(85, 82);
             this.btnCharT.TabIndex = 111;
             this.btnCharT.Text = "T";
             this.btnCharT.UseVisualStyleBackColor = false;
@@ -194,10 +195,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnCharS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCharS.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCharS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCharS.Location = new System.Drawing.Point(171, 358);
+            this.btnCharS.Location = new System.Drawing.Point(199, 441);
             this.btnCharS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCharS.Name = "btnCharS";
-            this.btnCharS.Size = new System.Drawing.Size(73, 67);
+            this.btnCharS.Size = new System.Drawing.Size(85, 82);
             this.btnCharS.TabIndex = 110;
             this.btnCharS.Text = "S";
             this.btnCharS.UseVisualStyleBackColor = false;
@@ -208,10 +209,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnCharR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCharR.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCharR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCharR.Location = new System.Drawing.Point(93, 358);
+            this.btnCharR.Location = new System.Drawing.Point(108, 441);
             this.btnCharR.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCharR.Name = "btnCharR";
-            this.btnCharR.Size = new System.Drawing.Size(73, 67);
+            this.btnCharR.Size = new System.Drawing.Size(85, 82);
             this.btnCharR.TabIndex = 109;
             this.btnCharR.Text = "R";
             this.btnCharR.UseVisualStyleBackColor = false;
@@ -222,10 +223,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnCharQ.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCharQ.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCharQ.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCharQ.Location = new System.Drawing.Point(13, 358);
+            this.btnCharQ.Location = new System.Drawing.Point(15, 441);
             this.btnCharQ.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCharQ.Name = "btnCharQ";
-            this.btnCharQ.Size = new System.Drawing.Size(73, 67);
+            this.btnCharQ.Size = new System.Drawing.Size(85, 82);
             this.btnCharQ.TabIndex = 108;
             this.btnCharQ.Text = "Q";
             this.btnCharQ.UseVisualStyleBackColor = false;
@@ -236,10 +237,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnCharP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCharP.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCharP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCharP.Location = new System.Drawing.Point(409, 286);
+            this.btnCharP.Location = new System.Drawing.Point(477, 352);
             this.btnCharP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCharP.Name = "btnCharP";
-            this.btnCharP.Size = new System.Drawing.Size(73, 67);
+            this.btnCharP.Size = new System.Drawing.Size(85, 82);
             this.btnCharP.TabIndex = 107;
             this.btnCharP.Text = "P";
             this.btnCharP.UseVisualStyleBackColor = false;
@@ -250,10 +251,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnCharO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCharO.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCharO.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCharO.Location = new System.Drawing.Point(328, 286);
+            this.btnCharO.Location = new System.Drawing.Point(383, 352);
             this.btnCharO.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCharO.Name = "btnCharO";
-            this.btnCharO.Size = new System.Drawing.Size(73, 67);
+            this.btnCharO.Size = new System.Drawing.Size(85, 82);
             this.btnCharO.TabIndex = 106;
             this.btnCharO.Text = "O";
             this.btnCharO.UseVisualStyleBackColor = false;
@@ -264,10 +265,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnCharM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCharM.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCharM.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCharM.Location = new System.Drawing.Point(171, 286);
+            this.btnCharM.Location = new System.Drawing.Point(199, 352);
             this.btnCharM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCharM.Name = "btnCharM";
-            this.btnCharM.Size = new System.Drawing.Size(73, 67);
+            this.btnCharM.Size = new System.Drawing.Size(85, 82);
             this.btnCharM.TabIndex = 105;
             this.btnCharM.Text = "M";
             this.btnCharM.UseVisualStyleBackColor = false;
@@ -278,10 +279,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnCharL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCharL.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCharL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCharL.Location = new System.Drawing.Point(93, 286);
+            this.btnCharL.Location = new System.Drawing.Point(108, 352);
             this.btnCharL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCharL.Name = "btnCharL";
-            this.btnCharL.Size = new System.Drawing.Size(73, 67);
+            this.btnCharL.Size = new System.Drawing.Size(85, 82);
             this.btnCharL.TabIndex = 104;
             this.btnCharL.Text = "L";
             this.btnCharL.UseVisualStyleBackColor = false;
@@ -292,10 +293,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnCharK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCharK.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCharK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCharK.Location = new System.Drawing.Point(13, 286);
+            this.btnCharK.Location = new System.Drawing.Point(15, 352);
             this.btnCharK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCharK.Name = "btnCharK";
-            this.btnCharK.Size = new System.Drawing.Size(73, 67);
+            this.btnCharK.Size = new System.Drawing.Size(85, 82);
             this.btnCharK.TabIndex = 103;
             this.btnCharK.Text = "K";
             this.btnCharK.UseVisualStyleBackColor = false;
@@ -306,10 +307,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnCharJ.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCharJ.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCharJ.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCharJ.Location = new System.Drawing.Point(409, 214);
+            this.btnCharJ.Location = new System.Drawing.Point(477, 263);
             this.btnCharJ.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCharJ.Name = "btnCharJ";
-            this.btnCharJ.Size = new System.Drawing.Size(73, 67);
+            this.btnCharJ.Size = new System.Drawing.Size(85, 82);
             this.btnCharJ.TabIndex = 102;
             this.btnCharJ.Text = "J";
             this.btnCharJ.UseVisualStyleBackColor = false;
@@ -320,10 +321,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnCharI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCharI.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCharI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCharI.Location = new System.Drawing.Point(328, 214);
+            this.btnCharI.Location = new System.Drawing.Point(383, 263);
             this.btnCharI.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCharI.Name = "btnCharI";
-            this.btnCharI.Size = new System.Drawing.Size(73, 67);
+            this.btnCharI.Size = new System.Drawing.Size(85, 82);
             this.btnCharI.TabIndex = 101;
             this.btnCharI.Text = "I";
             this.btnCharI.UseVisualStyleBackColor = false;
@@ -334,10 +335,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnCharH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCharH.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCharH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCharH.Location = new System.Drawing.Point(251, 214);
+            this.btnCharH.Location = new System.Drawing.Point(293, 263);
             this.btnCharH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCharH.Name = "btnCharH";
-            this.btnCharH.Size = new System.Drawing.Size(73, 67);
+            this.btnCharH.Size = new System.Drawing.Size(85, 82);
             this.btnCharH.TabIndex = 100;
             this.btnCharH.Text = "H";
             this.btnCharH.UseVisualStyleBackColor = false;
@@ -348,10 +349,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnCharG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCharG.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCharG.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCharG.Location = new System.Drawing.Point(171, 214);
+            this.btnCharG.Location = new System.Drawing.Point(199, 263);
             this.btnCharG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCharG.Name = "btnCharG";
-            this.btnCharG.Size = new System.Drawing.Size(73, 67);
+            this.btnCharG.Size = new System.Drawing.Size(85, 82);
             this.btnCharG.TabIndex = 99;
             this.btnCharG.Text = "G";
             this.btnCharG.UseVisualStyleBackColor = false;
@@ -362,10 +363,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnCharF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCharF.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCharF.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCharF.Location = new System.Drawing.Point(93, 214);
+            this.btnCharF.Location = new System.Drawing.Point(108, 263);
             this.btnCharF.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCharF.Name = "btnCharF";
-            this.btnCharF.Size = new System.Drawing.Size(73, 67);
+            this.btnCharF.Size = new System.Drawing.Size(85, 82);
             this.btnCharF.TabIndex = 98;
             this.btnCharF.Text = "F";
             this.btnCharF.UseVisualStyleBackColor = false;
@@ -376,10 +377,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnCharE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCharE.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCharE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCharE.Location = new System.Drawing.Point(13, 214);
+            this.btnCharE.Location = new System.Drawing.Point(15, 263);
             this.btnCharE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCharE.Name = "btnCharE";
-            this.btnCharE.Size = new System.Drawing.Size(73, 67);
+            this.btnCharE.Size = new System.Drawing.Size(85, 82);
             this.btnCharE.TabIndex = 97;
             this.btnCharE.Text = "E";
             this.btnCharE.UseVisualStyleBackColor = false;
@@ -390,10 +391,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnBackSpace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnBackSpace.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBackSpace.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnBackSpace.Location = new System.Drawing.Point(328, 143);
+            this.btnBackSpace.Location = new System.Drawing.Point(383, 176);
             this.btnBackSpace.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBackSpace.Name = "btnBackSpace";
-            this.btnBackSpace.Size = new System.Drawing.Size(153, 67);
+            this.btnBackSpace.Size = new System.Drawing.Size(178, 82);
             this.btnBackSpace.TabIndex = 96;
             this.btnBackSpace.Text = "back space";
             this.btnBackSpace.UseVisualStyleBackColor = false;
@@ -404,10 +405,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnCharD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCharD.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCharD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCharD.Location = new System.Drawing.Point(251, 143);
+            this.btnCharD.Location = new System.Drawing.Point(293, 176);
             this.btnCharD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCharD.Name = "btnCharD";
-            this.btnCharD.Size = new System.Drawing.Size(73, 67);
+            this.btnCharD.Size = new System.Drawing.Size(85, 82);
             this.btnCharD.TabIndex = 95;
             this.btnCharD.Text = "D";
             this.btnCharD.UseVisualStyleBackColor = false;
@@ -418,10 +419,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnCharC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCharC.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCharC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCharC.Location = new System.Drawing.Point(171, 143);
+            this.btnCharC.Location = new System.Drawing.Point(199, 176);
             this.btnCharC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCharC.Name = "btnCharC";
-            this.btnCharC.Size = new System.Drawing.Size(73, 67);
+            this.btnCharC.Size = new System.Drawing.Size(85, 82);
             this.btnCharC.TabIndex = 94;
             this.btnCharC.Text = "C";
             this.btnCharC.UseVisualStyleBackColor = false;
@@ -432,10 +433,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnCharB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCharB.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCharB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCharB.Location = new System.Drawing.Point(93, 143);
+            this.btnCharB.Location = new System.Drawing.Point(108, 176);
             this.btnCharB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCharB.Name = "btnCharB";
-            this.btnCharB.Size = new System.Drawing.Size(73, 67);
+            this.btnCharB.Size = new System.Drawing.Size(85, 82);
             this.btnCharB.TabIndex = 93;
             this.btnCharB.Text = "B";
             this.btnCharB.UseVisualStyleBackColor = false;
@@ -446,10 +447,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnCharA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCharA.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCharA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCharA.Location = new System.Drawing.Point(13, 143);
+            this.btnCharA.Location = new System.Drawing.Point(15, 176);
             this.btnCharA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCharA.Name = "btnCharA";
-            this.btnCharA.Size = new System.Drawing.Size(73, 67);
+            this.btnCharA.Size = new System.Drawing.Size(85, 82);
             this.btnCharA.TabIndex = 92;
             this.btnCharA.Text = "A";
             this.btnCharA.UseVisualStyleBackColor = false;
@@ -458,7 +459,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // fullNameTxt
             // 
             this.fullNameTxt.EditValue = "";
-            this.fullNameTxt.Location = new System.Drawing.Point(13, 63);
+            this.fullNameTxt.Location = new System.Drawing.Point(15, 78);
             this.fullNameTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.fullNameTxt.Name = "fullNameTxt";
             this.fullNameTxt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -466,17 +467,17 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.fullNameTxt.Properties.AutoHeight = false;
             this.fullNameTxt.Properties.MaxLength = 10;
             this.fullNameTxt.Properties.NullValuePromptShowForEmptyValue = true;
-            this.fullNameTxt.Size = new System.Drawing.Size(469, 72);
+            this.fullNameTxt.Size = new System.Drawing.Size(547, 89);
             this.fullNameTxt.TabIndex = 91;
             // 
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(13, 16);
+            this.labelControl1.Location = new System.Drawing.Point(15, 20);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(365, 27);
+            this.labelControl1.Size = new System.Drawing.Size(467, 34);
             this.labelControl1.TabIndex = 90;
             this.labelControl1.Text = "Xin vui lòng nhập tên đầy đủ của bạn";
             // 
@@ -488,10 +489,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnPrev.Appearance.Options.UseBackColor = true;
             this.btnPrev.Appearance.Options.UseBorderColor = true;
             this.btnPrev.Appearance.Options.UseFont = true;
-            this.btnPrev.Location = new System.Drawing.Point(13, 510);
+            this.btnPrev.Location = new System.Drawing.Point(15, 628);
             this.btnPrev.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(201, 75);
+            this.btnPrev.Size = new System.Drawing.Size(234, 92);
             this.btnPrev.TabIndex = 89;
             this.btnPrev.Text = "Previous";
             this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
@@ -504,19 +505,23 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnNext.Appearance.Options.UseBackColor = true;
             this.btnNext.Appearance.Options.UseBorderColor = true;
             this.btnNext.Appearance.Options.UseFont = true;
-            this.btnNext.Location = new System.Drawing.Point(280, 510);
+            this.btnNext.Location = new System.Drawing.Point(327, 628);
             this.btnNext.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(201, 75);
+            this.btnNext.Size = new System.Drawing.Size(234, 92);
             this.btnNext.TabIndex = 88;
             this.btnNext.Text = "Next";
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // splashScreenManager1
+            // 
+            this.splashScreenManager1.ClosingDelay = 500;
             // 
             // FullNameCCCD
             // 
             this.Appearance.BackColor = System.Drawing.SystemColors.Control;
             this.Appearance.Options.UseBackColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnCharN);
             this.Controls.Add(this.btnCharY);
@@ -552,7 +557,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.Controls.Add(this.btnNext);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FullNameCCCD";
-            this.Size = new System.Drawing.Size(495, 602);
+            this.Size = new System.Drawing.Size(577, 741);
             this.Load += new System.EventHandler(this.FullNameCCCD_Load);
             ((System.ComponentModel.ISupportInitialize)(this.fullNameTxt.Properties)).EndInit();
             this.ResumeLayout(false);

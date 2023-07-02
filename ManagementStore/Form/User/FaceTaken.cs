@@ -27,10 +27,10 @@ namespace ManagementStore.Form.User
 {
     public partial class FaceTaken : System.Windows.Forms.UserControl
     {
-        private VideoCapture capture;
+        public VideoCapture capture;
         private FPSCounter fpsCounter;
         private int countdownValue;
-        private Timer timer;
+        public Timer timer;
         ShowImageTaken image;
         ConfirmInfo info;
         List<DetectionResult> detectionResults;
@@ -50,7 +50,7 @@ namespace ManagementStore.Form.User
             imgPath = Path.Combine(ModelConfig.imageFolder, "temp.bmp");
 
             capture = new VideoCapture();
-            Application.Idle += Capture_ImageGrabbedCCCD;
+            Application.Idle += Capture_ImageGrabbedSSD;
             capture.Start();
             // Set the initial countdown value and Timer interval
             countdownValue = 3600;
@@ -72,7 +72,7 @@ namespace ManagementStore.Form.User
             }
             File.WriteAllBytes(imgPath, imageBytes);
         }
-        private void Timer_Tick(object sender, EventArgs e)
+        public void Timer_Tick(object sender, EventArgs e)
         {
             countdownValue--;
             showCountDown.Text = $"The photo will be taken in {countdownValue.ToString()} seconds";
@@ -334,7 +334,7 @@ namespace ManagementStore.Form.User
             capture?.Dispose();
         }
 
-        private void Capture_ImageGrabbedSSD(object send, EventArgs e)
+        public void Capture_ImageGrabbedSSD(object send, EventArgs e)
         {
             if (fpsCounter == null)
             {

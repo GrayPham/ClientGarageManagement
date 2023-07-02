@@ -78,7 +78,15 @@ namespace ManagementStore.Form.User
         private void btmExit_Click(object sender, EventArgs e)
         {
             _home.Show();
+            _home.cameraControl.Start();
             this.Close();
+        }
+
+
+        private void TypeRegister_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _home.Show();
+            _home.cameraControl.Start();
         }
     }
 }
