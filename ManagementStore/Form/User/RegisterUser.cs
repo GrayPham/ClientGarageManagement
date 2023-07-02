@@ -25,7 +25,7 @@ namespace ManagementStore.Form.User
             //panelSlider.Controls.Add(new PhoneOTP());
             //panelSlider.Controls.Add(new InformationUser());
             //panelSlider.Controls.Add(new FullName());
-            // panelSlider.Controls.Add(new FaceTaken());
+             //panelSlider.Controls.Add(new FaceTaken());
             Settings.countDown = 120;
             timer = new Timer();
             timer.Interval = 1000; // 1 second
@@ -115,7 +115,7 @@ namespace ManagementStore.Form.User
             {
                 var controlToRemove = citizenCapture[0] as FaceTaken;
                 controlToRemove.capture.Dispose();
-                Application.Idle -= controlToRemove.Capture_ImageGrabbedSSD;
+                Application.Idle -= controlToRemove.Capture_ImageGrabbed;
                 controlToRemove.timer.Tick -= controlToRemove.Timer_Tick;
                 panelSlider.Controls.Remove(controlToRemove);
                 controlToRemove.Dispose();
@@ -143,7 +143,7 @@ namespace ManagementStore.Form.User
             {
                 var controlToRemove = citizenCapture[0] as FaceTaken;
                 controlToRemove.capture.Dispose();
-                Application.Idle -= controlToRemove.Capture_ImageGrabbedSSD;
+                Application.Idle -= controlToRemove.Capture_ImageGrabbed;
                 controlToRemove.timer.Tick -= controlToRemove.Timer_Tick;
                 panelSlider.Controls.Remove(controlToRemove);
                 controlToRemove.Dispose();

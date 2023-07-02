@@ -1,5 +1,6 @@
 ﻿using ManagementStore.Common;
 using ManagementStore.Extensions;
+using ManagementStore.Model.Static;
 using Parking.App.Common.Helper;
 using System;
 using System.Collections.Generic;
@@ -42,19 +43,25 @@ namespace ManagementStore.Form.User
         private void btnNext_Click(object sender, EventArgs e)
         {
             // splashScreenManager1.ShowWaitForm();
-            var faceTaken = ParentForm.Controls.Find("FaceTaken", true);
-            if(faceTaken.Length == 0)
+            Helpers.StopSound();
+            //UserInfo.FullName = birthDayTxt.Text;
+            var faceTakenCapture = ParentForm.Controls.Find("FaceTaken", true);
+            if (faceTakenCapture.Length > 0)
             {
-                ParentForm.Controls.Find("panelSlider", true)[0].Controls.Add(new FaceTaken());
+                var controlToRemove = faceTakenCapture[0];
+                ParentForm.Controls.Remove(controlToRemove);
+                controlToRemove.Dispose();
             }
-            else
-            {
-                faceTaken[0].BringToFront();
-            }
-            
-            var data = ParentForm.Controls.Find("panelSlider", true)[0];
+            ParentForm.Controls.Find("panelSlider", true)[0].Controls.Add(new FaceTaken());
+
             Utils.Forward(ParentForm, "pictureBoxName", "pictureBoxFace", "FaceTaken");
+
+            UserInfo.FullName = fullNameTxt.Text;
+
             // splashScreenManager1.CloseWaitForm();
+
+
+
 
         }
 

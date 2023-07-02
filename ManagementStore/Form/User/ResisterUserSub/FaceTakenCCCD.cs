@@ -170,6 +170,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
         private void btnPrev_Click(object sender, EventArgs e)
         {
             Helpers.StopSound();
+            capture.Dispose();
             Utils.BackCCCD(ParentForm, "pictureBoxFace", "pictureBoxName", "FullNameCCCD");
         }
         public void Capture_ImageGrabbed(object sender, EventArgs e)

@@ -42,6 +42,14 @@ namespace ManagementStore.Form.User
             // splashScreenManager1.CloseWaitForm();
             if (status)
             {
+                var dataForm = ParentForm.Controls.Find("InformationUser", true);
+                if (dataForm.Length > 0)
+                {
+                    var controlToRemove = dataForm[0];
+                    ParentForm.Controls.Remove(controlToRemove);
+                    controlToRemove.Dispose();
+                }
+                ParentForm.Controls.Find("panelSlider", true)[0].Controls.Add(new InformationUser());
                 Utils.Forward(ParentForm, "pictureBoxOTP", "pictureBoxInfo", "InformationUser");              
             }
             else

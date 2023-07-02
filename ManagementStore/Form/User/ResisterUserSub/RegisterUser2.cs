@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using ManagementStore.Form.User.ResisterUserSub;
+using ManagementStore.Model.Static;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,16 +15,34 @@ namespace ManagementStore.Form.User
 {
     public partial class RegisterUser2 : DevExpress.XtraEditors.XtraForm
     {
-        private Home _home; 
+        private Home _home;
+        private Timer timer;
         public RegisterUser2(Home home)
         {
             _home = home;
             InitializeComponent();
             panelSlider2.Controls.Add(new CitizenshipID());
             //panelSlider2.Controls.Add(new CitizenshipIDCapture());
+            Settings.countDown = 120;
+            timer = new Timer();
+            timer.Interval = 1000; // 1 second
+            timer.Tick += Timer_Tick;
 
+            // Start the Timer
+            timer.Start();
         }
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            Settings.countDown--;
+            showCountDown.Text = $"Close form after {Settings.countDown.ToString()} seconds";
 
+            // When the countdown reaches 0, stop the Timer and capture the picture
+            if (Settings.countDown == 0)
+            {
+                timer.Stop();
+
+            }
+        }
         private void btnExit_Click(object sender, EventArgs e)
         {
             

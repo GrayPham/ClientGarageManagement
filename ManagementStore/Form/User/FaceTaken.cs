@@ -44,16 +44,16 @@ namespace ManagementStore.Form.User
         {
             InitializeComponent();
             string path = System.IO.Path.GetDirectoryName(new System.Uri(System.Reflection.Assembly.GetExecutingAssembly().CodeBase).LocalPath);
-            // ssd = new ObjectDetectionVGG(ModelConfig.dataFolderPath + "/vgg16-ssd-vehicle.onnx");
-            // mb = new ObjectDetectionMB(ModelConfig.dataFolderPath + "/ssd_mobilenet_v1_10.onnx");
-            cccd = new ObjectDetectionSSD(ModelConfig.dataFolderPath + "/vehicle.onnx");
+            //ssd = new ObjectDetectionVGG(ModelConfig.dataFolderPath + "/vgg16-ssd-vehicle.onnx");
+            mb = new ObjectDetectionMB(ModelConfig.dataFolderPath + "/ssd_mobilenet_v1_10.onnx");
+            //cccd = new ObjectDetectionSSD(ModelConfig.dataFolderPath + "/vehicle.onnx");
             imgPath = Path.Combine(ModelConfig.imageFolder, "temp.bmp");
 
             capture = new VideoCapture();
-            Application.Idle += Capture_ImageGrabbedSSD;
+            Application.Idle += Capture_ImageGrabbed;
             capture.Start();
             // Set the initial countdown value and Timer interval
-            countdownValue = 3600;
+            countdownValue = 3;
             timer = new Timer();
             timer.Interval = 1000; // 1 second
             timer.Tick += Timer_Tick;
@@ -312,6 +312,7 @@ namespace ManagementStore.Form.User
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
+            Helpers.StopSound();
             Utils.Back(ParentForm, "pictureBoxFace", "pictureBoxName", "FullName");
             capture.Dispose();
         }
@@ -334,7 +335,7 @@ namespace ManagementStore.Form.User
             capture?.Dispose();
         }
 
-        public void Capture_ImageGrabbedSSD(object send, EventArgs e)
+        private void Capture_ImageGrabbedSSD(object send, EventArgs e)
         {
             if (fpsCounter == null)
             {
@@ -383,7 +384,7 @@ namespace ManagementStore.Form.User
             }
 
         }
-        private void Capture_ImageGrabbed(object sender, EventArgs e)
+        public void Capture_ImageGrabbed(object sender, EventArgs e)
         {
             if (fpsCounter == null)
             {

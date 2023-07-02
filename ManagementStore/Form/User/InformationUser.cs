@@ -48,7 +48,15 @@ namespace ManagementStore.Form.User
         private void btnNext_Click(object sender, EventArgs e)
         {
             // splashScreenManager1.ShowWaitForm();
-            Thread.Sleep(1000);
+            
+            var citizenCapture = ParentForm.Controls.Find("FullName", true);
+            if (citizenCapture.Length > 0)
+            {
+                var controlToRemove = citizenCapture[0];
+                ParentForm.Controls.Remove(controlToRemove);
+                controlToRemove.Dispose();
+            }
+            ParentForm.Controls.Find("panelSlider", true)[0].Controls.Add(new FullName());
             Utils.Forward(ParentForm, "pictureBoxInfo", "pictureBoxName", "FullName");
             UserInfo.BirthDay = birthDayTxt.Text;
             UserInfo.Gender = ccbSelectGender.SelectedItem.ToString();
