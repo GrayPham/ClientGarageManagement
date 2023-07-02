@@ -32,7 +32,7 @@ namespace ManagementStore.Common
             {
                 
                 // Request to Page View 
-                string filePath = Path.Combine(basePath, "Settings\\audioSettings.json");
+                string filePath = Path.Combine(basePath, "Settings");
                 string soundRequest = await ApiMethod.GetCallSoundAudio();
                 if (soundRequest != null && soundRequest != "")
                 {
@@ -40,6 +40,11 @@ namespace ManagementStore.Common
                     List<tblClientSoundMgtInfo> clientSoundMgtInfoNew = JsonConvert.DeserializeObject<List<tblClientSoundMgtInfo>>(soundRequest);
                     tblClientSoundMgtInfo foundItemNew = new tblClientSoundMgtInfo();
                     foundItemNew = clientSoundMgtInfoNew.Find(item => item.SoundType == typeName);
+                    if (!Directory.Exists(filePath))
+                    {
+                        Directory.CreateDirectory(filePath);
+                    }
+                    filePath = Path.Combine(filePath, "audioSettings.json");
                     if (!File.Exists(filePath))
                     {
                         File.Create(filePath).Close();
@@ -101,6 +106,10 @@ namespace ManagementStore.Common
                 if (resultAudioDto.Success == true)
                 {
                     string folderAudio = Path.Combine(basePath, "Assets\\Audio");
+                    if (!Directory.Exists(folderAudio))
+                    {
+                        Directory.CreateDirectory(folderAudio);
+                    }
                     ByteArrayToWaveFile(resultAudioDto.Data, folderAudio + "\\" + resultAudioDto.SoundName);
                     string tempSound = Path.Combine(folderAudio, folderAudio + "\\" + resultAudioDto.SoundName);
                     if (File.Exists(tempSound))
