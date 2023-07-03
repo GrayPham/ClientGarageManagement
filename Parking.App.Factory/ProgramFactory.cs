@@ -28,6 +28,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace Parking.App.Factory
 {
@@ -476,7 +477,7 @@ namespace Parking.App.Factory
             }
         }
 
-        private void GetStoreNoAsync()
+        private async Task GetStoreNoAsync()
         {
             try
             {
@@ -493,41 +494,36 @@ namespace Parking.App.Factory
                     ModelName = "",
                     GroupCode = deviceKey,
                 };
-                ApiMethod.RequestPostAsync(SSignature.tblStoreDeviceService, FunctionCode.RequestGetDataIsActivityByGroupCode, _requestInfo).ContinueWith(t =>
+
+                var result = await ApiMethod.RequestPostAsync(SSignature.tblStoreDeviceService, FunctionCode.RequestGetDataIsActivityByGroupCode, _requestInfo);
+
+                if (result.Status)
                 {
-                    if (!t.IsFaulted)
+                    ConfigClass.PublicIp = Helpers.GetPublicIp();
+                    _log.Info("test" + ConfigClass.PublicIp);
+                    List<tblStoreDeviceInfo> storeData = JsonHelper.JsonToListInfo<tblStoreDeviceInfo>(string.Empty + result.Data);
+                    if (storeData != null && storeData.Any())
                     {
-                        if (t.Result.Status)
-                        {
-                            ConfigClass.PublicIp = Helpers.GetPublicIp();
-                            _log.Info("test" + ConfigClass.PublicIp);
-                            List<tblStoreDeviceInfo> storeData = JsonHelper.JsonToListInfo<tblStoreDeviceInfo>(string.Empty + t.Result.Data);
-                            if (storeData != null && storeData.Any())
-                            {
-                                var storeNo = storeData.FirstOrDefault(x => x.DeviceKeyNo == deviceKey && (string.Empty + x.DeviceType).ToUpper() == Constants.DeviceType && x.DevicePublicIP.Trim() == ConfigClass.PublicIp.Trim());
+                        var storeNo = storeData.FirstOrDefault(x => x.DeviceKeyNo == deviceKey && (string.Empty + x.DeviceType).ToUpper() == Constants.DeviceType && x.DevicePublicIP.Trim() == ConfigClass.PublicIp.Trim());
 
+                        ConfigClass.StoreNo = storeNo?.StoreNo ?? 0;
+                        ConfigClass.StoreDeviceNo = storeNo?.StoreDeviceNo ?? 0;
+                        ConfigClass.DeviceKey = Helpers.GetPhysicalAddress();
+                        _log.Info("test" + ConfigClass.StoreNo);
 
-                                ConfigClass.StoreNo = storeNo?.StoreNo ?? 0;
-                                ConfigClass.StoreDeviceNo = storeNo?.StoreDeviceNo ?? 0;
-                                ConfigClass.DeviceKey = Helpers.GetPhysicalAddress();
-                                _log.Info("test" + ConfigClass.StoreNo);
-
-
-
-                                var _adMgtClient = _tblAdMgtService.RegisterClient(_tblAdMgtService.GetType().Name, AdMgtSynchronized);
-                                _tblAdMgtService.SetAddedListener(_adMgtClient, AdMgt_Added);
-                                _tblAdMgtService.SetUpdatedListener(_adMgtClient, AdMgt_Updated);
-                                _tblAdMgtService.SetRemovedListener(_adMgtClient, AdMgt_Removed);
-                            }
-                        }
+                        var _adMgtClient = _tblAdMgtService.RegisterClient(_tblAdMgtService.GetType().Name, AdMgtSynchronized);
+                        _tblAdMgtService.SetAddedListener(_adMgtClient, AdMgt_Added);
+                        _tblAdMgtService.SetUpdatedListener(_adMgtClient, AdMgt_Updated);
+                        _tblAdMgtService.SetRemovedListener(_adMgtClient, AdMgt_Removed);
                     }
-                });
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _log.SError(this.GetType().Name, ex.Message, ex.StackTrace, ex.Message);
             }
         }
+
         private async void GetCommonSub()
         {
             tblCommonSubInfo info = new tblCommonSubInfo();
@@ -565,7 +561,8 @@ namespace Parking.App.Factory
         #region Property
         public ILoginService loginService { get { return _loginService; } }
         public ICacheDataService<tblClientSoundMgtInfo> tblClientSoundMgtService { get { return _tblClientSoundMgtService; } }
-        public ICacheDataService<tblAdMgtInfo> tblAdMgtService { get { return _tblAdMgtService; } }
+        public tblAdMgtService tblAdMgtService { get { return _tblAdMgtService; } }
+        public ICacheDataService<tblAdMgtInfo> tblAdMgtServiceInfo { get { return _tblAdMgtService; } }
         public ICacheDataService<tblDeviceRequestConnectInfo> tblDeviceRequestConnectService => _tblDeviceRequestConnectService;
         public ICacheDataService<tblUserInfo> tblUserService { get { return _tblUserService; } }
         public ICacheDataService<tblUserPhotoInfo> tblUserPhotoService { get { return _tblUserPhotoService; } }

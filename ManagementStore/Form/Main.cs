@@ -52,7 +52,7 @@ namespace ManagementStore.Form
         private void pictureBoxDepart_Click(object sender, EventArgs e)
         {
             // splashScreenManager1.ShowWaitForm();
-            Home home = new Home();
+            Home home = new Home(ProgramFactory.Instance.tblAdMgtService);
             home.Show();
             Hide();
             Thread.Sleep(1000);

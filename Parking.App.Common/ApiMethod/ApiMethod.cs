@@ -27,12 +27,9 @@ namespace Parking.App.Common.ApiMethod
                     client.Timeout = TimeSpan.FromSeconds(900);
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
                     var json = JsonConvert.SerializeObject(model);
                     var stringContent = new StringContent(json, Encoding.UTF8, "application/json");
-
                     var response = await client.PostAsync(apiUrl, stringContent);
-                    // response.Wait();
                     return response;
                 }
             }
@@ -219,6 +216,54 @@ namespace Parking.App.Common.ApiMethod
                 return DownFileAdmgt(key, filePath);
             });
         }
+        public static async Task<ResultInfo> RequestPostAsync(UInt32 signature, UInt16 functionCode, RequestInfo req)
+        {
+            var result = new ResultInfo();
+            try
+            {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                DataRequest dataSend = new DataRequest()
+                {
+                    Signature = signature,
+                    FrameID = 0,
+                    DataLength = 0,
+                    FunctionCode = functionCode,
+                    Data = req
+                };
+
+                var json = JsonConvert.SerializeObject(dataSend);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                using (HttpClient client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromSeconds(Constants.Constants.RequestTimeOut);
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    HttpResponseMessage response = await client.PostAsync(Constants.Constants.ApiServerURL, content);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseContent = await response.Content.ReadAsStringAsync();
+                        var infoRep = JsonHelper.JsonToInfo<ResultInfo>(responseContent);
+                        if (infoRep != null)
+                            return infoRep;
+                    }
+
+                    result.Status = false;
+                    result.ErrorMessage = response.Content.ReadAsStringAsync().Result;
+                }
+            }
+            catch (Exception ex)
+            {
+                result.Status = false;
+                result.ErrorMessage = ex.Message;
+            }
+
+            return result;
+        }
+
+
         public static ResultInfo RequestPost(UInt32 signature, UInt16 functionCode, RequestInfo req)
         {
             var result = new ResultInfo();
@@ -267,12 +312,12 @@ namespace Parking.App.Common.ApiMethod
 
             return result;
         }
-        public static Task<ResultInfo> RequestPostAsync(UInt32 signature, UInt16 functionCode, RequestInfo req)
-        {
-            return Task.Run<ResultInfo>(() => {
-                return RequestPost(signature, functionCode, req);
-            });
-        }
+        //public static Task<ResultInfo> RequestPostAsync(UInt32 signature, UInt16 functionCode, RequestInfo req)
+        //{
+        //    return Task.Run<ResultInfo>(() => {
+        //        return RequestPost(signature, functionCode, req);
+        //    });
+        //}
 
         //**---------------------------------------------------------
 

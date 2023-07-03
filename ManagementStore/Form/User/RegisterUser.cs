@@ -22,10 +22,12 @@ namespace ManagementStore.Form.User
             _home = home;
             InitializeComponent();
             panelSlider.Controls.Add(new PhoneNumber());
+
             //panelSlider.Controls.Add(new PhoneOTP());
             //panelSlider.Controls.Add(new InformationUser());
             //panelSlider.Controls.Add(new FullName());
              //panelSlider.Controls.Add(new FaceTaken());
+
             Settings.countDown = 120;
             timer = new Timer();
             timer.Interval = 1000; // 1 second
