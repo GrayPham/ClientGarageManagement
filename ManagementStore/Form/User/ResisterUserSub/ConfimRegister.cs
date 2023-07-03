@@ -1,5 +1,6 @@
 ﻿using Connect.Common.Contract;
 using DevExpress.XtraEditors;
+using ManagementStore.Common;
 using ManagementStore.Model.Static;
 using Parking.App.Common;
 using Parking.App.Common.ApiMethod;
@@ -24,6 +25,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
     public partial class ConfimRegister : DevExpress.XtraEditors.XtraForm
     {
         public bool CaptureAgain { get; private set; }
+        private string fileNameAudio;
         public ConfimRegister()
         {
             InitializeComponent();
@@ -32,6 +34,19 @@ namespace ManagementStore.Form.User.ResisterUserSub
             genderTxt.Text = UserCCCD.Gender != null ? UserCCCD.Gender : "Male"; ;
             pictureTaken.Image = UserCCCD.Picture != null ? ConvertBase64ToImage(UserCCCD.Picture): pictureTaken.Image;
             pictureBoxCCCD.Image = UserCCCD.PictureCCCD != null ? ConvertBase64ToImage(UserCCCD.PictureCCCD) : pictureBoxCCCD.Image;
+        
+        }
+        private async void ConfimRegister_Load(object sender, EventArgs e)
+        {
+            fileNameAudio = await AudioConstants.GetListSound(AudioConstants.SuccessfulRegister);
+            if (fileNameAudio != null && fileNameAudio != "")
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+            }
+            else
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + AudioConstants.SuccessfulRegister + ".wav");
+            }
         }
         public Image ConvertBase64ToImage(string base64String)
         {
@@ -78,6 +93,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
         }
         private async void buttonConfirm_Click(object sender, EventArgs e)
         {
+            Helpers.StopSound();
             RequestInfo request = new RequestInfo();
             var uInfo = new object[5];
             uInfo[0] = UserCCCD.FullName == null ? "Nguyen Ngoc Thien" : UserCCCD.FullName;
@@ -182,8 +198,18 @@ namespace ManagementStore.Form.User.ResisterUserSub
             var repose = await ApiMethod.PostCall(userMgtData);
             if (repose.StatusCode == System.Net.HttpStatusCode.OK)
             {
+                fileNameAudio = await AudioConstants.GetListSound(AudioConstants.RegisteredMember);
+                if (fileNameAudio != null && fileNameAudio != "")
+                {
+                    Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+                }
+                else
+                {
+                    Helpers.PlaySound(@"Assets\Audio\" + AudioConstants.RegisteredMember + ".wav");
+                }
                 XtraMessageBox.Show("Registed account successfully", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // TODO: send message register successfully
+                
             }
             else
             {
@@ -195,7 +221,11 @@ namespace ManagementStore.Form.User.ResisterUserSub
         private void btnReturnRegis_Click(object sender, EventArgs e)
         {
             CaptureAgain = true;
+            Helpers.StopSound();
             this.Close();
+           
         }
+
+
     }
 }

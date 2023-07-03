@@ -1,6 +1,8 @@
 ﻿using DevExpress.XtraEditors;
+using ManagementStore.Common;
 using ManagementStore.Extensions;
 using ManagementStore.Model.Static;
+using Parking.App.Common.Helper;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -11,11 +13,25 @@ namespace ManagementStore.Form.User
     public partial class PhoneOTP : System.Windows.Forms.UserControl
     {
         public List<string> Num;
+        private string fileNameAudio;
         public PhoneOTP()
         {
             Num = new List<String>();
             InitializeComponent();
+            
 
+        }
+        private async void PhoneOTP_Load(object sender, EventArgs e)
+        {
+            fileNameAudio = await AudioConstants.GetListSound(AudioConstants.OTPPhone);
+            if (fileNameAudio != null && fileNameAudio != "")
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+            }
+            else
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + AudioConstants.OTPPhone + ".wav");
+            }
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -26,6 +42,14 @@ namespace ManagementStore.Form.User
             // splashScreenManager1.CloseWaitForm();
             if (status)
             {
+                var dataForm = ParentForm.Controls.Find("InformationUser", true);
+                if (dataForm.Length > 0)
+                {
+                    var controlToRemove = dataForm[0];
+                    ParentForm.Controls.Remove(controlToRemove);
+                    controlToRemove.Dispose();
+                }
+                ParentForm.Controls.Find("panelSlider", true)[0].Controls.Add(new InformationUser());
                 Utils.Forward(ParentForm, "pictureBoxOTP", "pictureBoxInfo", "InformationUser");              
             }
             else
@@ -136,5 +160,7 @@ namespace ManagementStore.Form.User
             Utils.SendOTPSMS(VerifyPhoneNumber.PhoneNumber);
             XtraMessageBox.Show("Resend OTP successfull", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+
     }
 }

@@ -1,4 +1,6 @@
 ﻿using DevExpress.XtraEditors;
+using ManagementStore.Form.User.ResisterUserSub;
+using ManagementStore.Model.Static;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +15,91 @@ namespace ManagementStore.Form.User
 {
     public partial class RegisterUser2 : DevExpress.XtraEditors.XtraForm
     {
-        public RegisterUser2()
+        private Home _home;
+        private Timer timer;
+        public RegisterUser2(Home home)
         {
+            _home = home;
             InitializeComponent();
             panelSlider2.Controls.Add(new CitizenshipID());
             //panelSlider2.Controls.Add(new CitizenshipIDCapture());
+            Settings.countDown = 120;
+            timer = new Timer();
+            timer.Interval = 1000; // 1 second
+            timer.Tick += Timer_Tick;
+
+            // Start the Timer
+            timer.Start();
+        }
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            Settings.countDown--;
+            showCountDown.Text = $"Close form after {Settings.countDown.ToString()} seconds";
+
+            // When the countdown reaches 0, stop the Timer and capture the picture
+            if (Settings.countDown == 0)
+            {
+                timer.Stop();
+
+            }
+        }
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            
+
+            var citizenCapture = panelSlider2.Controls.Find("CitizenshipIDCapture", true);
+            if (citizenCapture.Length > 0)
+            {
+                var controlToRemove = citizenCapture[0] as CitizenshipIDCapture;
+                controlToRemove.capture.Dispose();
+                Application.Idle -= controlToRemove.Capture_ImageGrabbed;
+                controlToRemove.timer.Tick -= controlToRemove.Timer_TickAsync;
+                panelSlider2.Controls.Remove(controlToRemove);
+                controlToRemove.Dispose();
+            }
+            var citizenCaptureFace = panelSlider2.Controls.Find("FaceTakenCCCD", true);
+            if (citizenCapture.Length > 0)
+            {
+                var controlToRemove = citizenCapture[0] as FaceTakenCCCD;
+                controlToRemove.capture.Dispose();
+                Application.Idle -= controlToRemove.Capture_ImageGrabbed;
+                controlToRemove.timer.Tick -= controlToRemove.Timer_Tick;
+                panelSlider2.Controls.Remove(controlToRemove);
+                controlToRemove.Dispose();
+            }
+            panelSlider2.Controls.Clear();
+            sidePanel4.Controls.Clear();
+            panelSlider2.Dispose();
+            sidePanel4.Dispose();
+            pictureEdit1.Dispose();
+            sidePanel1.Dispose();
+
+            _home.Invoke(new Action(() =>
+            {
+                _home.Show();
+                _home.cameraControl.Start();
+            }));
+
+            Close();
+        }
+
+        private void RegisterUser2_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            panelSlider2.Controls.Clear();
+            sidePanel4.Controls.Clear();
+
+
+            panelSlider2.Dispose();
+            sidePanel4.Dispose();
+            pictureEdit1.Dispose();
+            sidePanel1.Dispose();
+
+            _home.Invoke(new Action(() =>
+            {
+                _home.Show();
+                _home.cameraControl.Start();
+            }));
+
 
         }
     }

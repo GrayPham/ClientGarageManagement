@@ -45,7 +45,7 @@ namespace ManagementStore.Form.User
             this.pictureCCCD.Location = new System.Drawing.Point(3, 128);
             this.pictureCCCD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureCCCD.Name = "pictureCCCD";
-            this.pictureCCCD.Size = new System.Drawing.Size(653, 410);
+            this.pictureCCCD.Size = new System.Drawing.Size(653, 411);
             this.pictureCCCD.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureCCCD.TabIndex = 48;
             this.pictureCCCD.TabStop = false;
@@ -54,7 +54,7 @@ namespace ManagementStore.Form.User
             // 
             this.showCountDown.Appearance.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showCountDown.Appearance.Options.UseFont = true;
-            this.showCountDown.Location = new System.Drawing.Point(18, 88);
+            this.showCountDown.Location = new System.Drawing.Point(19, 89);
             this.showCountDown.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.showCountDown.Name = "showCountDown";
             this.showCountDown.Size = new System.Drawing.Size(325, 27);
@@ -65,7 +65,7 @@ namespace ManagementStore.Form.User
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(18, 36);
+            this.labelControl1.Location = new System.Drawing.Point(19, 36);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(445, 34);
@@ -129,8 +129,10 @@ namespace ManagementStore.Form.User
             this.Controls.Add(this.showCountDown);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.pictureCCCD);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CitizenshipIDCapture";
             this.Size = new System.Drawing.Size(659, 741);
+            this.Load += new System.EventHandler(this.CitizenshipIDCapture_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureCCCD)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -281,7 +281,7 @@ namespace ManagementStore.Form.User
             this.btnResendOTP.Appearance.Options.UseFont = true;
             this.btnResendOTP.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnResendOTP.ImageOptions.Image")));
             this.btnResendOTP.Location = new System.Drawing.Point(308, 53);
-            this.btnResendOTP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnResendOTP.Margin = new System.Windows.Forms.Padding(2);
             this.btnResendOTP.Name = "btnResendOTP";
             this.btnResendOTP.Size = new System.Drawing.Size(126, 71);
             this.btnResendOTP.TabIndex = 43;
@@ -312,6 +312,7 @@ namespace ManagementStore.Form.User
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PhoneOTP";
             this.Size = new System.Drawing.Size(459, 666);
+            this.Load += new System.EventHandler(this.PhoneOTP_Load);
             ((System.ComponentModel.ISupportInitialize)(this.otpTxt.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

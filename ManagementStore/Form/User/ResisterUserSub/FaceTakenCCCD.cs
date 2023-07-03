@@ -20,22 +20,37 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ManagementStore.Extensions;
+using Parking.App.Common.Helper;
 
 namespace ManagementStore.Form.User.ResisterUserSub
 {
     public partial class FaceTakenCCCD : System.Windows.Forms.UserControl
     {
-        private VideoCapture capture;
+        public VideoCapture capture;
         private InferenceSession session;
         private FPSCounter fpsCounter;
         private int countdownValue;
-        private Timer timer;
+        public Timer timer;
         private CountdownPictureBox countdownPicture;
         private int countObject = 0;
         ShowImageTaken image;
+        private string fileNameAudio;
+        private async void FaceTakenCCCD_Load(object sender, EventArgs e)
+        {
+            fileNameAudio = await AudioConstants.GetListSound(AudioConstants.FaceTaken);
+            if (fileNameAudio != null && fileNameAudio != "")
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+            }
+            else
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + AudioConstants.FaceTaken + ".wav");
+            }
+        }
         public FaceTakenCCCD()
         {
             InitializeComponent();
+
             string path = System.IO.Path.GetDirectoryName(new System.Uri(System.Reflection.Assembly.GetExecutingAssembly().CodeBase).LocalPath);
             // Load the ONNX model
             session = new InferenceSession(ModelConfig.dataFolderPath + "/ssd_mobilenet_v1_12-int8.onnx");
@@ -43,6 +58,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             capture = new VideoCapture();
             capture.ImageGrabbed += Capture_ImageGrabbed;
             capture.Start();
+           
             // Set the initial countdown value and Timer interval
             countdownValue = 5;
             timer = new Timer();
@@ -52,7 +68,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // Start the Timer
             timer.Start();
         }
-        private void Timer_Tick(object sender, EventArgs e)
+        public void Timer_Tick(object sender, EventArgs e)
         {
             countdownValue--;
             showCountDown.Text = $"Ảnh sẽ được chụp sau {countdownValue.ToString()} giây nữa";
@@ -123,8 +139,9 @@ namespace ManagementStore.Form.User.ResisterUserSub
             session?.Dispose();
 
 
-
+            Helpers.StopSound();
             Utils.ForwardCCCD(ParentForm, "pictureBoxFace", "pictureBoxFace", "FaceTakenCCCD");
+
             ConfimRegister confimRegister = new ConfimRegister();
             splashScreenManager1.CloseWaitForm();
             confimRegister.ShowDialog();
@@ -152,9 +169,11 @@ namespace ManagementStore.Form.User.ResisterUserSub
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
+            Helpers.StopSound();
+            capture.Dispose();
             Utils.BackCCCD(ParentForm, "pictureBoxFace", "pictureBoxName", "FullNameCCCD");
         }
-        private void Capture_ImageGrabbed(object sender, EventArgs e)
+        public void Capture_ImageGrabbed(object sender, EventArgs e)
         {
             if (fpsCounter == null)
             {
@@ -303,6 +322,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
                 }
             }
         }
+
 
     }
 }

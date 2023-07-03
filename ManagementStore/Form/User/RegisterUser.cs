@@ -15,15 +15,19 @@ namespace ManagementStore.Form.User
     public partial class RegisterUser : DevExpress.XtraEditors.XtraForm, IProgramController
     {
         private Timer timer;
+        private Home _home;
 
-        public RegisterUser()
+        public RegisterUser(Home home)
         {
+            _home = home;
             InitializeComponent();
             panelSlider.Controls.Add(new PhoneNumber());
-            panelSlider.Controls.Add(new PhoneOTP());
-            panelSlider.Controls.Add(new InformationUser());
-            panelSlider.Controls.Add(new FullName());
-            // panelSlider.Controls.Add(new FaceTaken());
+
+            //panelSlider.Controls.Add(new PhoneOTP());
+            //panelSlider.Controls.Add(new InformationUser());
+            //panelSlider.Controls.Add(new FullName());
+             //panelSlider.Controls.Add(new FaceTaken());
+
             Settings.countDown = 120;
             timer = new Timer();
             timer.Interval = 1000; // 1 second
@@ -104,6 +108,60 @@ namespace ManagementStore.Form.User
         public void ConnectSuccess(ServerInfo info)
         {
             throw new NotImplementedException();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            var citizenCapture = panelSlider.Controls.Find("FaceTaken", true);
+            if (citizenCapture.Length > 0)
+            {
+                var controlToRemove = citizenCapture[0] as FaceTaken;
+                controlToRemove.capture.Dispose();
+                Application.Idle -= controlToRemove.Capture_ImageGrabbed;
+                controlToRemove.timer.Tick -= controlToRemove.Timer_Tick;
+                panelSlider.Controls.Remove(controlToRemove);
+                controlToRemove.Dispose();
+            }
+            panelSlider.Controls.Clear();
+            sidePanel4.Controls.Clear();
+            panelSlider.Dispose();
+            sidePanel4.Dispose();
+            pictureEdit1.Dispose();
+            sidePanel1.Dispose();
+
+            _home.Invoke(new Action(() =>
+            {
+                _home.Show();
+                _home.cameraControl.Start();
+            }));
+
+            Close();
+        }
+
+        private void RegisterUser_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            var citizenCapture = panelSlider.Controls.Find("FaceTaken", true);
+            if (citizenCapture.Length > 0)
+            {
+                var controlToRemove = citizenCapture[0] as FaceTaken;
+                controlToRemove.capture.Dispose();
+                Application.Idle -= controlToRemove.Capture_ImageGrabbed;
+                controlToRemove.timer.Tick -= controlToRemove.Timer_Tick;
+                panelSlider.Controls.Remove(controlToRemove);
+                controlToRemove.Dispose();
+            }
+            panelSlider.Controls.Clear();
+            sidePanel4.Controls.Clear();
+            panelSlider.Dispose();
+            sidePanel4.Dispose();
+            pictureEdit1.Dispose();
+            sidePanel1.Dispose();
+
+            _home.Invoke(new Action(() =>
+            {
+                _home.Show();
+                _home.cameraControl.Start();
+            }));
         }
     }
 }

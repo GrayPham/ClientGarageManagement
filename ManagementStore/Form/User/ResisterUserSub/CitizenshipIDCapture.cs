@@ -10,6 +10,7 @@ using ManagementStore.Form.User.ResisterUserSub;
 using ManagementStore.Model.ML;
 using ManagementStore.Model.Static;
 using Parking.App.Common.ApiMethod;
+using Parking.App.Common.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,19 +27,26 @@ namespace ManagementStore.Form.User
 {
     public partial class CitizenshipIDCapture : System.Windows.Forms.UserControl
     {
-        private VideoCapture capture;
+        public VideoCapture capture;
         private int countdownValue;
-        private Timer timer;
+        public Timer timer;
         //ShowImageCCCD showImage;
         List<DetectionResult> detectionResults;
         ObjectDetectionSSD ssd;
 
-
+        private string fileNameAudio;
         private const string badImage = "Bad Image";
         private const string badDetect = "Not Detect ID";
         private const string STATUS_CCCD_5 = "Is Unknown";
         private const string STATUS_CCCD_3 = "Not Detect ID";
-        
+        private async void CitizenshipIDCapture_Load(object sender, EventArgs e)
+        {
+            fileNameAudio = await AudioConstants.GetListSound(AudioConstants.AuthenticationCCCD);
+            if (fileNameAudio != null && fileNameAudio != "")
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+            }
+        }
         public CitizenshipIDCapture()
         {
             InitializeComponent();
@@ -47,6 +55,7 @@ namespace ManagementStore.Form.User
             ssd = new ObjectDetectionSSD(ModelConfig.dataFolderPath + "/mb2-ssd-lite-predict.onnx");
             // Initialize the camera capture
             capture = new VideoCapture(0);
+            
             // ShowImage = new ShowImageCCCD();
             Application.Idle += Capture_ImageGrabbed;
             //capture.Start();
@@ -59,7 +68,7 @@ namespace ManagementStore.Form.User
             // Start the Timer
             timer.Start();
         }
-        private async void  Timer_TickAsync(object sender, EventArgs e)
+        public async void  Timer_TickAsync(object sender, EventArgs e)
         {
             countdownValue--;
             showCountDown.Text = $"The photo will be taken in {countdownValue.ToString()} second.";
@@ -125,7 +134,7 @@ namespace ManagementStore.Form.User
             }
             
         }
-        private void Capture_ImageGrabbed(object sender, EventArgs e)
+        public void Capture_ImageGrabbed(object sender, EventArgs e)
         { 
             // Try catch
             if (capture != null && capture.Ptr != IntPtr.Zero)
@@ -150,7 +159,8 @@ namespace ManagementStore.Form.User
             Application.Idle -= Capture_ImageGrabbed;
             capture?.Dispose();
             var userInfor = ParentForm.Controls.Find("UserInfor", true);
-            if(userInfor.Length == 0)
+            Helpers.StopSound();
+            if (userInfor.Length == 0)
             {
                 ParentForm.Controls.Find("panelSlider2", true)[0].Controls.Add(new UserInfor());
 
@@ -175,6 +185,7 @@ namespace ManagementStore.Form.User
             splashScreenManager1.ShowWaitForm();
             Application.Idle -= Capture_ImageGrabbed;
             capture.Dispose();
+            Helpers.StopSound();
             Utils.BackCCCD(ParentForm, "pictureBoxVCCCD", "pictureBoxCCCD", "CitizenshipID");
             
             //Control CitizenshipIDCapture = ParentForm.Controls.Find("panelSlider", true)[0].Controls.Find("CitizenshipIDCapture", true)[0];
@@ -226,5 +237,7 @@ namespace ManagementStore.Form.User
                 }
             }
         }
+
+
     }
 }

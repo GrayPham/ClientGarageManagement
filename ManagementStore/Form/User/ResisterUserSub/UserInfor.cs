@@ -12,26 +12,39 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ManagementStore.Model.Static;
+using Parking.App.Common.Helper;
+using ManagementStore.Common;
 
 namespace ManagementStore.Form.User.ResisterUserSub
 {
     public partial class UserInfor : System.Windows.Forms.UserControl
     {
         public List<string> Num;
+        private string fileNameAudio;
         public UserInfor()
         {
             InitializeComponent();
             Num = new List<String>();
+            
         }
-        private void UserInfor_Load(object sender, EventArgs e)
+        private async void UserInfor_Load(object sender, EventArgs e)
         {
             ccbSelectGender.Properties.Items.Add("Male");
             ccbSelectGender.Properties.Items.Add("Female");
             ccbSelectGender.Properties.Items.Add("Other");
             ccbSelectGender.Properties.TextEditStyle = TextEditStyles.DisableTextEditor;
-
             ccbSelectGender.Properties.DropDownRows = 5;
             ccbSelectGender.SelectedIndex = 0;
+
+            fileNameAudio = await AudioConstants.GetListSound(AudioConstants.InforUser);
+            if (fileNameAudio != null && fileNameAudio != "")
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+            }
+            else
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + AudioConstants.InforUser + ".wav");
+            }
         }
         #region Number
         private void btnNum8_Click(object sender, EventArgs e)
@@ -215,6 +228,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             ParentForm.Controls.Find("panelSlider2", true)[0].Controls.Add(new FullNameCCCD());
             UserCCCD.BirthDay = birthDayTxt.Text;
             UserCCCD.Gender = ccbSelectGender.SelectedItem.ToString();
+            Helpers.StopSound();
             Utils.ForwardCCCD(ParentForm, "pictureBoxInfo", "pictureBoxName", "FullNameCCCD");
             splashScreenManager1.CloseWaitForm();
         }
@@ -223,6 +237,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
         {
             splashScreenManager1.ShowWaitForm();
             var citizenshipIDCapture = ParentForm.Controls.Find("CitizenshipIDCapture", true);
+            Helpers.StopSound();
             if (citizenshipIDCapture.Length == 0)
             {
                 ParentForm.Controls.Find("panelSlider2", true)[0].Controls.Add(new CitizenshipIDCapture());
