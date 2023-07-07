@@ -1,7 +1,7 @@
 ﻿
-namespace ManagementStore.Form.Camera
+namespace ManagementStore.Form.Ad
 {
-    partial class HomeCamera
+    partial class TopAd
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,35 +29,31 @@ namespace ManagementStore.Form.Camera
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBoxHome = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).BeginInit();
+            this.webBrowserVideo = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
-            // pictureBoxHome
+            // webBrowserVideo
             // 
-            this.pictureBoxHome.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBoxHome.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxHome.Name = "pictureBoxHome";
-            this.pictureBoxHome.Size = new System.Drawing.Size(735, 330);
-            this.pictureBoxHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBoxHome.TabIndex = 0;
-            this.pictureBoxHome.TabStop = false;
+            this.webBrowserVideo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowserVideo.Location = new System.Drawing.Point(0, 0);
+            this.webBrowserVideo.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowserVideo.Name = "webBrowserVideo";
+            this.webBrowserVideo.Size = new System.Drawing.Size(706, 370);
+            this.webBrowserVideo.TabIndex = 0;
             // 
-            // HomeCamera
+            // TopAd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.pictureBoxHome);
-            this.Name = "HomeCamera";
-            this.Size = new System.Drawing.Size(735, 330);
-            this.Click += new System.EventHandler(this.HomeCamera_Click);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).EndInit();
+            this.Controls.Add(this.webBrowserVideo);
+            this.Name = "TopAd";
+            this.Size = new System.Drawing.Size(706, 370);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBoxHome;
+        private System.Windows.Forms.WebBrowser webBrowserVideo;
     }
 }

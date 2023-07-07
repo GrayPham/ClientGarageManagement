@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Connect.Common;
 using Connect.Common.Common;
 using Connect.Common.Contract;
@@ -15,6 +16,8 @@ using Connect.Common.Languages;
 using Connect.RemoteDataProvider.Interface;
 using Connect.SocketClient;
 using DevExpress.Images;
+using Emgu.CV;
+using Emgu.CV.Structure;
 using ManagementStore.Extensions;
 using ManagementStore.Form.User;
 using NAudio.Wave;
@@ -55,12 +58,15 @@ namespace ManagementStore.Form
         public static bool isCanModify { get; set; } = false;
         public static bool isShouldOpenCamera { get; set; } = false;
         //**------------------------------------------------------
-
+        private VideoCapture capture;
         public Home(tblAdMgtService tblAdMgtService)
         {
             _log = ProgramFactory.Instance.Log;
             _tblAdMgtService = tblAdMgtService;
             InitializeComponent();
+            capture = new VideoCapture();
+            Application.Idle += Capture_Home;
+            capture.Start();
         }
 
         private void Home_Load(object sender, EventArgs e)
@@ -89,37 +95,36 @@ namespace ManagementStore.Form
             _tblAdMgtService.RemoveCompleted += AdMgt_Removed;
             _tblClientSoundMgtService.SetCustomizedListener(_clientSound, SendSoundEvent);
             _tblStoreDeviceInfoService.SetCustomizedListener(_clientStoreDevice, SendStoreEvent);
+
+            string html = "<html><head>";
             string url = "https://www.youtube.com/watch?v=Z9uEn2IVPkQ";
-            string videoId = Utils.GetVideoId(url);
+            html += "<meta content='IE=Edge' http-equiv='X-UA-Compatible'/>";
+            html += "</head><body>";
+            html += "<iframe id='video' src='https://www.youtube.com/embed/{0}?autoplay=1&mute=1' width='725px' height='400px' frameborder='0' allowfullscreen></iframe>";
+            html += "</body></html>";
+            this.webBrowserVideo.DocumentText = string.Format(html, Utils.GetVideoId(url));
 
-            string html = @"
-            <html>
-            <head>
-                <meta content='IE=Edge' http-equiv='X-UA-Compatible'/>
-                <style>
-                    body, html { margin: 0; padding: 0; overflow: hidden; }
-                    iframe { width: 100%; height: 370px; }
-                </style>
-                <script>
-                    function playVideo() {
-                        var videoElement = document.querySelector('video');
-                        if (videoElement) {
-                            videoElement.muted = true;
-                            videoElement.play();
-                            videoElement.requestFullscreen();
-                        }
+
+        }
+        private void Capture_Home(object send, EventArgs e)
+        {
+
+            if (capture != null && capture.Ptr != IntPtr.Zero)
+            {
+                using (Mat frame = capture.QueryFrame())
+                {
+                    try
+                    {
+                        Image<Bgr, byte> image = frame.ToImage<Bgr, byte>();
+                        pictureBoxHome.Image = image.ToBitmap();
                     }
-                </script>
-            </head>
-            <body onload='playVideo()'>
-                <iframe id='video' src='https://www.youtube.com/embed/Z9uEn2IVPkQ?autoplay=1&mute=1' frameborder='0' allowfullscreen></iframe>
-            </body>
-            </html>";
+                    catch
+                    {
 
-            string tempHtmlFilePath = Path.GetTempFileName() + ".html";
-            File.WriteAllText(tempHtmlFilePath, string.Format(html, videoId));
-            webBrowserVideo.Navigate(tempHtmlFilePath);
+                    }
 
+                }
+            }
         }
         private void AdMgtSynchronized(object sender, EventArgs<int> e)
         {
@@ -236,9 +241,11 @@ namespace ManagementStore.Form
             // splashScreenManage.ShowWaitForm();
             Thread.Sleep(1000);
             TypeRegister registerUser = new TypeRegister();
+            capture.Stop();
+            webBrowserVideo.Stop();
+            capture.Dispose();
+            webBrowserVideo.Dispose();
             registerUser.Show();
-            cameraControl.Stop();
-            this.webBrowserVideo.DocumentText = "";
             Helpers.StopSound();
             Hide();
             // splashScreenManage.CloseWaitForm();

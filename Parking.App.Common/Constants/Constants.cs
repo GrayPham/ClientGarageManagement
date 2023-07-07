@@ -7,31 +7,32 @@ namespace Parking.App.Common.Constants
     public static class Constants
     {
         public static string PhoneNumberValidation = @"^[0-9\-\+]{9,15}$";
-        public static string PhoneAuthFailure = "인증완료";
-        public static string WrongCapcha = "그림문자가 일치하지 않습니다.";
+        public static string PhoneAuthFailure = "Authentication completed";
+        public static string WrongCapcha = "The image characters do not match.";
         public static string IsSussessGetData = "KCB Mobile Phone Identity Verification Service Sample 3";
         public static string CodeSussesGetData = "B000";
-        public static string RightOTP = "인증번호";
-        public static string TypeImg = "data:imag";
+        public static string RightOTP = "Verification code";
+        public static string TypeImg = "data:image";
         public static string TempMember = "USST02";
         public static string OfficeMember = "USST01";
         public static string CardMethod = "IdCardAuth";
         public static string PhoneMethod = "PhoneAuth";
-        public static string AuthMethodHeader1 = "인증 수단 선택";
-        public static string AuthMethodHeader2 = "인증 방식을 선택하여 주십시오.";
-        public static string CheckUserInforHeader1 = "인증 수단 선택";
-        public static string CheckUserInforHeader2 = "인증 방식을 선택하여 주십시오.";
-        public static string IdCardHeader1 = "본인 인증";
-        public static string IdCardHeader2 = "본인 확인 후 입실이 가능합니다.";
+        public static string AuthMethodHeader1 = "Authentication Method Selection";
+        public static string AuthMethodHeader2 = "Please select the authentication method.";
+        public static string CheckUserInforHeader1 = "Authentication Method Selection";
+        public static string CheckUserInforHeader2 = "Please select the authentication method.";
+        public static string IdCardHeader1 = "Identity Verification";
+        public static string IdCardHeader2 = "You can enter after confirming your identity.";
 
-        public static string InputPhoneNumberHeader1 = "신분증 인증";
-        public static string InputPhoneNumberHeader2 = "휴대폰 번호를 입력 해 주십시오";
+        public static string InputPhoneNumberHeader1 = "ID Card Verification";
+        public static string InputPhoneNumberHeader2 = "Please enter your phone number.";
 
-        public static string PhoneAuthHeader1 = "휴대폰 인증";
-        public static string PhoneAuthHeader2 = "아래 정보를 입력하여 주십시오.";
+        public static string PhoneAuthHeader1 = "Phone Verification";
+        public static string PhoneAuthHeader2 = "Please enter the information below.";
 
-        public static string ScannerPhotoCardHeader1 = "본인 인증";
-        public static string ScannerPhotoCardHeader2 = "본인 확인 후 입실이 가능합니다.";
+        public static string ScannerPhotoCardHeader1 = "Identity Verification";
+        public static string ScannerPhotoCardHeader2 = "You can enter after confirming your identity.";
+
         //http://localhost:5001/Kiosk/KioskService/GetData
         //http://192.168.100.45:8080/Kiosk/KioskService/GetData
         //http://api.owlgardien.com:81/Kiosk/KioskService/GetData
@@ -60,7 +61,7 @@ namespace Parking.App.Common.Constants
         public const string DeviceType = "DVC001";
 
         public static bool isEnableAutomaticalyRunApp = true;
-        public static string ServerMeetProblemMessage = "프로세스에 문제가 있습니다. 다시 시도하십시오!";
+        public static string ServerMeetProblemMessage = "There is a problem with the process. Please try again!";
         public static string TokenTelegram = "";
         public static string IdUserTelegram = "";
         public static string RejectCode = "REJMS1";
@@ -68,9 +69,10 @@ namespace Parking.App.Common.Constants
         public static string MinorCode = "MINOR1";
         public static string SimilarityRate = "SRP001";
 
-        public static string ValidPhoneNumber = "올바른 휴대폰번호를 입력해주세요";
-        public static string ValidDateOfBirth = "올바른 생년월일을 입력해주세요";
-        public static string ValidName = "올바른 성명정보를 입력해주세요";
+        public static string ValidPhoneNumber = "Please enter a valid phone number.";
+        public static string ValidDateOfBirth = "Please enter a valid date of birth.";
+        public static string ValidName = "Please enter valid name information.";
+
         public static string RefreshNumber = "0101010101010";
         public static string RefreshDob = "345442";
         public static string RefreshGender = "1";
@@ -106,9 +108,10 @@ namespace Parking.App.Common.Constants
         public static string FileAutoUpdate = "\\VersionInfo.txt";
         public static string AppAutoUpdate = "\\Kiosk.AutoUpdate.exe";
 
-        public static string Title1 = "개인정보 수집항목 동의";
-        public static string Title2 = "안개인정보 이용기간";
-        public static string Title3 = "개인정보 처리의 위탁";
+        public static string Title1 = "Consent to Personal Information Collection";
+        public static string Title2 = "Personal Information Retention Period";
+        public static string Title3 = "Outsourcing of Personal Information Processing";
+
         public static string Content1 = "";
         public static string Content2 = "";
         public static string Content3 = "";

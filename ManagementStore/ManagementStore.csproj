@@ -329,6 +329,12 @@
     <Compile Include="Extensions\Utils.cs" />
     <Compile Include="Extensions\ValidateExtensions.cs" />
     <Compile Include="Extensions\Validations\DateValidationRule.cs" />
+    <Compile Include="Form\Ad\TopAd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\Ad\TopAd.Designer.cs">
+      <DependentUpon>TopAd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\Camera\HomeCamera.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -520,6 +526,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\YoloDetectServices.cs" />
+    <EmbeddedResource Include="Form\Ad\TopAd.resx">
+      <DependentUpon>TopAd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\Camera\HomeCamera.resx">
       <DependentUpon>HomeCamera.cs</DependentUpon>
     </EmbeddedResource>

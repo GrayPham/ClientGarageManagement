@@ -30,7 +30,6 @@ namespace ManagementStore.Form
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
-            this.cameraControl = new DevExpress.XtraEditors.Camera.CameraControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.btnIdentity = new DevExpress.XtraEditors.SimpleButton();
@@ -45,6 +44,7 @@ namespace ManagementStore.Form
             this.repositoryItemDateEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.webBrowserVideo = new System.Windows.Forms.WebBrowser();
+            this.pictureBoxHome = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
@@ -52,26 +52,17 @@ namespace ManagementStore.Form
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).BeginInit();
             this.SuspendLayout();
-            // 
-            // cameraControl
-            // 
-            this.cameraControl.Location = new System.Drawing.Point(0, 20);
-            this.cameraControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cameraControl.Name = "cameraControl";
-            this.cameraControl.Size = new System.Drawing.Size(706, 328);
-            this.cameraControl.TabIndex = 0;
-            this.cameraControl.Text = "cameraControl1";
-            this.cameraControl.VideoStretchMode = DevExpress.XtraEditors.Camera.VideoStretchMode.Stretch;
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.pictureBoxHome);
             this.panelControl1.Controls.Add(this.simpleButton1);
             this.panelControl1.Controls.Add(this.btnIdentity);
             this.panelControl1.Controls.Add(this.ribbonControl1);
             this.panelControl1.Controls.Add(this.ribbonStatusBar1);
             this.panelControl1.Controls.Add(this.webBrowserVideo);
-            this.panelControl1.Controls.Add(this.cameraControl);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -206,12 +197,21 @@ namespace ManagementStore.Form
             // 
             // webBrowserVideo
             // 
-            this.webBrowserVideo.Location = new System.Drawing.Point(2, 366);
+            this.webBrowserVideo.Location = new System.Drawing.Point(-16, 347);
             this.webBrowserVideo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.webBrowserVideo.MinimumSize = new System.Drawing.Size(17, 16);
             this.webBrowserVideo.Name = "webBrowserVideo";
-            this.webBrowserVideo.Size = new System.Drawing.Size(709, 384);
+            this.webBrowserVideo.Size = new System.Drawing.Size(740, 424);
             this.webBrowserVideo.TabIndex = 3;
+            // 
+            // pictureBoxHome
+            // 
+            this.pictureBoxHome.Location = new System.Drawing.Point(2, 2);
+            this.pictureBoxHome.Name = "pictureBoxHome";
+            this.pictureBoxHome.Size = new System.Drawing.Size(704, 352);
+            this.pictureBoxHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxHome.TabIndex = 13;
+            this.pictureBoxHome.TabStop = false;
             // 
             // Home
             // 
@@ -236,6 +236,7 @@ namespace ManagementStore.Form
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -254,8 +255,8 @@ namespace ManagementStore.Form
         private DevExpress.XtraBars.BarStaticItem barStaticItem3;
         private DevExpress.XtraBars.BarStaticItem barItemPort;
         private DevExpress.XtraBars.BarStaticItem barItemVersion;
-        public DevExpress.XtraEditors.Camera.CameraControl cameraControl;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManage;
+        private System.Windows.Forms.PictureBox pictureBoxHome;
     }
 }
