@@ -18,6 +18,7 @@ using Connect.SocketClient;
 using DevExpress.Images;
 using Emgu.CV;
 using Emgu.CV.Structure;
+using ManagementStore.Common;
 using ManagementStore.Extensions;
 using ManagementStore.Form.User;
 using NAudio.Wave;
@@ -250,21 +251,18 @@ namespace ManagementStore.Form
 
         private void btnIdentity_Click(object sender, EventArgs e)
         {
-            splashScreenManager1.ShowWaitForm();
+ 
             Thread.Sleep(1000);
-            TypeRegister registerUser = new TypeRegister();
             capture.Stop();
             webBrowserVideo.Stop();
             capture.Dispose();
             webBrowserVideo.Dispose();
-            registerUser.Show();
             Helpers.StopSound();
-            
             TypeRegister typeRegister = new TypeRegister(this);
             
             Hide();
 
-            splashScreenManager1.CloseWaitForm();
+
             typeRegister.Show();
             //Show();
             //cameraControl.Start();
