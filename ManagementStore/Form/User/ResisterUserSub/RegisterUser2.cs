@@ -77,7 +77,7 @@ namespace ManagementStore.Form.User
             _home.Invoke(new Action(() =>
             {
                 _home.Show();
-                _home.cameraControl.Start();
+
             }));
 
             Close();
@@ -97,7 +97,6 @@ namespace ManagementStore.Form.User
             _home.Invoke(new Action(() =>
             {
                 _home.Show();
-                _home.cameraControl.Start();
             }));
 
 
