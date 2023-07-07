@@ -27,10 +27,10 @@ namespace ManagementStore.Form.User
 {
     public partial class FaceTaken : System.Windows.Forms.UserControl
     {
-        private VideoCapture capture;
+        public VideoCapture capture;
         private FPSCounter fpsCounter;
         private int countdownValue;
-        private Timer timer;
+        public Timer timer;
         ShowImageTaken image;
         ConfirmInfo info;
         List<DetectionResult> detectionResults;
@@ -39,21 +39,21 @@ namespace ManagementStore.Form.User
         ObjectDetectionSSD cccd;
         public static string fullPathMainForm = Helpers.GetFullPathOfMainForm();
         string imgPath = "";
+        private string fileNameAudio;
         public FaceTaken()
         {
             InitializeComponent();
             string path = System.IO.Path.GetDirectoryName(new System.Uri(System.Reflection.Assembly.GetExecutingAssembly().CodeBase).LocalPath);
-
-            // ssd = new ObjectDetectionVGG(ModelConfig.dataFolderPath + "/vgg16-ssd-vehicle.onnx");
-            // mb = new ObjectDetectionMB(ModelConfig.dataFolderPath + "/ssd_mobilenet_v1_10.onnx");
-            cccd = new ObjectDetectionSSD(ModelConfig.dataFolderPath + "/vehicle.onnx");
+            //ssd = new ObjectDetectionVGG(ModelConfig.dataFolderPath + "/vgg16-ssd-vehicle.onnx");
+            mb = new ObjectDetectionMB(ModelConfig.dataFolderPath + "/ssd_mobilenet_v1_10.onnx");
+            //cccd = new ObjectDetectionSSD(ModelConfig.dataFolderPath + "/vehicle.onnx");
             imgPath = Path.Combine(ModelConfig.imageFolder, "temp.bmp");
 
             capture = new VideoCapture();
-            Application.Idle += Capture_ImageGrabbedCCCD;
+            Application.Idle += Capture_ImageGrabbed;
             capture.Start();
             // Set the initial countdown value and Timer interval
-            countdownValue = 3600;
+            countdownValue = 3;
             timer = new Timer();
             timer.Interval = 1000; // 1 second
             timer.Tick += Timer_Tick;
@@ -72,7 +72,7 @@ namespace ManagementStore.Form.User
             }
             File.WriteAllBytes(imgPath, imageBytes);
         }
-        private void Timer_Tick(object sender, EventArgs e)
+        public void Timer_Tick(object sender, EventArgs e)
         {
             countdownValue--;
             showCountDown.Text = $"The photo will be taken in {countdownValue.ToString()} seconds";
@@ -168,6 +168,7 @@ namespace ManagementStore.Form.User
 
         private async void onCreateUser()
         {
+            Helpers.StopSound();
             RequestInfo request = new RequestInfo();
             var uInfo = new object[5];
             uInfo[0] = UserInfo.FullName == null ? "Nguyen Ngoc Thien" : UserInfo.FullName;
@@ -271,6 +272,7 @@ namespace ManagementStore.Form.User
             var repose = await ApiMethod.PostCall(userMgtData);
             if (repose.StatusCode == System.Net.HttpStatusCode.OK)
             {
+                Helpers.PlaySound(@"Assets\Audio\RegisteredMember.wav");
                 XtraMessageBox.Show("Registed account successfully", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Utils.SendRegisterSuccess(UserInfo.PhoneNumber, password, userid);
                 info.Close();
@@ -310,12 +312,22 @@ namespace ManagementStore.Form.User
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
+            Helpers.StopSound();
             Utils.Back(ParentForm, "pictureBoxFace", "pictureBoxName", "FullName");
             capture.Dispose();
         }
 
-        private void FaceTaken_Load(object sender, EventArgs e)
+        private async void FaceTaken_Load(object sender, EventArgs e)
         {
+            fileNameAudio = await AudioConstants.GetListSound(AudioConstants.FaceTaken);
+            if (fileNameAudio != null && fileNameAudio != "")
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+            }
+            else
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + AudioConstants.FaceTaken + ".wav");
+            }
         }
 
         private void btnDone_Click(object sender, EventArgs e)
@@ -372,7 +384,7 @@ namespace ManagementStore.Form.User
             }
 
         }
-        private void Capture_ImageGrabbed(object sender, EventArgs e)
+        public void Capture_ImageGrabbed(object sender, EventArgs e)
         {
             if (fpsCounter == null)
             {

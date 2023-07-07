@@ -42,7 +42,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // 
             this.showCountDown.Appearance.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showCountDown.Appearance.Options.UseFont = true;
-            this.showCountDown.Location = new System.Drawing.Point(19, 77);
+            this.showCountDown.Location = new System.Drawing.Point(19, 78);
             this.showCountDown.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.showCountDown.Name = "showCountDown";
             this.showCountDown.Size = new System.Drawing.Size(325, 27);
@@ -116,8 +116,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.Controls.Add(this.btnPrev);
             this.Controls.Add(this.btnDone);
             this.Controls.Add(this.pictureFace);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FaceTakenCCCD";
             this.Size = new System.Drawing.Size(679, 741);
+            this.Load += new System.EventHandler(this.FaceTakenCCCD_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureFace)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

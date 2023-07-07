@@ -1,6 +1,8 @@
 ﻿using DevExpress.XtraEditors;
+using ManagementStore.Common;
 using ManagementStore.Extensions;
 using ManagementStore.Model.Static;
+using Parking.App.Common.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,10 +18,24 @@ namespace ManagementStore.Form.User.ResisterUserSub
     public partial class FullNameCCCD : DevExpress.XtraEditors.XtraUserControl
     {
         public List<string> character;
+        private string fileNameAudio;
         public FullNameCCCD()
         {
             InitializeComponent();
             character = new List<String>();
+  
+        }
+        private async void FullNameCCCD_Load(object sender, EventArgs e)
+        {
+            fileNameAudio = await AudioConstants.GetListSound(AudioConstants.FullName);
+            if (fileNameAudio != null && fileNameAudio != "")
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+            }
+            else
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + AudioConstants.FullName + ".wav");
+            }
         }
         private void DisplayPhoneNumber()
         {
@@ -206,6 +222,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
         {
             splashScreenManager1.ShowWaitForm();
             UserCCCD.FullName = fullNameTxt.Text;
+            Helpers.StopSound();
             var citizenCapture = ParentForm.Controls.Find("FaceTakenCCCD", true);
             if (citizenCapture.Length > 0)
             {
@@ -222,8 +239,11 @@ namespace ManagementStore.Form.User.ResisterUserSub
         private void btnPrev_Click(object sender, EventArgs e)
         {
             splashScreenManager1.ShowWaitForm();
+            Helpers.StopSound();
             Utils.BackCCCD(ParentForm, "pictureBoxName", "pictureBoxInfo", "UserInfor");
             splashScreenManager1.CloseWaitForm();
         }
+
+
     }
 }

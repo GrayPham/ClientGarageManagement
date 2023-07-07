@@ -120,6 +120,7 @@ namespace ManagementStore.Form.User
             this.btnExit.Size = new System.Drawing.Size(202, 63);
             this.btnExit.TabIndex = 11;
             this.btnExit.Text = "Exit";
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // labelControl1
             // 
@@ -327,6 +328,7 @@ namespace ManagementStore.Form.User
             this.Name = "RegisterUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegisterUser";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RegisterUser_FormClosed);
             this.Load += new System.EventHandler(this.RegisterUser_Load);
             this.sidePanel1.ResumeLayout(false);
             this.sidePanel4.ResumeLayout(false);

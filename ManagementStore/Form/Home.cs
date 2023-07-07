@@ -42,6 +42,9 @@ namespace ManagementStore.Form
         private System.Timers.Timer _timer;
         private int _counter;
         private static int Counter = 10;
+        private string fileNameAudio;
+        //private const int soundAudioNo = 123;
+
         private static string fullPathMainForm = Helpers.GetFullPathOfMainForm();
         //**------------------------------------------------------------------------
         private ICacheDataService<tblClientSoundMgtInfo> _tblClientSoundMgtService;
@@ -69,9 +72,18 @@ namespace ManagementStore.Form
             capture.Start();
         }
 
-        private void Home_Load(object sender, EventArgs e)
+        private async void Home_Load(object sender, EventArgs e)
         {
-            // Helpers.PlaySound(@"Assets\Audio\reigsterUser.wav");
+            fileNameAudio= await AudioConstants.GetListSound(AudioConstants.HomeAudio);
+            if(fileNameAudio != null && fileNameAudio != "")
+            {
+                Helpers.PlaySound(@"Assets\Audio\"+ fileNameAudio + ".wav");
+            }
+            else
+            {
+                Helpers.PlaySound(@"Assets\DefaultAudio\" + AudioConstants.HomeAudio + ".wav");
+            }
+            
             ProgramFactory.Instance.ProgramController = this;
             _log = ProgramFactory.Instance.Log;
             AddEventCommon();
@@ -238,7 +250,7 @@ namespace ManagementStore.Form
 
         private void btnIdentity_Click(object sender, EventArgs e)
         {
-            // splashScreenManage.ShowWaitForm();
+            splashScreenManager1.ShowWaitForm();
             Thread.Sleep(1000);
             TypeRegister registerUser = new TypeRegister();
             capture.Stop();
@@ -247,8 +259,16 @@ namespace ManagementStore.Form
             webBrowserVideo.Dispose();
             registerUser.Show();
             Helpers.StopSound();
+            
+            TypeRegister typeRegister = new TypeRegister(this);
+            
             Hide();
-            // splashScreenManage.CloseWaitForm();
+
+            splashScreenManager1.CloseWaitForm();
+            typeRegister.Show();
+            //Show();
+            //cameraControl.Start();
+
         }
         public void LoginSuccess(SessionInfo info)
         {

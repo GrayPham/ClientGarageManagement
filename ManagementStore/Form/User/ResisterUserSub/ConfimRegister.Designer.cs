@@ -54,7 +54,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnReturnRegis.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturnRegis.Appearance.Options.UseBackColor = true;
             this.btnReturnRegis.Appearance.Options.UseFont = true;
-            this.btnReturnRegis.Location = new System.Drawing.Point(25, 881);
+            this.btnReturnRegis.Location = new System.Drawing.Point(24, 881);
             this.btnReturnRegis.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnReturnRegis.Name = "btnReturnRegis";
             this.btnReturnRegis.Size = new System.Drawing.Size(171, 64);
@@ -91,7 +91,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // 
             this.fullNameTxt.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullNameTxt.Appearance.Options.UseFont = true;
-            this.fullNameTxt.Location = new System.Drawing.Point(158, 23);
+            this.fullNameTxt.Location = new System.Drawing.Point(157, 23);
             this.fullNameTxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.fullNameTxt.Name = "fullNameTxt";
             this.fullNameTxt.Size = new System.Drawing.Size(226, 31);
@@ -102,7 +102,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // 
             this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl8.Appearance.Options.UseFont = true;
-            this.labelControl8.Location = new System.Drawing.Point(25, 23);
+            this.labelControl8.Location = new System.Drawing.Point(24, 23);
             this.labelControl8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(115, 31);
@@ -113,7 +113,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // 
             this.genderTxt.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.genderTxt.Appearance.Options.UseFont = true;
-            this.genderTxt.Location = new System.Drawing.Point(465, 77);
+            this.genderTxt.Location = new System.Drawing.Point(465, 78);
             this.genderTxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.genderTxt.Name = "genderTxt";
             this.genderTxt.Size = new System.Drawing.Size(54, 31);
@@ -124,7 +124,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Location = new System.Drawing.Point(367, 77);
+            this.labelControl6.Location = new System.Drawing.Point(367, 78);
             this.labelControl6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(92, 31);
@@ -135,7 +135,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // 
             this.birthdayTxt.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.birthdayTxt.Appearance.Options.UseFont = true;
-            this.birthdayTxt.Location = new System.Drawing.Point(158, 77);
+            this.birthdayTxt.Location = new System.Drawing.Point(157, 78);
             this.birthdayTxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.birthdayTxt.Name = "birthdayTxt";
             this.birthdayTxt.Size = new System.Drawing.Size(130, 31);
@@ -146,7 +146,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(34, 77);
+            this.labelControl4.Location = new System.Drawing.Point(34, 78);
             this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(104, 31);
@@ -157,7 +157,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(51, 504);
+            this.labelControl1.Location = new System.Drawing.Point(51, 505);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(86, 31);
@@ -168,6 +168,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // 
             this.pictureBox2.Image = global::ManagementStore.Properties.Resources._0a7c9f51b5ed46b31ffc;
             this.pictureBox2.Location = new System.Drawing.Point(630, 27);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(170, 95);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -177,7 +178,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // pictureBoxCCCD
             // 
             this.pictureBoxCCCD.Image = global::ManagementStore.Properties.Resources._0a7c9f51b5ed46b31ffc;
-            this.pictureBoxCCCD.Location = new System.Drawing.Point(158, 504);
+            this.pictureBoxCCCD.Location = new System.Drawing.Point(157, 505);
             this.pictureBoxCCCD.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBoxCCCD.Name = "pictureBoxCCCD";
             this.pictureBoxCCCD.Size = new System.Drawing.Size(642, 369);
@@ -188,7 +189,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // pictureTaken
             // 
             this.pictureTaken.Image = ((System.Drawing.Image)(resources.GetObject("pictureTaken.Image")));
-            this.pictureTaken.Location = new System.Drawing.Point(158, 129);
+            this.pictureTaken.Location = new System.Drawing.Point(157, 129);
             this.pictureTaken.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureTaken.Name = "pictureTaken";
             this.pictureTaken.Size = new System.Drawing.Size(642, 369);
@@ -216,8 +217,11 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.Controls.Add(this.labelControl6);
             this.Controls.Add(this.birthdayTxt);
             this.Controls.Add(this.labelControl4);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ConfimRegister";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ConfimRegister";
+            this.Load += new System.EventHandler(this.ConfimRegister_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCCCD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTaken)).EndInit();

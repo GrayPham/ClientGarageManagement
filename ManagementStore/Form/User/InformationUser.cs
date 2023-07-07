@@ -1,9 +1,11 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.DXErrorProvider;
+using ManagementStore.Common;
 using ManagementStore.Extensions;
 using ManagementStore.Extensions.Validations;
 using ManagementStore.Model.Static;
+using Parking.App.Common.Helper;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -17,16 +19,24 @@ namespace ManagementStore.Form.User
     public partial class InformationUser : System.Windows.Forms.UserControl
     {
         public List<string> Num;
-
+        private string fileNameAudio;
         public InformationUser()
         {
             Num = new List<String>();
             InitializeComponent();
         }
-        private void InformationUser_Load(object sender, EventArgs e)
+        private async void InformationUser_Load(object sender, EventArgs e)
         {
             // Add items to the ComboBoxEdit
-
+            fileNameAudio = await AudioConstants.GetListSound(AudioConstants.InforUser);
+            if (fileNameAudio != null && fileNameAudio != "")
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+            }
+            else
+            {
+                Helpers.PlaySound(@"Assets\Audio\" + AudioConstants.InforUser + ".wav");
+            }
             ccbSelectGender.Properties.Items.Add("Male");
             ccbSelectGender.Properties.Items.Add("Female");
             ccbSelectGender.Properties.Items.Add("Other");
@@ -38,7 +48,15 @@ namespace ManagementStore.Form.User
         private void btnNext_Click(object sender, EventArgs e)
         {
             // splashScreenManager1.ShowWaitForm();
-            Thread.Sleep(1000);
+            
+            var citizenCapture = ParentForm.Controls.Find("FullName", true);
+            if (citizenCapture.Length > 0)
+            {
+                var controlToRemove = citizenCapture[0];
+                ParentForm.Controls.Remove(controlToRemove);
+                controlToRemove.Dispose();
+            }
+            ParentForm.Controls.Find("panelSlider", true)[0].Controls.Add(new FullName());
             Utils.Forward(ParentForm, "pictureBoxInfo", "pictureBoxName", "FullName");
             UserInfo.BirthDay = birthDayTxt.Text;
             UserInfo.Gender = ccbSelectGender.SelectedItem.ToString();
