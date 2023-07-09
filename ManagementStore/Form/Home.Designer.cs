@@ -31,6 +31,7 @@ namespace ManagementStore.Form
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.pictureBoxHome = new System.Windows.Forms.PictureBox();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.btnIdentity = new DevExpress.XtraEditors.SimpleButton();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
@@ -44,15 +45,14 @@ namespace ManagementStore.Form
             this.repositoryItemDateEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.webBrowserVideo = new System.Windows.Forms.WebBrowser();
-            this.pictureBoxHome = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRatingControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -69,6 +69,15 @@ namespace ManagementStore.Form
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(708, 861);
             this.panelControl1.TabIndex = 0;
+            // 
+            // pictureBoxHome
+            // 
+            this.pictureBoxHome.Location = new System.Drawing.Point(2, 2);
+            this.pictureBoxHome.Name = "pictureBoxHome";
+            this.pictureBoxHome.Size = new System.Drawing.Size(704, 352);
+            this.pictureBoxHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxHome.TabIndex = 13;
+            this.pictureBoxHome.TabStop = false;
             // 
             // simpleButton1
             // 
@@ -204,15 +213,6 @@ namespace ManagementStore.Form
             this.webBrowserVideo.Size = new System.Drawing.Size(740, 424);
             this.webBrowserVideo.TabIndex = 3;
             // 
-            // pictureBoxHome
-            // 
-            this.pictureBoxHome.Location = new System.Drawing.Point(2, 2);
-            this.pictureBoxHome.Name = "pictureBoxHome";
-            this.pictureBoxHome.Size = new System.Drawing.Size(704, 352);
-            this.pictureBoxHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxHome.TabIndex = 13;
-            this.pictureBoxHome.TabStop = false;
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -231,12 +231,12 @@ namespace ManagementStore.Form
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRatingControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).EndInit();
             this.ResumeLayout(false);
 
         }
