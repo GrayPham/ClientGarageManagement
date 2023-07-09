@@ -74,9 +74,9 @@ namespace ManagementStore.Form.User
             this.showCountDown.Location = new System.Drawing.Point(215, 127);
             this.showCountDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.showCountDown.Name = "showCountDown";
-            this.showCountDown.Size = new System.Drawing.Size(369, 36);
+            this.showCountDown.Size = new System.Drawing.Size(364, 36);
             this.showCountDown.TabIndex = 5;
-            this.showCountDown.Text = "Close form after 30 seconds";
+            this.showCountDown.Text = "Đóng biểu mẫu sau 30 giây";
             // 
             // labelControl2
             // 
@@ -90,9 +90,9 @@ namespace ManagementStore.Form.User
             this.labelControl2.Location = new System.Drawing.Point(215, 41);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(639, 41);
+            this.labelControl2.Size = new System.Drawing.Size(618, 41);
             this.labelControl2.TabIndex = 3;
-            this.labelControl2.Text = "Please choose authentication method";
+            this.labelControl2.Text = "Vui lòng chọn phương thức xác thực";
             // 
             // pictureBox5
             // 
@@ -174,12 +174,12 @@ namespace ManagementStore.Form.User
             this.labelControl3.Appearance.Options.UseBorderColor = true;
             this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Appearance.Options.UseForeColor = true;
-            this.labelControl3.Location = new System.Drawing.Point(40, 452);
+            this.labelControl3.Location = new System.Drawing.Point(66, 452);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(304, 24);
+            this.labelControl3.Size = new System.Drawing.Size(230, 24);
             this.labelControl3.TabIndex = 3;
-            this.labelControl3.Text = "Verification by Phone Number";
+            this.labelControl3.Text = "Use the phone number";
             // 
             // pictureBoxPhone
             // 
@@ -214,12 +214,12 @@ namespace ManagementStore.Form.User
             this.labelControl1.Appearance.Options.UseBorderColor = true;
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Appearance.Options.UseForeColor = true;
-            this.labelControl1.Location = new System.Drawing.Point(58, 452);
+            this.labelControl1.Location = new System.Drawing.Point(42, 452);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(232, 24);
+            this.labelControl1.Size = new System.Drawing.Size(280, 24);
             this.labelControl1.TabIndex = 2;
-            this.labelControl1.Text = "Verification by Card ID";
+            this.labelControl1.Text = "Sử dụng căn cước công dân";
             // 
             // pictureBoxCard
             // 
@@ -239,11 +239,11 @@ namespace ManagementStore.Form.User
             this.btmExit.Font = new System.Drawing.Font("Tahoma", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btmExit.ForeColor = System.Drawing.Color.Transparent;
             this.btmExit.Location = new System.Drawing.Point(37, 715);
-            this.btmExit.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.btmExit.Margin = new System.Windows.Forms.Padding(12);
             this.btmExit.Name = "btmExit";
             this.btmExit.Size = new System.Drawing.Size(736, 96);
             this.btmExit.TabIndex = 2;
-            this.btmExit.Text = "Back";
+            this.btmExit.Text = "Quay trở lại";
             this.btmExit.UseVisualStyleBackColor = false;
             this.btmExit.Click += new System.EventHandler(this.btmExit_Click);
             // 
@@ -268,7 +268,7 @@ namespace ManagementStore.Form.User
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "TypeRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Authentication Method";
+            this.Text = "Chọn phương thức xác thực";
             this.Load += new System.EventHandler(this.TypeRegister_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.sidePanel2.ResumeLayout(false);

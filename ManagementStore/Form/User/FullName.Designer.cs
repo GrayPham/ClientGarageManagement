@@ -78,7 +78,7 @@ namespace ManagementStore.Form.User
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(235, 92);
             this.btnPrev.TabIndex = 42;
-            this.btnPrev.Text = "Previous";
+            this.btnPrev.Text = "Quay lại";
             this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
             // 
             // btnNext
@@ -94,7 +94,7 @@ namespace ManagementStore.Form.User
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(235, 92);
             this.btnNext.TabIndex = 41;
-            this.btnNext.Text = "Next";
+            this.btnNext.Text = "Tiếp tục";
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // fullNameTxt
@@ -188,7 +188,7 @@ namespace ManagementStore.Form.User
             this.btnBackSpace.Name = "btnBackSpace";
             this.btnBackSpace.Size = new System.Drawing.Size(269, 82);
             this.btnBackSpace.TabIndex = 60;
-            this.btnBackSpace.Text = "back space";
+            this.btnBackSpace.Text = "Dấu cách";
             this.btnBackSpace.UseVisualStyleBackColor = false;
             this.btnBackSpace.Click += new System.EventHandler(this.btnBackSpace_Click);
             // 

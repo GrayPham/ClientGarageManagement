@@ -272,7 +272,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(269, 92);
             this.btnPrev.TabIndex = 61;
-            this.btnPrev.Text = "Previous";
+            this.btnPrev.Text = "Quay lại";
             this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
             // 
             // btnNext
@@ -288,7 +288,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(269, 92);
             this.btnNext.TabIndex = 60;
-            this.btnNext.Text = "Next";
+            this.btnNext.Text = "Tiếp tục";
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // splashScreenManager1

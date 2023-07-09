@@ -73,7 +73,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(269, 92);
             this.btnPrev.TabIndex = 50;
-            this.btnPrev.Text = "Previous";
+            this.btnPrev.Text = "Quay lại";
             this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
             // 
             // btnDone
@@ -90,7 +90,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(283, 92);
             this.btnDone.TabIndex = 49;
-            this.btnDone.Text = "Complete";
+            this.btnDone.Text = "Hoàn thành";
             this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
             // 
             // pictureFace

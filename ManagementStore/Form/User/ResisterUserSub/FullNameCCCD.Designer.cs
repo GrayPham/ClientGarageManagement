@@ -396,7 +396,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnBackSpace.Name = "btnBackSpace";
             this.btnBackSpace.Size = new System.Drawing.Size(178, 82);
             this.btnBackSpace.TabIndex = 96;
-            this.btnBackSpace.Text = "back space";
+            this.btnBackSpace.Text = "Dấu cách";
             this.btnBackSpace.UseVisualStyleBackColor = false;
             this.btnBackSpace.Click += new System.EventHandler(this.btnBackSpace_Click);
             // 
@@ -494,7 +494,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(234, 92);
             this.btnPrev.TabIndex = 89;
-            this.btnPrev.Text = "Previous";
+            this.btnPrev.Text = "Quay lại";
             this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
             // 
             // btnNext
@@ -510,7 +510,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(234, 92);
             this.btnNext.TabIndex = 88;
-            this.btnNext.Text = "Next";
+            this.btnNext.Text = "Tiếp tục";
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // splashScreenManager1

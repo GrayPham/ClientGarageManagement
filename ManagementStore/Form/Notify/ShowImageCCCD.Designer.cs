@@ -47,7 +47,7 @@ namespace ManagementStore.Form.Notify
             this.btnOK.Padding = new System.Windows.Forms.Padding(6);
             this.btnOK.Size = new System.Drawing.Size(156, 70);
             this.btnOK.TabIndex = 5;
-            this.btnOK.Text = "OK";
+            this.btnOK.Text = "Đồng ý";
             // 
             // btnTakeAgain
             // 
@@ -61,7 +61,7 @@ namespace ManagementStore.Form.Notify
             this.btnTakeAgain.Padding = new System.Windows.Forms.Padding(6);
             this.btnTakeAgain.Size = new System.Drawing.Size(156, 70);
             this.btnTakeAgain.TabIndex = 4;
-            this.btnTakeAgain.Text = "Take Again";
+            this.btnTakeAgain.Text = "Chụp lại";
             // 
             // pictureBoxTaken
             // 
@@ -82,7 +82,7 @@ namespace ManagementStore.Form.Notify
             this.Controls.Add(this.btnTakeAgain);
             this.Controls.Add(this.pictureBoxTaken);
             this.Name = "ShowImageCCCD";
-            this.Text = "Image CCCD";
+            this.Text = "Hình ảnh căn cước công dân";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTaken)).EndInit();
             this.ResumeLayout(false);
 

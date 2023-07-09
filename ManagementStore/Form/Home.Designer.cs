@@ -67,14 +67,15 @@ namespace ManagementStore.Form
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(708, 861);
+            this.panelControl1.Size = new System.Drawing.Size(826, 1060);
             this.panelControl1.TabIndex = 0;
             // 
             // pictureBoxHome
             // 
             this.pictureBoxHome.Location = new System.Drawing.Point(2, 2);
+            this.pictureBoxHome.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBoxHome.Name = "pictureBoxHome";
-            this.pictureBoxHome.Size = new System.Drawing.Size(704, 352);
+            this.pictureBoxHome.Size = new System.Drawing.Size(821, 433);
             this.pictureBoxHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxHome.TabIndex = 13;
             this.pictureBoxHome.TabStop = false;
@@ -87,10 +88,10 @@ namespace ManagementStore.Form
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
             this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(40, 40);
-            this.simpleButton1.Location = new System.Drawing.Point(366, 766);
+            this.simpleButton1.Location = new System.Drawing.Point(427, 943);
             this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(225, 51);
+            this.simpleButton1.Size = new System.Drawing.Size(262, 63);
             this.simpleButton1.TabIndex = 10;
             this.simpleButton1.Text = "Map";
             // 
@@ -102,12 +103,12 @@ namespace ManagementStore.Form
             this.btnIdentity.Appearance.Options.UseFont = true;
             this.btnIdentity.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnIdentity.ImageOptions.Image")));
             this.btnIdentity.ImageOptions.SvgImageSize = new System.Drawing.Size(40, 40);
-            this.btnIdentity.Location = new System.Drawing.Point(120, 766);
+            this.btnIdentity.Location = new System.Drawing.Point(140, 943);
             this.btnIdentity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnIdentity.Name = "btnIdentity";
-            this.btnIdentity.Size = new System.Drawing.Size(225, 51);
+            this.btnIdentity.Size = new System.Drawing.Size(262, 63);
             this.btnIdentity.TabIndex = 5;
-            this.btnIdentity.Text = "Identity Verification";
+            this.btnIdentity.Text = "Xác minh danh tính";
             this.btnIdentity.Click += new System.EventHandler(this.btnIdentity_Click);
             // 
             // ribbonControl1
@@ -131,7 +132,7 @@ namespace ManagementStore.Form
             this.repositoryItemTimeEdit1,
             this.repositoryItemDateEdit1});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.MacOffice;
-            this.ribbonControl1.Size = new System.Drawing.Size(704, 47);
+            this.ribbonControl1.Size = new System.Drawing.Size(822, 59);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             // 
             // barItemIP
@@ -147,13 +148,13 @@ namespace ManagementStore.Form
             // barItemConnect
             // 
             this.barItemConnect.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barItemConnect.Caption = "Connection";
+            this.barItemConnect.Caption = "Kết nối";
             this.barItemConnect.Id = 6;
             this.barItemConnect.Name = "barItemConnect";
             // 
             // barStaticItem3
             // 
-            this.barStaticItem3.Caption = "AI Building Information";
+            this.barStaticItem3.Caption = "Thông tin tòa nhà AI";
             this.barStaticItem3.Id = 7;
             this.barStaticItem3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barStaticItem3.ImageOptions.Image")));
             this.barStaticItem3.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barStaticItem3.ImageOptions.LargeImage")));
@@ -198,26 +199,26 @@ namespace ManagementStore.Form
             this.ribbonStatusBar1.ItemLinks.Add(this.barStaticItem3);
             this.ribbonStatusBar1.ItemLinks.Add(this.barItemPort);
             this.ribbonStatusBar1.ItemLinks.Add(this.barItemVersion);
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(2, 831);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(2, 1022);
             this.ribbonStatusBar1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(704, 28);
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(822, 36);
             // 
             // webBrowserVideo
             // 
-            this.webBrowserVideo.Location = new System.Drawing.Point(-16, 347);
+            this.webBrowserVideo.Location = new System.Drawing.Point(-19, 427);
             this.webBrowserVideo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.webBrowserVideo.MinimumSize = new System.Drawing.Size(17, 16);
+            this.webBrowserVideo.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowserVideo.Name = "webBrowserVideo";
-            this.webBrowserVideo.Size = new System.Drawing.Size(740, 424);
+            this.webBrowserVideo.Size = new System.Drawing.Size(863, 522);
             this.webBrowserVideo.TabIndex = 3;
             // 
             // Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(708, 861);
+            this.ClientSize = new System.Drawing.Size(826, 1060);
             this.Controls.Add(this.panelControl1);
             this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.None;
             this.HelpButton = true;

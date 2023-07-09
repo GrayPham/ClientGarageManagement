@@ -164,9 +164,9 @@ namespace ManagementStore.Form
             this.panelControlHandle.Controls.Add(this.textLPIn1);
             this.panelControlHandle.Controls.Add(this.simpleButtonReport);
             this.panelControlHandle.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControlHandle.Location = new System.Drawing.Point(0, 666);
+            this.panelControlHandle.Location = new System.Drawing.Point(0, 566);
             this.panelControlHandle.Name = "panelControlHandle";
-            this.panelControlHandle.Size = new System.Drawing.Size(1384, 69);
+            this.panelControlHandle.Size = new System.Drawing.Size(1384, 169);
             this.panelControlHandle.TabIndex = 2;
             // 
             // labelControl2
@@ -226,7 +226,7 @@ namespace ManagementStore.Form
             this.panelControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControlMain.Location = new System.Drawing.Point(0, 181);
             this.panelControlMain.Name = "panelControlMain";
-            this.panelControlMain.Size = new System.Drawing.Size(1384, 485);
+            this.panelControlMain.Size = new System.Drawing.Size(1384, 385);
             this.panelControlMain.TabIndex = 3;
             // 
             // panelControlOut
@@ -234,7 +234,7 @@ namespace ManagementStore.Form
             this.panelControlOut.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControlOut.Location = new System.Drawing.Point(2, 366);
             this.panelControlOut.Name = "panelControlOut";
-            this.panelControlOut.Size = new System.Drawing.Size(1380, 117);
+            this.panelControlOut.Size = new System.Drawing.Size(1380, 17);
             this.panelControlOut.TabIndex = 1;
             // 
             // panelControlInPut

@@ -59,7 +59,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnReturnRegis.Name = "btnReturnRegis";
             this.btnReturnRegis.Size = new System.Drawing.Size(171, 64);
             this.btnReturnRegis.TabIndex = 23;
-            this.btnReturnRegis.Text = "Back to register";
+            this.btnReturnRegis.Text = "Quay lại";
             this.btnReturnRegis.Click += new System.EventHandler(this.btnReturnRegis_Click);
             // 
             // buttonConfirm
@@ -73,19 +73,19 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.buttonConfirm.Name = "buttonConfirm";
             this.buttonConfirm.Size = new System.Drawing.Size(170, 64);
             this.buttonConfirm.TabIndex = 22;
-            this.buttonConfirm.Text = "Comfirm";
+            this.buttonConfirm.Text = "Hoàn thành";
             this.buttonConfirm.Click += new System.EventHandler(this.buttonConfirm_Click);
             // 
             // labelControl10
             // 
             this.labelControl10.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl10.Appearance.Options.UseFont = true;
-            this.labelControl10.Location = new System.Drawing.Point(49, 135);
+            this.labelControl10.Location = new System.Drawing.Point(24, 129);
             this.labelControl10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(88, 31);
+            this.labelControl10.Size = new System.Drawing.Size(116, 33);
             this.labelControl10.TabIndex = 20;
-            this.labelControl10.Text = "Picture:";
+            this.labelControl10.Text = "Hình ảnh:";
             // 
             // fullNameTxt
             // 
@@ -105,9 +105,9 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.labelControl8.Location = new System.Drawing.Point(24, 23);
             this.labelControl8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(115, 31);
+            this.labelControl8.Size = new System.Drawing.Size(124, 33);
             this.labelControl8.TabIndex = 18;
-            this.labelControl8.Text = "Fullname:";
+            this.labelControl8.Text = "Họ và tên:";
             // 
             // genderTxt
             // 
@@ -124,12 +124,12 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Location = new System.Drawing.Point(367, 78);
+            this.labelControl6.Location = new System.Drawing.Point(351, 78);
             this.labelControl6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(92, 31);
+            this.labelControl6.Size = new System.Drawing.Size(108, 33);
             this.labelControl6.TabIndex = 16;
-            this.labelControl6.Text = "Gender:";
+            this.labelControl6.Text = "Giới tính:";
             // 
             // birthdayTxt
             // 
@@ -146,12 +146,12 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(34, 78);
+            this.labelControl4.Location = new System.Drawing.Point(24, 78);
             this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(104, 31);
+            this.labelControl4.Size = new System.Drawing.Size(122, 33);
             this.labelControl4.TabIndex = 14;
-            this.labelControl4.Text = "Birthday:";
+            this.labelControl4.Text = "Sinh nhật:";
             // 
             // labelControl1
             // 

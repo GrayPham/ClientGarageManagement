@@ -42,10 +42,10 @@ namespace ManagementStore.Form.User
             // pictureCCCD
             // 
             this.pictureCCCD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureCCCD.Location = new System.Drawing.Point(2, 104);
-            this.pictureCCCD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureCCCD.Location = new System.Drawing.Point(3, 128);
+            this.pictureCCCD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureCCCD.Name = "pictureCCCD";
-            this.pictureCCCD.Size = new System.Drawing.Size(490, 334);
+            this.pictureCCCD.Size = new System.Drawing.Size(653, 411);
             this.pictureCCCD.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureCCCD.TabIndex = 48;
             this.pictureCCCD.TabStop = false;
@@ -54,10 +54,10 @@ namespace ManagementStore.Form.User
             // 
             this.showCountDown.Appearance.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showCountDown.Appearance.Options.UseFont = true;
-            this.showCountDown.Location = new System.Drawing.Point(14, 72);
-            this.showCountDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.showCountDown.Location = new System.Drawing.Point(19, 89);
+            this.showCountDown.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.showCountDown.Name = "showCountDown";
-            this.showCountDown.Size = new System.Drawing.Size(246, 21);
+            this.showCountDown.Size = new System.Drawing.Size(325, 27);
             this.showCountDown.TabIndex = 50;
             this.showCountDown.Text = "Ảnh sẽ được chụp sau 5 giây nữa";
             // 
@@ -65,10 +65,10 @@ namespace ManagementStore.Form.User
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(14, 29);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.labelControl1.Location = new System.Drawing.Point(19, 36);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(344, 27);
+            this.labelControl1.Size = new System.Drawing.Size(445, 34);
             this.labelControl1.TabIndex = 49;
             this.labelControl1.Text = "Ảnh Căn Cước Công Dân Mặt Trước";
             // 
@@ -80,12 +80,12 @@ namespace ManagementStore.Form.User
             this.btnPrev.Appearance.Options.UseBackColor = true;
             this.btnPrev.Appearance.Options.UseBorderColor = true;
             this.btnPrev.Appearance.Options.UseFont = true;
-            this.btnPrev.Location = new System.Drawing.Point(1, 512);
-            this.btnPrev.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPrev.Location = new System.Drawing.Point(1, 630);
+            this.btnPrev.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(195, 75);
+            this.btnPrev.Size = new System.Drawing.Size(260, 92);
             this.btnPrev.TabIndex = 52;
-            this.btnPrev.Text = "Previous";
+            this.btnPrev.Text = "Quay lại";
             this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
             // 
             // btnDone
@@ -97,24 +97,23 @@ namespace ManagementStore.Form.User
             this.btnDone.Appearance.Options.UseBorderColor = true;
             this.btnDone.Appearance.Options.UseFont = true;
             this.btnDone.Enabled = false;
-            this.btnDone.Location = new System.Drawing.Point(293, 512);
-            this.btnDone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDone.Location = new System.Drawing.Point(391, 630);
+            this.btnDone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDone.Name = "btnDone";
-            this.btnDone.Size = new System.Drawing.Size(199, 75);
+            this.btnDone.Size = new System.Drawing.Size(265, 92);
             this.btnDone.TabIndex = 51;
-            this.btnDone.Text = "Complete";
+            this.btnDone.Text = "Tiếp tục";
             this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
             // 
             // labelResult
             // 
             this.labelResult.AutoSize = true;
             this.labelResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelResult.Location = new System.Drawing.Point(2, 447);
-            this.labelResult.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelResult.Location = new System.Drawing.Point(3, 550);
             this.labelResult.Name = "labelResult";
-            this.labelResult.Size = new System.Drawing.Size(179, 44);
+            this.labelResult.Size = new System.Drawing.Size(203, 55);
             this.labelResult.TabIndex = 53;
-            this.labelResult.Text = "RESULT:";
+            this.labelResult.Text = "Kết quả:";
             // 
             // splashScreenManager1
             // 
@@ -122,7 +121,7 @@ namespace ManagementStore.Form.User
             // 
             // CitizenshipIDCapture
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.labelResult);
             this.Controls.Add(this.btnPrev);
@@ -130,9 +129,9 @@ namespace ManagementStore.Form.User
             this.Controls.Add(this.showCountDown);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.pictureCCCD);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CitizenshipIDCapture";
-            this.Size = new System.Drawing.Size(494, 602);
+            this.Size = new System.Drawing.Size(659, 741);
             this.Load += new System.EventHandler(this.CitizenshipIDCapture_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureCCCD)).EndInit();
             this.ResumeLayout(false);
