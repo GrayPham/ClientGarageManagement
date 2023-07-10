@@ -71,7 +71,7 @@ namespace ManagementStore.Form.User
         public async void  Timer_TickAsync(object sender, EventArgs e)
         {
             countdownValue--;
-            showCountDown.Text = $"The photo will be taken in {countdownValue.ToString()} second.";
+            showCountDown.Text = $"Hình ảnh sẽ được chụp sau {countdownValue.ToString()} giây nữa.";
             // When the countdown reaches 0, stop the Timer and capture the picture
             if (countdownValue == 0)
             {

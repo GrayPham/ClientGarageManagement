@@ -177,9 +177,9 @@ namespace ManagementStore.Form.User
             this.labelControl3.Location = new System.Drawing.Point(66, 452);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(230, 24);
+            this.labelControl3.Size = new System.Drawing.Size(220, 24);
             this.labelControl3.TabIndex = 3;
-            this.labelControl3.Text = "Use the phone number";
+            this.labelControl3.Text = "Sử dụng số điện thoại";
             // 
             // pictureBoxPhone
             // 

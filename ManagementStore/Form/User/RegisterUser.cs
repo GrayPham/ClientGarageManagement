@@ -40,7 +40,7 @@ namespace ManagementStore.Form.User
         private void Timer_Tick(object sender, EventArgs e)
         {
             Settings.countDown--;
-            showCountDown.Text = $"Close form after {Settings.countDown.ToString()} seconds";
+            showCountDown.Text = $"Đóng biểu mẫu sau {Settings.countDown.ToString()} giây";
 
             // When the countdown reaches 0, stop the Timer and capture the picture
             if (Settings.countDown == 0)
