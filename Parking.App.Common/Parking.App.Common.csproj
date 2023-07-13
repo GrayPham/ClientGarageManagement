@@ -116,6 +116,7 @@
     <Compile Include="ViewModels\OcrImageRequest.cs" />
     <Compile Include="ViewModels\PostQRData.cs" />
     <Compile Include="ViewModels\PostQRDataReturn.cs" />
+    <Compile Include="ViewModels\RegisterUserFaceRequest.cs" />
     <Compile Include="ViewModels\RequestUserAddInfo.cs" />
     <Compile Include="ViewModels\RespondUserAdd.cs" />
     <Compile Include="ViewModels\SoundResult.cs" />

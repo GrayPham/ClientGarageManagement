@@ -198,6 +198,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             var repose = await ApiMethod.PostCall(userMgtData);
             if (repose.StatusCode == System.Net.HttpStatusCode.OK)
             {
+                string result = await ApiMethod.UpdateFolderImage(UserInfo.Picture, userid);
                 fileNameAudio = await AudioConstants.GetListSound(AudioConstants.RegisteredMember);
                 if (fileNameAudio != null && fileNameAudio != "")
                 {

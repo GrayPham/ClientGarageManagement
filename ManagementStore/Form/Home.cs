@@ -252,7 +252,7 @@ namespace ManagementStore.Form
         private void btnIdentity_Click(object sender, EventArgs e)
         {
  
-            Thread.Sleep(1000);
+            //Thread.Sleep(1000);
             capture.Stop();
             webBrowserVideo.Stop();
             capture.Dispose();

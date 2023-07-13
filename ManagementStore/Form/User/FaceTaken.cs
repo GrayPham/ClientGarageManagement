@@ -272,6 +272,7 @@ namespace ManagementStore.Form.User
             var repose = await ApiMethod.PostCall(userMgtData);
             if (repose.StatusCode == System.Net.HttpStatusCode.OK)
             {
+                string result = await ApiMethod.UpdateFolderImage(UserInfo.Picture, userid);
                 Helpers.PlaySound(@"Assets\Audio\RegisteredMember.wav");
                 XtraMessageBox.Show("Registed account successfully", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Utils.SendRegisterSuccess(UserInfo.PhoneNumber, password, userid);

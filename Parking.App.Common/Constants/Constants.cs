@@ -120,6 +120,7 @@ namespace Parking.App.Common.Constants
         public static int CameraTop = 0;
         public static int CameraBot = 1;
 
-        public static readonly string OcrID = "http://localhost:8005/api/v1/users/verifyidvn"; 
+        public static readonly string OcrID = "http://26.115.12.45:8005/api/v1/users/verifyidvn";
+        public static readonly string CreateIamgeFaceUser = "http://localhost:8005/api/v1/users/verifyidvn";
     }
 }
