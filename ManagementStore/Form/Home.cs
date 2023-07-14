@@ -7,6 +7,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Threading;
 using Connect.Common;
 using Connect.Common.Common;
 using Connect.Common.Contract;
@@ -63,6 +64,12 @@ namespace ManagementStore.Form
         public static bool isCanModify { get; set; } = false;
         public static bool isShouldOpenCamera { get; set; } = false;
         //**------------------------------------------------------
+
+        public TimeSpan timeTop;
+        public DispatcherTimer dispatcherTimerTop;
+
+        public TimeSpan timeBot;
+        public DispatcherTimer dispatcherTimerBot;
         private VideoCapture capture;
         public Home(tblAdMgtService tblAdMgtService)
         {
@@ -237,6 +244,7 @@ namespace ManagementStore.Form
                     tblAdMgtInfo AdTopShow = null;
                     tblAdMgtInfo AdBotShow = null;
 
+                    List<tblAdMgtInfo> listAd = new List<tblAdMgtInfo>();
                     var innerJoin = from s in AdMgtData // outer sequence
                                     join st in AdStoreData //inner sequence 
                                     on s.AdNo equals st.AdNo
@@ -244,13 +252,159 @@ namespace ManagementStore.Form
                                     select s;
 
                     var dateNow = DateTime.Now;
-                    isShouldOpenCamera = (BetweenTimeOfDayCamera(DateTime.Now, ConfigClass.TimeStart, ConfigClass.TimeEnd));
+
+                    // isShouldOpenCamera = (BetweenTimeOfDayCamera(DateTime.Now, ConfigClass.TimeStart, ConfigClass.TimeEnd));
+
+
+                    var AdValid = innerJoin.Where(x => (Between(dateNow, x.PeriodStartDate, x.PeriodEndDate) && x.AdStatus)).ToList();
+                    if (AdValid != null)
+                    {
+                        var ListAdTopShow = AdValid.Where(x => (BetweenTimeOfDay(dateNow, x.DayStartTime, x.DayEndTime) && x.AdLocation)).ToList();
+                        if (ListAdTopShow != null && ListAdTopShow.Any())
+                        {
+                            AdTopShow = ListAdTopShow.OrderByDescending(dt => dt.RegistDate).FirstOrDefault();
+                        }
+                        else
+                        {
+                           
+                        }
+
+                        var ListAdBotShow = AdValid.Where(x => (BetweenTimeOfDay(dateNow, x.DayStartTime, x.DayEndTime) && !x.AdLocation)).ToList();
+                        if (ListAdBotShow != null && ListAdBotShow.Any())
+                        {
+                            AdBotShow = ListAdBotShow.OrderByDescending(dt => dt.RegistDate).FirstOrDefault();
+                        }
+                        else
+                        {
+                           
+                        }
+                    }
+
+                    if (AdTopShow != null && !isShouldOpenCamera)
+                    {
+                        if (AdTopShow.AdType == "AD0001")
+                        {
+
+
+                            var filePath = CheckPathExtension(Helpers.fullPathMainForm + @"AdMgt\" + AdTopShow.AdName);
+                            if (!string.IsNullOrWhiteSpace(filePath))
+                            {
+
+                            }
+
+
+                        }
+                        else if (AdTopShow.AdType == "AD0002")
+                        {
+                            if (AdTopShow.AttachFilePath.Contains("youtu"))
+                            {
+                                Task.Factory.StartNew(() =>
+                                {
+
+                                });
+                            }
+                            else
+                            {
+                                var filePath = CheckPathExtension(Helpers.fullPathMainForm + @"AdMgt\" + AdTopShow.AdName);
+                                if (!string.IsNullOrWhiteSpace(AdTopShow.AttachFilePath))
+                                {
+
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+
+                    }
+
+
+                    if (AdBotShow != null)
+                    {
+                        if (AdBotShow.AdType == "AD0001")
+                        {
+                            var filePath = CheckPathExtension(Helpers.fullPathMainForm + @"AdMgt\" + AdBotShow.AdName);
+                            if (!string.IsNullOrWhiteSpace(filePath))
+                            {
+                               
+                            }
+
+                        }
+                        else if (AdBotShow.AdType == "AD0002")
+                        {
+                            if (AdBotShow.AttachFilePath.Contains("youtube"))
+                            {
+                                Task.Factory.StartNew(() =>
+                                {
+
+                                   
+                                });
+                            }
+                            else if (!string.IsNullOrWhiteSpace(AdBotShow.AttachFilePath))
+                            {
+                               
+                            }
+                        }
+                    }
+                    else
+                    {
+                       
+                    }
+
+
                 }
                 catch (Exception e)
                 {
 
                 }
             });
+        }
+
+        #region Compare Daytime
+
+        private string CheckPathExtension(string filePath)
+        {
+            try
+            {
+                string[] allowedExtensions = { ".jpg", ".jpeg", ".png", ".bmp", ".gif" };
+                string fileExtension = allowedExtensions.FirstOrDefault(ext => File.Exists(filePath + ext));
+
+                if (fileExtension != null)
+                {
+                    return filePath + fileExtension; ;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+
+                _log.SError(this.GetType().Name, ex.Message, ex.StackTrace, ex.Message);
+                return null;
+            }
+
+        }
+        public void StartTimerBot(DateTime dateEnd, bool isHaveValue = true)
+        {
+            if (isHaveValue == false)
+            {
+                timeBot = TimeSpan.FromSeconds(600);
+                dispatcherTimerBot.Interval = TimeSpan.FromSeconds(1);
+
+                dispatcherTimerBot.Start();
+                return;
+            }
+
+            var dateNow = DateTime.Now;
+            TimeSpan DateNow = dateNow.TimeOfDay;
+            TimeSpan DateEnd = dateEnd.TimeOfDay;
+
+            int totalTime = (int)DateEnd.TotalSeconds - (int)DateNow.TotalSeconds;
+
+            timeBot = TimeSpan.FromSeconds(totalTime);
+
+            dispatcherTimerBot.Interval = TimeSpan.FromSeconds(1);
+
+            dispatcherTimerBot.Start();
         }
         public bool BetweenTimeOfDayCamera(DateTime input, DateTime? date1, DateTime? date2)
         {
@@ -270,6 +424,38 @@ namespace ManagementStore.Form
                 return false; ;
             }
         }
+
+        public bool Between(DateTime input, DateTime date1, DateTime date2)
+        {
+            try
+            {
+                return (input.Date >= date1.Date && input.Date < date2.Date);
+
+            }
+            catch (Exception ex)
+            {
+
+                _log.SError(this.GetType().Name, ex.Message, ex.StackTrace, ex.Message);
+                return false; ;
+            }
+        }
+
+        public bool BetweenTimeOfDay(DateTime input, DateTime? date1, DateTime? date2)
+        {
+            try
+            {
+                return (input.TimeOfDay >= date1?.TimeOfDay && input.TimeOfDay < date2?.TimeOfDay);
+
+            }
+            catch (Exception ex)
+            {
+
+                _log.SError(this.GetType().Name, ex.Message, ex.StackTrace, ex.Message);
+                return false; ;
+            }
+        }
+
+        #endregion
 
         private void btnIdentity_Click(object sender, EventArgs e)
         {

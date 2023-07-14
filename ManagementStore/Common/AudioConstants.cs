@@ -61,8 +61,13 @@ namespace ManagementStore.Common
                         tblClientSoundMgtInfo foundItemOld = clientSoundMgtInfoOld.Find(item => item.SoundNo == foundItemNew.SoundNo);
                         if(foundItemOld != null)
                         {
-                            if (foundItemOld.Version != foundItemNew.Version)  // Update Type Sound && Version Sound && New Datetime 
+                            
+                            if (foundItemOld.Version != foundItemNew.Version )  // Update Type Sound && Version Sound && New Datetime 
                             {
+                                if (foundItemNew.DeployStatus != true)
+                                {
+                                    return "";
+                                }
                                 //Convert Json Object and Update New Json File 
                                 var jsonObject = JsonConvert.DeserializeObject(soundRequest);
                                 File.WriteAllText(filePath, JsonConvert.SerializeObject(jsonObject));
