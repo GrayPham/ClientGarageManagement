@@ -165,7 +165,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
                 photo = new tblUserPhotoInfo()
                 {
                     UserID = userid,
-                    TakenPhoto = UserInfo.PictureByte,
+                    TakenPhoto = UserCCCD.PictureByte,
                     // TODO: add image taken 
                 };
             }
@@ -194,29 +194,37 @@ namespace ManagementStore.Form.User.ResisterUserSub
                 DataLength = 10000,
                 Data = dataObject
             };
-
-            var repose = await ApiMethod.PostCall(userMgtData);
-            if (repose.StatusCode == System.Net.HttpStatusCode.OK)
+            string result = await ApiMethod.UpdateFolderImage(UserCCCD.Picture, userid);
+            if( result == userid)
             {
-                string result = await ApiMethod.UpdateFolderImage(UserInfo.Picture, userid);
-                fileNameAudio = await AudioConstants.GetListSound(AudioConstants.RegisteredMember);
-                if (fileNameAudio != null && fileNameAudio != "")
+                var repose = await ApiMethod.PostCall(userMgtData);
+                if (repose.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+
+                    fileNameAudio = await AudioConstants.GetListSound(AudioConstants.RegisteredMember);
+                    if (fileNameAudio != null && fileNameAudio != "")
+                    {
+                        Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+                    }
+                    else
+                    {
+                        Helpers.PlaySound(@"Assets\Audio\" + AudioConstants.RegisteredMember + ".wav");
+                    }
+                    XtraMessageBox.Show("Registed account successfully", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // TODO: send message register successfully
+
                 }
                 else
                 {
-                    Helpers.PlaySound(@"Assets\Audio\" + AudioConstants.RegisteredMember + ".wav");
+                    XtraMessageBox.Show("Register user failed", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                XtraMessageBox.Show("Registed account successfully", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // TODO: send message register successfully
-                
             }
             else
             {
-                XtraMessageBox.Show("Register user failed", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                XtraMessageBox.Show("Register user failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
+
         }
 
         private void btnReturnRegis_Click(object sender, EventArgs e)

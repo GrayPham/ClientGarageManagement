@@ -270,20 +270,29 @@ namespace ManagementStore.Form.User
             };
 
             var repose = await ApiMethod.PostCall(userMgtData);
-            if (repose.StatusCode == System.Net.HttpStatusCode.OK)
+            string result = await ApiMethod.UpdateFolderImage(UserInfo.Picture, userid);
+            if (result == userid)
             {
-                string result = await ApiMethod.UpdateFolderImage(UserInfo.Picture, userid);
-                Helpers.PlaySound(@"Assets\Audio\RegisteredMember.wav");
-                XtraMessageBox.Show("Registed account successfully", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Utils.SendRegisterSuccess(UserInfo.PhoneNumber, password, userid);
-                info.Close();
-                image.Close();
-                // TODO: send message register successfully
+                if (repose.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+
+                    Helpers.PlaySound(@"Assets\Audio\RegisteredMember.wav");
+                    XtraMessageBox.Show("Registed account successfully", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Utils.SendRegisterSuccess(UserInfo.PhoneNumber, password, userid);
+                    info.Close();
+                    image.Close();
+                    // TODO: send message register successfully
+                }
+                else
+                {
+                    XtraMessageBox.Show("Register user failed", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
             {
-                XtraMessageBox.Show("Register user failed", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                XtraMessageBox.Show("Register user failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private byte[] ImageToByteArray(Image image)

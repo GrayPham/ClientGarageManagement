@@ -231,7 +231,7 @@ namespace ManagementStore.Form.User
             this.btmExit.Font = new System.Drawing.Font("Tahoma", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btmExit.ForeColor = System.Drawing.Color.Transparent;
             this.btmExit.Location = new System.Drawing.Point(32, 581);
-            this.btmExit.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.btmExit.Margin = new System.Windows.Forms.Padding(10);
             this.btmExit.Name = "btmExit";
             this.btmExit.Size = new System.Drawing.Size(631, 78);
             this.btmExit.TabIndex = 2;

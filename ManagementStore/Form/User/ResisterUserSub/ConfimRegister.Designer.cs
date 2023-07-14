@@ -54,10 +54,9 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.btnReturnRegis.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturnRegis.Appearance.Options.UseBackColor = true;
             this.btnReturnRegis.Appearance.Options.UseFont = true;
-            this.btnReturnRegis.Location = new System.Drawing.Point(24, 881);
-            this.btnReturnRegis.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnReturnRegis.Location = new System.Drawing.Point(21, 716);
             this.btnReturnRegis.Name = "btnReturnRegis";
-            this.btnReturnRegis.Size = new System.Drawing.Size(171, 64);
+            this.btnReturnRegis.Size = new System.Drawing.Size(147, 52);
             this.btnReturnRegis.TabIndex = 23;
             this.btnReturnRegis.Text = "Quay lại";
             this.btnReturnRegis.Click += new System.EventHandler(this.btnReturnRegis_Click);
@@ -68,10 +67,9 @@ namespace ManagementStore.Form.User.ResisterUserSub
             this.buttonConfirm.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonConfirm.Appearance.Options.UseBackColor = true;
             this.buttonConfirm.Appearance.Options.UseFont = true;
-            this.buttonConfirm.Location = new System.Drawing.Point(630, 881);
-            this.buttonConfirm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonConfirm.Location = new System.Drawing.Point(540, 716);
             this.buttonConfirm.Name = "buttonConfirm";
-            this.buttonConfirm.Size = new System.Drawing.Size(170, 64);
+            this.buttonConfirm.Size = new System.Drawing.Size(146, 52);
             this.buttonConfirm.TabIndex = 22;
             this.buttonConfirm.Text = "Hoàn thành";
             this.buttonConfirm.Click += new System.EventHandler(this.buttonConfirm_Click);
@@ -80,10 +78,9 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // 
             this.labelControl10.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl10.Appearance.Options.UseFont = true;
-            this.labelControl10.Location = new System.Drawing.Point(24, 129);
-            this.labelControl10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl10.Location = new System.Drawing.Point(21, 105);
             this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(116, 33);
+            this.labelControl10.Size = new System.Drawing.Size(92, 25);
             this.labelControl10.TabIndex = 20;
             this.labelControl10.Text = "Hình ảnh:";
             // 
@@ -91,10 +88,9 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // 
             this.fullNameTxt.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullNameTxt.Appearance.Options.UseFont = true;
-            this.fullNameTxt.Location = new System.Drawing.Point(157, 23);
-            this.fullNameTxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.fullNameTxt.Location = new System.Drawing.Point(135, 19);
             this.fullNameTxt.Name = "fullNameTxt";
-            this.fullNameTxt.Size = new System.Drawing.Size(226, 31);
+            this.fullNameTxt.Size = new System.Drawing.Size(184, 25);
             this.fullNameTxt.TabIndex = 19;
             this.fullNameTxt.Text = "Nguyen Ngoc Thien";
             // 
@@ -102,10 +98,9 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // 
             this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl8.Appearance.Options.UseFont = true;
-            this.labelControl8.Location = new System.Drawing.Point(24, 23);
-            this.labelControl8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl8.Location = new System.Drawing.Point(21, 19);
             this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(124, 33);
+            this.labelControl8.Size = new System.Drawing.Size(97, 25);
             this.labelControl8.TabIndex = 18;
             this.labelControl8.Text = "Họ và tên:";
             // 
@@ -113,10 +108,9 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // 
             this.genderTxt.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.genderTxt.Appearance.Options.UseFont = true;
-            this.genderTxt.Location = new System.Drawing.Point(465, 78);
-            this.genderTxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.genderTxt.Location = new System.Drawing.Point(399, 63);
             this.genderTxt.Name = "genderTxt";
-            this.genderTxt.Size = new System.Drawing.Size(54, 31);
+            this.genderTxt.Size = new System.Drawing.Size(43, 25);
             this.genderTxt.TabIndex = 17;
             this.genderTxt.Text = "Male";
             // 
@@ -124,10 +118,9 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Location = new System.Drawing.Point(351, 78);
-            this.labelControl6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl6.Location = new System.Drawing.Point(301, 63);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(108, 33);
+            this.labelControl6.Size = new System.Drawing.Size(86, 25);
             this.labelControl6.TabIndex = 16;
             this.labelControl6.Text = "Giới tính:";
             // 
@@ -135,10 +128,9 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // 
             this.birthdayTxt.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.birthdayTxt.Appearance.Options.UseFont = true;
-            this.birthdayTxt.Location = new System.Drawing.Point(157, 78);
-            this.birthdayTxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.birthdayTxt.Location = new System.Drawing.Point(135, 63);
             this.birthdayTxt.Name = "birthdayTxt";
-            this.birthdayTxt.Size = new System.Drawing.Size(130, 31);
+            this.birthdayTxt.Size = new System.Drawing.Size(104, 25);
             this.birthdayTxt.TabIndex = 15;
             this.birthdayTxt.Text = "23-06-2001";
             // 
@@ -146,10 +138,9 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(24, 78);
-            this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl4.Location = new System.Drawing.Point(21, 63);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(122, 33);
+            this.labelControl4.Size = new System.Drawing.Size(97, 25);
             this.labelControl4.TabIndex = 14;
             this.labelControl4.Text = "Sinh nhật:";
             // 
@@ -157,20 +148,19 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(51, 505);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl1.Location = new System.Drawing.Point(44, 410);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(86, 31);
+            this.labelControl1.Size = new System.Drawing.Size(70, 25);
             this.labelControl1.TabIndex = 26;
             this.labelControl1.Text = " ID VN:";
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::ManagementStore.Properties.Resources._0a7c9f51b5ed46b31ffc;
-            this.pictureBox2.Location = new System.Drawing.Point(630, 27);
+            this.pictureBox2.Location = new System.Drawing.Point(540, 22);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(170, 95);
+            this.pictureBox2.Size = new System.Drawing.Size(146, 77);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 25;
             this.pictureBox2.TabStop = false;
@@ -178,10 +168,9 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // pictureBoxCCCD
             // 
             this.pictureBoxCCCD.Image = global::ManagementStore.Properties.Resources._0a7c9f51b5ed46b31ffc;
-            this.pictureBoxCCCD.Location = new System.Drawing.Point(157, 505);
-            this.pictureBoxCCCD.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBoxCCCD.Location = new System.Drawing.Point(135, 410);
             this.pictureBoxCCCD.Name = "pictureBoxCCCD";
-            this.pictureBoxCCCD.Size = new System.Drawing.Size(642, 369);
+            this.pictureBoxCCCD.Size = new System.Drawing.Size(550, 300);
             this.pictureBoxCCCD.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCCCD.TabIndex = 24;
             this.pictureBoxCCCD.TabStop = false;
@@ -189,10 +178,9 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // pictureTaken
             // 
             this.pictureTaken.Image = ((System.Drawing.Image)(resources.GetObject("pictureTaken.Image")));
-            this.pictureTaken.Location = new System.Drawing.Point(157, 129);
-            this.pictureTaken.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureTaken.Location = new System.Drawing.Point(135, 105);
             this.pictureTaken.Name = "pictureTaken";
-            this.pictureTaken.Size = new System.Drawing.Size(642, 369);
+            this.pictureTaken.Size = new System.Drawing.Size(550, 300);
             this.pictureTaken.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureTaken.TabIndex = 21;
             this.pictureTaken.TabStop = false;
@@ -201,9 +189,9 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // 
             this.Appearance.BackColor = System.Drawing.SystemColors.Control;
             this.Appearance.Options.UseBackColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(826, 958);
+            this.ClientSize = new System.Drawing.Size(708, 778);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBoxCCCD);

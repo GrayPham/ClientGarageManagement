@@ -405,7 +405,7 @@ namespace Parking.App.Common.ApiMethod
             }
             
         }
-        public static async Task<string> UpdateFolderImage(string Image, string userId)
+        public static async Task<string> UpdateFolderImage(string Image, string userIdNameFolder)
         {
             try
             {
@@ -414,7 +414,7 @@ namespace Parking.App.Common.ApiMethod
                 RegisterUserFaceRequest dataSend = new RegisterUserFaceRequest()
                 {
                     face = Image,
-                    userid = userId
+                    userid = userIdNameFolder
                 };
                 using (HttpClient client = new HttpClient())
                 {
@@ -422,7 +422,6 @@ namespace Parking.App.Common.ApiMethod
                     client.Timeout = TimeSpan.FromSeconds(900);
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                    client.DefaultRequestHeaders.Add("X-OCR-SECRET", Constants.Constants.OcrSecretCode);
 
 
                     var json = JsonConvert.SerializeObject(dataSend);
@@ -430,9 +429,9 @@ namespace Parking.App.Common.ApiMethod
 
                     var response = await client.PostAsync(apiUrl, stringContent);
                     var responseString = await response.Content.ReadAsStringAsync();
-                    var result = JsonConvert.DeserializeObject<OcrDataCccdResponse>(responseString);
+                    var result = JsonConvert.DeserializeObject<RegisterUserFaceResponse>(responseString);
 
-                    return result.id;
+                    return result.result;
                 }
             }
             catch (Exception ex)

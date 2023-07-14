@@ -74,6 +74,15 @@ namespace ManagementStore.Form
             capture.Start();
         }
 
+        private string AdHtml()
+        {
+            string html = "<html><head>";
+            html += "<meta content='IE=Edge' http-equiv='X-UA-Compatible'/>";
+            html += "</head><body>";
+            html += "<iframe id='video' src='https://www.youtube.com/embed/{0}?autoplay=1&mute=1' width='725px' height='400px' frameborder='0' allowfullscreen></iframe>";
+            html += "</body></html>";
+            return html;
+        }
         private async void Home_Load(object sender, EventArgs e)
         {
             fileNameAudio= await AudioConstants.GetListSound(AudioConstants.HomeAudio);
@@ -111,38 +120,46 @@ namespace ManagementStore.Form
             _tblStoreDeviceInfoService.SetCustomizedListener(_clientStoreDevice, SendStoreEvent);
 
 
-            string html = "<html><head>";
+            
             string url = "https://www.youtube.com/watch?v=Z9uEn2IVPkQ";
-            html += "<meta content='IE=Edge' http-equiv='X-UA-Compatible'/>";
-            html += "</head><body>";
-            html += "<iframe id='video' src='https://www.youtube.com/embed/{0}?autoplay=1&mute=1' width='725px' height='400px' frameborder='0' allowfullscreen></iframe>";
-            html += "</body></html>";
-            this.webBrowserVideo.DocumentText = string.Format(html, Utils.GetVideoId(url));
+            this.webBrowserVideo.DocumentText = string.Format(AdHtml(), Utils.GetVideoId(url));
 
 
         }
         private void Capture_Home(object send, EventArgs e)
         {
-
-            if (capture != null && capture.Ptr != IntPtr.Zero)
-            {      
-                if (capture.QuerySmallFrame() != null)
+            try
+            {
+                if (capture != null && capture.Ptr != IntPtr.Zero)
                 {
-                    using (Mat frame = capture.QuerySmallFrame())
+                    //if (capture.QuerySmallFrame() != null)
+                    //{
+                    using (Mat frame = capture.QueryFrame())
                     {
-                        try
+                        if (frame != null)
                         {
-                            Image<Bgr, byte> image = frame.ToImage<Bgr, byte>();
-                            pictureBoxHome.Image = image.ToBitmap();
-                        }
-                        catch
-                        {
+                            try
+                            {
+                                Image<Bgr, byte> image = frame.ToImage<Bgr, byte>();
+                                pictureBoxHome.Image = image.ToBitmap();
+                            }
+                            catch
+                            {
 
+                            }
                         }
+
 
                     }
-                }           
+                    //}           
+                }
             }
+            catch (Exception ex)
+            {
+                // Handle any general exceptions during video capture setup
+                Console.WriteLine("Error setting up video capture: " + ex.Message);
+            }
+            
         }
         private void AdMgtSynchronized(object sender, EventArgs<int> e)
         {
@@ -390,7 +407,7 @@ namespace ManagementStore.Form
 
                                 foreach (var item in listData)
                                 {
-                                    if (!string.IsNullOrEmpty(item.ListDeviceKeyNo) && item.StoreNo == ConfigClass.StoreNo && item.DeviceType == "DVC002")
+                                    if (!string.IsNullOrEmpty(item.ListDeviceKeyNo) && item.StoreNo == ConfigClass.StoreNo && (item.DeviceType == "DVC002" || (item.DeviceType == "DVC001")))
                                     {
                                         var ListDeviceKey = JsonConvert.DeserializeObject<List<string>>(item.ListDeviceKeyNo);
                                         if (ListDeviceKey.Contains(ConfigClass.DeviceKey))
@@ -719,12 +736,12 @@ namespace ManagementStore.Form
                     if (InvokeRequired)
                     {
                         // Invoke the method on the UI thread
-                        Invoke(new Action(() => ToggleDeviceStatus(deviceItem.DeviceStatus, active)));
+                        Invoke(new Action(() => ToggleDeviceStatus(deviceItem.DeviceStatus, ref active)));
                     }
                     else
                     {
                         // Access the UI control directly from the UI thread
-                        ToggleDeviceStatus(deviceItem.DeviceStatus, active);
+                        ToggleDeviceStatus(deviceItem.DeviceStatus, ref active);
                     }
                 }
             }
@@ -735,20 +752,24 @@ namespace ManagementStore.Form
         }
 
         // Method to toggle device status
-        private void ToggleDeviceStatus(bool deviceStatus, bool active)
+        private void ToggleDeviceStatus(bool deviceStatus, ref bool active)
         {
             if (deviceStatus && active == false)
             {
                 active = true;
                 this.Show();
+                //webBrowserVideo.Stop();
                 capture = new VideoCapture(0);
                 capture.Start();
             }
             else
             {
-                this.Hide();
+                
                 capture.Stop();
+                webBrowserVideo.Stop();
                 capture.Dispose();
+                webBrowserVideo.Dispose();
+                this.Hide();
                 active = false;
             }
         }
