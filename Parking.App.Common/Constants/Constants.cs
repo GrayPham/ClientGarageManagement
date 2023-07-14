@@ -37,8 +37,8 @@ namespace Parking.App.Common.Constants
         //http://192.168.100.45:8080/Kiosk/KioskService/GetData
         //http://api.owlgardien.com:81/Kiosk/KioskService/GetData
         // public static  string ApiServerURL = "http://localhost:5001/Kiosk/KioskService/GetData";
-        public static string ApiServerURL = "http://26.115.12.45:81/Kiosk/KioskService/GetData";
-        public static string ApiVersionURL = "http://26.115.12.45:81/System/DataService/CheckVersion?type={0}&versionCode={1}";
+        public static string ApiServerURL = "http://localhost:5001/Kiosk/KioskService/GetData";
+        public static string ApiVersionURL = "http://localhost:5001/System/DataService/CheckVersion?type={0}&versionCode={1}";
         public static string ApiWebURL = "http://26.115.12.45/Kiosk/VoiceFileMgt/GetListAudioFile";
 
         public static string ApiOcrURL = "https://9kbg1stkdv.apigw.ntruss.com/custom/v1/19402/87548f888389870f328ab17b3ff6e27b814d62f7cf5caac4b9aad7ece2125df8/general";

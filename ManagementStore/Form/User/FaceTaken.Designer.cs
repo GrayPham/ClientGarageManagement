@@ -46,7 +46,7 @@ namespace ManagementStore.Form.User
             this.btnDone.Appearance.Options.UseBorderColor = true;
             this.btnDone.Appearance.Options.UseFont = true;
             this.btnDone.Location = new System.Drawing.Point(244, 580);
-            this.btnDone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDone.Margin = new System.Windows.Forms.Padding(2);
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(186, 75);
             this.btnDone.TabIndex = 43;
@@ -62,7 +62,7 @@ namespace ManagementStore.Form.User
             this.btnPrev.Appearance.Options.UseBorderColor = true;
             this.btnPrev.Appearance.Options.UseFont = true;
             this.btnPrev.Location = new System.Drawing.Point(22, 580);
-            this.btnPrev.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPrev.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(176, 75);
             this.btnPrev.TabIndex = 44;
@@ -74,7 +74,7 @@ namespace ManagementStore.Form.User
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Location = new System.Drawing.Point(22, 9);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(369, 27);
             this.labelControl1.TabIndex = 46;
@@ -83,7 +83,7 @@ namespace ManagementStore.Form.User
             // pictureFace
             // 
             this.pictureFace.Location = new System.Drawing.Point(22, 89);
-            this.pictureFace.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureFace.Margin = new System.Windows.Forms.Padding(2);
             this.pictureFace.Name = "pictureFace";
             this.pictureFace.Size = new System.Drawing.Size(408, 454);
             this.pictureFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -109,7 +109,7 @@ namespace ManagementStore.Form.User
             this.Controls.Add(this.btnPrev);
             this.Controls.Add(this.btnDone);
             this.Controls.Add(this.pictureFace);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FaceTaken";
             this.Size = new System.Drawing.Size(459, 666);
             this.Load += new System.EventHandler(this.FaceTaken_Load);

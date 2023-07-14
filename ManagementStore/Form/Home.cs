@@ -44,6 +44,7 @@ namespace ManagementStore.Form
         private int _counter;
         private static int Counter = 10;
         private string fileNameAudio;
+        bool active = true;
         //private const int soundAudioNo = 123;
 
         private static string fullPathMainForm = Helpers.GetFullPathOfMainForm();
@@ -109,6 +110,7 @@ namespace ManagementStore.Form
             _tblClientSoundMgtService.SetCustomizedListener(_clientSound, SendSoundEvent);
             _tblStoreDeviceInfoService.SetCustomizedListener(_clientStoreDevice, SendStoreEvent);
 
+
             string html = "<html><head>";
             string url = "https://www.youtube.com/watch?v=Z9uEn2IVPkQ";
             html += "<meta content='IE=Edge' http-equiv='X-UA-Compatible'/>";
@@ -123,20 +125,23 @@ namespace ManagementStore.Form
         {
 
             if (capture != null && capture.Ptr != IntPtr.Zero)
-            {
-                using (Mat frame = capture.QueryFrame())
+            {      
+                if (capture.QuerySmallFrame() != null)
                 {
-                    try
+                    using (Mat frame = capture.QuerySmallFrame())
                     {
-                        Image<Bgr, byte> image = frame.ToImage<Bgr, byte>();
-                        pictureBoxHome.Image = image.ToBitmap();
-                    }
-                    catch
-                    {
+                        try
+                        {
+                            Image<Bgr, byte> image = frame.ToImage<Bgr, byte>();
+                            pictureBoxHome.Image = image.ToBitmap();
+                        }
+                        catch
+                        {
+
+                        }
 
                     }
-
-                }
+                }           
             }
         }
         private void AdMgtSynchronized(object sender, EventArgs<int> e)
@@ -710,11 +715,41 @@ namespace ManagementStore.Form
                     {
                         
                     }
+
+                    if (InvokeRequired)
+                    {
+                        // Invoke the method on the UI thread
+                        Invoke(new Action(() => ToggleDeviceStatus(deviceItem.DeviceStatus, active)));
+                    }
+                    else
+                    {
+                        // Access the UI control directly from the UI thread
+                        ToggleDeviceStatus(deviceItem.DeviceStatus, active);
+                    }
                 }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine("Sound Exception" + ex.Message);
+            }
+        }
+
+        // Method to toggle device status
+        private void ToggleDeviceStatus(bool deviceStatus, bool active)
+        {
+            if (deviceStatus && active == false)
+            {
+                active = true;
+                this.Show();
+                capture = new VideoCapture(0);
+                capture.Start();
+            }
+            else
+            {
+                this.Hide();
+                capture.Stop();
+                capture.Dispose();
+                active = false;
             }
         }
     }

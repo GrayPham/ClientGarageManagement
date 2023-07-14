@@ -71,10 +71,9 @@ namespace ManagementStore.Form.User
             this.showCountDown.Appearance.Options.UseFont = true;
             this.showCountDown.Appearance.Options.UseForeColor = true;
             this.showCountDown.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.showCountDown.Location = new System.Drawing.Point(215, 127);
-            this.showCountDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.showCountDown.Location = new System.Drawing.Point(184, 103);
             this.showCountDown.Name = "showCountDown";
-            this.showCountDown.Size = new System.Drawing.Size(364, 36);
+            this.showCountDown.Size = new System.Drawing.Size(292, 29);
             this.showCountDown.TabIndex = 5;
             this.showCountDown.Text = "Đóng biểu mẫu sau 30 giây";
             // 
@@ -87,10 +86,9 @@ namespace ManagementStore.Form.User
             this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Appearance.Options.UseForeColor = true;
             this.labelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.labelControl2.Location = new System.Drawing.Point(215, 41);
-            this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl2.Location = new System.Drawing.Point(184, 33);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(618, 41);
+            this.labelControl2.Size = new System.Drawing.Size(487, 33);
             this.labelControl2.TabIndex = 3;
             this.labelControl2.Text = "Vui lòng chọn phương thức xác thực";
             // 
@@ -101,7 +99,7 @@ namespace ManagementStore.Form.User
             this.pictureBox5.Location = new System.Drawing.Point(0, 0);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(820, 206);
+            this.pictureBox5.Size = new System.Drawing.Size(703, 167);
             this.pictureBox5.TabIndex = 0;
             this.pictureBox5.TabStop = false;
             // 
@@ -114,27 +112,27 @@ namespace ManagementStore.Form.User
             this.sidePanel2.Location = new System.Drawing.Point(3, 2);
             this.sidePanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sidePanel2.Name = "sidePanel2";
-            this.sidePanel2.Size = new System.Drawing.Size(820, 206);
+            this.sidePanel2.Size = new System.Drawing.Size(703, 167);
             this.sidePanel2.TabIndex = 0;
             this.sidePanel2.Text = "sidePanel2";
             // 
             // pictureEdit1
             // 
             this.pictureEdit1.EditValue = global::ManagementStore.Properties.Resources.megafon_notify2;
-            this.pictureEdit1.Location = new System.Drawing.Point(37, 47);
-            this.pictureEdit1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureEdit1.Location = new System.Drawing.Point(32, 38);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
-            this.pictureEdit1.Size = new System.Drawing.Size(157, 94);
+            this.pictureEdit1.Size = new System.Drawing.Size(135, 76);
             this.pictureEdit1.TabIndex = 2;
             // 
             // separatorControl1
             // 
-            this.separatorControl1.Location = new System.Drawing.Point(423, 182);
+            this.separatorControl1.Location = new System.Drawing.Point(363, 148);
             this.separatorControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.separatorControl1.Name = "separatorControl1";
-            this.separatorControl1.Size = new System.Drawing.Size(8, 7);
+            this.separatorControl1.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.separatorControl1.Size = new System.Drawing.Size(7, 6);
             this.separatorControl1.TabIndex = 0;
             // 
             // panelSlider
@@ -146,10 +144,10 @@ namespace ManagementStore.Form.User
             this.panelSlider.Controls.Add(this.sidePanel3);
             this.panelSlider.Controls.Add(this.btmExit);
             this.panelSlider.Controls.Add(this.separatorControl1);
-            this.panelSlider.Location = new System.Drawing.Point(3, 213);
+            this.panelSlider.Location = new System.Drawing.Point(3, 173);
             this.panelSlider.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelSlider.Name = "panelSlider";
-            this.panelSlider.Size = new System.Drawing.Size(815, 844);
+            this.panelSlider.Size = new System.Drawing.Size(699, 686);
             this.panelSlider.TabIndex = 3;
             this.panelSlider.Text = "panelSlider";
             // 
@@ -159,10 +157,9 @@ namespace ManagementStore.Form.User
             this.sidePanel4.Appearance.Options.UseBackColor = true;
             this.sidePanel4.Controls.Add(this.labelControl3);
             this.sidePanel4.Controls.Add(this.pictureBoxPhone);
-            this.sidePanel4.Location = new System.Drawing.Point(423, 84);
-            this.sidePanel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.sidePanel4.Location = new System.Drawing.Point(363, 68);
             this.sidePanel4.Name = "sidePanel4";
-            this.sidePanel4.Size = new System.Drawing.Size(350, 545);
+            this.sidePanel4.Size = new System.Drawing.Size(300, 443);
             this.sidePanel4.TabIndex = 4;
             this.sidePanel4.Text = "sidePanel4";
             // 
@@ -174,20 +171,18 @@ namespace ManagementStore.Form.User
             this.labelControl3.Appearance.Options.UseBorderColor = true;
             this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Appearance.Options.UseForeColor = true;
-            this.labelControl3.Location = new System.Drawing.Point(66, 452);
-            this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl3.Location = new System.Drawing.Point(57, 367);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(220, 24);
+            this.labelControl3.Size = new System.Drawing.Size(176, 19);
             this.labelControl3.TabIndex = 3;
             this.labelControl3.Text = "Sử dụng số điện thoại";
             // 
             // pictureBoxPhone
             // 
             this.pictureBoxPhone.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxPhone.Image")));
-            this.pictureBoxPhone.Location = new System.Drawing.Point(29, 64);
-            this.pictureBoxPhone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBoxPhone.Location = new System.Drawing.Point(25, 52);
             this.pictureBoxPhone.Name = "pictureBoxPhone";
-            this.pictureBoxPhone.Size = new System.Drawing.Size(294, 343);
+            this.pictureBoxPhone.Size = new System.Drawing.Size(252, 279);
             this.pictureBoxPhone.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPhone.TabIndex = 0;
             this.pictureBoxPhone.TabStop = false;
@@ -199,10 +194,9 @@ namespace ManagementStore.Form.User
             this.sidePanel3.Appearance.Options.UseBackColor = true;
             this.sidePanel3.Controls.Add(this.labelControl1);
             this.sidePanel3.Controls.Add(this.pictureBoxCard);
-            this.sidePanel3.Location = new System.Drawing.Point(37, 84);
-            this.sidePanel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.sidePanel3.Location = new System.Drawing.Point(32, 68);
             this.sidePanel3.Name = "sidePanel3";
-            this.sidePanel3.Size = new System.Drawing.Size(350, 545);
+            this.sidePanel3.Size = new System.Drawing.Size(300, 443);
             this.sidePanel3.TabIndex = 3;
             this.sidePanel3.Text = "sidePanel3";
             // 
@@ -214,20 +208,18 @@ namespace ManagementStore.Form.User
             this.labelControl1.Appearance.Options.UseBorderColor = true;
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Appearance.Options.UseForeColor = true;
-            this.labelControl1.Location = new System.Drawing.Point(42, 452);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl1.Location = new System.Drawing.Point(36, 367);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(280, 24);
+            this.labelControl1.Size = new System.Drawing.Size(219, 19);
             this.labelControl1.TabIndex = 2;
             this.labelControl1.Text = "Sử dụng căn cước công dân";
             // 
             // pictureBoxCard
             // 
             this.pictureBoxCard.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxCard.Image")));
-            this.pictureBoxCard.Location = new System.Drawing.Point(29, 64);
-            this.pictureBoxCard.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBoxCard.Location = new System.Drawing.Point(25, 52);
             this.pictureBoxCard.Name = "pictureBoxCard";
-            this.pictureBoxCard.Size = new System.Drawing.Size(293, 343);
+            this.pictureBoxCard.Size = new System.Drawing.Size(251, 279);
             this.pictureBoxCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCard.TabIndex = 1;
             this.pictureBoxCard.TabStop = false;
@@ -238,10 +230,10 @@ namespace ManagementStore.Form.User
             this.btmExit.BackColor = System.Drawing.Color.RoyalBlue;
             this.btmExit.Font = new System.Drawing.Font("Tahoma", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btmExit.ForeColor = System.Drawing.Color.Transparent;
-            this.btmExit.Location = new System.Drawing.Point(37, 715);
-            this.btmExit.Margin = new System.Windows.Forms.Padding(12);
+            this.btmExit.Location = new System.Drawing.Point(32, 581);
+            this.btmExit.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.btmExit.Name = "btmExit";
-            this.btmExit.Size = new System.Drawing.Size(736, 96);
+            this.btmExit.Size = new System.Drawing.Size(631, 78);
             this.btmExit.TabIndex = 2;
             this.btmExit.Text = "Quay trở lại";
             this.btmExit.UseVisualStyleBackColor = false;
@@ -255,17 +247,16 @@ namespace ManagementStore.Form.User
             this.sidePanel1.Location = new System.Drawing.Point(0, 0);
             this.sidePanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sidePanel1.Name = "sidePanel1";
-            this.sidePanel1.Size = new System.Drawing.Size(826, 1060);
+            this.sidePanel1.Size = new System.Drawing.Size(708, 861);
             this.sidePanel1.TabIndex = 1;
             this.sidePanel1.Text = "sidePanel1";
             // 
             // TypeRegister
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(826, 1060);
+            this.ClientSize = new System.Drawing.Size(708, 861);
             this.Controls.Add(this.sidePanel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "TypeRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chọn phương thức xác thực";

@@ -28,7 +28,7 @@ namespace Connect.Common.Contract
         public static string InstallID = @"";
         public static EClientType eClientType = EClientType.None;
         public static int PortUser = 9000;
-        public static string IPServer = "127.0.0.1";
+        public static string IPServer = "26.115.12.45";
         public static string AccessKey = "@@##151290";
         public static bool AllowGetServer { get; set; } = true;
         public static bool AllowTranslate { get; set; } = false;
