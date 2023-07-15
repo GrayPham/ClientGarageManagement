@@ -71,15 +71,11 @@ namespace ManagementStore.Form
 
         public TimeSpan timeBot;
         public DispatcherTimer dispatcherTimerBot;
-        private VideoCapture capture;
         public Home(tblAdMgtService tblAdMgtService)
         {
             _log = ProgramFactory.Instance.Log;
             _tblAdMgtService = tblAdMgtService;
             InitializeComponent();
-            capture = new VideoCapture();
-            Application.Idle += Capture_Home;
-            capture.Start();
         }
 
         private string AdHtml()
@@ -115,7 +111,7 @@ namespace ManagementStore.Form
             _tblStoreDeviceInfoService = ProgramFactory.Instance.tblStoreDeviceService;
 
             _clientStoreDevice = _tblStoreDeviceInfoService.RegisterClient(_tblStoreDeviceInfoService.GetType().Name, StoreDeviceSynchronized);
-            _clientSound = _tblClientSoundMgtService.RegisterClient(_tblClientSoundMgtService.GetType().Name, SoundSynchronized);
+            //_clientSound = _tblClientSoundMgtService.RegisterClient(_tblClientSoundMgtService.GetType().Name, SoundSynchronized);
             //_tblClientSoundMgtService.SetAddedListener(_clientSound, ClientSoundAdd);
             //_tblClientSoundMgtService.SetListAddedListener(_clientSound, ClientSoundListAdd);
             //_tblClientSoundMgtService.SetRemovedListener(_clientSound, ClientSoundRemoved);
@@ -134,29 +130,7 @@ namespace ManagementStore.Form
 
 
         }
-        private void Capture_Home(object send, EventArgs e)
-        {
-            if (capture != null && capture.Ptr != IntPtr.Zero)
-            {
-                using (var frame = capture.QueryFrame())
-                {
-                    if (frame != null)
-                    {
-                        try
-                        {
-                            Image<Bgr, byte> image = frame.ToImage<Bgr, byte>();
-                            pictureBoxHome.Image = image.ToBitmap();
-                        }
-                        catch (Exception ex)
-                        {
-                            // Handle the specific exception(s) that might occur during conversion
-                            Console.WriteLine("An error occurred during frame conversion: " + ex.Message);
-                            // Optionally, you can log the exception or display an error message to the user
-                        }
-                    }
-                }
-            }
-        }
+       
         private void AdMgtSynchronized(object sender, EventArgs<int> e)
         {
 
@@ -450,17 +424,16 @@ namespace ManagementStore.Form
         {
  
             //Thread.Sleep(1000);
-            capture.Stop();
+
             webBrowserVideo.Stop();
-            capture.Dispose();
+
             webBrowserVideo.Dispose();
             Helpers.StopSound();
             TypeRegister typeRegister = new TypeRegister(this);
-
             typeRegister.Show();
             Hide();
             //Show();
-            //cameraControl.Start();
+            cameraControlHome.Stop();
 
         }
         public void LoginSuccess(SessionInfo info)
@@ -932,15 +905,13 @@ namespace ManagementStore.Form
                 active = true;
                 this.Show();
                 //webBrowserVideo.Stop();
-                capture = new VideoCapture(0);
-                capture.Start();
+                cameraControlHome.Start();
             }
             else
             {
+                cameraControlHome.Stop();
                 
-                capture.Stop();
                 webBrowserVideo.Stop();
-                capture.Dispose();
                 webBrowserVideo.Dispose();
                 this.Hide();
                 active = false;

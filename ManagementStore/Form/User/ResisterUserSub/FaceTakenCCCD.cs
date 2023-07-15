@@ -58,7 +58,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             capture = new VideoCapture();
             capture.ImageGrabbed += Capture_ImageGrabbed;
             capture.Start();
-           
+            
             // Set the initial countdown value and Timer interval
             countdownValue = 5;
             timer = new Timer();
@@ -68,6 +68,16 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // Start the Timer
             timer.Start();
         }
+
+        private void CloseForm(object sender, FormClosingEventArgs e)
+        {
+            timer.Start();
+            countdownValue = 5;
+            capture.ImageGrabbed += Capture_ImageGrabbed;
+            capture.Start();
+            
+        }
+
         public void Timer_Tick(object sender, EventArgs e)
         {
             countdownValue--;
@@ -77,6 +87,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             if (countdownValue == 0)
             {
                 image = new ShowImageTaken();
+                image.FormClosing += CloseForm;
                 if (countObject == 0)
                 {
                     capture.ImageGrabbed -= Capture_ImageGrabbed;
@@ -172,6 +183,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             Helpers.StopSound();
             capture.Dispose();
             Utils.BackCCCD(ParentForm, "pictureBoxFace", "pictureBoxName", "FullNameCCCD");
+            timer.Tick -= Timer_Tick;
         }
         public void Capture_ImageGrabbed(object sender, EventArgs e)
         {

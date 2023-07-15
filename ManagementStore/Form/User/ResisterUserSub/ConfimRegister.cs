@@ -128,14 +128,14 @@ namespace ManagementStore.Form.User.ResisterUserSub
                 UserID = userid,
                 RegistDate = DateTime.Now,
                 Memo = "",
-                StoreNo = 19 // Need update
+                StoreNo = ConfigClass.StoreNo // Need update
             };
 
             tblStoreUseHistoryInfo storeUseHistory = new tblStoreUseHistoryInfo()
             {
                 UserID = userid,
                 UseDate = DateTime.Now,
-                StoreNo = 19
+                StoreNo = ConfigClass.StoreNo
             };
 
             tblUserPhotoInfo photo;

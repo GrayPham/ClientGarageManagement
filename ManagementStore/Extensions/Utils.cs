@@ -167,7 +167,7 @@ namespace ManagementStore.Extensions
                 // Send the SMS
                 var message = VerificationResource.Create(
                     pathServiceSid: serviceSid,
-                    to: phoneNumber,
+                    to: "+840365858975",
                     channel: "sms",
                     customMessage: $"Congratulations on your successful registration! Please visit our website at deeplearning.com to complete your profile. Your username and password are: ${userName}, ${password}. Welcome aboard!"
                 );

@@ -1,4 +1,6 @@
-﻿namespace ManagementStore.Model.Static
+﻿using System.Drawing;
+
+namespace ManagementStore.Model.Static
 {
     public static class UserInfo
     {
@@ -9,6 +11,7 @@
         public static string BirthDay { get; set; }
         public static string FullName { get; set; }
         public static string Picture { get; set; }
+        public static Image PictureFace { get; set; }
 
     }
 }

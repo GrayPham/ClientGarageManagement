@@ -38,6 +38,7 @@ namespace ManagementStore.Form.User
         ObjectDetectionVGG ssd;
         ObjectDetectionMB mb;
         ObjectDetectionSSD cccd;
+        bool confirm;
         public static string fullPathMainForm = Helpers.GetFullPathOfMainForm();
         string imgPath = "";
         private string fileNameAudio;
@@ -96,8 +97,9 @@ namespace ManagementStore.Form.User
                     }
                     else
                     {
-                        SaveImage();
-                        image.pictureBoxTaken.Image = Image.FromFile(imgPath);
+                        //SaveImage();
+                        UserInfo.PictureFace = pictureFace.Image;
+                        image.pictureBoxTaken.Image = UserInfo.PictureFace; //Image.FromFile(imgPath);
                         image.Show();
                         //capture.ImageGrabbed -= Capture_ImageGrabbed;
                         image.btnTakeAgain.Click += btnTakeAgain_Click;
@@ -115,8 +117,10 @@ namespace ManagementStore.Form.User
             try
             {
                 // capture.ImageGrabbed -= Capture_ImageGrabbed;
+                confirm = true;
                 capture.Stop();
-                capture.Dispose();
+                //capture.Dispose();
+                
                 Image img = Image.FromFile(imgPath);
                 info = new ConfirmInfo();
                 // Convert the image to a byte array
@@ -135,11 +139,11 @@ namespace ManagementStore.Form.User
                 info.phoneTxt.Text = UserInfo.PhoneNumber;
                 info.birthdayTxt.Text = UserInfo.BirthDay;
                 info.genderTxt.Text = UserInfo.Gender;
-                // info.pictureTaken.Image = img;
+                info.pictureTaken.Image = UserInfo.PictureFace;
                 info.Show();
                 info.btnBack.Click += btnBack_Click;
                 info.btnConfirm.Click += btnConfirm_Click;
-                image.Close();
+                image.Hide();
             }
             catch(Exception ex) { 
             }
@@ -152,6 +156,7 @@ namespace ManagementStore.Form.User
             // splashRegisterUser.ShowWaitForm();
             onCreateUser();
             // splashRegisterUser.CloseWaitForm();
+            // image.pictureBoxTaken.Image = null;
             capture.Stop();
         }
 
@@ -331,8 +336,7 @@ namespace ManagementStore.Form.User
             countdownValue = 5;
             timer.Start();
             image.pictureBoxTaken.Image = null;
-            
-            image.Close();
+            image.Hide();
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
@@ -340,6 +344,7 @@ namespace ManagementStore.Form.User
             Helpers.StopSound();
             Utils.Back(ParentForm, "pictureBoxFace", "pictureBoxName", "FullName");
             capture.Dispose();
+            timer.Tick -= Timer_Tick;
         }
 
         private async void FaceTaken_Load(object sender, EventArgs e)
@@ -414,17 +419,21 @@ namespace ManagementStore.Form.User
 
             try
             {
-                if (capture != null && capture.Ptr != IntPtr.Zero)
+                if (!confirm)
                 {
-                    using (Mat frame = capture.QueryFrame())
+                    if (capture != null && capture.Ptr != IntPtr.Zero)
                     {
-                        detectionResults = mb.DetectObjects(frame);
-                        // mb.DrawBoundingBoxes(frame, detectionResults);
-                        pictureFace.Image = frame.ToBitmap();
-                        fpsCounter.Update();
-                        Console.WriteLine("FPS: " + fpsCounter.CurrentFPS.ToString("F2"));
+                        using (Mat frame = capture.QueryFrame())
+                        {
+                            detectionResults = mb.DetectObjects(frame);
+                            // mb.DrawBoundingBoxes(frame, detectionResults);
+                            pictureFace.Image = frame.ToBitmap();
+                            fpsCounter.Update();
+                            Console.WriteLine("FPS: " + fpsCounter.CurrentFPS.ToString("F2"));
+                        }
                     }
                 }
+               
             }
             catch (Exception ex)
             {

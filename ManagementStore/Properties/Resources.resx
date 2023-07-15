@@ -121,11 +121,14 @@
   <data name="megafon_notify2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\megafon_notify2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cancuoccongdan" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cancuoccongdan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="z4155616816568_012163cb7d19d9c79afe2d9fb9a59941 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\z4155616816568_012163cb7d19d9c79afe2d9fb9a59941 (1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="payment" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\Images\payment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="0a7c9f51b5ed46b31ffc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\0a7c9f51b5ed46b31ffc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="choose" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\Images\choose.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,13 +145,13 @@
   <data name="confirm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\Images\confirm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="cancuoccongdan" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cancuoccongdan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="current" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\Images\current.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="z4155616816568_012163cb7d19d9c79afe2d9fb9a59941 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\z4155616816568_012163cb7d19d9c79afe2d9fb9a59941 (1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="0a7c9f51b5ed46b31ffc" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\0a7c9f51b5ed46b31ffc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="temp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\x64\Debug\Assets\Images\temp.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

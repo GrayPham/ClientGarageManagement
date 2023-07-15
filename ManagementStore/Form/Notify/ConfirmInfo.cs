@@ -9,7 +9,7 @@ namespace ManagementStore.Form.Notify
         public ConfirmInfo()
         {
             InitializeComponent();
-            pictureTaken.Image = Image.FromFile(Path.Combine(ModelConfig.imageFolder, "temp.bmp"));
+            // pictureTaken.Image = Image.FromFile(Path.Combine(ModelConfig.imageFolder, "temp.bmp"));
         }
     }
 }

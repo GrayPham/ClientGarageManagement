@@ -743,6 +743,7 @@
     <Content Include="Assets\Images\payment.png" />
     <Content Include="Assets\Images\pending.png" />
     <None Include="Resources\megafon_notify2.png" />
+    <None Include="bin\x64\Debug\Assets\Images\temp.bmp" />
     <Content Include="Setting\AdMgtInfos.xml" />
     <Content Include="Setting\Config.xml" />
     <Content Include="Setting\haarcascade_frontalface_default.xml" />

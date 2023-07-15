@@ -48,8 +48,9 @@ namespace ManagementStore.Form.User
             var faceTakenCapture = ParentForm.Controls.Find("FaceTaken", true);
             if (faceTakenCapture.Length > 0)
             {
-                var controlToRemove = faceTakenCapture[0];
+                var controlToRemove = faceTakenCapture[0] as FaceTaken;
                 ParentForm.Controls.Remove(controlToRemove);
+                Application.Idle -= controlToRemove.Capture_ImageGrabbed;
                 controlToRemove.Dispose();
             }
             ParentForm.Controls.Find("panelSlider", true)[0].Controls.Add(new FaceTaken());
