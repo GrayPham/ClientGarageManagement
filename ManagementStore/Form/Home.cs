@@ -461,15 +461,10 @@ namespace ManagementStore.Form
         {
  
             //Thread.Sleep(1000);
-            if(capture != null)
-            {
-                capture.Stop();
-                webBrowserVideo.Stop();
-                capture.Dispose();
-                webBrowserVideo.Dispose();
-               
-            }
-
+            capture.Stop();
+            webBrowserVideo.Stop();
+            capture.Dispose();
+            webBrowserVideo.Dispose();
             Helpers.StopSound();
             TypeRegister typeRegister = new TypeRegister(this);
             
