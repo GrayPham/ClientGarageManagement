@@ -80,29 +80,33 @@ namespace ManagementStore.Form.User
             // When the countdown reaches 0, stop the Timer and capture the picture
             if (countdownValue == 0)
             {
-                image = new ShowImageTaken();
-                if (detectionResults.Count == 0)
+                if(detectionResults != null)
                 {
-                    //capture.ImageGrabbed -= Capture_ImageGrabbed;
-                    var result = XtraMessageBox.Show("Can not detect the face, please try again", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    if (DialogResult.OK == result)
+                    image = new ShowImageTaken();
+                    if (detectionResults.Count == 0)
                     {
-                        //capture.ImageGrabbed += Capture_ImageGrabbed;
-                        countdownValue = 3;
-                        timer.Start();
+                        //capture.ImageGrabbed -= Capture_ImageGrabbed;
+                        var result = XtraMessageBox.Show("Can not detect the face, please try again", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        if (DialogResult.OK == result)
+                        {
+                            //capture.ImageGrabbed += Capture_ImageGrabbed;
+                            countdownValue = 3;
+                            timer.Start();
+                        }
                     }
+                    else
+                    {
+                        SaveImage();
+                        image.pictureBoxTaken.Image = Image.FromFile(imgPath);
+                        image.Show();
+                        //capture.ImageGrabbed -= Capture_ImageGrabbed;
+                        image.btnTakeAgain.Click += btnTakeAgain_Click;
+                        image.btnOK.Click += btnOK_Click;
+
+                    }
+                    timer.Stop();
                 }
-                else
-                {
-                    SaveImage();
-                    image.pictureBoxTaken.Image = Image.FromFile(imgPath);
-                    image.Show();
-                    //capture.ImageGrabbed -= Capture_ImageGrabbed;
-                    image.btnTakeAgain.Click += btnTakeAgain_Click;
-                    image.btnOK.Click += btnOK_Click;
-                    
-                }
-                timer.Stop();
+                
             }
         }
 
