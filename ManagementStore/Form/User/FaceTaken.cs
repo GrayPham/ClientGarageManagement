@@ -22,15 +22,16 @@ using System.Net.NetworkInformation;
 using Parking.App.Common;
 using Parking.App.Common.Constants;
 using Parking.App.Common.Helper;
+using System.Threading;
 
 namespace ManagementStore.Form.User
 {
     public partial class FaceTaken : System.Windows.Forms.UserControl
     {
-        public VideoCapture capture;
+       
         private FPSCounter fpsCounter;
         private int countdownValue;
-        public Timer timer;
+        public System.Windows.Forms.Timer timer;
         ShowImageTaken image;
         ConfirmInfo info;
         List<DetectionResult> detectionResults;
@@ -40,6 +41,7 @@ namespace ManagementStore.Form.User
         public static string fullPathMainForm = Helpers.GetFullPathOfMainForm();
         string imgPath = "";
         private string fileNameAudio;
+        public VideoCapture capture;
         public FaceTaken()
         {
             InitializeComponent();
@@ -52,14 +54,13 @@ namespace ManagementStore.Form.User
             capture = new VideoCapture();
             Application.Idle += Capture_ImageGrabbed;
             capture.Start();
+
             // Set the initial countdown value and Timer interval
-            countdownValue = 3;
-            timer = new Timer();
+            countdownValue = 5;
+            timer = new System.Windows.Forms.Timer();
             timer.Interval = 1000; // 1 second
             timer.Tick += Timer_Tick;
 
-            // Start the Timer
-            timer.Start();
         }
 
         public void SaveImage()
@@ -75,22 +76,21 @@ namespace ManagementStore.Form.User
         public void Timer_Tick(object sender, EventArgs e)
         {
             countdownValue--;
-            showCountDown.Text = $"The photo will be taken in {countdownValue.ToString()} seconds";
+            showCountDown.Text = $"Hình ảnh sẽ được chụp sau {countdownValue.ToString()} giây nữa.";
 
             // When the countdown reaches 0, stop the Timer and capture the picture
             if (countdownValue == 0)
             {
-                if(detectionResults != null)
-                {
+
                     image = new ShowImageTaken();
                     if (detectionResults.Count == 0)
                     {
                         //capture.ImageGrabbed -= Capture_ImageGrabbed;
-                        var result = XtraMessageBox.Show("Can not detect the face, please try again", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        var result = XtraMessageBox.Show("Không phát hiện được khuôn mặt của bạn, vui lòng đưa khuôn mặt vào gần hơn.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         if (DialogResult.OK == result)
                         {
                             //capture.ImageGrabbed += Capture_ImageGrabbed;
-                            countdownValue = 3;
+                            countdownValue = 5;
                             timer.Start();
                         }
                     }
@@ -105,38 +105,45 @@ namespace ManagementStore.Form.User
 
                     }
                     timer.Stop();
-                }
+                
                 
             }
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            // capture.ImageGrabbed -= Capture_ImageGrabbed;
-           
-            Image img = Image.FromFile(imgPath);
-            info = new ConfirmInfo();
-            // Convert the image to a byte array
-            byte[] imageBytes;
-            using (Bitmap bitmap = new Bitmap(img))
+            try
             {
-                using (MemoryStream ms = new MemoryStream())
+                // capture.ImageGrabbed -= Capture_ImageGrabbed;
+                capture.Stop();
+                capture.Dispose();
+                Image img = Image.FromFile(imgPath);
+                info = new ConfirmInfo();
+                // Convert the image to a byte array
+                byte[] imageBytes;
+                using (Bitmap bitmap = new Bitmap(img))
                 {
-                    bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                    imageBytes = ms.ToArray();
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        imageBytes = ms.ToArray();
+                    }
                 }
+                UserInfo.Picture = Convert.ToBase64String(imageBytes);
+                UserInfo.PictureByte = imageBytes;
+                info.fullNameTxt.Text = UserInfo.FullName;
+                info.phoneTxt.Text = UserInfo.PhoneNumber;
+                info.birthdayTxt.Text = UserInfo.BirthDay;
+                info.genderTxt.Text = UserInfo.Gender;
+                // info.pictureTaken.Image = img;
+                info.Show();
+                info.btnBack.Click += btnBack_Click;
+                info.btnConfirm.Click += btnConfirm_Click;
+                image.Close();
             }
-            UserInfo.Picture = Convert.ToBase64String(imageBytes);
-            UserInfo.PictureByte = imageBytes;
-            info.fullNameTxt.Text = UserInfo.FullName;
-            info.phoneTxt.Text = UserInfo.PhoneNumber;
-            info.birthdayTxt.Text = UserInfo.BirthDay;
-            info.genderTxt.Text = UserInfo.Gender;
-            info.pictureTaken.Image = img;
-            info.Show();
-            info.btnBack.Click += btnBack_Click;
-            info.btnConfirm.Click += btnConfirm_Click;
-            image.Close();
+            catch(Exception ex) { 
+            }
+
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
@@ -313,6 +320,8 @@ namespace ManagementStore.Form.User
         private void btnBack_Click(object sender, EventArgs e)
         {
             Settings.countDown = 120;
+            capture.Stop();
+            capture.Dispose();
             info.Close();
             Utils.Back(ParentForm, "pictureBoxOTP", "pictureBoxPhone", "PhoneNumber");
         }
@@ -321,6 +330,8 @@ namespace ManagementStore.Form.User
         {
             countdownValue = 5;
             timer.Start();
+            image.pictureBoxTaken.Image = null;
+            
             image.Close();
         }
 
@@ -333,6 +344,7 @@ namespace ManagementStore.Form.User
 
         private async void FaceTaken_Load(object sender, EventArgs e)
         {
+
             fileNameAudio = await AudioConstants.GetListSound(AudioConstants.FaceTaken);
             if (fileNameAudio != null && fileNameAudio != "")
             {
@@ -342,6 +354,8 @@ namespace ManagementStore.Form.User
             {
                 Helpers.PlaySound(@"Assets\Audio\" + AudioConstants.FaceTaken + ".wav");
             }
+            // Start the Timer
+            timer.Start();
         }
 
         private void btnDone_Click(object sender, EventArgs e)
@@ -381,20 +395,12 @@ namespace ManagementStore.Form.User
                 using (Mat frame = capture.QueryFrame())
                 {
                     detectionResults = cccd.DetectObjects(frame);
-                    DrawBoundingBoxesSSD(frame, detectionResults);
+                    // DrawBoundingBoxesSSD(frame, detectionResults);
                     Image<Bgr, byte> image = frame.ToImage<Bgr, byte>();
                     pictureFace.Image = image.ToBitmap();
                     fpsCounter.Update();
                     Console.WriteLine("FPS: " + fpsCounter.CurrentFPS.ToString("F2"));
                 }
-
-                //Mat frame = new Mat();
-                //capture.Retrieve(frame);
-                //detectionResults = cccd.DetectObjects(frame);
-                //DrawBoundingBoxesSSD(frame, detectionResults);
-                //pictureFace.Image = frame.ToBitmap();
-                //fpsCounter.Update();
-                //Console.WriteLine("FPS: " + fpsCounter.CurrentFPS.ToString("F2"));
             }
 
         }
@@ -406,17 +412,27 @@ namespace ManagementStore.Form.User
                 fpsCounter.Start();
             }
 
-            if (capture != null && capture.Ptr != IntPtr.Zero)
+            try
             {
-                Mat frame = new Mat();
-                capture.Retrieve(frame);
-                detectionResults = mb.DetectObjects(frame);
-                mb.DrawBoundingBoxes(frame, detectionResults);
-                pictureFace.Image = frame.ToBitmap();
-                fpsCounter.Update();
-                Console.WriteLine("FPS: " + fpsCounter.CurrentFPS.ToString("F2"));
+                if (capture != null && capture.Ptr != IntPtr.Zero)
+                {
+                    using (Mat frame = capture.QueryFrame())
+                    {
+                        detectionResults = mb.DetectObjects(frame);
+                        // mb.DrawBoundingBoxes(frame, detectionResults);
+                        pictureFace.Image = frame.ToBitmap();
+                        fpsCounter.Update();
+                        Console.WriteLine("FPS: " + fpsCounter.CurrentFPS.ToString("F2"));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Pass the exception to be handled elsewhere
+                return;
             }
         }
+
         private void DrawBoundingBoxes(Mat frame, List<DetectionResult> detectionResults)
         {
             foreach (var detection in detectionResults)

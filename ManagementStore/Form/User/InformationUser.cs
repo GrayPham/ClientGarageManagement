@@ -47,7 +47,7 @@ namespace ManagementStore.Form.User
         }
         private void btnNext_Click(object sender, EventArgs e)
         {
-            // splashScreenManager1.ShowWaitForm();
+            splashScreenManager2.ShowWaitForm();
             
             var citizenCapture = ParentForm.Controls.Find("FullName", true);
             if (citizenCapture.Length > 0)
@@ -60,13 +60,14 @@ namespace ManagementStore.Form.User
             Utils.Forward(ParentForm, "pictureBoxInfo", "pictureBoxName", "FullName");
             UserInfo.BirthDay = birthDayTxt.Text;
             UserInfo.Gender = ccbSelectGender.SelectedItem.ToString();
-            // splashScreenManager1.CloseWaitForm();
+            splashScreenManager2.CloseWaitForm();
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
+            splashScreenManager2.ShowWaitForm();
             Utils.Back(ParentForm, "pictureBoxInfo", "pictureBoxOTP", "PhoneOTP");
-
+            splashScreenManager2.CloseWaitForm();
         }
 
         #region Number

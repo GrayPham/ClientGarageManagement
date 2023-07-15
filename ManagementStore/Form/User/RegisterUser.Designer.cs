@@ -50,6 +50,7 @@ namespace ManagementStore.Form.User
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.pictureBoxNotify = new System.Windows.Forms.PictureBox();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ManagementStore.Form.WaitFormLoader.LoadRegisterUser), true, true);
             this.sidePanel1.SuspendLayout();
             this.sidePanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxName)).BeginInit();
@@ -316,6 +317,10 @@ namespace ManagementStore.Form.User
             this.pictureBoxNotify.TabIndex = 0;
             this.pictureBoxNotify.TabStop = false;
             // 
+            // splashScreenManager1
+            // 
+            this.splashScreenManager1.ClosingDelay = 500;
+            // 
             // RegisterUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -371,5 +376,6 @@ namespace ManagementStore.Form.User
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private System.Windows.Forms.PictureBox pictureBoxNotify;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }

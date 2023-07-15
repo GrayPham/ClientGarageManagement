@@ -46,6 +46,7 @@ namespace ManagementStore.Form
         private static int Counter = 10;
         private string fileNameAudio;
         bool active = true;
+        Mat frame;
         //private const int soundAudioNo = 123;
 
         private static string fullPathMainForm = Helpers.GetFullPathOfMainForm();
@@ -123,7 +124,7 @@ namespace ManagementStore.Form
             _tblAdMgtService.AddCompleted += AdMgt_Added;
             _tblAdMgtService.UpdateCompleted += AdMgt_Updated;
             _tblAdMgtService.RemoveCompleted += AdMgt_Removed;
-            _tblClientSoundMgtService.SetCustomizedListener(_clientSound, SendSoundEvent);
+           //  _tblClientSoundMgtService.SetCustomizedListener(_clientSound, SendSoundEvent);
             _tblStoreDeviceInfoService.SetCustomizedListener(_clientStoreDevice, SendStoreEvent);
 
 
@@ -135,38 +136,26 @@ namespace ManagementStore.Form
         }
         private void Capture_Home(object send, EventArgs e)
         {
-            try
+            if (capture != null && capture.Ptr != IntPtr.Zero)
             {
-                if (capture != null && capture.Ptr != IntPtr.Zero)
+                using (var frame = capture.QueryFrame())
                 {
-                    //if (capture.QuerySmallFrame() != null)
-                    //{
-                    using (Mat frame = capture.QueryFrame())
+                    if (frame != null)
                     {
-                        if (frame != null)
+                        try
                         {
-                            try
-                            {
-                                Image<Bgr, byte> image = frame.ToImage<Bgr, byte>();
-                                pictureBoxHome.Image = image.ToBitmap();
-                            }
-                            catch
-                            {
-
-                            }
+                            Image<Bgr, byte> image = frame.ToImage<Bgr, byte>();
+                            pictureBoxHome.Image = image.ToBitmap();
                         }
-
-
+                        catch (Exception ex)
+                        {
+                            // Handle the specific exception(s) that might occur during conversion
+                            Console.WriteLine("An error occurred during frame conversion: " + ex.Message);
+                            // Optionally, you can log the exception or display an error message to the user
+                        }
                     }
-                    //}           
                 }
             }
-            catch (Exception ex)
-            {
-                // Handle any general exceptions during video capture setup
-                Console.WriteLine("Error setting up video capture: " + ex.Message);
-            }
-            
         }
         private void AdMgtSynchronized(object sender, EventArgs<int> e)
         {
@@ -467,11 +456,9 @@ namespace ManagementStore.Form
             webBrowserVideo.Dispose();
             Helpers.StopSound();
             TypeRegister typeRegister = new TypeRegister(this);
-            
-            Hide();
-
 
             typeRegister.Show();
+            Hide();
             //Show();
             //cameraControl.Start();
 

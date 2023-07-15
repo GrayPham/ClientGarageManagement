@@ -122,7 +122,7 @@ namespace Parking.App.Common.ApiMethod
         {
             try
             {
-                var url = "http://localhost:57966/api/apivoicefile/getlistaudiofile";
+                var url = "http://26.115.12.45/api/apivoicefile/getlistaudiofile";
                 //var url2 = $"{url}={soundNo}";
 
                 using (var httpClient = new HttpClient())
@@ -153,7 +153,7 @@ namespace Parking.App.Common.ApiMethod
         {
             try
             {
-                var url = "http://localhost:57966/api/apivoicefile/getsourceaudiofile?soundNo";
+                var url = "http://26.115.12.45/api/apivoicefile/getsourceaudiofile?soundNo";
                 var url2 = $"{url}={soundNo}";
 
                 using (var httpClient = new HttpClient())

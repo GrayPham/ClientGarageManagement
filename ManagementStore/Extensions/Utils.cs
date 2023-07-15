@@ -163,14 +163,14 @@ namespace ManagementStore.Extensions
             try
             {
 
-                //TwilioClient.Init(accountSid, authToken);
-                //// Send the SMS
-                //var message = VerificationResource.Create(
-                //    pathServiceSid: serviceSid,
-                //    to: phoneNumber,
-                //    channel: "sms",
-                //    customMessage: $"Congratulations on your successful registration! Please visit our website at deeplearning.com to complete your profile. Your username and password are: ${userName}, ${password}. Welcome aboard!"
-                //);
+                TwilioClient.Init(accountSid, authToken);
+                // Send the SMS
+                var message = VerificationResource.Create(
+                    pathServiceSid: serviceSid,
+                    to: phoneNumber,
+                    channel: "sms",
+                    customMessage: $"Congratulations on your successful registration! Please visit our website at deeplearning.com to complete your profile. Your username and password are: ${userName}, ${password}. Welcome aboard!"
+                );
                 return true;
             }
             catch(Exception e)
@@ -195,12 +195,12 @@ namespace ManagementStore.Extensions
             //);
 
             //// Send the SMS
-            var message = VerificationResource.Create(
-                pathServiceSid: serviceSid,
-                to: phoneNumber,
-                channel: "sms"
-             // body: $"Your AI Building verification code is: {otpCode}." // This code will expire in 5 minutes. Don't share this code with anyone; our employees will never ask for the code.
-            );
+            //var message = VerificationResource.Create(
+            //    pathServiceSid: serviceSid,
+            //    to: phoneNumber,
+            //    channel: "sms"
+            // // body: $"Your AI Building verification code is: {otpCode}." // This code will expire in 5 minutes. Don't share this code with anyone; our employees will never ask for the code.
+            //);
             return otpCode;
         }
 
@@ -209,19 +209,19 @@ namespace ManagementStore.Extensions
             TwilioClient.Init(accountSid, authToken);
 
 
-            //if (verificationCode.Equals(code))
-            //{
-            //    return true;
-            //}
-            //return false;
+            if (verificationCode.Equals(code))
+            {
+                return true;
+            }
+            return false;
 
-            var verificationCheck = VerificationCheckResource.Create(
-                pathServiceSid: serviceSid,
-                to: phoneNumber,
-                code: verificationCode
-            );
+            //var verificationCheck = VerificationCheckResource.Create(
+            //    pathServiceSid: serviceSid,
+            //    to: phoneNumber,
+            //    code: verificationCode
+            //);
 
-            return verificationCheck.Status == "approved";
+            //return verificationCheck.Status == "approved";
         }
 
         public static void Forward(System.Windows.Forms.Form parentForm, string currentPictureBox, string nextPictureBox, string nextPageName)

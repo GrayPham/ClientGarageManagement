@@ -46,6 +46,7 @@ namespace ManagementStore.Form.User
             this.btnNum4 = new System.Windows.Forms.Button();
             this.btnNum1 = new System.Windows.Forms.Button();
             this.ccbSelectGender = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.splashScreenManager2 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ManagementStore.Form.WaitFormLoader.LoadRegisterUser), true, true, typeof(System.Windows.Forms.UserControl));
             ((System.ComponentModel.ISupportInitialize)(this.birthDayTxt.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ccbSelectGender.Properties)).BeginInit();
             this.SuspendLayout();
@@ -290,6 +291,10 @@ namespace ManagementStore.Form.User
             this.ccbSelectGender.TabIndex = 59;
             this.ccbSelectGender.DrawItem += new DevExpress.XtraEditors.ListBoxDrawItemEventHandler(this.ccbSelectGender_DrawItem);
             // 
+            // splashScreenManager2
+            // 
+            this.splashScreenManager2.ClosingDelay = 500;
+            // 
             // InformationUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -342,5 +347,6 @@ namespace ManagementStore.Form.User
         private System.Windows.Forms.Button btnNum1;
         private DevExpress.XtraEditors.ComboBoxEdit ccbSelectGender;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager2;
     }
 }
