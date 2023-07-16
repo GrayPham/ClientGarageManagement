@@ -13,6 +13,8 @@ namespace Parking.App.Contract.Common
         public string Password { get; set; }
         public string UserName { get; set; }
         public string PhoneNumber { get; set; }
+        public string Firstname { get; set; }
+        public string Lastname { get; set; }
         public string IdentityNo { get; set; }
         public DateTime Birthday { get; set; }
         public string Email { get; set; }
@@ -39,6 +41,8 @@ namespace Parking.App.Contract.Common
             UserID = String.Empty;
             UserType = String.Empty;
             Password = String.Empty;
+            Firstname = String.Empty;
+            Lastname = String.Empty;
             UserName = String.Empty;
             PhoneNumber = String.Empty;
             IdentityNo = String.Empty;
@@ -60,6 +64,8 @@ namespace Parking.App.Contract.Common
             UserType = info.UserType;
             Password = info.Password;
             UserName = info.UserName;
+            Firstname = info.Firstname;
+            Lastname = info.Lastname;
             PhoneNumber = info.PhoneNumber;
             Birthday = info.Birthday;
             Email = info.Email;
