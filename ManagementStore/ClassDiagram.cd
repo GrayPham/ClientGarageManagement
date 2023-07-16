@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Yolov5Net.Scorer.YoloLabel">
+    <Position X="14.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Yolov5Net.Scorer.YoloLabelKind">
+    <Position X="11" Y="6.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Yolov5Net.Scorer.YoloPrediction">
+    <Position X="13" Y="4.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Yolov5Net.Scorer.YoloScorer&lt;T&gt;">
+    <Position X="14.5" Y="1.25" Width="2.25" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Yolov5Net.Scorer.Extensions.RectangleExtensions">
+    <Position X="12.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Yolov5Net.Scorer.Models.SSDModel">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Yolov5Net.Scorer.Models.YoloCocoP5Model">
+    <Position X="1" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Yolov5Net.Scorer.Models.YoloCocoP6Model">
+    <Position X="2.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Yolov5Net.Scorer.Models.Abstract.YoloModel">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ManagementStore.Form.Camera.PictureControl">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAggKARQBAAAIiUAAACEgAAUAAAAAQIIQAAAKA=</HashCode>
+      <FileName>Form\Camera\PictureControl.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="dto" />
+      <Field Name="encode" />
+      <Field Name="detect" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ManagementStore.Services.YoloDetectServices">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\YoloDetectServices.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="scorer" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ManagementStore.DTO.YoloModelDto">
+    <Position X="11" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAEAEBEBEAAAAAEAEAAAAAAAQAAA=</HashCode>
+      <FileName>DTO\YoloModelDto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_predictions" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Security.SocketDetect">
+    <Position X="6.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ManagementStore.Form.User.CitizenshipIDCapture">
+    <Position X="2" Y="11.25" Width="2.25" />
+    <Members>
+      <Field Name="btnDone" Hidden="true" />
+      <Field Name="btnPrev" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="labelControl1" Hidden="true" />
+      <Field Name="labelResult" Hidden="true" />
+      <Field Name="pictureCCCD" Hidden="true" />
+      <Field Name="showCountDown" Hidden="true" />
+      <Field Name="splashScreenManager1" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAZAgAAABCACBAIgAECBABACCAAAEA0QAACACAEAABQ=</HashCode>
+      <FileName>Form\User\ResisterUserSub\CitizenshipIDCapture.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="ssd" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ManagementStore.Model.ML.ObjectDetectionSSD">
+    <Position X="5.5" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAhAgAAAAAAAAAQAEAAgAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Model\ML\ObjectDetectionSSD.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="detections" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ManagementStore.DTO.DetectionResult">
+    <Position X="9" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAACAAAgAAAAQAAAAAAAIAAAACACAAAAAAAA=</HashCode>
+      <FileName>DTO\DetectionResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Parking.App.Common.ApiMethod.ApiMethod">
+    <Position X="5.25" Y="14.25" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Parking.App.Common.ViewModels.OcrImageRequest">
+    <Position X="7.5" Y="14.25" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Parking.App.Common.ViewModels.OcrDataCccdResponse">
+    <Position X="7.5" Y="16" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ManagementStore.Form.User.ResisterUserSub.FaceTakenCCCD">
+    <Position X="19.75" Y="1" Width="2" />
+    <Members>
+      <Field Name="btnDone" Hidden="true" />
+      <Field Name="btnPrev" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="labelControl1" Hidden="true" />
+      <Field Name="pictureFace" Hidden="true" />
+      <Field Name="showCountDown" Hidden="true" />
+      <Field Name="splashScreenManager1" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>gAYIQAAIhiACAAJAAAOAAJACEAAAEAkAQICACAEAAAA=</HashCode>
+      <FileName>Form\User\ResisterUserSub\FaceTakenCCCD.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="image" />
+      <Field Name="session" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ManagementStore.Form.Notify.ShowImageTaken">
+    <Position X="29.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAACCAAAAAEAAAACAAAAAgAA=</HashCode>
+      <FileName>Form\Notify\ShowImageTaken.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementStore.Common.AudioConstants">
+    <Position X="36.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACBAEEAAAAABgIAQAAAEAAAABAQEAEAAQAAAAAQAAAA=</HashCode>
+      <FileName>Common\AudioConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.ML.OnnxRuntime.InferenceSession">
+    <Position X="25.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ManagementStore.Model.Static.UserCCCD">
+    <Position X="23.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABgAAAAAAAAICAQAAAIAAAAAAIAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Model\Static\UserCCCD.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagementStore.Form.User.FaceTaken">
+    <Position X="31.75" Y="0.5" Width="2.25" />
+    <Members>
+      <Field Name="btnDone" Hidden="true" />
+      <Field Name="btnPrev" Hidden="true" />
+      <Method Name="Capture_ImageGrabbedCCCD" Hidden="true" />
+      <Field Name="cccd" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="countdownPictureBox" Hidden="true" />
+      <Field Name="labelControl1" Hidden="true" />
+      <Field Name="pictureFace" Hidden="true" />
+      <Field Name="showCountDown" Hidden="true" />
+      <Field Name="splashRegisterUser" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>gQYAwAAAACBCCApAAAOAAJCCEAAiEA0QQACACAkAABA=</HashCode>
+      <FileName>Form\User\FaceTaken.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mb" />
+      <Field Name="image" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ManagementStore.Model.ML.ObjectDetectionMB">
+    <Position X="34.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAIAAAAAAAAAAEAAgAAAAAAAAAAQIAAAAAAAAA=</HashCode>
+      <FileName>Model\ML\ObjectDetectionMB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Connect.Common.Contract.ResultInfo">
+    <Position X="34.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -212,7 +212,7 @@ namespace ManagementStore.Form.User
                 UseYN = false,
                 LoginIP = GetLocalIPv4() ?? " ",
                 LastSimilarityRate = ConfigClass.SimilarityRate,
-                AuthMethod = "Phone Number" == Constants.PhoneMethod ? "APPTP1" : "APPTP2"
+                AuthMethod = "PhoneAuth" == Constants.PhoneMethod ? "APPTP1" : "APPTP2"
             };
 
             tblUserMgtStoreInfo userMgt = new tblUserMgtStoreInfo()
