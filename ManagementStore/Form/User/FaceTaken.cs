@@ -97,7 +97,7 @@ namespace ManagementStore.Form.User
                     }
                     else
                     {
-                        //SaveImage();
+                        SaveImage();
                         UserInfo.PictureFace = pictureFace.Image;
                         image.pictureBoxTaken.Image = UserInfo.PictureFace; //Image.FromFile(imgPath);
                         image.Show();
