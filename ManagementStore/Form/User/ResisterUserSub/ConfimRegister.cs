@@ -101,7 +101,9 @@ namespace ManagementStore.Form.User.ResisterUserSub
             uInfo[2] = UserCCCD.Gender == null ? "Male" : UserCCCD.Gender;
             uInfo[3] = UserCCCD.Picture == null ? "124" : UserCCCD.Picture;
             uInfo[4] = UserCCCD.BirthDay == null ? "2023-06-23" : UserCCCD.BirthDay;
-
+            string[] words = ((string)uInfo[0]).Split(' ');
+            string lastname = words[words.Length - 1];
+            string firstname = ((string)uInfo[0]).Substring(0, ((string)uInfo[0]).Length - lastname.Length).Trim();
             string userid = DateTime.Now.ToString("yyyyMMddHHmmss");
             tblUserInfo user = new tblUserInfo()
             {
@@ -109,6 +111,8 @@ namespace ManagementStore.Form.User.ResisterUserSub
                 UserType = "USR001",
                 Password = Helpers.HashCodePassword("DPSS01"),
                 UserName = userid,
+                Lastname = lastname,
+                Firstname = firstname,
                 IdentityNo = UserCCCD.CCCDNumber != null ? UserCCCD.CCCDNumber : "066201000447" ,
                 Birthday = UserCCCD.BirthDay != null ? Convert.ToDateTime(UserCCCD.BirthDay) : DateTime.Now,
                 Email = String.Empty,
