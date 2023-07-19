@@ -15,11 +15,11 @@ namespace ManagementStore.Form.User
     public partial class RegisterUser : DevExpress.XtraEditors.XtraForm, IProgramController
     {
         private Timer timer;
-        private Home _home;
+        private TypeRegister _typeRegister;
 
-        public RegisterUser(Home home)
+        public RegisterUser(TypeRegister typeRegister)
         {
-            _home = home;
+            _typeRegister = typeRegister;
             InitializeComponent();
             panelSlider.Controls.Add(new PhoneNumber());
 
@@ -129,11 +129,11 @@ namespace ManagementStore.Form.User
             pictureEdit1.Dispose();
             sidePanel1.Dispose();
 
-            _home.Invoke(new Action(() =>
+            _typeRegister.Invoke(new Action(() =>
             {
-                _home.Show();
+                _typeRegister.Show();
             }));
-
+            timer.Tick -= Timer_Tick;
             Close();
         }
 
@@ -155,10 +155,10 @@ namespace ManagementStore.Form.User
             sidePanel4.Dispose();
             pictureEdit1.Dispose();
             sidePanel1.Dispose();
-
-            _home.Invoke(new Action(() =>
+            timer.Tick -= Timer_Tick;
+            _typeRegister.Invoke(new Action(() =>
             {
-                _home.Show();
+                _typeRegister.Show();
    
             }));
         }

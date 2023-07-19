@@ -15,24 +15,24 @@ namespace ManagementStore.Extensions
     public static class Utils
     {
 
-        //const string accountSid = "AC0e8a283c2cf0564d3e3a02a565d23c45";
-        //const string authToken = "1ccb383bd206438135ef9ad0dfb1abdd";
+        const string AccountSid = "AC0e8a283c2cf0564d3e3a02a565d23c45";
+        const string AuthToken = "1ccb383bd206438135ef9ad0dfb1abdd";
 
-        public static string AccountSid
-        {
-            get
-            {
-                return ConfigurationManager.AppSettings["AccountSid"];
-            }
-        }
+        //public static string AccountSid
+        //{
+        //    get
+        //    {
+        //        return ConfigurationManager.AppSettings["AccountSid"];
+        //    }
+        //}
 
-        public static string AuthToken
-        {
-            get
-            {
-                return ConfigurationManager.AppSettings["AuthToken"];
-            }
-        }
+        //public static string AuthToken
+        //{
+        //    get
+        //    {
+        //        return ConfigurationManager.AppSettings["AuthToken"];
+        //    }
+        //}
 
         const string serviceSid = "VAffb5b04aee098d3f4ebf3e22346d49f7"; // Replace with your Twilio Verify service SID
         private static Random random = new Random();

@@ -43,7 +43,7 @@ namespace ManagementStore.Form.User
         private void pictureBoxPhone_Click(object sender, System.EventArgs e)
         {
             Helpers.StopSound();
-            RegisterUser registerUser = new RegisterUser(_home);
+            RegisterUser registerUser = new RegisterUser(this);
             registerUser.Show();
             this.Hide();
         }
@@ -78,9 +78,9 @@ namespace ManagementStore.Form.User
         {
             
             this.Close();
-            _home.cameraControlHome.Start();
-            _home.DisplayAd();
-            _home.Show();
+            //_home.cameraControlHome.Start();
+            //_home.DisplayAd();
+            //_home.Show();
 
         }
 
