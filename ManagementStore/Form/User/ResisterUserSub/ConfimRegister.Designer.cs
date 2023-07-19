@@ -167,6 +167,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // 
             // pictureBoxCCCD
             // 
+            this.pictureBoxCCCD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxCCCD.Image = global::ManagementStore.Properties.Resources._0a7c9f51b5ed46b31ffc;
             this.pictureBoxCCCD.Location = new System.Drawing.Point(135, 410);
             this.pictureBoxCCCD.Name = "pictureBoxCCCD";
@@ -177,6 +178,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             // 
             // pictureTaken
             // 
+            this.pictureTaken.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureTaken.Image = ((System.Drawing.Image)(resources.GetObject("pictureTaken.Image")));
             this.pictureTaken.Location = new System.Drawing.Point(135, 105);
             this.pictureTaken.Name = "pictureTaken";

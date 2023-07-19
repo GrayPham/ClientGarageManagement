@@ -35,6 +35,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
         private int countObject = 0;
         ShowImageTaken image;
         private string fileNameAudio;
+        private bool takeAgain = false;
         private async void FaceTakenCCCD_Load(object sender, EventArgs e)
         {
             fileNameAudio = await AudioConstants.GetListSound(AudioConstants.FaceTaken);
@@ -71,10 +72,15 @@ namespace ManagementStore.Form.User.ResisterUserSub
 
         private void CloseForm(object sender, FormClosingEventArgs e)
         {
-            timer.Start();
-            countdownValue = 5;
-            capture.ImageGrabbed += Capture_ImageGrabbed;
-            capture.Start();
+            if(takeAgain == true)
+            {
+                timer.Start();
+                countdownValue = 5;
+                capture.ImageGrabbed += Capture_ImageGrabbed;
+                capture.Start();
+                btnPrev.Enabled = true;
+            }
+            
             
         }
 
@@ -91,7 +97,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
                 if (countObject == 0)
                 {
                     capture.ImageGrabbed -= Capture_ImageGrabbed;
-                    var result = XtraMessageBox.Show("Can not detect the face, please try again", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    var result = XtraMessageBox.Show("Không thể phát hiện khuôn mặt, vui lòng thử lại", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     if (DialogResult.OK == result)
                     {
                         countdownValue = 5;
@@ -116,6 +122,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
         private void btnOK_Click(object sender, EventArgs e)
         {
             capture.ImageGrabbed -= Capture_ImageGrabbed;
+            timer.Tick -= Timer_Tick;
             Image img = image.pictureBoxTaken.Image;
 
             // Convert the image to a byte array
@@ -128,18 +135,19 @@ namespace ManagementStore.Form.User.ResisterUserSub
                 UserCCCD.Picture = Convert.ToBase64String(imageBytes);
                 UserCCCD.PictureByte = imageBytes;
             }
-            
+            takeAgain = false;
             image.Close();
             btnPrev.Enabled = true;
             btnDone.Enabled = true;
         }
         private void btnTakeAgain_Click(object sender, EventArgs e)
         {
-            countdownValue = 5;
-            capture.ImageGrabbed += Capture_ImageGrabbed;
-            timer.Start();
+            takeAgain = true;
+            //countdownValue = 5;
+            //capture.ImageGrabbed += Capture_ImageGrabbed;
+            //timer.Start();
             image.Close();
-            btnPrev.Enabled = true;
+            
         }
         private void btnDone_Click(object sender, EventArgs e)
         {

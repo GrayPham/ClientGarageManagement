@@ -43,7 +43,7 @@ namespace ManagementStore.Form.User
         private void pictureBoxPhone_Click(object sender, System.EventArgs e)
         {
             Helpers.StopSound();
-            RegisterUser registerUser = new RegisterUser(_home);
+            RegisterUser registerUser = new RegisterUser(this);
             registerUser.Show();
             this.Hide();
         }
@@ -69,18 +69,18 @@ namespace ManagementStore.Form.User
         private void pictureBoxCard_Click(object sender, EventArgs e)
         {
             Helpers.StopSound();
-            RegisterUser2 registerUserCard = new RegisterUser2(_home);
+            RegisterUser2 registerUserCard = new RegisterUser2(this);
             registerUserCard.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void btmExit_Click(object sender, EventArgs e)
         {
             
             this.Close();
-            _home.cameraControlHome.Start();
-            _home.DisplayAd();
-            _home.Show();
+            //_home.cameraControlHome.Start();
+            //_home.DisplayAd();
+            //_home.Show();
 
         }
 
