@@ -78,9 +78,9 @@ namespace ManagementStore.Form.User
         {
             
             this.Close();
-            //_home.cameraControlHome.Start();
-            //_home.DisplayAd();
-            //_home.Show();
+            _home.cameraControlHome.Start();
+            _home.DisplayAd();
+            _home.Show();
 
         }
 
