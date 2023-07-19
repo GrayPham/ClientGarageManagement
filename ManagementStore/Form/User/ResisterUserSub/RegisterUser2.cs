@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using ManagementStore.Form.User.ResisterUserSub;
 using ManagementStore.Model.Static;
+using Parking.App.Common.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -76,10 +77,11 @@ namespace ManagementStore.Form.User
 
             _typeRegister.Invoke(new Action(() =>
             {
+                Helpers.StopSound();
                 _typeRegister.Show();
 
             }));
-
+            timer.Tick -= Timer_Tick;
             Close();
         }
 
@@ -96,9 +98,10 @@ namespace ManagementStore.Form.User
 
             _typeRegister.Invoke(new Action(() =>
             {
+                Helpers.StopSound();
                 _typeRegister.Show();
             }));
-
+            timer.Tick -= Timer_Tick;
 
         }
     }
