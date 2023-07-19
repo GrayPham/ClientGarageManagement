@@ -98,8 +98,8 @@ namespace ManagementStore.Form.User
                     else
                     {
                         SaveImage();
-                        UserInfo.PictureFace = pictureFace.Image;
-                        image.pictureBoxTaken.Image = UserInfo.PictureFace; //Image.FromFile(imgPath);
+                        //UserInfo.PictureFace = pictureFace.Image;
+                        image.pictureBoxTaken.Image = Image.FromFile(imgPath); //UserInfo.PictureFace; 
                         image.Show();
                         //capture.ImageGrabbed -= Capture_ImageGrabbed;
                         image.btnTakeAgain.Click += btnTakeAgain_Click;
@@ -139,7 +139,7 @@ namespace ManagementStore.Form.User
                 info.phoneTxt.Text = UserInfo.PhoneNumber;
                 info.birthdayTxt.Text = UserInfo.BirthDay;
                 info.genderTxt.Text = UserInfo.Gender;
-                info.pictureTaken.Image = UserInfo.PictureFace;
+                //info.pictureTaken.Image = UserInfo.PictureFace;
                 info.Show();
                 info.btnBack.Click += btnBack_Click;
                 info.btnConfirm.Click += btnConfirm_Click;
@@ -156,7 +156,7 @@ namespace ManagementStore.Form.User
             // splashRegisterUser.ShowWaitForm();
             onCreateUser();
             // splashRegisterUser.CloseWaitForm();
-            // image.pictureBoxTaken.Image = null;
+            image.pictureBoxTaken.Image = null;
             capture.Stop();
         }
 

@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using Twilio.Rest.Verify.V2.Service;
 using Twilio;
 using Twilio.Rest.Api.V2010.Account;
-using ManagementStore.Model.Static;
 using System.Collections.Generic;
 using System.Text;
 using Twilio.Types;
@@ -18,7 +17,7 @@ namespace ManagementStore.Extensions
         {
             get
             {
-                return ConfigurationManager.AppSettings["AccountSid"];
+                return ConfigurationManager.AppSettings["AccountSid1"];
             }
         }
 
@@ -26,11 +25,19 @@ namespace ManagementStore.Extensions
         {
             get
             {
-                return ConfigurationManager.AppSettings["AuthToken"];
+                return ConfigurationManager.AppSettings["AuthToken1"];
             }
         }
 
-        const string serviceSid = "VAffb5b04aee098d3f4ebf3e22346d49f7"; // Replace with your Twilio Verify service SID
+        public static string ServiceSid
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["ServiceSid1"];
+            }
+        }
+
+        
         private static Random random = new Random();
         private const string allowedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
 
@@ -182,11 +189,12 @@ namespace ManagementStore.Extensions
 
                 var messageOptions = new CreateMessageOptions(
                   new PhoneNumber(phoneNumber));
-                messageOptions.From = new PhoneNumber("+16206464293");
+                messageOptions.From = new PhoneNumber("+15733833092"); // +15733833092 16206464293
                 messageOptions.Body = $"Congratulations on your successful registration! Please visit our website at 26.115.12.45 to complete your profile. Your username and password are: ${userName}, ${password}. Welcome aboard!";
 
 
                 var message = MessageResource.Create(messageOptions);
+                Console.WriteLine(message.Body);
                 return true;
             }
             catch(Exception e)
@@ -205,7 +213,7 @@ namespace ManagementStore.Extensions
 
             // Send the SMS
             var message = VerificationResource.Create(
-                pathServiceSid: serviceSid,
+                pathServiceSid: ServiceSid,
                 to: phoneNumber,
                 channel: "sms"
             // body: $"Your AI Building verification code is: {otpCode}." // This code will expire in 5 minutes. Don't share this code with anyone; our employees will never ask for the code.
@@ -225,7 +233,7 @@ namespace ManagementStore.Extensions
             //return false;
 
             var verificationCheck = VerificationCheckResource.Create(
-                pathServiceSid: serviceSid,
+                pathServiceSid: ServiceSid,
                 to: phoneNumber,
                 code: verificationCode
             );
