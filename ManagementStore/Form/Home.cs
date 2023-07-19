@@ -125,7 +125,7 @@ namespace ManagementStore.Form
 
 
             
-            string url = "https://www.youtube.com/watch?v=Z9uEn2IVPkQ";
+            string url = "https://www.youtube.com/watch?v=aCEH5J8eOYE";
             this.webBrowserVideo.DocumentText = string.Format(AdHtml(), Utils.GetVideoId(url));
 
 
@@ -243,43 +243,47 @@ namespace ManagementStore.Form
                         }
                     }
 
-                    if (AdTopShow != null && !isShouldOpenCamera)
-                    {
-                        if (AdTopShow.AdType == "AD0001")
-                        {
+                    #region Ad Top
+
+                    //if (AdTopShow != null && !isShouldOpenCamera)
+                    //{
+                    //    if (AdTopShow.AdType == "AD0001")
+                    //    {
 
 
-                            var filePath = CheckPathExtension(Helpers.fullPathMainForm + @"AdMgt\" + AdTopShow.AdName);
-                            if (!string.IsNullOrWhiteSpace(filePath))
-                            {
+                    //        var filePath = CheckPathExtension(Helpers.fullPathMainForm + @"AdMgt\" + AdTopShow.AdName);
+                    //        if (!string.IsNullOrWhiteSpace(filePath))
+                    //        {
 
-                            }
+                    //        }
 
 
-                        }
-                        else if (AdTopShow.AdType == "AD0002")
-                        {
-                            if (AdTopShow.AttachFilePath.Contains("youtu"))
-                            {
-                                Task.Factory.StartNew(() =>
-                                {
+                    //    }
+                    //    else if (AdTopShow.AdType == "AD0002")
+                    //    {
+                    //        if (AdTopShow.AttachFilePath.Contains("youtu"))
+                    //        {
+                    //            Task.Factory.StartNew(() =>
+                    //            {
 
-                                });
-                            }
-                            else
-                            {
-                                var filePath = CheckPathExtension(Helpers.fullPathMainForm + @"AdMgt\" + AdTopShow.AdName);
-                                if (!string.IsNullOrWhiteSpace(AdTopShow.AttachFilePath))
-                                {
+                    //            });
+                    //        }
+                    //        else
+                    //        {
+                    //            var filePath = CheckPathExtension(Helpers.fullPathMainForm + @"AdMgt\" + AdTopShow.AdName);
+                    //            if (!string.IsNullOrWhiteSpace(AdTopShow.AttachFilePath))
+                    //            {
 
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
+                    //            }
+                    //        }
+                    //    }
+                    //}
+                    //else
+                    //{
 
-                    }
+                    //}
+
+                    #endregion
 
 
                     if (AdBotShow != null)
@@ -299,8 +303,9 @@ namespace ManagementStore.Form
                             {
                                 Task.Factory.StartNew(() =>
                                 {
+                                    this.webBrowserVideo.Stop();
+                                    this.webBrowserVideo.DocumentText = string.Format(AdHtml(), Utils.GetVideoId(AdBotShow.AttachFilePath));
 
-                                   
                                 });
                             }
                             else if (!string.IsNullOrWhiteSpace(AdBotShow.AttachFilePath))

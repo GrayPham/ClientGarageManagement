@@ -7,14 +7,33 @@ using Twilio.Rest.Api.V2010.Account;
 using ManagementStore.Model.Static;
 using System.Collections.Generic;
 using System.Text;
+using Twilio.Types;
+using System.Configuration;
 
 namespace ManagementStore.Extensions
 {
     public static class Utils
     {
-      
-        const string accountSid = "AC0e8a283c2cf0564d3e3a02a565d23c45";
-        const string authToken = "1ccb383bd206438135ef9ad0dfb1abdd";
+
+        //const string accountSid = "AC0e8a283c2cf0564d3e3a02a565d23c45";
+        //const string authToken = "1ccb383bd206438135ef9ad0dfb1abdd";
+
+        public static string AccountSid
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["AccountSid"];
+            }
+        }
+
+        public static string AuthToken
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["AuthToken"];
+            }
+        }
+
         const string serviceSid = "VAffb5b04aee098d3f4ebf3e22346d49f7"; // Replace with your Twilio Verify service SID
         private static Random random = new Random();
         private const string allowedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
@@ -49,7 +68,6 @@ namespace ManagementStore.Extensions
             };
             return cardClasses;
         }
-
 
         public static Dictionary<int, string> GetCoCoClasses()
         {
@@ -163,14 +181,16 @@ namespace ManagementStore.Extensions
             try
             {
 
-                TwilioClient.Init(accountSid, authToken);
-                // Send the SMS
-                var message = VerificationResource.Create(
-                    pathServiceSid: serviceSid,
-                    to: "+840365858975",
-                    channel: "sms",
-                    customMessage: $"Congratulations on your successful registration! Please visit our website at deeplearning.com to complete your profile. Your username and password are: ${userName}, ${password}. Welcome aboard!"
-                );
+
+                TwilioClient.Init(AccountSid, AccountSid);
+
+                var messageOptions = new CreateMessageOptions(
+                  new PhoneNumber(phoneNumber));
+                messageOptions.From = new PhoneNumber("+16206464293");
+                messageOptions.Body = $"Congratulations on your successful registration! Please visit our website at 26.115.12.45 to complete your profile. Your username and password are: ${userName}, ${password}. Welcome aboard!";
+
+
+                var message = MessageResource.Create(messageOptions);
                 return true;
             }
             catch(Exception e)
@@ -180,19 +200,12 @@ namespace ManagementStore.Extensions
         }
         public static string SendOTPSMS(string phoneNumber)
         {
-            TwilioClient.Init(accountSid, authToken);
+            TwilioClient.Init(AccountSid, AuthToken);
 
             // Generate the OTP code
             Random random = new Random();
             string otpCode = "777777"; // random.Next(100000, 999999).ToString();
 
-
-            // Send the SMS
-            //var message = MessageResource.Create(
-            //    from: "+16206464293",
-            //    to: phoneNumber,
-            //    body: $"Your AI Building verification code is: {otpCode}." // This code will expire in 5 minutes. Don't share this code with anyone; our employees will never ask for the code.
-            //);
 
             // Send the SMS
             var message = VerificationResource.Create(
@@ -206,7 +219,7 @@ namespace ManagementStore.Extensions
 
         public static bool VerifyOTP(string phoneNumber, string verificationCode, string code)
         {
-            TwilioClient.Init(accountSid, authToken);
+            TwilioClient.Init(AccountSid, AccountSid);
 
 
             //if (verificationCode.Equals(code))

@@ -234,31 +234,13 @@ namespace ManagementStore.Form.User
             var facePhotoPath = "";
             var IdcardPhoto = "";
 
-
-            if ("Phone Number" == Constants.CardMethod)
+            photo = new tblUserPhotoInfo()
             {
-                // TODO: save image taken and image in card ID
-                //var checkImage = Helpers.SaveToFolderImage(ImageShoot, userid, Helpers.GetFullPathOfMainForm());
-                //location = checkImage.Item2;
-
-                //IdcardPhoto = fullPathMainForm + Constants.CardImage;
-                //photo = new tblUserPhotoInfo()
-                //{
-                //    UserID = userid,
-                //    TakenPhoto = File.ReadAllBytes(location),
-                //    IdCardPhoto = File.ReadAllBytes(IdcardPhoto)
-                //};
-            }
-            else
-            {
-
-                photo = new tblUserPhotoInfo()
-                {
-                    UserID = userid,
-                    TakenPhoto = UserInfo.PictureByte,
-                   // TODO: add image taken 
-                };
-            }
+                UserID = userid,
+                TakenPhoto = UserInfo.PictureByte,
+                // TODO: add image taken 
+            };
+            
 
             tblUserInfo userInfo = new tblUserInfo()
             {
