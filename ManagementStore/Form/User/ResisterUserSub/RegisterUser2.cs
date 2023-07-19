@@ -48,26 +48,26 @@ namespace ManagementStore.Form.User
         {
             
 
-            var citizenCapture = panelSlider2.Controls.Find("CitizenshipIDCapture", true);
-            if (citizenCapture.Length > 0)
-            {
-                var controlToRemove = citizenCapture[0] as CitizenshipIDCapture;
-                controlToRemove.capture.Dispose();
-                Application.Idle -= controlToRemove.Capture_ImageGrabbed;
-                controlToRemove.timer.Tick -= controlToRemove.Timer_TickAsync;
-                panelSlider2.Controls.Remove(controlToRemove);
-                controlToRemove.Dispose();
-            }
-            var citizenCaptureFace = panelSlider2.Controls.Find("FaceTakenCCCD", true);
-            if (citizenCapture.Length > 0)
-            {
-                var controlToRemove = citizenCapture[0] as FaceTakenCCCD;
-                controlToRemove.capture.Dispose();
-                Application.Idle -= controlToRemove.Capture_ImageGrabbed;
-                controlToRemove.timer.Tick -= controlToRemove.Timer_Tick;
-                panelSlider2.Controls.Remove(controlToRemove);
-                controlToRemove.Dispose();
-            }
+            //var citizenCapture = panelSlider2.Controls.Find("CitizenshipIDCapture", true);
+            //if (citizenCapture.Length > 0)
+            //{
+            //    var controlToRemove = citizenCapture[0] as CitizenshipIDCapture;
+            //    controlToRemove.capture.Dispose();
+            //    Application.Idle -= controlToRemove.Capture_ImageGrabbed;
+            //    controlToRemove.timer.Tick -= controlToRemove.Timer_TickAsync;
+            //    panelSlider2.Controls.Remove(controlToRemove);
+            //    controlToRemove.Dispose();
+            //}
+            //var citizenCaptureFace = panelSlider2.Controls.Find("FaceTakenCCCD", true);
+            //if (citizenCapture.Length > 0)
+            //{
+            //    var controlToRemove = citizenCapture[0] as FaceTakenCCCD;
+            //    controlToRemove.capture.Dispose();
+            //    Application.Idle -= controlToRemove.Capture_ImageGrabbed;
+            //    controlToRemove.timer.Tick -= controlToRemove.Timer_Tick;
+            //    panelSlider2.Controls.Remove(controlToRemove);
+            //    controlToRemove.Dispose();
+            //}
             panelSlider2.Controls.Clear();
             sidePanel4.Controls.Clear();
             panelSlider2.Dispose();
@@ -87,6 +87,26 @@ namespace ManagementStore.Form.User
 
         private void RegisterUser2_FormClosed(object sender, FormClosedEventArgs e)
         {
+            var citizenCapture = panelSlider2.Controls.Find("CitizenshipIDCapture", true);
+            if (citizenCapture.Length > 0)
+            {
+                var controlToRemove = citizenCapture[0] as CitizenshipIDCapture;
+                controlToRemove.capture.Dispose();
+                Application.Idle -= controlToRemove.Capture_ImageGrabbed;
+                controlToRemove.timer.Tick -= controlToRemove.Timer_TickAsync;
+                panelSlider2.Controls.Remove(controlToRemove);
+                controlToRemove.Dispose();
+            }
+            var citizenCaptureFace = panelSlider2.Controls.Find("FaceTakenCCCD", true);
+            if (citizenCaptureFace.Length > 0)
+            {
+                var controlToRemove = citizenCapture[0] as FaceTakenCCCD;
+                controlToRemove.capture.Dispose();
+                Application.Idle -= controlToRemove.Capture_ImageGrabbed;
+                controlToRemove.timer.Tick -= controlToRemove.Timer_Tick;
+                panelSlider2.Controls.Remove(controlToRemove);
+                controlToRemove.Dispose();
+            }
             panelSlider2.Controls.Clear();
             sidePanel4.Controls.Clear();
 
