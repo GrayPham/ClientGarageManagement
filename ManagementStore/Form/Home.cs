@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Threading;
+using System.Xml;
 using Connect.Common;
 using Connect.Common.Common;
 using Connect.Common.Contract;
@@ -43,13 +44,12 @@ namespace ManagementStore.Form
         ILog _log;
         private ISocketClient _client;
         private System.Timers.Timer _timer;
+        public System.Windows.Forms.Timer timerAd;
         private int _counter;
         private static int Counter = 10;
         private string fileNameAudio;
         bool active = true;
-        Mat frame;
-        //private const int soundAudioNo = 123;
-
+        string urlAd = "";
         private static string fullPathMainForm = Helpers.GetFullPathOfMainForm();
         //**------------------------------------------------------------------------
         private ICacheDataService<tblClientSoundMgtInfo> _tblClientSoundMgtService;
@@ -66,6 +66,8 @@ namespace ManagementStore.Form
         public static bool isCanModify { get; set; } = false;
         public static bool isShouldOpenCamera { get; set; } = false;
         //**------------------------------------------------------
+
+        int duration = 0;
 
         public TimeSpan timeTop;
         public DispatcherTimer dispatcherTimerTop;
@@ -89,15 +91,21 @@ namespace ManagementStore.Form
             return html;
         }
 
-        static string GetVideoDuration(string videoUrl)
+        static int GetVideoDuration(string videoUrl)
         {
             var web = new HtmlWeb();
             var doc = web.Load(videoUrl);
 
+            // XPath to find the element containing the duration
             var durationNode = doc.DocumentNode.SelectSingleNode("//meta[@itemprop='duration']");
             string durationValue = durationNode?.GetAttributeValue("content", "");
 
-            return durationValue;
+            TimeSpan duration = XmlConvert.ToTimeSpan(durationValue);
+
+            int durationInSeconds = (int)duration.TotalSeconds;
+
+
+            return durationInSeconds;
         }
 
         private async void Home_Load(object sender, EventArgs e)
@@ -124,27 +132,40 @@ namespace ManagementStore.Form
             _tblStoreDeviceInfoService = ProgramFactory.Instance.tblStoreDeviceService;
 
             _clientStoreDevice = _tblStoreDeviceInfoService.RegisterClient(_tblStoreDeviceInfoService.GetType().Name, StoreDeviceSynchronized);
-            //_clientSound = _tblClientSoundMgtService.RegisterClient(_tblClientSoundMgtService.GetType().Name, SoundSynchronized);
-            //_tblClientSoundMgtService.SetAddedListener(_clientSound, ClientSoundAdd);
-            //_tblClientSoundMgtService.SetListAddedListener(_clientSound, ClientSoundListAdd);
-            //_tblClientSoundMgtService.SetRemovedListener(_clientSound, ClientSoundRemoved);
-            //_tblClientSoundMgtService.SetUpdatedListener(_clientSound, ClientSoundUpdated);
             var _adMgtClient = _tblAdMgtService.RegisterClient(_tblAdMgtService.GetType().Name, AdMgtSynchronized);
             _tblAdMgtService.AddCompleted += AdMgt_Added;
             _tblAdMgtService.UpdateCompleted += AdMgt_Updated;
             _tblAdMgtService.RemoveCompleted += AdMgt_Removed;
-           //  _tblClientSoundMgtService.SetCustomizedListener(_clientSound, SendSoundEvent);
             _tblStoreDeviceInfoService.SetCustomizedListener(_clientStoreDevice, SendStoreEvent);
 
 
             
             string url = "https://www.youtube.com/watch?v=aCEH5J8eOYE";
             this.webBrowserVideo.DocumentText = string.Format(AdHtml(), Utils.GetVideoId(url));
-            string duration = GetVideoDuration(url);
-            Console.WriteLine($"Duration: {duration}");
+            duration = GetVideoDuration(url);
+
+            timerAd = new System.Windows.Forms.Timer();
+            timerAd.Interval = 1000; // 1 second
+            timerAd.Tick += Timer_Tick;
+            timerAd.Start();
+
 
         }
-       
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            duration--;
+            if(duration == 0)
+            {
+                this.webBrowserVideo.DocumentText = string.Format(AdHtml(), Utils.GetVideoId(urlAd));
+                duration = GetVideoDuration(urlAd);
+            }
+            if(duration % 10 == 0)
+            {
+                Console.WriteLine($"Quảng cáo sẽ được load lại sau {duration.ToString()} giây nữa.");
+            }
+        }
+
         private void AdMgtSynchronized(object sender, EventArgs<int> e)
         {
 
@@ -318,8 +339,9 @@ namespace ManagementStore.Form
                                 Task.Factory.StartNew(() =>
                                 {
                                     this.webBrowserVideo.Stop();
+                                    urlAd = AdBotShow.AttachFilePath;
                                     this.webBrowserVideo.DocumentText = string.Format(AdHtml(), Utils.GetVideoId(AdBotShow.AttachFilePath));
-
+                                    duration = GetVideoDuration(AdBotShow.AttachFilePath);
                                 });
                             }
                             else if (!string.IsNullOrWhiteSpace(AdBotShow.AttachFilePath))
