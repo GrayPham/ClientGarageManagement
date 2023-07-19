@@ -69,9 +69,9 @@ namespace ManagementStore.Form.User
         private void pictureBoxCard_Click(object sender, EventArgs e)
         {
             Helpers.StopSound();
-            RegisterUser2 registerUserCard = new RegisterUser2(_home);
+            RegisterUser2 registerUserCard = new RegisterUser2(this);
             registerUserCard.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void btmExit_Click(object sender, EventArgs e)

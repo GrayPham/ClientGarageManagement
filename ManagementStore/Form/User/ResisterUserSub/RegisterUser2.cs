@@ -15,11 +15,11 @@ namespace ManagementStore.Form.User
 {
     public partial class RegisterUser2 : DevExpress.XtraEditors.XtraForm
     {
-        private Home _home;
+        private TypeRegister _typeRegister;
         private Timer timer;
-        public RegisterUser2(Home home)
+        public RegisterUser2(TypeRegister typeRegister)
         {
-            _home = home;
+            _typeRegister = typeRegister;
             InitializeComponent();
             panelSlider2.Controls.Add(new CitizenshipID());
             //panelSlider2.Controls.Add(new CitizenshipIDCapture());
@@ -74,9 +74,9 @@ namespace ManagementStore.Form.User
             pictureEdit1.Dispose();
             sidePanel1.Dispose();
 
-            _home.Invoke(new Action(() =>
+            _typeRegister.Invoke(new Action(() =>
             {
-                _home.Show();
+                _typeRegister.Show();
 
             }));
 
@@ -94,9 +94,9 @@ namespace ManagementStore.Form.User
             pictureEdit1.Dispose();
             sidePanel1.Dispose();
 
-            _home.Invoke(new Action(() =>
+            _typeRegister.Invoke(new Action(() =>
             {
-                _home.Show();
+                _typeRegister.Show();
             }));
 
 
