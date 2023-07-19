@@ -178,7 +178,7 @@ namespace ManagementStore.Extensions
             {
 
 
-                TwilioClient.Init(AccountSid, AccountSid);
+                TwilioClient.Init(AccountSid, AuthToken);
 
                 var messageOptions = new CreateMessageOptions(
                   new PhoneNumber(phoneNumber));
