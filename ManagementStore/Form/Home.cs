@@ -19,6 +19,7 @@ using Connect.SocketClient;
 using DevExpress.Images;
 using Emgu.CV;
 using Emgu.CV.Structure;
+using HtmlAgilityPack;
 using ManagementStore.Common;
 using ManagementStore.Extensions;
 using ManagementStore.Form.User;
@@ -87,6 +88,18 @@ namespace ManagementStore.Form
             html += "</body></html>";
             return html;
         }
+
+        static string GetVideoDuration(string videoUrl)
+        {
+            var web = new HtmlWeb();
+            var doc = web.Load(videoUrl);
+
+            var durationNode = doc.DocumentNode.SelectSingleNode("//meta[@itemprop='duration']");
+            string durationValue = durationNode?.GetAttributeValue("content", "");
+
+            return durationValue;
+        }
+
         private async void Home_Load(object sender, EventArgs e)
         {
             fileNameAudio= await AudioConstants.GetListSound(AudioConstants.HomeAudio);
@@ -127,7 +140,8 @@ namespace ManagementStore.Form
             
             string url = "https://www.youtube.com/watch?v=aCEH5J8eOYE";
             this.webBrowserVideo.DocumentText = string.Format(AdHtml(), Utils.GetVideoId(url));
-
+            string duration = GetVideoDuration(url);
+            Console.WriteLine($"Duration: {duration}");
 
         }
        
@@ -431,8 +445,6 @@ namespace ManagementStore.Form
             //Thread.Sleep(1000);
 
             webBrowserVideo.Stop();
-
-            webBrowserVideo.Dispose();
             Helpers.StopSound();
             TypeRegister typeRegister = new TypeRegister(this);
             typeRegister.Show();

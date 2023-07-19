@@ -17,15 +17,14 @@ namespace ManagementStore.Form.User
         {
             _home = home;
             InitializeComponent();
-            
-            
             sidePanel3.BackColor = ColorTranslator.FromHtml("#2980b9");
             sidePanel4.BackColor = ColorTranslator.FromHtml("#2980b9");
             pictureBox5.BackColor = ColorTranslator.FromHtml("#2980b9");
             labelControl2.BackColor = ColorTranslator.FromHtml("#2980b9");
             showCountDown.BackColor = ColorTranslator.FromHtml("#2980b9");
-            //btmExit.BackColor = ColorTranslator.FromHtml("#aeb6bf");
+            btmExit.BackColor = ColorTranslator.FromHtml("#aeb6bf");
             countDown = 30;
+
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -77,15 +76,20 @@ namespace ManagementStore.Form.User
 
         private void btmExit_Click(object sender, EventArgs e)
         {
-            _home.Show();
+            
             this.Close();
+            _home.cameraControlHome.Start();
+            _home.DisplayAd();
+            _home.Show();
+
         }
 
 
         private void TypeRegister_FormClosed(object sender, FormClosedEventArgs e)
         {
+            _home.cameraControlHome.Start();
+            _home.DisplayAd();
             _home.Show();
-  
         }
     }
 }

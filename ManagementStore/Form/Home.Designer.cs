@@ -242,7 +242,6 @@ namespace ManagementStore.Form
 
         #endregion
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private System.Windows.Forms.WebBrowser webBrowserVideo;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
         private DevExpress.XtraEditors.SimpleButton btnIdentity;
@@ -256,6 +255,7 @@ namespace ManagementStore.Form
         private DevExpress.XtraBars.BarStaticItem barItemVersion;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManage;
-        private DevExpress.XtraEditors.Camera.CameraControl cameraControlHome;
+        public System.Windows.Forms.WebBrowser webBrowserVideo;
+        public DevExpress.XtraEditors.Camera.CameraControl cameraControlHome;
     }
 }

@@ -260,6 +260,7 @@ namespace ManagementStore.Form.User
             this.Name = "TypeRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chọn phương thức xác thực";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TypeRegister_FormClosed);
             this.Load += new System.EventHandler(this.TypeRegister_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.sidePanel2.ResumeLayout(false);
