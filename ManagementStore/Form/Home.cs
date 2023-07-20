@@ -152,7 +152,7 @@ namespace ManagementStore.Form
 
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        public void Timer_Tick(object sender, EventArgs e)
         {
             duration--;
             if(duration == 0)
@@ -473,6 +473,9 @@ namespace ManagementStore.Form
             Hide();
             //Show();
             cameraControlHome.Stop();
+
+            timerAd.Tick -= Timer_Tick;
+            timerAd.Stop();
 
         }
         public void LoginSuccess(SessionInfo info)

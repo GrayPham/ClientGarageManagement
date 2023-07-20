@@ -123,9 +123,9 @@ namespace ManagementStore.Form.User
         private DevExpress.XtraEditors.SimpleButton btnDone;
         private DevExpress.XtraEditors.SimpleButton btnPrev;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private System.Windows.Forms.PictureBox pictureFace;
         private System.Windows.Forms.PictureBox countdownPictureBox;
         private DevExpress.XtraEditors.LabelControl showCountDown;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashRegisterUser;
+        public System.Windows.Forms.PictureBox pictureFace;
     }
 }

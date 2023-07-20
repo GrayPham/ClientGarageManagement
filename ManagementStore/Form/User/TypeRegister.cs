@@ -90,6 +90,8 @@ namespace ManagementStore.Form.User
             _home.cameraControlHome.Start();
             _home.DisplayAd();
             _home.Show();
+            _home.timerAd.Tick -= _home.Timer_Tick;
+            _home.timerAd.Start();
         }
     }
 }
