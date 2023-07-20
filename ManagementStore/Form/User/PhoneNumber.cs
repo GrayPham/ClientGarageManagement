@@ -29,8 +29,9 @@ namespace ManagementStore.Form.User
         private async void PhoneNumber_Load(object sender, EventArgs e)
         {
             phoneTxt.Text = "0365858975";
-            // splashScreenManager.ShowWaitForm();
+            splashScreenManager1.ShowWaitForm();
             phoneCodes = InitializePhoneCodes();
+            Thread.Sleep(800);
             ccbCountryNumber.Properties.TextEditStyle = TextEditStyles.DisableTextEditor;      
             AddFormattedPhoneCodes();
             ccbCountryNumber.Select(0, 1);
@@ -43,7 +44,7 @@ namespace ManagementStore.Form.User
             {
                 Helpers.PlaySound(@"Assets\Audio\" + AudioConstants.InputPhone + ".wav");
             }
-            // splashScreenManager.CloseWaitForm();
+            splashScreenManager1.CloseWaitForm();
 
         }
         private void btnNext_Click(object sender, EventArgs e)
@@ -58,7 +59,8 @@ namespace ManagementStore.Form.User
             string text = ccbCountryNumber.SelectedItem.ToString().Split(' ')[0];
             VerifyPhoneNumber.PhoneNumber = text + phoneTxt.Text.Trim();
 
-            // splashScreenManager.ShowWaitForm();
+            splashScreenManager1.ShowWaitForm();
+            Thread.Sleep(800);
             VerifyPhoneNumber.OTPCode = Utils.SendOTPSMS(VerifyPhoneNumber.PhoneNumber);
             
             var citizenCapture = ParentForm.Controls.Find("PhoneOTP", true);
@@ -71,7 +73,7 @@ namespace ManagementStore.Form.User
             ParentForm.Controls.Find("panelSlider", true)[0].Controls.Add(new PhoneOTP());
             Utils.Forward(ParentForm, "pictureBoxPhone", "pictureBoxOTP", "PhoneOTP");
             
-            // splashScreenManager.CloseWaitForm();
+            splashScreenManager1.CloseWaitForm();
             UserInfo.PhoneNumber = VerifyPhoneNumber.PhoneNumber;
         }
         #region Number

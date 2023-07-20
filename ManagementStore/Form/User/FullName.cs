@@ -4,6 +4,7 @@ using ManagementStore.Model.Static;
 using Parking.App.Common.Helper;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace ManagementStore.Form.User
@@ -42,7 +43,7 @@ namespace ManagementStore.Form.User
         }
         private void btnNext_Click(object sender, EventArgs e)
         {
-            // splashScreenManager1.ShowWaitForm();
+            splashScreenManager2.ShowWaitForm();
             Helpers.StopSound();
             //UserInfo.FullName = birthDayTxt.Text;
             var faceTakenCapture = ParentForm.Controls.Find("FaceTaken", true);
@@ -59,7 +60,7 @@ namespace ManagementStore.Form.User
 
             UserInfo.FullName = fullNameTxt.Text;
 
-            // splashScreenManager1.CloseWaitForm();
+            splashScreenManager2.CloseWaitForm();
 
 
 
@@ -68,7 +69,12 @@ namespace ManagementStore.Form.User
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
+            splashScreenManager2.ShowWaitForm();
+
             Utils.Back(ParentForm, "pictureBoxName", "pictureBoxInfo", "InformationUser");
+            Thread.Sleep(800);
+
+            splashScreenManager2.CloseWaitForm();
 
         }
         private void DisplayPhoneNumber()

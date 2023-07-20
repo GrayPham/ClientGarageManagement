@@ -47,6 +47,7 @@ namespace ManagementStore.Form.User
             this.btnNext = new DevExpress.XtraEditors.SimpleButton();
             this.otpTxt = new DevExpress.XtraEditors.TextEdit();
             this.btnResendOTP = new DevExpress.XtraEditors.SimpleButton();
+            this.splashScreenManager2 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ManagementStore.Form.WaitFormLoader.LoadRegisterUser), true, true, typeof(System.Windows.Forms.UserControl));
             ((System.ComponentModel.ISupportInitialize)(this.otpTxt.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -288,6 +289,10 @@ namespace ManagementStore.Form.User
             this.btnResendOTP.Text = "Gửi lại OTP";
             this.btnResendOTP.Click += new System.EventHandler(this.btnResendOTP_Click_1);
             // 
+            // splashScreenManager2
+            // 
+            this.splashScreenManager2.ClosingDelay = 500;
+            // 
             // PhoneOTP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,5 +344,6 @@ namespace ManagementStore.Form.User
         private DevExpress.XtraEditors.TextEdit otpTxt;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
         private DevExpress.XtraEditors.SimpleButton btnResendOTP;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager2;
     }
 }

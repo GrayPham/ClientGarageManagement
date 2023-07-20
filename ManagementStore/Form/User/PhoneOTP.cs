@@ -36,10 +36,10 @@ namespace ManagementStore.Form.User
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            // splashScreenManager1.ShowWaitForm();
+            splashScreenManager2.ShowWaitForm();
             bool status = Utils.VerifyOTP(VerifyPhoneNumber.PhoneNumber, otpTxt.Text, VerifyPhoneNumber.OTPCode);
             Thread.Sleep(1000);
-            // splashScreenManager1.CloseWaitForm();
+            splashScreenManager2.CloseWaitForm();
             if (status)
             {
                 var dataForm = ParentForm.Controls.Find("InformationUser", true);
@@ -60,7 +60,10 @@ namespace ManagementStore.Form.User
         }
         private void btnOTP_Click(object sender, EventArgs e)
         {
+            splashScreenManager2.ShowWaitForm();
             Utils.Back(ParentForm, "pictureBoxOTP", "pictureBoxPhone", "PhoneNumber");
+            Thread.Sleep(800);
+            splashScreenManager2.CloseWaitForm();
         }
 
 

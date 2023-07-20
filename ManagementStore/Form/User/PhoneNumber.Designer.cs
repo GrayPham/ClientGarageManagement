@@ -45,6 +45,7 @@ namespace ManagementStore.Form.User
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.phoneTxt = new DevExpress.XtraEditors.TextEdit();
             this.ccbCountryNumber = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ManagementStore.Form.WaitFormLoader.LoadingControl), true, true, typeof(System.Windows.Forms.UserControl));
             ((System.ComponentModel.ISupportInitialize)(this.phoneTxt.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ccbCountryNumber.Properties)).BeginInit();
             this.SuspendLayout();
@@ -272,6 +273,10 @@ namespace ManagementStore.Form.User
             this.ccbCountryNumber.Size = new System.Drawing.Size(130, 72);
             this.ccbCountryNumber.TabIndex = 60;
             // 
+            // splashScreenManager1
+            // 
+            this.splashScreenManager1.ClosingDelay = 500;
+            // 
             // PhoneNumber
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -322,5 +327,6 @@ namespace ManagementStore.Form.User
         private DevExpress.XtraEditors.TextEdit phoneTxt;
         private DevExpress.XtraEditors.ComboBoxEdit ccbCountryNumber;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }

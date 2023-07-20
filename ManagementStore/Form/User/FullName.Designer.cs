@@ -62,6 +62,7 @@ namespace ManagementStore.Form.User
             this.btnCharY = new System.Windows.Forms.Button();
             this.btnCharN = new System.Windows.Forms.Button();
             this.btnAC = new System.Windows.Forms.Button();
+            this.splashScreenManager2 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ManagementStore.Form.WaitFormLoader.LoadRegisterUser), true, true, typeof(System.Windows.Forms.UserControl));
             ((System.ComponentModel.ISupportInitialize)(this.fullNameTxt.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -526,6 +527,10 @@ namespace ManagementStore.Form.User
             this.btnAC.Text = "AC";
             this.btnAC.UseVisualStyleBackColor = false;
             // 
+            // splashScreenManager2
+            // 
+            this.splashScreenManager2.ClosingDelay = 500;
+            // 
             // FullName
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -609,5 +614,6 @@ namespace ManagementStore.Form.User
         private System.Windows.Forms.Button btnCharN;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
         private System.Windows.Forms.Button btnAC;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager2;
     }
 }
