@@ -198,35 +198,36 @@ namespace ManagementStore.Form.User.ResisterUserSub
                 DataLength = 10000,
                 Data = dataObject
             };
-            string result = await ApiMethod.UpdateFolderImage(UserCCCD.Picture, userid);
-            if( result == userid)
-            {
+            
                 var repose = await ApiMethod.PostCall(userMgtData);
                 if (repose.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-
-                    fileNameAudio = await AudioConstants.GetListSound(AudioConstants.RegisteredMember);
-                    if (fileNameAudio != null && fileNameAudio != "")
+                    string result = await ApiMethod.UpdateFolderImage(UserCCCD.Picture, userid);
+                    if (result == userid)
                     {
-                        Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+
+                        fileNameAudio = await AudioConstants.GetListSound(AudioConstants.RegisteredMember);
+                        if (fileNameAudio != null && fileNameAudio != "")
+                        {
+                            Helpers.PlaySound(@"Assets\Audio\" + fileNameAudio + ".wav");
+                        }
+                        else
+                        {
+                            Helpers.PlaySound(@"Assets\Audio\" + AudioConstants.RegisteredMember + ".wav");
+                        }
+                        XtraMessageBox.Show("Registed account successfully", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // TODO: send message register successfully
                     }
                     else
                     {
-                        Helpers.PlaySound(@"Assets\Audio\" + AudioConstants.RegisteredMember + ".wav");
+                        XtraMessageBox.Show("Register user failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    XtraMessageBox.Show("Registed account successfully", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    // TODO: send message register successfully
-
-                }
+        }
                 else
                 {
                     XtraMessageBox.Show("Register user failed", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-            }
-            else
-            {
-                XtraMessageBox.Show("Register user failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+           
 
 
         }

@@ -97,15 +97,23 @@ namespace ManagementStore.Form.User
                     }
                     else
                     {
-                        SaveImage();
-                        //UserInfo.PictureFace = pictureFace.Image;
-                        image.pictureBoxTaken.Image = Image.FromFile(imgPath); //UserInfo.PictureFace; 
-                        image.Show();
-                        //capture.ImageGrabbed -= Capture_ImageGrabbed;
-                        image.btnTakeAgain.Click += btnTakeAgain_Click;
-                        image.btnOK.Click += btnOK_Click;
+                        //SaveImage();
+                            UserInfo.PictureFace = pictureFace.Image;
+                        //image.pictureBoxTaken.Image = UserInfo.PictureFace; // Image.FromFile(imgPath); 
+                        //image.Show();
+                        ////capture.ImageGrabbed -= Capture_ImageGrabbed;
+                        //image.btnTakeAgain.Click += btnTakeAgain_Click;
+                        //image.btnOK.Click += btnOK_Click;
 
-                    }
+                            image.Show();
+                            image.pictureBoxTaken.Image = pictureFace.Image;
+                            capture.ImageGrabbed -= Capture_ImageGrabbed;
+                            image.btnTakeAgain.Click += btnTakeAgain_Click;
+
+                            image.btnOK.Click += btnOK_Click;
+                            btnPrev.Enabled = false;
+
+                }
                     timer.Stop();
                 
                 
@@ -121,7 +129,7 @@ namespace ManagementStore.Form.User
                 capture.Stop();
                 //capture.Dispose();
                 
-                Image img = Image.FromFile(imgPath);
+                Image img = UserInfo.PictureFace;
                 info = new ConfirmInfo();
                 // Convert the image to a byte array
                 byte[] imageBytes;
@@ -139,7 +147,7 @@ namespace ManagementStore.Form.User
                 info.phoneTxt.Text = UserInfo.PhoneNumber;
                 info.birthdayTxt.Text = UserInfo.BirthDay;
                 info.genderTxt.Text = UserInfo.Gender;
-                //info.pictureTaken.Image = UserInfo.PictureFace;
+                info.pictureTaken.Image = UserInfo.PictureFace;
                 info.Show();
                 info.btnBack.Click += btnBack_Click;
                 info.btnConfirm.Click += btnConfirm_Click;
@@ -268,28 +276,29 @@ namespace ManagementStore.Form.User
             };
 
             var repose = await ApiMethod.PostCall(userMgtData);
-            string result = await ApiMethod.UpdateFolderImage(UserInfo.Picture, userid);
-            if (result == userid)
-            {
-                if (repose.StatusCode == System.Net.HttpStatusCode.OK)
+            
+            if (repose.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-
-                    Helpers.PlaySound(@"Assets\Audio\RegisteredMember.wav");
+                    string result = await ApiMethod.UpdateFolderImage(UserInfo.Picture, userid);
+                    if (result == userid)
+                    {
+                        Helpers.PlaySound(@"Assets\Audio\RegisteredMember.wav");
                     XtraMessageBox.Show("Registed account successfully", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Utils.SendRegisterSuccess(UserInfo.PhoneNumber, password, userid);
                     info.Close();
                     image.Close();
-                    // TODO: send message register successfully
+                        // TODO: send message register successfully
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Register user failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
                     XtraMessageBox.Show("Register user failed", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-            }
-            else
-            {
-                XtraMessageBox.Show("Register user failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
 
         }
 
@@ -409,7 +418,8 @@ namespace ManagementStore.Form.User
                         {
                             detectionResults = mb.DetectObjects(frame);
                             // mb.DrawBoundingBoxes(frame, detectionResults);
-                            pictureFace.Image = frame.ToBitmap();
+                            Image<Bgr, Byte> image = frame.ToImage<Bgr, byte>();
+                            pictureFace.Image = image.ToBitmap();
                             fpsCounter.Update();
                             Console.WriteLine("FPS: " + fpsCounter.CurrentFPS.ToString("F2"));
                         }
