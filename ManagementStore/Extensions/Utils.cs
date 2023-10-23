@@ -204,21 +204,28 @@ namespace ManagementStore.Extensions
         }
         public static string SendOTPSMS(string phoneNumber)
         {
-            TwilioClient.Init(AccountSid, AuthToken);
+            try
+            {
+                TwilioClient.Init(AccountSid, AuthToken);
 
-            // Generate the OTP code
-            Random random = new Random();
-            string otpCode = "777777"; // random.Next(100000, 999999).ToString();
+                // Generate the OTP code
+                Random random = new Random();
+                string otpCode = "777777"; // random.Next(100000, 999999).ToString();
 
 
-            // Send the SMS
-            var message = VerificationResource.Create(
-                pathServiceSid: ServiceSid,
-                to: phoneNumber,
-                channel: "sms"
-            // body: $"Your AI Building verification code is: {otpCode}." // This code will expire in 5 minutes. Don't share this code with anyone; our employees will never ask for the code.
-            );
-            return otpCode;
+                // Send the SMS
+                var message = VerificationResource.Create(
+                    pathServiceSid: ServiceSid,
+                    to: phoneNumber,
+                    channel: "sms"
+                // body: $"Your AI Building verification code is: {otpCode}." // This code will expire in 5 minutes. Don't share this code with anyone; our employees will never ask for the code.
+                );
+                return otpCode;
+            }
+            catch
+            {
+                return "0";
+            }
         }
 
         public static bool VerifyOTP(string phoneNumber, string verificationCode, string code)

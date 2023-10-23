@@ -62,6 +62,14 @@ namespace ManagementStore.Form.User
             splashScreenManager1.ShowWaitForm();
             Thread.Sleep(800);
             VerifyPhoneNumber.OTPCode = Utils.SendOTPSMS(VerifyPhoneNumber.PhoneNumber);
+
+            if (VerifyPhoneNumber.OTPCode == "0")
+            {
+                splashScreenManager1.CloseWaitForm();
+                XtraMessageBox.Show("Invalid phone, please input phone number again!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ccbCountryNumber.Focus();
+                return;
+            } 
             
             var citizenCapture = ParentForm.Controls.Find("PhoneOTP", true);
             if (citizenCapture.Length > 0)

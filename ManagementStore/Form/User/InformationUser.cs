@@ -189,12 +189,16 @@ namespace ManagementStore.Form.User
                     {
                         // Invalid month
                         birthDayTxt.ForeColor = Color.Red;
+                        btnNext.Enabled = false;
+
                         // XtraMessageBox.Show("Invalid month, please input again!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else if(day < 1 || day > DateTime.DaysInMonth(year, month))
                     {
                         // Invalid day
                         birthDayTxt.ForeColor = Color.Red;
+                        btnNext.Enabled = false;
+
                         // XtraMessageBox.Show("Invalid day, please input again!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     }
@@ -202,6 +206,8 @@ namespace ManagementStore.Form.User
                     {
                         // Invalid year
                         birthDayTxt.ForeColor = Color.Red;
+                        btnNext.Enabled = false;
+
                         // XtraMessageBox.Show("Invalid year, please input again!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     }
@@ -209,12 +215,15 @@ namespace ManagementStore.Form.User
                     {
                         // Valid day
                         birthDayTxt.ForeColor = SystemColors.ControlText;
+                        btnNext.Enabled = true;
                     }
                 }
                 else
                 {
                     // Invalid date
                     birthDayTxt.ForeColor = Color.Red;
+                    btnNext.Enabled = false;
+
                 }
             }
             else

@@ -504,7 +504,7 @@ namespace Parking.App.Factory
                     List<tblStoreDeviceInfo> storeData = JsonHelper.JsonToListInfo<tblStoreDeviceInfo>(string.Empty + result.Data);
                     if (storeData != null && storeData.Any())
                     {
-                        var storeNo = storeData.FirstOrDefault(x => x.DeviceKeyNo == deviceKey && (string.Empty + x.DeviceType).ToUpper() == Constants.DeviceType && x.DevicePublicIP.Trim() == ConfigClass.PublicIp.Trim());
+                        var storeNo = storeData.FirstOrDefault(x => x.DeviceKeyNo == deviceKey && (string.Empty + x.DeviceType).ToUpper() == Constants.DeviceType);
 
                         ConfigClass.StoreNo = storeNo?.StoreNo ?? 0;
                         ConfigClass.StoreDeviceNo = storeNo?.StoreDeviceNo ?? 0;

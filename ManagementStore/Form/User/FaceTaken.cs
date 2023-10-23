@@ -194,15 +194,11 @@ namespace ManagementStore.Form.User
         {
             Helpers.StopSound();
             RequestInfo request = new RequestInfo();
-            var uInfo = new object[5];
-            uInfo[0] = UserInfo.FullName == null ? "Nguyen Ngoc Thien" : UserInfo.FullName;
-            uInfo[1] = UserInfo.PhoneNumber == null ? "0365858975" : UserInfo.PhoneNumber;
-            uInfo[2] = UserInfo.Gender == null ? "Male" : UserInfo.Gender;
-            uInfo[3] = UserInfo.Picture == null ? "124" : UserInfo.Picture;
-            uInfo[4] = UserInfo.BirthDay == null ? "2023-06-23" : UserInfo.BirthDay;
+
 
             string password = "123456"; // Utils.GenerateRandomPassword(10);
             string userid = DateTime.Now.ToString("yyyyMMddHHmmss");
+
             tblUserInfo user = new tblUserInfo()
             {
                 UserID = userid,
@@ -210,9 +206,11 @@ namespace ManagementStore.Form.User
                 Password = password,
                 UserName = userid,
                 PhoneNumber = UserInfo.PhoneNumber,
-                Birthday = Convert.ToDateTime(UserInfo.BirthDay),
+                Birthday = DateTime.TryParseExact(UserInfo.BirthDay, "dd-MM-yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime birthDate)
+                            ? birthDate
+                            : DateTime.Now, // You can provide a default value if the conversion fails
                 Email = String.Empty,
-                Gender = UserInfo.Gender == "Male" ? true : false,
+                Gender = UserInfo.Gender == "Male",
                 ApproveReject = true,
                 UserStatus = "USST01",
                 RegistDate = DateTime.Now,
@@ -220,7 +218,7 @@ namespace ManagementStore.Form.User
                 UseYN = false,
                 LoginIP = GetLocalIPv4() ?? " ",
                 LastSimilarityRate = ConfigClass.SimilarityRate,
-                AuthMethod = "PhoneAuth" == Constants.PhoneMethod ? "APPTP1" : "APPTP2"
+                AuthMethod = Constants.PhoneMethod == "PhoneAuth" ? "APPTP1" : "APPTP2"
             };
 
             tblUserMgtStoreInfo userMgt = new tblUserMgtStoreInfo()
