@@ -8,6 +8,7 @@ using ManagementStore.Extensions;
 using ManagementStore.Form.User.ResisterUserSub;
 using ManagementStore.Model.ML;
 using ManagementStore.Model.Static;
+using Newtonsoft.Json;
 using Parking.App.Common.ApiMethod;
 using Parking.App.Common.Helper;
 using System;
@@ -28,12 +29,15 @@ namespace ManagementStore.Form.User
         //ShowImageCCCD showImage;
         List<DetectionResult> detectionResults;
         ObjectDetectionSSD ssd;
+        private bool flag_taken = false;
 
         private string fileNameAudio;
         private const string badImage = "Bad Image";
         private const string badDetect = "Not Detect ID";
         private const string STATUS_CCCD_5 = "Is Unknown";
         private const string STATUS_CCCD_3 = "Not Detect ID";
+        private Mat org_idendity_im;
+        private Bitmap curr_org_idendity_im;
         private async void CitizenshipIDCapture_Load(object sender, EventArgs e)
         {
             fileNameAudio = await AudioConstants.GetListSound(AudioConstants.AuthenticationCCCD);
@@ -63,7 +67,7 @@ namespace ManagementStore.Form.User
             // Start the Timer
             timer.Start();
         }
-        public async void  Timer_TickAsync(object sender, EventArgs e)
+        public async void Timer_TickAsync(object sender, EventArgs e)
         {
             countdownValue--;
             showCountDown.Text = $"Hình ảnh sẽ được chụp sau {countdownValue.ToString()} giây nữa.";
@@ -74,9 +78,10 @@ namespace ManagementStore.Form.User
                 timer.Stop();
                 //Application.Idle -= Capture_ImageGrabbed;
                 //capture.Stop();
-                if (detectionResults.Count() > 2)
+                if (detectionResults.Count() > 5)
                 {
-                    var result = XtraMessageBox.Show("Are you sure to use this image?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    curr_org_idendity_im = org_idendity_im.Clone().ToBitmap();
+                    var result = XtraMessageBox.Show("Sử dụng hình ảnh này?", "Thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (DialogResult.No == result)
                     {
                         countdownValue = 5;
@@ -89,16 +94,21 @@ namespace ManagementStore.Form.User
                         {
                             splashScreenManager1.ShowWaitForm();
                             //Convert Image to string 
-                            string stringImage = ConvertImageToBase64(pictureCCCD.Image);
+                            string stringImage = ConvertImageToBase64(curr_org_idendity_im);
                             // Send data to ML server
                             string idResult = await ApiMethod.CheckCitizenshipID(stringImage);
-                            labelResult.Text = "RESULT:" + idResult;
+
+                            CCCDResult cccd = JsonConvert.DeserializeObject<CCCDResult>(idResult);
+                            labelResult.Text = "RESULT:" + cccd.Id;
                             // Check Result to show Immage and compare with the Input CCCD
-                            if (idResult != badImage && idResult != badDetect && idResult != STATUS_CCCD_5 && idResult != STATUS_CCCD_3 && idResult == UserCCCD.CCCDNumber)
+                            if (idResult != badImage && idResult != badDetect && idResult != STATUS_CCCD_5 && idResult != STATUS_CCCD_3 && cccd.Id == UserCCCD.CCCDNumber)
                             {
+                                if (cccd.Name != "") UserCCCD.FullName = cccd.Name;
+                                if (cccd.Birth != "") UserCCCD.BirthDay = cccd.Birth;
+
                                 UserCCCD.PictureCCCD = stringImage;
                                 // Convert Image to Byte
-                                UserCCCD.PictureCCCDByte = ConvertImageToByte(pictureCCCD.Image);
+                                UserCCCD.PictureCCCDByte = Convert.FromBase64String(stringImage);
                                 btnDone.Enabled = true;
                                 Application.Idle -= Capture_ImageGrabbed;
                                 capture.Stop();
@@ -109,7 +119,7 @@ namespace ManagementStore.Form.User
                                 timer.Start();
                                 //capture.Start();
                                 //Application.Idle += Capture_ImageGrabbed;
-                                labelResult.Text = "Take a photo again";
+                                labelResult.Text = "Vui lòng chụp hình lại!";
                             }
                             splashScreenManager1.CloseWaitForm();
                         }
@@ -122,7 +132,7 @@ namespace ManagementStore.Form.User
                     timer.Start();
                     // capture.Start();
                     // Application.Idle += Capture_ImageGrabbed;
-                    labelResult.Text = "Not enough information";
+                    labelResult.Text = "Không phát hiện được thông tin!";
                 }
 
 
@@ -138,9 +148,12 @@ namespace ManagementStore.Form.User
                 {
                     if (ImageFrame != null)
                     {
+                        org_idendity_im = ImageFrame.Clone();
+
                         detectionResults = ssd.DetectObjects(ImageFrame);
                         DrawBoundingBoxesSSD(ImageFrame, detectionResults);
                         Image<Bgr, Byte> image = ImageFrame.ToImage<Bgr, byte>();
+
                         pictureCCCD.Image = image.ToBitmap();
                     }
 

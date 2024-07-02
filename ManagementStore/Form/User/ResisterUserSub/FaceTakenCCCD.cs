@@ -17,6 +17,8 @@ using System.Linq;
 using System.Windows.Forms;
 using ManagementStore.Extensions;
 using Parking.App.Common.Helper;
+using FaceONNX;
+using UMapx.Visualization;
 
 namespace ManagementStore.Form.User.ResisterUserSub
 {
@@ -27,10 +29,12 @@ namespace ManagementStore.Form.User.ResisterUserSub
         private FPSCounter fpsCounter;
         private int countdownValue;
         public Timer timer;
-        private int countObject = 0;
+        List<FaceDetectionResult> faceDetectionResults;
         ShowImageTaken image;
         private string fileNameAudio;
         private bool takeAgain = false;
+        FaceDetector faceDetector;
+        private bool useGPU = false;
         private async void FaceTakenCCCD_Load(object sender, EventArgs e)
         {
             fileNameAudio = await AudioConstants.GetListSound(AudioConstants.FaceTaken);
@@ -46,10 +50,15 @@ namespace ManagementStore.Form.User.ResisterUserSub
         public FaceTakenCCCD()
         {
             InitializeComponent();
-
+            splashScreenManager2.ShowWaitForm();
+            using var options = useGPU ? SessionOptions.MakeSessionOptionWithCudaProvider(0) : new SessionOptions();
+            faceDetector = new FaceDetector(options);
+            faceDetectionResults = new List<FaceDetectionResult>();
             string path = System.IO.Path.GetDirectoryName(new System.Uri(System.Reflection.Assembly.GetExecutingAssembly().CodeBase).LocalPath);
             // Load the ONNX model
-            session = new InferenceSession(ModelConfig.dataFolderPath + "/ssd_mobilenet_v1_12-int8.onnx");
+            // session = new InferenceSession(ModelConfig.dataFolderPath + "/ssd_mobilenet_v1_12-int8.onnx");
+            splashScreenManager2.CloseWaitForm();
+
             // Initialize the camera capture
             capture = new VideoCapture();
             capture.ImageGrabbed += Capture_ImageGrabbed;
@@ -89,9 +98,9 @@ namespace ManagementStore.Form.User.ResisterUserSub
             {
                 image = new ShowImageTaken();
                 image.FormClosing += CloseForm;
-                if (countObject == 0)
+                if (faceDetectionResults.Count == 0)
                 {
-                    capture.ImageGrabbed -= Capture_ImageGrabbed;
+                    // capture.ImageGrabbed -= Capture_ImageGrabbed;
                     var result = XtraMessageBox.Show("Không thể phát hiện khuôn mặt, vui lòng thử lại", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     if (DialogResult.OK == result)
                     {
@@ -138,15 +147,15 @@ namespace ManagementStore.Form.User.ResisterUserSub
         private void btnTakeAgain_Click(object sender, EventArgs e)
         {
             takeAgain = true;
-            //countdownValue = 5;
+            countdownValue = 5;
             //capture.ImageGrabbed += Capture_ImageGrabbed;
-            //timer.Start();
+            timer.Start();
             image.Close();
             
         }
         private void btnDone_Click(object sender, EventArgs e)
         {
-            splashScreenManager1.ShowWaitForm();
+            splashScreenManager2.ShowWaitForm();
             // Release the resources when closing the form
             capture?.Dispose();
             //cascadeClassifier?.Dispose();
@@ -157,15 +166,15 @@ namespace ManagementStore.Form.User.ResisterUserSub
             Utils.ForwardCCCD(ParentForm, "pictureBoxFace", "pictureBoxFace", "FaceTakenCCCD");
 
             ConfimRegister confimRegister = new ConfimRegister();
-            splashScreenManager1.CloseWaitForm();
+            splashScreenManager2.CloseWaitForm();
             confimRegister.ShowDialog();
 
             if (confimRegister.CaptureAgain)
             {
-                splashScreenManager1.ShowWaitForm();
+                splashScreenManager2.ShowWaitForm();
                 btnDone.Enabled = false;
                 btnPrev.Enabled = false;
-                session = new InferenceSession(ModelConfig.dataFolderPath + "/ssd_mobilenet_v1_12-int8.onnx");
+                // session = new InferenceSession(ModelConfig.dataFolderPath + "/ssd_mobilenet_v1_12-int8.onnx");
                 // Initialize the camera capture
                 capture = new VideoCapture();
                 capture.ImageGrabbed += Capture_ImageGrabbed;
@@ -174,7 +183,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
                 timer.Start();
                 btnDone.Enabled = true;
                 btnPrev.Enabled = true;
-                splashScreenManager1.CloseWaitForm();
+                splashScreenManager2.CloseWaitForm();
                 //Utils.BackCCCD(ParentForm, "pictureBoxName", "pictureBoxFace", "FaceTakenCCCD");
 
             }
@@ -202,39 +211,114 @@ namespace ManagementStore.Form.User.ResisterUserSub
                 Mat frame = new Mat();
                 capture.Retrieve(frame);
 
-                // Preprocess the frame to match the model input requirements
-                var inputMeta = session.InputMetadata;
-                uint[] inputData = Preprocess(frame, inputMeta);
+                //var inputMeta = session.InputMetadata;
+                //uint[] inputData = Preprocess(frame, inputMeta);
 
-                // Create an input tensor from the preprocessed data
-                var inputName = inputMeta.Keys.FirstOrDefault();
-                var tensor = new DenseTensor<uint>(inputData, new int[] { 1, 300, 300, 3 });
-                // Convert to DenseTensor<byte> (uint8)
-                var byteTensor = new DenseTensor<byte>(tensor.Dimensions);
+                //var inputName = inputMeta.Keys.FirstOrDefault();
+                //var tensor = new DenseTensor<uint>(inputData, new int[] { 1, 300, 300, 3 });
+                //var byteTensor = new DenseTensor<byte>(tensor.Dimensions);
 
-                for (int i = 0; i < tensor.Length; i++)
-                {
-                    byteTensor.SetValue(i, (byte)(tensor.GetValue(i) & 0xFF));
-                }
-                // Run the object detection model
-                var inputs = new NamedOnnxValue[] { NamedOnnxValue.CreateFromTensor(inputName, byteTensor) };
-                var outputs = session.Run(inputs);
-                var outputName = session.OutputMetadata.Keys.ToList();
+                //for (int i = 0; i < tensor.Length; i++)
+                //{
+                //    byteTensor.SetValue(i, (byte)(tensor.GetValue(i) & 0xFF));
+                //}
+                //var inputs = new NamedOnnxValue[] { NamedOnnxValue.CreateFromTensor(inputName, byteTensor) };
+                //var outputs = session.Run(inputs);
+                //var outputName = session.OutputMetadata.Keys.ToList();
 
-                // Get the output tensor with the detected objects
-                var outputTensor = outputs.Select(output => output.AsTensor<float>());
-                var detectionResults = Postprocess(outputTensor.ToList());
+                //var outputTensor = outputs.Select(output => output.AsTensor<float>());
+                //var detectionResults = Postprocess(outputTensor.ToList());
 
-                // Draw bounding boxes around the detected objects
-                DrawBoundingBoxes(frame, detectionResults);
+                //DrawBoundingBoxes(frame, detectionResults);
 
-                // Display the frame in the PictureBox control
+                
                 Image<Bgr, Byte> image = frame.ToImage<Bgr, byte>();
-                pictureFace.Image = image.ToBitmap();
+
+                var bitmap = image.Clone();
+                var imagePlot = image.ToBitmap();
+                faceDetectionResults = faceDetector.Forward(bitmap.ToBitmap()).ToList();
+                FaceDetectionResult faceDetectionResult = GetBoundingBoxWithLargestArea(faceDetectionResults);
+                var res = ClassifyFaceOrientation(faceDetectionResult.Points);
+                Console.WriteLine(res);
+                pictureFace.Image = imagePlot;
+
                 fpsCounter.Update();
                 Console.WriteLine("FPS: " + fpsCounter.CurrentFPS.ToString("F2"));
             }
         }
+
+        private double CalculateAngle(Point p1, Point p2, Point p3)
+        {
+            double dx1 = p2.X - p1.X;
+            double dy1 = p2.Y - p1.Y;
+            double dx2 = p3.X - p1.X;
+            double dy2 = p3.Y - p1.Y;
+
+            double angle = Math.Atan2(dy2, dx2) - Math.Atan2(dy1, dx1);
+
+            angle = angle * (180 / Math.PI);
+
+            return angle;
+        }
+        public string ClassifyFaceOrientation(Face5Landmarks landmarks)
+        {
+            Point leftEye = landmarks.LeftEye;
+            Point rightEye = landmarks.RightEye;
+            Point nose = landmarks.Nose;
+
+            double angle = CalculateAngle(leftEye, rightEye, nose);
+
+            if (angle < -15)
+            {
+                return "Xoay trái";
+            }
+            else if (angle > 15)
+            {
+                return "Xoay phải";
+            }
+            else if (landmarks.SymmetryCoefficient < 0.2)
+            {
+                return "Chính diện";
+            }
+            else if (angle >= -15 && angle <= 15)
+            {
+                if (angle < 0)
+                {
+                    return "Gật xuống";
+                }
+                else if (angle > 0)
+                {
+                    return "Ngửa đầu";
+                }
+            }
+
+            return "Không xác định";
+        }
+
+        public FaceDetectionResult GetBoundingBoxWithLargestArea(List<FaceDetectionResult> faceDetectionResults)
+        {
+            if (faceDetectionResults == null || faceDetectionResults.Count == 0)
+            {
+                return null;
+            }
+
+            int maxArea = 0;
+            FaceDetectionResult bboxWithLargestArea = null;
+
+            foreach (var detectionResult in faceDetectionResults)
+            {
+                int area = detectionResult.Box.Width * detectionResult.Box.Height;
+
+                if (area > maxArea)
+                {
+                    maxArea = area;
+                    bboxWithLargestArea = detectionResult;
+                }
+            }
+
+            return bboxWithLargestArea;
+        }
+
         private uint[] Preprocess(Mat frame, IReadOnlyDictionary<string, NodeMetadata> inputMeta)
         {
             // Resize the frame to match the model input size
@@ -309,7 +393,6 @@ namespace ManagementStore.Form.User.ResisterUserSub
                 detections.Add(new DetectionResult(score, top, right, bottom, left, classLabel, className));
 
             }
-            countObject = detections.Count;
             return detections;
         }
         private void DrawBoundingBoxes(Mat frame, List<DetectionResult> detectionResults)

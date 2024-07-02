@@ -31,7 +31,7 @@ namespace ManagementStore.Form.User
         private async void CCCDNumber_Load(object sender, EventArgs e)
         {
             //splashScreenManager.ShowWaitForm();
-            cccdTxt.Text = "066201000447";
+            cccdTxt.Text = "060201011036";
             //phoneCodes = InitializePhoneCodes();
             //ccbCountryNumber.Properties.TextEditStyle = TextEditStyles.DisableTextEditor;
             //AddFormattedPhoneCodes();

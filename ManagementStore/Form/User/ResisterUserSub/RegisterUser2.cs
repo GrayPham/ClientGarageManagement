@@ -22,7 +22,7 @@ namespace ManagementStore.Form.User
         {
             _typeRegister = typeRegister;
             InitializeComponent();
-            panelSlider2.Controls.Add(new CitizenshipID());
+            panelSlider2.Controls.Add(new FaceTaken());
             //panelSlider2.Controls.Add(new CitizenshipIDCapture());
             Settings.countDown = 120;
             timer = new Timer();

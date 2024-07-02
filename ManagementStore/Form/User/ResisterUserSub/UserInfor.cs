@@ -29,6 +29,22 @@ namespace ManagementStore.Form.User.ResisterUserSub
         }
         private async void UserInfor_Load(object sender, EventArgs e)
         {
+
+
+
+            if (UserCCCD.BirthDay != null)
+            {
+                birthDayTxt.Text = UserCCCD.BirthDay.Replace("/", "");
+
+                foreach (char ch in UserCCCD.BirthDay)
+                {
+                    Num.Add(ch.ToString());
+                }
+                formatBirthday();
+
+            }
+
+
             ccbSelectGender.Properties.Items.Add("Male");
             ccbSelectGender.Properties.Items.Add("Female");
             ccbSelectGender.Properties.Items.Add("Other");
@@ -132,7 +148,7 @@ namespace ManagementStore.Form.User.ResisterUserSub
             birthDayTxt.Text = string.Join("", Num.ToArray());
         }
 
-        private void birthDayTxt_TextChanged(object sender, EventArgs e)
+        private void formatBirthday()
         {
             string input = birthDayTxt.Text.Replace("-", ""); // Remove existing hyphens
             string formattedInput = string.Empty;
@@ -198,6 +214,10 @@ namespace ManagementStore.Form.User.ResisterUserSub
                 // Reset color if the input length is not 10
                 birthDayTxt.ForeColor = SystemColors.ControlText;
             }
+        }
+        private void birthDayTxt_TextChanged(object sender, EventArgs e)
+        {
+            formatBirthday();
         }
 
 

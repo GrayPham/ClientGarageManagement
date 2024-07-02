@@ -27,6 +27,13 @@ namespace ManagementStore.Form.User.ResisterUserSub
         }
         private async void FullNameCCCD_Load(object sender, EventArgs e)
         {
+            fullNameTxt.Text = UserCCCD.FullName;
+
+            foreach (char ch in UserCCCD.FullName)
+            {
+               character.Add(ch.ToString());
+            }
+
             fileNameAudio = await AudioConstants.GetListSound(AudioConstants.FullName);
             if (fileNameAudio != null && fileNameAudio != "")
             {

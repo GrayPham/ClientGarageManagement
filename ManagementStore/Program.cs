@@ -4,12 +4,17 @@ using ManagementStore.Form.User;
 using ManagementStore.Form.User.ResisterUserSub;
 using Parking.App.Factory;
 using System;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace ManagementStore
 {
+
     static class Program
     {
+        [DllImport("onnxruntime.dll")]
+        public static extern IntPtr OrtSessionOptionsAppendExecutionProvider_CUDA(IntPtr options, int device_id);
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

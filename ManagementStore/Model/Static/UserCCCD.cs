@@ -17,4 +17,15 @@ namespace ManagementStore.Model.Static
         public static string PictureCCCD { get; set; }
         public static byte[] PictureCCCDByte { get; set; }
     }
+
+    public class CCCDResult
+    {
+        public string Card { get; set; }
+        public string Id { get; set; }
+        public string Address { get; set; }
+        public string Title { get; set; }
+        public string Origin { get; set; }
+        public string Name { get; set; }
+        public string Birth { get; set; }
+    }
 }
