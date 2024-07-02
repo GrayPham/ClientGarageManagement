@@ -31,7 +31,6 @@ namespace ManagementStore.Form
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.cameraControlHome = new DevExpress.XtraEditors.Camera.CameraControl();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.btnIdentity = new DevExpress.XtraEditors.SimpleButton();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
@@ -45,6 +44,7 @@ namespace ManagementStore.Form
             this.repositoryItemDateEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.webBrowserVideo = new System.Windows.Forms.WebBrowser();
+            this.pictureFaceID = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
@@ -52,11 +52,12 @@ namespace ManagementStore.Form
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureFaceID)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.cameraControlHome);
+            this.panelControl1.Controls.Add(this.pictureFaceID);
             this.panelControl1.Controls.Add(this.simpleButton1);
             this.panelControl1.Controls.Add(this.btnIdentity);
             this.panelControl1.Controls.Add(this.ribbonControl1);
@@ -66,18 +67,8 @@ namespace ManagementStore.Form
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(708, 861);
+            this.panelControl1.Size = new System.Drawing.Size(826, 1060);
             this.panelControl1.TabIndex = 0;
-            // 
-            // cameraControlHome
-            // 
-            this.cameraControlHome.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.cameraControlHome.Location = new System.Drawing.Point(2, 2);
-            this.cameraControlHome.Name = "cameraControlHome";
-            this.cameraControlHome.Size = new System.Drawing.Size(704, 352);
-            this.cameraControlHome.TabIndex = 16;
-            this.cameraControlHome.Text = "cameraControlHome";
-            this.cameraControlHome.VideoStretchMode = DevExpress.XtraEditors.Camera.VideoStretchMode.Stretch;
             // 
             // simpleButton1
             // 
@@ -87,10 +78,10 @@ namespace ManagementStore.Form
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
             this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(40, 40);
-            this.simpleButton1.Location = new System.Drawing.Point(366, 766);
+            this.simpleButton1.Location = new System.Drawing.Point(427, 943);
             this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(225, 51);
+            this.simpleButton1.Size = new System.Drawing.Size(262, 63);
             this.simpleButton1.TabIndex = 10;
             this.simpleButton1.Text = "Map";
             // 
@@ -102,10 +93,10 @@ namespace ManagementStore.Form
             this.btnIdentity.Appearance.Options.UseFont = true;
             this.btnIdentity.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnIdentity.ImageOptions.Image")));
             this.btnIdentity.ImageOptions.SvgImageSize = new System.Drawing.Size(40, 40);
-            this.btnIdentity.Location = new System.Drawing.Point(120, 766);
+            this.btnIdentity.Location = new System.Drawing.Point(140, 943);
             this.btnIdentity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnIdentity.Name = "btnIdentity";
-            this.btnIdentity.Size = new System.Drawing.Size(225, 51);
+            this.btnIdentity.Size = new System.Drawing.Size(262, 63);
             this.btnIdentity.TabIndex = 5;
             this.btnIdentity.Text = "Xác minh danh tính";
             this.btnIdentity.Click += new System.EventHandler(this.btnIdentity_Click);
@@ -131,7 +122,7 @@ namespace ManagementStore.Form
             this.repositoryItemTimeEdit1,
             this.repositoryItemDateEdit1});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.MacOffice;
-            this.ribbonControl1.Size = new System.Drawing.Size(704, 47);
+            this.ribbonControl1.Size = new System.Drawing.Size(822, 59);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             // 
             // barItemIP
@@ -198,26 +189,35 @@ namespace ManagementStore.Form
             this.ribbonStatusBar1.ItemLinks.Add(this.barStaticItem3);
             this.ribbonStatusBar1.ItemLinks.Add(this.barItemPort);
             this.ribbonStatusBar1.ItemLinks.Add(this.barItemVersion);
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(2, 831);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(2, 1022);
             this.ribbonStatusBar1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(704, 28);
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(822, 36);
             // 
             // webBrowserVideo
             // 
-            this.webBrowserVideo.Location = new System.Drawing.Point(-16, 347);
+            this.webBrowserVideo.Location = new System.Drawing.Point(-19, 468);
             this.webBrowserVideo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.webBrowserVideo.MinimumSize = new System.Drawing.Size(17, 16);
+            this.webBrowserVideo.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowserVideo.Name = "webBrowserVideo";
-            this.webBrowserVideo.Size = new System.Drawing.Size(740, 424);
+            this.webBrowserVideo.Size = new System.Drawing.Size(863, 522);
             this.webBrowserVideo.TabIndex = 3;
+            // 
+            // pictureFaceID
+            // 
+            this.pictureFaceID.Location = new System.Drawing.Point(2, 0);
+            this.pictureFaceID.Name = "pictureFaceID";
+            this.pictureFaceID.Size = new System.Drawing.Size(822, 474);
+            this.pictureFaceID.TabIndex = 19;
+            this.pictureFaceID.TabStop = false;
+            this.pictureFaceID.Click += new System.EventHandler(this.pictureFaceID_Click);
             // 
             // Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(708, 861);
+            this.ClientSize = new System.Drawing.Size(826, 1060);
             this.Controls.Add(this.panelControl1);
             this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.None;
             this.HelpButton = true;
@@ -226,7 +226,7 @@ namespace ManagementStore.Form
             this.MinimizeBox = false;
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Wellcome to HCMUTE";
+            this.Text = "Wellcome to I-SOFT";
             this.Load += new System.EventHandler(this.Home_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
@@ -236,6 +236,7 @@ namespace ManagementStore.Form
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureFaceID)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -256,6 +257,6 @@ namespace ManagementStore.Form
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManage;
         public System.Windows.Forms.WebBrowser webBrowserVideo;
-        public DevExpress.XtraEditors.Camera.CameraControl cameraControlHome;
+        private System.Windows.Forms.PictureBox pictureFaceID;
     }
 }

@@ -8,6 +8,7 @@ using Parking.App.Contract.Common;
 using Parking.App.Interface.Common;
 using System;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ManagementStore.Form.User
@@ -137,18 +138,23 @@ namespace ManagementStore.Form.User
             Close();
         }
 
-        private void RegisterUser_FormClosed(object sender, FormClosedEventArgs e)
+        private async void RegisterUser_FormClosed(object sender, FormClosedEventArgs e)
         {
             var citizenCapture = panelSlider.Controls.Find("FaceTaken", true);
             if (citizenCapture.Length > 0)
             {
                 var controlToRemove = citizenCapture[0] as FaceTaken;
-                controlToRemove.capture.Dispose();
-                Application.Idle -= controlToRemove.Capture_ImageGrabbed;
-                controlToRemove.timer.Tick -= controlToRemove.Timer_Tick;
-                panelSlider.Controls.Remove(controlToRemove);
-                controlToRemove.Dispose();
+                if (controlToRemove != null)
+                {
+                    controlToRemove.capture.Dispose();
+                    Application.Idle -= controlToRemove.Capture_ImageGrabbed;
+                    controlToRemove.timer.Tick -= controlToRemove.Timer_Tick;
+                    panelSlider.Controls.Remove(controlToRemove);
+                    controlToRemove.Dispose();
+                }
             }
+
+            // Clear and dispose of other controls and resources
             panelSlider.Controls.Clear();
             sidePanel4.Controls.Clear();
             panelSlider.Dispose();
@@ -156,11 +162,17 @@ namespace ManagementStore.Form.User
             pictureEdit1.Dispose();
             sidePanel1.Dispose();
             timer.Tick -= Timer_Tick;
-            _typeRegister.Invoke(new Action(() =>
+
+            // Show and load audio asynchronously
+            await Task.Run(() =>
             {
-                _typeRegister.Show();
-   
-            }));
+                // Ensure UI thread access
+                _typeRegister.Invoke(new Action(async () =>
+                {
+                    _typeRegister.Show();
+                    await _typeRegister.Load_Audio();
+                }));
+            });
         }
     }
 }

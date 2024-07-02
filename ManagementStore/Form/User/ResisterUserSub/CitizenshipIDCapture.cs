@@ -5,7 +5,6 @@ using Emgu.CV.Structure;
 using ManagementStore.Common;
 using ManagementStore.DTO;
 using ManagementStore.Extensions;
-using ManagementStore.Form.Notify;
 using ManagementStore.Form.User.ResisterUserSub;
 using ManagementStore.Model.ML;
 using ManagementStore.Model.Static;
@@ -13,14 +12,10 @@ using Parking.App.Common.ApiMethod;
 using Parking.App.Common.Helper;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ManagementStore.Form.User
@@ -144,7 +139,7 @@ namespace ManagementStore.Form.User
                     if (ImageFrame != null)
                     {
                         detectionResults = ssd.DetectObjects(ImageFrame);
-                        //DrawBoundingBoxesSSD(ImageFrame, detectionResults);
+                        DrawBoundingBoxesSSD(ImageFrame, detectionResults);
                         Image<Bgr, Byte> image = ImageFrame.ToImage<Bgr, byte>();
                         pictureCCCD.Image = image.ToBitmap();
                     }
@@ -225,7 +220,7 @@ namespace ManagementStore.Form.User
                 int width = (int)(detection.Bottom - detection.Top);
                 int height = (int)(detection.Left - detection.Right);
 
-                if (detection.Score > 0.5)
+                if (detection.Score > 0.3)
                 {
                     // Draw the rectangle
                     Rectangle rect = new Rectangle(x, y, width, height);

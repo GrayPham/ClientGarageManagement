@@ -370,7 +370,6 @@ namespace ManagementStore.Form.User
         private DevExpress.XtraEditors.LabelControl labelControl1;
         public System.Windows.Forms.PictureBox pictureBoxName;
         private DevExpress.XtraEditors.SimpleButton btnExit;
-        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraEditors.LabelControl showCountDown;
         private DevExpress.XtraEditors.LabelControl labelControl3;

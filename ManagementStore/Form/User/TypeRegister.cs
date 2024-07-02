@@ -1,8 +1,10 @@
-﻿using ManagementStore.Common;
+﻿using Emgu.CV;
+using ManagementStore.Common;
 using ManagementStore.Model.Static;
 using Parking.App.Common.Helper;
 using System;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ManagementStore.Form.User
@@ -48,7 +50,7 @@ namespace ManagementStore.Form.User
             this.Hide();
         }
 
-        private async void TypeRegister_Load(object sender, System.EventArgs e)
+        public async Task Load_Audio()
         {
             fileNameAudio = await AudioConstants.GetListSound(AudioConstants.TypeRegister);
             if (fileNameAudio != null && fileNameAudio != "")
@@ -59,6 +61,10 @@ namespace ManagementStore.Form.User
             {
                 Helpers.PlaySound(@"Assets\DefaultAudio\" + AudioConstants.TypeRegister + ".wav");
             }
+        }
+        private async void TypeRegister_Load(object sender, System.EventArgs e)
+        {
+            await Load_Audio();
             timer = new Timer();
             timer.Interval = 1000; // 1 second
             timer.Tick += Timer_Tick;
@@ -85,13 +91,20 @@ namespace ManagementStore.Form.User
         }
 
 
-        private void TypeRegister_FormClosed(object sender, FormClosedEventArgs e)
+        private async void TypeRegister_FormClosed(object sender, FormClosedEventArgs e)
         {
-            _home.cameraControlHome.Start();
-            _home.DisplayAd();
+            // _home.cameraControlHome.Start();
+            await _home.DisplayAd();
+            await _home.Load_Home_Audio();
+
             _home.Show();
             _home.timerAd.Tick -= _home.Timer_Tick;
+            _home.timerAudio.Tick -= _home.Timer_Tick_Audio;
             _home.timerAd.Start();
+            _home.timerAudio.Start();
+            _home.capture = new VideoCapture(0);
+            _home.capture.Start();
+            
         }
     }
 }

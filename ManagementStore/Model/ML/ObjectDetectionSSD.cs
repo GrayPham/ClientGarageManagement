@@ -20,7 +20,9 @@ namespace ManagementStore.Model.ML
         List<DetectionResult> detections = new List<DetectionResult>();
         public ObjectDetectionSSD(string modelPath)
         {
-            session = new InferenceSession(modelPath);
+            SessionOptions options = new SessionOptions();
+            // options.AppendExecutionProvider_CUDA();
+            session = new InferenceSession(modelPath, options);
         }
 
         public float AreaOf(float left, float top, float right, float bottom)

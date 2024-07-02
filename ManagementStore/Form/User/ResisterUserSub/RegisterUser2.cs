@@ -85,44 +85,54 @@ namespace ManagementStore.Form.User
             Close();
         }
 
-        private void RegisterUser2_FormClosed(object sender, FormClosedEventArgs e)
+        private async void RegisterUser2_FormClosed(object sender, FormClosedEventArgs e)
         {
             var citizenCapture = panelSlider2.Controls.Find("CitizenshipIDCapture", true);
             if (citizenCapture.Length > 0)
             {
                 var controlToRemove = citizenCapture[0] as CitizenshipIDCapture;
-                controlToRemove.capture.Dispose();
-                Application.Idle -= controlToRemove.Capture_ImageGrabbed;
-                controlToRemove.timer.Tick -= controlToRemove.Timer_TickAsync;
-                panelSlider2.Controls.Remove(controlToRemove);
-                controlToRemove.Dispose();
+                if (controlToRemove != null)
+                {
+                    controlToRemove.capture.Dispose();
+                    Application.Idle -= controlToRemove.Capture_ImageGrabbed;
+                    controlToRemove.timer.Tick -= controlToRemove.Timer_TickAsync;
+                    panelSlider2.Controls.Remove(controlToRemove);
+                    controlToRemove.Dispose();
+                }
             }
+
             var citizenCaptureFace = panelSlider2.Controls.Find("FaceTakenCCCD", true);
             if (citizenCaptureFace.Length > 0)
             {
-                var controlToRemove = citizenCapture[0] as FaceTakenCCCD;
-                controlToRemove.capture.Dispose();
-                Application.Idle -= controlToRemove.Capture_ImageGrabbed;
-                controlToRemove.timer.Tick -= controlToRemove.Timer_Tick;
-                panelSlider2.Controls.Remove(controlToRemove);
-                controlToRemove.Dispose();
+                var controlToRemoveFace = citizenCaptureFace[0] as FaceTakenCCCD;
+                if (controlToRemoveFace != null)
+                {
+                    controlToRemoveFace.capture.Dispose();
+                    Application.Idle -= controlToRemoveFace.Capture_ImageGrabbed;
+                    controlToRemoveFace.timer.Tick -= controlToRemoveFace.Timer_Tick;
+                    panelSlider2.Controls.Remove(controlToRemoveFace);
+                    controlToRemoveFace.Dispose();
+                }
             }
+
             panelSlider2.Controls.Clear();
             sidePanel4.Controls.Clear();
-
-
             panelSlider2.Dispose();
             sidePanel4.Dispose();
             pictureEdit1.Dispose();
             sidePanel1.Dispose();
 
-            _typeRegister.Invoke(new Action(() =>
+            await Task.Run(() =>
             {
-                Helpers.StopSound();
-                _typeRegister.Show();
-            }));
-            timer.Tick -= Timer_Tick;
+                _typeRegister.Invoke(new Action(async () =>
+                {
+                    Helpers.StopSound();
+                    _typeRegister.Show();
+                    await _typeRegister.Load_Audio();
+                }));
+            });
 
+            timer.Tick -= Timer_Tick;
         }
     }
 }

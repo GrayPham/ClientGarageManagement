@@ -237,8 +237,7 @@ namespace ManagementStore.Form.User
             };
 
             tblUserPhotoInfo photo = new tblUserPhotoInfo();
-            var facePhotoPath = "";
-            var IdcardPhoto = "";
+
 
             photo = new tblUserPhotoInfo()
             {

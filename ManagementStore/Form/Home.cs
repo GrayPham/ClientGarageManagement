@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -41,15 +42,17 @@ namespace ManagementStore.Form
 {
     public partial class Home : DevExpress.XtraEditors.XtraForm, IProgramController
     {
+        public VideoCapture capture;
         ILog _log;
         private ISocketClient _client;
         private System.Timers.Timer _timer;
         public System.Windows.Forms.Timer timerAd;
+        public System.Windows.Forms.Timer timerAudio;
         private int _counter;
         private static int Counter = 10;
         private string fileNameAudio;
         bool active = true;
-        string urlAd = "";
+        string urlAd = "https://www.youtube.com/watch?v=BOnqTocXM4Q";
         private static string fullPathMainForm = Helpers.GetFullPathOfMainForm();
         //**------------------------------------------------------------------------
         private ICacheDataService<tblClientSoundMgtInfo> _tblClientSoundMgtService;
@@ -59,7 +62,6 @@ namespace ManagementStore.Form
         private IList<tblClientSoundMgtInfo> _listSetting;
 
         private readonly XMLReader _xml = new XMLReader();
-        private int _clientSound;
         private int _clientStoreDevice;
         public bool IsReConnect { get; set; } = true;
         public static bool isCanChangeTheAd = true;
@@ -68,17 +70,92 @@ namespace ManagementStore.Form
         //**------------------------------------------------------
 
         int duration = 0;
+        int audioDuration = 0;
 
         public TimeSpan timeTop;
         public DispatcherTimer dispatcherTimerTop;
 
         public TimeSpan timeBot;
         public DispatcherTimer dispatcherTimerBot;
+
+        private System.Windows.Forms.Timer displayTimer;
+        private FaceID faceControl;
+
         public Home(tblAdMgtService tblAdMgtService)
         {
             _log = ProgramFactory.Instance.Log;
             _tblAdMgtService = tblAdMgtService;
             InitializeComponent();
+
+            capture = new VideoCapture(0);
+            Application.Idle += Capture_ImageGrabbed;
+
+            faceControl = new FaceID();
+            faceControl.Visible = false;
+            faceControl.BackColor = Color.Transparent;
+            Controls.Add(faceControl);
+
+            displayTimer = new System.Windows.Forms.Timer
+            {
+                Interval = 3000 // 5 seconds
+            };
+            displayTimer.Tick += DisplayTimer_Tick;
+
+        }
+        private void ShowFaceIdImage()
+        {
+            int centerX = (pictureFaceID.Width - faceControl.Width) / 2;
+            int centerY = (pictureFaceID.Height - faceControl.Height) / 2;
+
+            faceControl.Location = new Point(pictureFaceID.Left + centerX, pictureFaceID.Top + centerY);
+
+
+            faceControl.BringToFront();
+            faceControl.Visible = true;
+
+            // Start the timer
+            displayTimer.Start();
+        }
+        private void DisplayTimer_Tick(object sender, EventArgs e)
+        {
+            faceControl.Visible = false;
+            displayTimer.Stop();
+        }
+
+        public void Capture_ImageGrabbed(object sender, EventArgs e)
+        {
+            // Try catch
+            if (capture != null && capture.Ptr != IntPtr.Zero)
+            {
+                using (Mat ImageFrame = capture.QueryFrame())
+                {
+                    if (ImageFrame != null)
+                    {
+                        Image<Bgr, Byte> image = ImageFrame.ToImage<Bgr, byte>();
+
+                        Image<Bgr, Byte> resizedImage = image.Resize(2.0, Emgu.CV.CvEnum.Inter.Linear);
+
+                        // Step 2: Get the dimensions of the PictureBox
+                        int pictureBoxWidth = pictureFaceID.Width;
+                        int pictureBoxHeight = pictureFaceID.Height;
+
+                        int cropX = (resizedImage.Width - pictureBoxWidth) / 2;
+                        int cropY = (resizedImage.Height - pictureBoxHeight) / 2;
+
+                        if (cropX < 0) cropX = 0;
+                        if (cropY < 0) cropY = 0;
+                        if (cropX + pictureBoxWidth > resizedImage.Width) pictureBoxWidth = resizedImage.Width - cropX;
+                        if (cropY + pictureBoxHeight > resizedImage.Height) pictureBoxHeight = resizedImage.Height - cropY;
+
+                        Rectangle cropRect = new Rectangle(cropX, cropY, pictureBoxWidth, pictureBoxHeight);
+
+                        Image<Bgr, Byte> croppedImage = resizedImage.GetSubRect(cropRect);
+
+                        pictureFaceID.Image = croppedImage.ToBitmap();
+                    }
+
+                }
+            }
         }
 
         private string AdHtml()
@@ -86,7 +163,7 @@ namespace ManagementStore.Form
             string html = "<html><head>";
             html += "<meta content='IE=Edge' http-equiv='X-UA-Compatible'/>";
             html += "</head><body>";
-            html += "<iframe id='video' src='https://www.youtube.com/embed/{0}?autoplay=1&mute=1' width='725px' height='400px' frameborder='0' allowfullscreen></iframe>";
+            html += "<iframe id='video' src='https://www.youtube.com/embed/{0}?autoplay=1&mute=1' width='850px' height='450px' frameborder='0' allowfullscreen></iframe>";
             html += "</body></html>";
             return html;
         }
@@ -108,18 +185,57 @@ namespace ManagementStore.Form
             return durationInSeconds;
         }
 
-        private async void Home_Load(object sender, EventArgs e)
+        public async Task Load_Home_Audio()
         {
-            fileNameAudio= await AudioConstants.GetListSound(AudioConstants.HomeAudio);
-            if(fileNameAudio != null && fileNameAudio != "")
+            string fileNameAudio = await AudioConstants.GetListSound(AudioConstants.HomeAudio);
+            string filePath;
+
+            if (!string.IsNullOrEmpty(fileNameAudio))
             {
-                Helpers.PlaySound(@"Assets\Audio\"+ fileNameAudio + ".wav");
+                filePath = @"Assets\Audio\" + fileNameAudio + ".wav";
             }
             else
             {
-                Helpers.PlaySound(@"Assets\DefaultAudio\" + AudioConstants.HomeAudio + ".wav");
+                filePath = @"Assets\DefaultAudio\" + AudioConstants.HomeAudio + ".wav";
             }
-            
+
+            Helpers.PlaySound(filePath);
+
+            using (var audioFileReader = new AudioFileReader(filePath))
+            {
+                TimeSpan duration = audioFileReader.TotalTime;
+                audioDuration = Convert.ToInt32(duration.TotalSeconds) + 15;
+                Console.WriteLine("Audio Duration: " + duration);
+            }
+        }
+
+        private void btnIdentity_Click(object sender, EventArgs e)
+        {
+
+            //Thread.Sleep(1000);
+
+            webBrowserVideo.Stop();
+            Helpers.StopSound();
+            TypeRegister typeRegister = new TypeRegister(this);
+            typeRegister.Show();
+            Hide();
+            //Show();
+            // cameraControlHome.Stop();
+
+            timerAd.Tick -= Timer_Tick;
+            timerAd.Stop();
+            timerAudio.Stop();
+            capture.Stop();
+            capture.Dispose();
+            // Application.Idle -= Capture_ImageGrabbed;
+
+        }
+
+        private async void Home_Load(object sender, EventArgs e)
+        {
+            await Load_Home_Audio();
+
+
             ProgramFactory.Instance.ProgramController = this;
             _log = ProgramFactory.Instance.Log;
             AddEventCommon();
@@ -140,7 +256,7 @@ namespace ManagementStore.Form
 
 
             
-            string url = "https://www.youtube.com/watch?v=aCEH5J8eOYE";
+            string url = "https://www.youtube.com/watch?v=9RjXd3G8O5Y";
             this.webBrowserVideo.DocumentText = string.Format(AdHtml(), Utils.GetVideoId(url));
             duration = GetVideoDuration(url);
 
@@ -150,6 +266,24 @@ namespace ManagementStore.Form
             timerAd.Start();
 
 
+            timerAudio = new System.Windows.Forms.Timer();
+            timerAudio.Interval = 1000; // 1 second
+            timerAudio.Tick += Timer_Tick_Audio;
+            timerAudio.Start();
+
+        }
+
+        public async void Timer_Tick_Audio(object sender, EventArgs e)
+        {
+            audioDuration--;
+            if (audioDuration == 0)
+            {
+                await Load_Home_Audio();
+            }
+            if (audioDuration % 10 == 0)
+            {
+                Console.WriteLine($"Audio home sẽ được load lại sau {duration.ToString()} giây nữa.");
+            }
         }
 
         public void Timer_Tick(object sender, EventArgs e)
@@ -461,23 +595,7 @@ namespace ManagementStore.Form
 
         #endregion
 
-        private void btnIdentity_Click(object sender, EventArgs e)
-        {
- 
-            //Thread.Sleep(1000);
 
-            webBrowserVideo.Stop();
-            Helpers.StopSound();
-            TypeRegister typeRegister = new TypeRegister(this);
-            typeRegister.Show();
-            Hide();
-            //Show();
-            cameraControlHome.Stop();
-
-            timerAd.Tick -= Timer_Tick;
-            timerAd.Stop();
-
-        }
         public void LoginSuccess(SessionInfo info)
         {
             throw new NotImplementedException();
@@ -947,17 +1065,22 @@ namespace ManagementStore.Form
                 active = true;
                 this.Show();
                 //webBrowserVideo.Stop();
-                cameraControlHome.Start();
+                // cameraControlHome.Start();
             }
             else
             {
-                cameraControlHome.Stop();
+                // cameraControlHome.Stop();
                 
                 webBrowserVideo.Stop();
                 webBrowserVideo.Dispose();
                 this.Hide();
                 active = false;
             }
+        }
+
+        private void pictureFaceID_Click(object sender, EventArgs e)
+        {
+            ShowFaceIdImage();
         }
     }
 }
